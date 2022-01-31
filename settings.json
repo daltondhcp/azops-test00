@@ -25,7 +25,7 @@
             "Core.SkipPolicy": false,
             "Core.SkipResource": true,
             "Core.SkipChildResource": true,
-            "Core.SkipResourceGroup": false,
+            "Core.SkipResourceGroup": true,
             "Core.SkipResourceType": [
                 "microsoft.alertsmanagement/smartDetectorAlertRules",
                 "Microsoft.PowerPlatform/accounts",
