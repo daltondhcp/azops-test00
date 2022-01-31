@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/roleAssignments",
+      "name": "08938dde-ba3e-5554-a963-9c2190846785",
+      "apiVersion": "2021-04-01-preview",
+      "properties": {
+        "DisplayName": "Deploy-Private-DNS-Zones",
+        "ObjectType": "ServicePrincipal",
+        "PrincipalId": "3cbabcc4-d5a0-4282-b0d9-9d228b4b9e60",
+        "RoleDefinitionId": "/providers/Microsoft.Authorization/RoleDefinitions/4d97b98b-1d4f-4787-a291-c67834d212e7",
+        "RoleDefinitionName": "Network Contributor"
+      }
+    }
+  ],
+  "outputs": {}
+}

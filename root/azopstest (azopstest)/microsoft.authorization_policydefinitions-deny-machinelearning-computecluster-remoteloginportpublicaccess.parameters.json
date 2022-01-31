@@ -1,0 +1,65 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "input": {
+      "value": {
+        "Name": "Deny-MachineLearning-ComputeCluster-RemoteLoginPortPublicAccess",
+        "ResourceType": "Microsoft.Authorization/policyDefinitions",
+        "Properties": {
+          "Description": "Deny public access of Azure Machine Learning clusters via SSH.",
+          "DisplayName": "Deny public access of Azure Machine Learning clusters via SSH",
+          "Metadata": {
+            "version": "1.0.0",
+            "category": "Machine Learning"
+          },
+          "Mode": "Indexed",
+          "Parameters": {
+            "effect": {
+              "type": "String",
+              "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+              },
+              "allowedValues": [
+                "Audit",
+                "Disabled",
+                "Deny"
+              ],
+              "defaultValue": "Deny"
+            }
+          },
+          "PolicyRule": {
+            "if": {
+              "allOf": [
+                {
+                  "field": "type",
+                  "equals": "Microsoft.MachineLearningServices/workspaces/computes"
+                },
+                {
+                  "field": "Microsoft.MachineLearningServices/workspaces/computes/computeType",
+                  "equals": "AmlCompute"
+                },
+                {
+                  "anyOf": [
+                    {
+                      "field": "Microsoft.MachineLearningServices/workspaces/computes/remoteLoginPortPublicAccess",
+                      "exists": false
+                    },
+                    {
+                      "field": "Microsoft.MachineLearningServices/workspaces/computes/remoteLoginPortPublicAccess",
+                      "notEquals": "Disabled"
+                    }
+                  ]
+                }
+              ]
+            },
+            "then": {
+              "effect": "[parameters('effect')]"
+            }
+          }
+        }
+      }
+    }
+  }
+}

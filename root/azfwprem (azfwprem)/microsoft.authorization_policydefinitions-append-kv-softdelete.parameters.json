@@ -1,0 +1,49 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "input": {
+      "value": {
+        "Name": "Append-KV-SoftDelete",
+        "ResourceType": "Microsoft.Authorization/policyDefinitions",
+        "Properties": {
+          "Description": "This policy enables you to ensure when a Key Vault is created with out soft delete enabled it will be added.",
+          "DisplayName": "KeyVault SoftDelete should be enabled",
+          "Metadata": {
+            "version": "1.0.0",
+            "category": "Key Vault"
+          },
+          "Mode": "Indexed",
+          "Parameters": {},
+          "PolicyRule": {
+            "if": {
+              "anyOf": [
+                {
+                  "allOf": [
+                    {
+                      "field": "type",
+                      "equals": "Microsoft.KeyVault/vaults"
+                    },
+                    {
+                      "field": "Microsoft.KeyVault/vaults/enableSoftDelete",
+                      "notEquals": true
+                    }
+                  ]
+                }
+              ]
+            },
+            "then": {
+              "effect": "append",
+              "details": [
+                {
+                  "field": "Microsoft.KeyVault/vaults/enableSoftDelete",
+                  "value": true
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

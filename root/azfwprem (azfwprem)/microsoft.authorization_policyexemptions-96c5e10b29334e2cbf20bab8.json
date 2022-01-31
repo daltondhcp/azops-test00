@@ -1,0 +1,27 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/policyExemptions",
+      "name": "96c5e10b29334e2cbf20bab8",
+      "apiVersion": "2020-07-01-preview",
+      "properties": {
+        "PolicyAssignmentId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyAssignments/b5fc896f8c584377810e07a0",
+        "PolicyDefinitionReferenceIds": [],
+        "ExemptionCategory": "Waiver",
+        "DisplayName": "azfwprem - test",
+        "Description": null,
+        "ExpiresOn": null
+      }
+    }
+  ],
+  "outputs": {}
+}

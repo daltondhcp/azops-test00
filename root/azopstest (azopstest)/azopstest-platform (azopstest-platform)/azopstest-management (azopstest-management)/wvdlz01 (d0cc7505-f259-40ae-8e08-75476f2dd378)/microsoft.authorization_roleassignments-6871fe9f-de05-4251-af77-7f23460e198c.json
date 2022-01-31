@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/roleAssignments",
+      "name": "6871fe9f-de05-4251-af77-7f23460e198c",
+      "apiVersion": "2021-04-01-preview",
+      "properties": {
+        "DisplayName": "Johanna Lorenz",
+        "ObjectType": "User",
+        "PrincipalId": "0e82777a-2ef8-43c2-9aeb-609ac0854241",
+        "RoleDefinitionId": "/providers/Microsoft.Authorization/RoleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c",
+        "RoleDefinitionName": "Contributor"
+      }
+    }
+  ],
+  "outputs": {}
+}

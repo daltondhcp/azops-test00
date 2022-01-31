@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/roleAssignments",
+      "name": "e141742d-62ac-4eed-9257-01e31f4bbf98",
+      "apiVersion": "2021-04-01-preview",
+      "properties": {
+        "DisplayName": "demoazurelab-enterprise-scale-fd23378b-9b7f-4f73-b216-4dc4d09ecde7",
+        "ObjectType": "ServicePrincipal",
+        "PrincipalId": "6b8e111e-1a98-492d-8ea3-0ddbc6556679",
+        "RoleDefinitionId": "/providers/Microsoft.Authorization/RoleDefinitions/8e3af657-a8ff-443c-a75c-2fe8c4bcb635",
+        "RoleDefinitionName": "Owner"
+      }
+    }
+  ],
+  "outputs": {}
+}

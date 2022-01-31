@@ -1,0 +1,51 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/policyAssignments",
+      "name": "c7f4acb2a69849a7a4f21cd9",
+      "apiVersion": "2021-06-01",
+      "location": "eastus",
+      "identity": {
+        "PrincipalId": "2bc3c8c4-e452-4368-ade5-824a3459c301",
+        "TenantId": "3114ebe8-8d3f-4bac-b3ce-59b4210a1287",
+        "Type": "SystemAssigned"
+      },
+      "properties": {
+        "Scope": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378",
+        "NotScopes": [],
+        "DisplayName": "Deploys virtual network peering to hub",
+        "Description": null,
+        "EnforcementMode": "Default",
+        "PolicyDefinitionId": "/providers/Microsoft.Management/managementGroups/ctx01/providers/Microsoft.Authorization/policyDefinitions/Deploy-VNET-HubSpoke",
+        "Parameters": {
+          "vNetName": {
+            "value": "wvdlz01-westeurope-vnet"
+          },
+          "vNetRgName": {
+            "value": "wvdlz01-network"
+          },
+          "vNetLocation": {
+            "value": "westeurope"
+          },
+          "vNetCidrRange": {
+            "value": "10.30.0.0/20"
+          },
+          "hubResourceId": {
+            "value": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/ctx01-connectivity/providers/Microsoft.Network/virtualNetworks/ctx01-hub-westeurope"
+          }
+        },
+        "NonComplianceMessages": []
+      }
+    }
+  ],
+  "outputs": {}
+}

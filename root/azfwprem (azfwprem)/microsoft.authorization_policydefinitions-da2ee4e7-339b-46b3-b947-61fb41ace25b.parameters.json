@@ -1,0 +1,40 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "input": {
+      "value": {
+        "Name": "da2ee4e7-339b-46b3-b947-61fb41ace25b",
+        "ResourceType": "Microsoft.Authorization/policyDefinitions",
+        "Properties": {
+          "Description": null,
+          "DisplayName": "DenyDelete-VirtualNetwork",
+          "Metadata": {},
+          "Mode": "Indexed",
+          "Parameters": {},
+          "PolicyRule": {
+            "if": {
+              "allOf": [
+                {
+                  "field": "type",
+                  "equals": "Microsoft.Network/virtualNetworks"
+                }
+              ]
+            },
+            "then": {
+              "effect": "DenyAction",
+              "details": {
+                "actionNames": [
+                  "delete"
+                ],
+                "cascadeBehaviors": {
+                  "resourceGroup": "deny"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
