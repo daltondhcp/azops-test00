@@ -147,7 +147,7 @@ jobs:
       #
       
       - name: 'Sharedsteps'
-        uses: ./.github/.templates/sharedSteps.yml
+        uses: ./.github/.templates/sharedSteps
           
       #
       # Configure
