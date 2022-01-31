@@ -53,7 +53,7 @@ runs:
       shell: pwsh
       run: |
         . .github/scripts/Install.ps1
-        Install-SourceModule -Repository "Azure/AzOps" -Branch "main"
+        Install-SourceModule -Repository "daltondhcp/AzOps" -Branch "fix/whatIfError"
         $module = Get-Module -Name AzOps -ListAvailable
         $data = Import-PowerShellDataFile -Path $module.Path
         foreach ($dependency in $data.RequiredModules) {
