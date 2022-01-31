@@ -25,7 +25,7 @@
         "NotScopes": [],
         "DisplayName": "Deploy Azure Defender for ACR",
         "Description": null,
-        "EnforcementMode": "Default",
+        "EnforcementMode": "DoNotEnforce",
         "PolicyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-ASC-Defender-ACR",
         "Parameters": {},
         "NonComplianceMessages": []
