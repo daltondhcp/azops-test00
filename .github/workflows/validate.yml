@@ -71,7 +71,7 @@ jobs:
         with:
           deploy: false
           name: 'Validate'
-        uses: ./.github/action/validate-deploy
+        uses: ./.github/actions/validate-deploy
       
       #
       # Results
