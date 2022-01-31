@@ -1,0 +1,48 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/policyAssignments",
+      "name": "7f73f6a0eafe4cc9965bc8d0",
+      "apiVersion": "2021-06-01",
+      "location": "eastus",
+      "identity": {
+        "PrincipalId": "c9251691-0b4d-4bd5-a498-07526bc0cc93",
+        "TenantId": "3114ebe8-8d3f-4bac-b3ce-59b4210a1287",
+        "Type": "SystemAssigned"
+      },
+      "properties": {
+        "Scope": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378",
+        "NotScopes": [],
+        "DisplayName": "Deploy-UDR",
+        "Description": null,
+        "EnforcementMode": "Default",
+        "PolicyDefinitionId": "/providers/Microsoft.Management/managementGroups/ctx01/providers/Microsoft.Authorization/policyDefinitions/1c3035fe-49ea-4697-beaa-185b9b13cdb8",
+        "Parameters": {
+          "udrRgName": {
+            "value": "udr01"
+          },
+          "udrName": {
+            "value": "udr01"
+          },
+          "location": {
+            "value": "westeurope"
+          },
+          "defaultRouteNextHop": {
+            "value": "10.100.0.4"
+          }
+        },
+        "NonComplianceMessages": []
+      }
+    }
+  ],
+  "outputs": {}
+}

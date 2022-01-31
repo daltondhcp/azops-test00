@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/roleAssignments",
+      "name": "c2a6d291-ab4c-5f08-b2b2-ddd8273c7e88",
+      "apiVersion": "2021-04-01-preview",
+      "properties": {
+        "DisplayName": "Deploy-AKS-Policy",
+        "ObjectType": "ServicePrincipal",
+        "PrincipalId": "2eefbc1d-762c-4082-9c27-e834a7887d24",
+        "RoleDefinitionId": "/providers/Microsoft.Authorization/RoleDefinitions/ed7f3fbd-7b88-4dd4-9017-9adb7ce333f8",
+        "RoleDefinitionName": "Azure Kubernetes Service Contributor Role"
+      }
+    }
+  ],
+  "outputs": {}
+}

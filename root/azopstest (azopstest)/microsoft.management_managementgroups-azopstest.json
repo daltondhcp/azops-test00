@@ -1,0 +1,103 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Management/managementGroups",
+      "name": "azOpsTest",
+      "apiVersion": "2021-04-01",
+      "scope": "/",
+      "properties": {
+        "displayName": "azOpsTest",
+        "details": {
+          "parent": {
+            "id": "/providers/Microsoft.Management/managementGroups/3114ebe8-8d3f-4bac-b3ce-59b4210a1287"
+          }
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2020-10-01",
+      "name": "AzOps-microsoft.management_managementgroups-nested",
+      "location": "northeurope",
+      "properties": {
+        "mode": "Incremental",
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "resources": [
+            {
+              "type": "Microsoft.Management/managementGroups",
+              "apiVersion": "2020-05-01",
+              "name": "azOpsTest-sandboxes",
+              "scope": "/",
+              "properties": {
+                "displayName": "azOpsTest-sandboxes",
+                "details": {
+                  "parent": {
+                    "id": "/providers/Microsoft.Management/managementGroups/azOpsTest"
+                  }
+                }
+              }
+            },
+            {
+              "type": "Microsoft.Management/managementGroups",
+              "apiVersion": "2020-05-01",
+              "name": "azOpsTest-platform",
+              "scope": "/",
+              "properties": {
+                "displayName": "azOpsTest-platform",
+                "details": {
+                  "parent": {
+                    "id": "/providers/Microsoft.Management/managementGroups/azOpsTest"
+                  }
+                }
+              }
+            },
+            {
+              "type": "Microsoft.Management/managementGroups",
+              "apiVersion": "2020-05-01",
+              "name": "azOpsTest-decommissioned",
+              "scope": "/",
+              "properties": {
+                "displayName": "azOpsTest-decommissioned",
+                "details": {
+                  "parent": {
+                    "id": "/providers/Microsoft.Management/managementGroups/azOpsTest"
+                  }
+                }
+              }
+            },
+            {
+              "type": "Microsoft.Management/managementGroups",
+              "apiVersion": "2020-05-01",
+              "name": "azOpsTest-landingzones",
+              "scope": "/",
+              "properties": {
+                "displayName": "azOpsTest-landingzones",
+                "details": {
+                  "parent": {
+                    "id": "/providers/Microsoft.Management/managementGroups/azOpsTest"
+                  }
+                }
+              }
+            }
+          ],
+          "outputs": {}
+        }
+      },
+      "dependsOn": [
+        "/providers/Microsoft.Management/managementGroups/azOpsTest"
+      ]
+    }
+  ],
+  "outputs": {}
+}

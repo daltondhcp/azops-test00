@@ -1,0 +1,54 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/policyAssignments",
+      "name": "Deploy-Log-Analytics",
+      "apiVersion": "2021-06-01",
+      "location": "westeurope",
+      "identity": {
+        "PrincipalId": "ad9c5973-75f2-420b-b9c2-0db364e7074d",
+        "TenantId": "3114ebe8-8d3f-4bac-b3ce-59b4210a1287",
+        "Type": "SystemAssigned"
+      },
+      "properties": {
+        "Scope": "/providers/Microsoft.Management/managementGroups/azOpsTest-management",
+        "NotScopes": null,
+        "DisplayName": "Configure Log Analytics workspace and automation account to centralize logs and monitoring",
+        "Description": "Deploy resource group containing Log Analytics workspace and linked automation account to centralize logs and monitoring. The automation account is aprerequisite for solutions like Updates and Change Tracking.",
+        "EnforcementMode": "Default",
+        "PolicyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/8e3e61b3-0b32-22d5-4edf-55f87fdb5955",
+        "Parameters": {
+          "workspaceName": {
+            "value": "azOpsTest-law"
+          },
+          "automationAccountName": {
+            "value": "azOpsTest-aauto"
+          },
+          "workspaceRegion": {
+            "value": "westeurope"
+          },
+          "automationRegion": {
+            "value": "westeurope"
+          },
+          "rgName": {
+            "value": "azOpsTest-mgmt"
+          },
+          "dataRetention": {
+            "value": "30"
+          }
+        },
+        "NonComplianceMessages": null
+      }
+    }
+  ],
+  "outputs": {}
+}

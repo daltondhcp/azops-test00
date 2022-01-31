@@ -1,0 +1,30 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/policyAssignments",
+      "name": "d7209096f8544ae68b51db28",
+      "apiVersion": "2021-06-01",
+      "location": null,
+      "properties": {
+        "Scope": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7",
+        "NotScopes": [],
+        "DisplayName": "Management policies should be enabled for storage accounts",
+        "Description": null,
+        "EnforcementMode": "Default",
+        "PolicyDefinitionId": "/providers/Microsoft.Management/managementGroups/3114ebe8-8d3f-4bac-b3ce-59b4210a1287/providers/Microsoft.Authorization/policyDefinitions/32e68135-fcb1-4c03-a4e0-0a522bb82126",
+        "Parameters": {},
+        "NonComplianceMessages": []
+      }
+    }
+  ],
+  "outputs": {}
+}
