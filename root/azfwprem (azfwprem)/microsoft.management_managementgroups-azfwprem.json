@@ -93,6 +93,20 @@
             {
               "type": "Microsoft.Management/managementGroups",
               "apiVersion": "2020-05-01",
+              "name": "azfwprem-decommissioned2",
+              "scope": "/",
+              "properties": {
+                "displayName": "azfwprem-decommissioned2",
+                "details": {
+                  "parent": {
+                    "id": "/providers/Microsoft.Management/managementGroups/azfwprem"
+                  }
+                }
+              }
+            },
+            {
+              "type": "Microsoft.Management/managementGroups",
+              "apiVersion": "2020-05-01",
               "name": "azfwprem-decommissioned5",
               "scope": "/",
               "properties": {
