@@ -59,7 +59,7 @@ jobs:
       #
 
       - name: 'Sharedsteps'
-        uses: ./.github/action/sharedSteps
+        uses: ./.github/actions/sharedSteps
    
       #
       # Validate
