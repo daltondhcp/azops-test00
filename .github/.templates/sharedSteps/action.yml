@@ -35,21 +35,30 @@ runs:
     # Dependencies
     # Install required runtime modules
     #
+    #- name: "Dependencies"
+    #  if: env.MODULE_VERSION == '' || steps.cache-AzOps.outputs.cache-hit != 'true' 
+    #  shell: pwsh
+    #  run: |
+    #    if(-not (Test-Path -Path "${{ env.modulesFolder }}")) {
+    #    mkdir ${{ env.modulesFolder }}
+    #    }
+    #    $params = @{
+    #      Name            = 'AzOps'
+    #      Path            = '${{ env.modulesFolder }}'
+    #      Force           = $true
+    #    }
+    #    $params.RequiredVersion = '${{ env.MODULE_VERSION }}'        
+    #    Save-Module @params
     - name: "Dependencies"
-      if: env.MODULE_VERSION == '' || steps.cache-AzOps.outputs.cache-hit != 'true' 
-      shell: pwsh
-      run: |
-        if(-not (Test-Path -Path "${{ env.modulesFolder }}")) {
-        mkdir ${{ env.modulesFolder }}
-        }
-        $params = @{
-          Name            = 'AzOps'
-          Path            = '${{ env.modulesFolder }}'
-          Force           = $true
-        }
-        $params.RequiredVersion = '${{ env.MODULE_VERSION }}'        
-        Save-Module @params
-
+        shell: pwsh
+        run: |
+          . .github/scripts/Install.ps1
+          Install-SourceModule -Repository "Azure/AzOps" -Branch "main"
+          $module = Get-Module -Name AzOps -ListAvailable
+          $data = Import-PowerShellDataFile -Path $module.Path
+          foreach ($dependency in $data.RequiredModules) {
+          Install-Module -Name $dependency.ModuleName -RequiredVersion $dependency.RequiredVersion -Force
+          }
       #
       # Connect
       # Authenticate Azure context
