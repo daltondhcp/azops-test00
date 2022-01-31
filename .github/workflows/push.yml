@@ -66,7 +66,7 @@ jobs:
       #
 
       - name: 'Sharedsteps'
-        uses: ./.github/.templates/sharedSteps
+        uses: ./.github/.templates/sharedSteps.yml
 
       #
       # Deploy
@@ -77,4 +77,4 @@ jobs:
         with:
           deploy: true
           name: 'Deploy'
-        uses: ./.github/.templates/validate-deploy
+        uses: ./.github/.templates/validate-deploy.yml
