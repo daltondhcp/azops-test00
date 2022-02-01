@@ -1,0 +1,89 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Management/managementGroups",
+      "name": "test23-platform",
+      "apiVersion": "2021-04-01",
+      "scope": "/",
+      "properties": {
+        "displayName": "test23-platform",
+        "details": {
+          "parent": {
+            "id": "/providers/Microsoft.Management/managementGroups/test23"
+          }
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2020-10-01",
+      "name": "AzOps-microsoft.management_managementgroups-nested",
+      "location": "northeurope",
+      "properties": {
+        "mode": "Incremental",
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "resources": [
+            {
+              "type": "Microsoft.Management/managementGroups",
+              "apiVersion": "2020-05-01",
+              "name": "test23-management",
+              "scope": "/",
+              "properties": {
+                "displayName": "test23-management",
+                "details": {
+                  "parent": {
+                    "id": "/providers/Microsoft.Management/managementGroups/test23-platform"
+                  }
+                }
+              }
+            },
+            {
+              "type": "Microsoft.Management/managementGroups",
+              "apiVersion": "2020-05-01",
+              "name": "test23-identity",
+              "scope": "/",
+              "properties": {
+                "displayName": "test23-identity",
+                "details": {
+                  "parent": {
+                    "id": "/providers/Microsoft.Management/managementGroups/test23-platform"
+                  }
+                }
+              }
+            },
+            {
+              "type": "Microsoft.Management/managementGroups",
+              "apiVersion": "2020-05-01",
+              "name": "test23-connectivity",
+              "scope": "/",
+              "properties": {
+                "displayName": "test23-connectivity",
+                "details": {
+                  "parent": {
+                    "id": "/providers/Microsoft.Management/managementGroups/test23-platform"
+                  }
+                }
+              }
+            }
+          ],
+          "outputs": {}
+        }
+      },
+      "dependsOn": [
+        "/providers/Microsoft.Management/managementGroups/test23-platform"
+      ]
+    }
+  ],
+  "outputs": {}
+}
