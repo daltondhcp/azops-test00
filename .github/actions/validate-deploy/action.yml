@@ -44,7 +44,7 @@ runs:
           $RunWhatIf = -not ('${{inputs.deploy}}' -eq 'true')
           $diff = Get-Content -Path /tmp/diff.txt
           $module = Get-Module -Name AzOps
-          if(Test-Path -Path "/tmp/diffdeletedfiles.txt") {
+          if (Test-Path -Path "/tmp/diffdeletedfiles.txt") {
             $diffdeletedfiles = Get-Content -Path /tmp/diffdeletedfiles.txt
             Invoke-AzOpsPush -ChangeSet $diff -DeleteSetContents $diffdeletedfiles -WhatIf:$RunWhatIf
           } else {
