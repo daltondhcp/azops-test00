@@ -93,10 +93,10 @@
             {
               "type": "Microsoft.Management/managementGroups",
               "apiVersion": "2020-05-01",
-              "name": "azfwprem-decommissioned3",
+              "name": "azfwprem-decommissioned2",
               "scope": "/",
               "properties": {
-                "displayName": "azfwprem-decommissioned3",
+                "displayName": "azfwprem-decommissioned2",
                 "details": {
                   "parent": {
                     "id": "/providers/Microsoft.Management/managementGroups/azfwprem"
@@ -111,6 +111,20 @@
               "scope": "/",
               "properties": {
                 "displayName": "azfwprem-decommissioned5",
+                "details": {
+                  "parent": {
+                    "id": "/providers/Microsoft.Management/managementGroups/azfwprem"
+                  }
+                }
+              }
+            },
+            {
+              "type": "Microsoft.Management/managementGroups",
+              "apiVersion": "2020-05-01",
+              "name": "azfwprem-decommissioned3",
+              "scope": "/",
+              "properties": {
+                "displayName": "azfwprem-decommissioned3",
                 "details": {
                   "parent": {
                     "id": "/providers/Microsoft.Management/managementGroups/azfwprem"
