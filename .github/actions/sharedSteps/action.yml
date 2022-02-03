@@ -2,8 +2,6 @@ name: "Shared Steps"
 
 on:
   workflow_call:
-variables: 
-  AZURE_ENVIRONMENT: AzureCloud 
   
 runs:
   using: 'composite'
@@ -37,30 +35,21 @@ runs:
     # Dependencies
     # Install required runtime modules
     #
-    #- name: "Dependencies"
-    #  if: env.MODULE_VERSION == '' || steps.cache-AzOps.outputs.cache-hit != 'true' 
-    #  shell: pwsh
-    #  run: |
-    #    if(-not (Test-Path -Path "${{ env.modulesFolder }}")) {
-    #      mkdir ${{ env.modulesFolder }}
-    #    }
-    #    $params = @{
-    #      Name            = 'AzOps'
-    #      Path            = '${{ env.modulesFolder }}'
-    #      Force           = $true
-    #    }
-    #    $params.RequiredVersion = '${{ env.MODULE_VERSION }}'        
-    #    Save-Module @params
     - name: "Dependencies"
+      if: env.MODULE_VERSION == '' || steps.cache-AzOps.outputs.cache-hit != 'true' 
       shell: pwsh
       run: |
-        . .github/scripts/Install.ps1
-          Install-SourceModule -Repository "daltondhcp/AzOps" -Branch "sovcloudupdate"
-          $module = Get-Module -Name AzOps -ListAvailable
-          $data = Import-PowerShellDataFile -Path $module.Path
-          foreach ($dependency in $data.RequiredModules) {
-          Install-Module -Name $dependency.ModuleName -RequiredVersion $dependency.RequiredVersion -Force
+        if(-not (Test-Path -Path "${{ env.modulesFolder }}")) {
+          mkdir ${{ env.modulesFolder }}
         }
+        $params = @{
+          Name            = 'AzOps'
+          Path            = '${{ env.modulesFolder }}'
+          Force           = $true
+        }
+        $params.RequiredVersion = '${{ env.MODULE_VERSION }}'        
+        Save-Module @params
+
       #
       # Connect
       # Authenticate Azure context
@@ -71,4 +60,4 @@ runs:
       run: |
         $Env:PSModulePath = $Env:PSModulePath, '${{ env.modulesFolder }}' -join [IO.Path]::PathSeparator
         $credential = New-Object PSCredential -ArgumentList ${{env.ARM_CLIENT_ID}}, (ConvertTo-SecureString -String ${{env.ARM_CLIENT_SECRET}} -AsPlainText -Force)
-        Connect-AzAccount -TenantId ${{env.ARM_TENANT_ID}} -ServicePrincipal -Credential $credential -Environment ${{env.AZURE_ENVIRONMENT}}
+        Connect-AzAccount -TenantId ${{env.ARM_TENANT_ID}} -ServicePrincipal -Credential $credential
