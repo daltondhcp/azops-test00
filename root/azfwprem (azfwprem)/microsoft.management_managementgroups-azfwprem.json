@@ -121,10 +121,10 @@
             {
               "type": "Microsoft.Management/managementGroups",
               "apiVersion": "2020-05-01",
-              "name": "azfwprem-decommissioned3",
+              "name": "azfwprem-decommissioned44",
               "scope": "/",
               "properties": {
-                "displayName": "azfwprem-decommissioned3",
+                "displayName": "azfwprem-decommissioned44",
                 "details": {
                   "parent": {
                     "id": "/providers/Microsoft.Management/managementGroups/azfwprem"
