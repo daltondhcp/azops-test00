@@ -2,7 +2,9 @@ name: "Shared Steps"
 
 on:
   workflow_call:
-
+variables: 
+  AZURE_ENVIRONMENT: AzureCloud 
+  
 runs:
   using: 'composite'
   steps:
@@ -69,4 +71,4 @@ runs:
       run: |
         $Env:PSModulePath = $Env:PSModulePath, '${{ env.modulesFolder }}' -join [IO.Path]::PathSeparator
         $credential = New-Object PSCredential -ArgumentList ${{env.ARM_CLIENT_ID}}, (ConvertTo-SecureString -String ${{env.ARM_CLIENT_SECRET}} -AsPlainText -Force)
-        Connect-AzAccount -TenantId ${{env.ARM_TENANT_ID}} -ServicePrincipal -Credential $credential 
+        Connect-AzAccount -TenantId ${{env.ARM_TENANT_ID}} -ServicePrincipal -Credential $credential -Environment ${{env.AZURE_ENVIRONMENT}}
