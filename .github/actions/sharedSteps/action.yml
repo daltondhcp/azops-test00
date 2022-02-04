@@ -59,5 +59,9 @@ runs:
       shell: pwsh
       run: |
         $Env:PSModulePath = $Env:PSModulePath, '${{ env.modulesFolder }}' -join [IO.Path]::PathSeparator
+        $AzEnvironment = '${{env.ARM_ENVIRONMENT}}'
+        if(-not $AzEnvironment) {
+          $AzEnvironment = 'AzureCloud' 
+        }
         $credential = New-Object PSCredential -ArgumentList ${{env.ARM_CLIENT_ID}}, (ConvertTo-SecureString -String ${{env.ARM_CLIENT_SECRET}} -AsPlainText -Force)
-        Connect-AzAccount -TenantId ${{env.ARM_TENANT_ID}} -ServicePrincipal -Credential $credential
+        Connect-AzAccount -TenantId ${{env.ARM_TENANT_ID}} -ServicePrincipal -Credential $credential -Environment $AzEnvironment
