@@ -21,7 +21,7 @@
             "Core.IgnoreContextCheck": false,
             "Core.InvalidateCache": true,
             "Core.OfferType": "MS-AZR-0017P",
-            "Core.PartialMgDiscoveryRoot": ['azfwprem'],
+            "Core.PartialMgDiscoveryRoot": ['SWDemo'],
             "Core.SkipPolicy": false,
             "Core.SkipResource": true,
             "Core.SkipChildResource": true,
