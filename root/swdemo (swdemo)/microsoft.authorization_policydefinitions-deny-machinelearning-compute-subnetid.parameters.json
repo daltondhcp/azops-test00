@@ -1,0 +1,68 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "input": {
+      "value": {
+        "Name": "Deny-MachineLearning-Compute-SubnetId",
+        "ResourceType": "Microsoft.Authorization/policyDefinitions",
+        "Properties": {
+          "Description": "Enforce subnet connectivity for Azure Machine Learning compute clusters and compute instances.",
+          "DisplayName": "Enforce subnet connectivity for Azure Machine Learning compute clusters and compute instances",
+          "Metadata": {
+            "version": "1.0.0",
+            "category": "Machine Learning"
+          },
+          "Mode": "Indexed",
+          "Parameters": {
+            "effect": {
+              "type": "String",
+              "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+              },
+              "allowedValues": [
+                "Audit",
+                "Disabled",
+                "Deny"
+              ],
+              "defaultValue": "Deny"
+            }
+          },
+          "PolicyRule": {
+            "if": {
+              "allOf": [
+                {
+                  "field": "type",
+                  "equals": "Microsoft.MachineLearningServices/workspaces/computes"
+                },
+                {
+                  "field": "Microsoft.MachineLearningServices/workspaces/computes/computeType",
+                  "in": [
+                    "AmlCompute",
+                    "ComputeInstance"
+                  ]
+                },
+                {
+                  "anyOf": [
+                    {
+                      "field": "Microsoft.MachineLearningServices/workspaces/computes/subnet.id",
+                      "exists": false
+                    },
+                    {
+                      "value": "[empty(field('Microsoft.MachineLearningServices/workspaces/computes/subnet.id'))]",
+                      "equals": true
+                    }
+                  ]
+                }
+              ]
+            },
+            "then": {
+              "effect": "[parameters('effect')]"
+            }
+          }
+        }
+      }
+    }
+  }
+}

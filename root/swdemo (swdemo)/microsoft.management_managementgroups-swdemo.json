@@ -1,0 +1,103 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Management/managementGroups",
+      "name": "SWDemo",
+      "apiVersion": "2021-04-01",
+      "scope": "/",
+      "properties": {
+        "displayName": "SWDemo",
+        "details": {
+          "parent": {
+            "id": "/providers/Microsoft.Management/managementGroups/3114ebe8-8d3f-4bac-b3ce-59b4210a1287"
+          }
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2020-10-01",
+      "name": "AzOps-microsoft.management_managementgroups-nested",
+      "location": "northeurope",
+      "properties": {
+        "mode": "Incremental",
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "resources": [
+            {
+              "type": "Microsoft.Management/managementGroups",
+              "apiVersion": "2020-05-01",
+              "name": "SWDemo-platform",
+              "scope": "/",
+              "properties": {
+                "displayName": "SWDemo-platform",
+                "details": {
+                  "parent": {
+                    "id": "/providers/Microsoft.Management/managementGroups/SWDemo"
+                  }
+                }
+              }
+            },
+            {
+              "type": "Microsoft.Management/managementGroups",
+              "apiVersion": "2020-05-01",
+              "name": "SWDemo-landingzones",
+              "scope": "/",
+              "properties": {
+                "displayName": "SWDemo-landingzones",
+                "details": {
+                  "parent": {
+                    "id": "/providers/Microsoft.Management/managementGroups/SWDemo"
+                  }
+                }
+              }
+            },
+            {
+              "type": "Microsoft.Management/managementGroups",
+              "apiVersion": "2020-05-01",
+              "name": "SWDemo-decommissioned",
+              "scope": "/",
+              "properties": {
+                "displayName": "SWDemo-decommissioned",
+                "details": {
+                  "parent": {
+                    "id": "/providers/Microsoft.Management/managementGroups/SWDemo"
+                  }
+                }
+              }
+            },
+            {
+              "type": "Microsoft.Management/managementGroups",
+              "apiVersion": "2020-05-01",
+              "name": "SWDemo-sandboxes",
+              "scope": "/",
+              "properties": {
+                "displayName": "SWDemo-sandboxes",
+                "details": {
+                  "parent": {
+                    "id": "/providers/Microsoft.Management/managementGroups/SWDemo"
+                  }
+                }
+              }
+            }
+          ],
+          "outputs": {}
+        }
+      },
+      "dependsOn": [
+        "/providers/Microsoft.Management/managementGroups/SWDemo"
+      ]
+    }
+  ],
+  "outputs": {}
+}

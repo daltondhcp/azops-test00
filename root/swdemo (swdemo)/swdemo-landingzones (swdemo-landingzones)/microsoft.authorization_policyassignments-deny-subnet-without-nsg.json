@@ -1,0 +1,30 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/policyAssignments",
+      "name": "Deny-Subnet-Without-Nsg",
+      "apiVersion": "2021-06-01",
+      "location": null,
+      "properties": {
+        "Scope": "/providers/Microsoft.Management/managementGroups/SWDemo-landingzones",
+        "NotScopes": null,
+        "DisplayName": "Subnets should have a Network Security Group",
+        "Description": "This policy denies the creation of a subnet without a Network Security Group to protect traffic across subnets.",
+        "EnforcementMode": "Default",
+        "PolicyDefinitionId": "/providers/Microsoft.Management/managementGroups/SWDemo/providers/Microsoft.Authorization/policyDefinitions/Deny-Subnet-Without-Nsg",
+        "Parameters": null,
+        "NonComplianceMessages": null
+      }
+    }
+  ],
+  "outputs": {}
+}

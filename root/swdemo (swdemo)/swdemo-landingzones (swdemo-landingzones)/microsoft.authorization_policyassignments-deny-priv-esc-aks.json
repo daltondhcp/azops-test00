@@ -1,0 +1,34 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/policyAssignments",
+      "name": "Deny-Priv-Esc-AKS",
+      "apiVersion": "2021-06-01",
+      "location": null,
+      "properties": {
+        "Scope": "/providers/Microsoft.Management/managementGroups/SWDemo-landingzones",
+        "NotScopes": null,
+        "DisplayName": "Kubernetes clusters should not allow container privilege escalation",
+        "Description": "Do not allow containers to run with privilege escalation to root in a Kubernetes cluster. This recommendation is part of CIS 5.2.5 which is intended to improve the security of your Kubernetes environments. This policy is generally available for Kubernetes Service (AKS), and preview for AKS Engine and Azure Arc enabled Kubernetes. For more information, see https://aka.ms/kubepolicydoc.",
+        "EnforcementMode": "Default",
+        "PolicyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1c6e92c9-99f0-4e55-9cf2-0c234dc48f99",
+        "Parameters": {
+          "effect": {
+            "value": "deny"
+          }
+        },
+        "NonComplianceMessages": null
+      }
+    }
+  ],
+  "outputs": {}
+}
