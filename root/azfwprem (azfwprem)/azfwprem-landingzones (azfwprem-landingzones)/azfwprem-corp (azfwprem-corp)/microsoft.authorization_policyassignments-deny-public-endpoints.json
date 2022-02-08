@@ -1,0 +1,30 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/policyAssignments",
+      "name": "Deny-Public-Endpoints",
+      "apiVersion": "2021-06-01",
+      "location": "eastus",
+      "properties": {
+        "Scope": "/providers/Microsoft.Management/managementGroups/azfwprem-corp",
+        "NotScopes": null,
+        "DisplayName": "Public network access should be disabled for PaaS services",
+        "Description": "This policy initiative is a group of policies that prevents creation of Azure PaaS services with exposed public endpoints",
+        "EnforcementMode": "Default",
+        "PolicyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policySetDefinitions/Deny-PublicPaaSEndpoints",
+        "Parameters": {},
+        "NonComplianceMessages": null
+      }
+    }
+  ],
+  "outputs": {}
+}

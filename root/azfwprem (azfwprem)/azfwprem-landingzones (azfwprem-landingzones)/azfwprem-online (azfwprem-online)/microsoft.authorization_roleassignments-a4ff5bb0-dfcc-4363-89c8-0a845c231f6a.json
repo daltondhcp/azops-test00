@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/roleAssignments",
+      "name": "a4ff5bb0-dfcc-4363-89c8-0a845c231f6a",
+      "apiVersion": "2021-04-01-preview",
+      "properties": {
+        "DisplayName": "MS-PIM",
+        "ObjectType": "ServicePrincipal",
+        "PrincipalId": "8d3b19c7-8575-48d0-bb82-e04d30b8a79e",
+        "RoleDefinitionId": "/providers/Microsoft.Authorization/RoleDefinitions/18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
+        "RoleDefinitionName": "User Access Administrator"
+      }
+    }
+  ],
+  "outputs": {}
+}

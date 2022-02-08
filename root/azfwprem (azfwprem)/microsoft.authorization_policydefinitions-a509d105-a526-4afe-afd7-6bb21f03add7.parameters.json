@@ -1,0 +1,149 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "input": {
+      "value": {
+        "Name": "a509d105-a526-4afe-afd7-6bb21f03add7",
+        "ResourceType": "Microsoft.Authorization/policyDefinitions",
+        "Properties": {
+          "Description": null,
+          "DisplayName": "Deny internet inbound",
+          "Metadata": {},
+          "Mode": "All",
+          "Parameters": {
+            "deniedPorts": {
+              "type": "Array",
+              "metadata": {
+                "displayName": "Ports to block",
+                "description": "The inbound ports that should be blocked"
+              },
+              "defaultValue": [
+                "22",
+                "3389"
+              ]
+            },
+            "effect": {
+              "type": "String",
+              "metadata": {
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
+              },
+              "allowedValues": [
+                "Audit",
+                "Disabled",
+                "Deny"
+              ],
+              "defaultValue": "Deny"
+            }
+          },
+          "PolicyRule": {
+            "if": {
+              "anyOf": [
+                {
+                  "allOf": [
+                    {
+                      "field": "type",
+                      "equals": "Microsoft.Network/networkSecurityGroups"
+                    },
+                    {
+                      "count": {
+                        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+                        "where": {
+                          "allOf": [
+                            {
+                              "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].access",
+                              "equals": "Allow"
+                            },
+                            {
+                              "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].direction",
+                              "equals": "Inbound"
+                            },
+                            {
+                              "anyOf": [
+                                {
+                                  "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].destinationPortRange",
+                                  "in": "[parameters('deniedPorts')]"
+                                },
+                                {
+                                  "not": {
+                                    "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].destinationPortRanges[*]",
+                                    "notIn": "[parameters('deniedPorts')]"
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "anyOf": [
+                                {
+                                  "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].sourceAddressPrefix",
+                                  "in": [
+                                    "*",
+                                    "Internet"
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      },
+                      "greater": 0
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "field": "type",
+                      "equals": "Microsoft.Network/networkSecurityGroups/securityRules"
+                    },
+                    {
+                      "allOf": [
+                        {
+                          "field": "Microsoft.Network/networkSecurityGroups/securityRules/access",
+                          "equals": "Allow"
+                        },
+                        {
+                          "field": "Microsoft.Network/networkSecurityGroups/securityRules/direction",
+                          "equals": "Inbound"
+                        },
+                        {
+                          "anyOf": [
+                            {
+                              "field": "Microsoft.Network/networkSecurityGroups/securityRules/destinationPortRange",
+                              "in": "[parameters('deniedPorts')]"
+                            },
+                            {
+                              "not": {
+                                "field": "Microsoft.Network/networkSecurityGroups/securityRules/destinationPortRanges[*]",
+                                "notIn": "[parameters('deniedPorts')]"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "anyOf": [
+                            {
+                              "field": "Microsoft.Network/networkSecurityGroups/securityRules/sourceAddressPrefix",
+                              "in": [
+                                "*",
+                                "Internet"
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            "then": {
+              "effect": "[parameters('effect')]"
+            }
+          }
+        }
+      }
+    }
+  }
+}
