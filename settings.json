@@ -21,11 +21,11 @@
             "Core.IgnoreContextCheck": false,
             "Core.InvalidateCache": true,
             "Core.OfferType": "MS-AZR-0017P",
-            "Core.PartialMgDiscoveryRoot": ['SWDemo'],
+            "Core.PartialMgDiscoveryRoot": ['azfwprem'],
             "Core.SkipPolicy": false,
             "Core.SkipResource": true,
             "Core.SkipChildResource": true,
-            "Core.SkipResourceGroup": true,
+            "Core.SkipResourceGroup": false,
             "Core.SkipResourceType": [
                 "microsoft.alertsmanagement/smartDetectorAlertRules",
                 "Microsoft.PowerPlatform/accounts",
