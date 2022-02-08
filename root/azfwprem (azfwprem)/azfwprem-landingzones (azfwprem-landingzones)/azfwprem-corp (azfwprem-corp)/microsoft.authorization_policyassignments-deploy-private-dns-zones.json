@@ -1,0 +1,96 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/policyAssignments",
+      "name": "Deploy-Private-DNS-Zones",
+      "apiVersion": "2021-06-01",
+      "location": "eastus",
+      "identity": {
+        "PrincipalId": "3cbabcc4-d5a0-4282-b0d9-9d228b4b9e60",
+        "TenantId": "3114ebe8-8d3f-4bac-b3ce-59b4210a1287",
+        "Type": "SystemAssigned"
+      },
+      "properties": {
+        "Scope": "/providers/Microsoft.Management/managementGroups/azfwprem-corp",
+        "NotScopes": null,
+        "DisplayName": "Configure Azure PaaS services to use private DNS zones",
+        "Description": "This policy initiative is a group of policies that ensures private endpoints to Azure PaaS services are integrated with Azure Private DNS zones",
+        "EnforcementMode": "Default",
+        "PolicyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policySetDefinitions/Deploy-Private-DNS-Zones",
+        "Parameters": {
+          "azureFilePrivateDnsZoneId": {
+            "value": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/azfwprem-privatedns/providers/Microsoft.Network/privateDnsZones/privatelink.afs.azure.net"
+          },
+          "azureWebPrivateDnsZoneId": {
+            "value": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/azfwprem-privatedns/providers/Microsoft.Network/privateDnsZones/privatelink.webpubsub.azure.com"
+          },
+          "azureBatchPrivateDnsZoneId": {
+            "value": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/azfwprem-privatedns/providers/Microsoft.Network/privateDnsZones/privatelink.eastus.batch.azure.com"
+          },
+          "azureAppPrivateDnsZoneId": {
+            "value": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/azfwprem-privatedns/providers/Microsoft.Network/privateDnsZones/privatelink.azconfig.io"
+          },
+          "azureAsrPrivateDnsZoneId": {
+            "value": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/azfwprem-privatedns/providers/Microsoft.Network/privateDnsZones/eastus.privatelink.siterecovery.windowsazure.com"
+          },
+          "azureIoTPrivateDnsZoneId": {
+            "value": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/azfwprem-privatedns/providers/Microsoft.Network/privateDnsZones/privatelink.azure-devices-provisioning.net"
+          },
+          "azureKeyVaultPrivateDnsZoneId": {
+            "value": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/azfwprem-privatedns/providers/Microsoft.Network/privateDnsZones/privatelink.vaultcore.azure.net"
+          },
+          "azureSignalRPrivateDnsZoneId": {
+            "value": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/azfwprem-privatedns/providers/Microsoft.Network/privateDnsZones/privatelink.service.signalr.net"
+          },
+          "azureAppServicesPrivateDnsZoneId": {
+            "value": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/azfwprem-privatedns/providers/Microsoft.Network/privateDnsZones/privatelink.azurewebsites.net"
+          },
+          "azureEventGridTopicsPrivateDnsZoneId": {
+            "value": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/azfwprem-privatedns/providers/Microsoft.Network/privateDnsZones/privatelink.eventgrid.azure.net"
+          },
+          "azureDiskAccessPrivateDnsZoneId": {
+            "value": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/azfwprem-privatedns/providers/Microsoft.Network/privateDnsZones/privatelink.blob.core.windows.net"
+          },
+          "azureCognitiveServicesPrivateDnsZoneId": {
+            "value": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/azfwprem-privatedns/providers/Microsoft.Network/privateDnsZones/privatelink.cognitiveservices.azure.com"
+          },
+          "azureIotHubsPrivateDnsZoneId": {
+            "value": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/azfwprem-privatedns/providers/Microsoft.Network/privateDnsZones/privatelink.azure-devices.net"
+          },
+          "azureEventGridDomainsPrivateDnsZoneId": {
+            "value": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/azfwprem-privatedns/providers/Microsoft.Network/privateDnsZones/privatelink.eventgrid.azure.net"
+          },
+          "azureRedisCachePrivateDnsZoneId": {
+            "value": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/azfwprem-privatedns/providers/Microsoft.Network/privateDnsZones/privatelink.redis.cache.windows.net"
+          },
+          "azureAcrPrivateDnsZoneId": {
+            "value": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/azfwprem-privatedns/providers/Microsoft.Network/privateDnsZones/privatelink.azurecr.io"
+          },
+          "azureEventHubNamespacePrivateDnsZoneId": {
+            "value": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/azfwprem-privatedns/providers/Microsoft.Network/privateDnsZones/privatelink.servicebus.windows.net"
+          },
+          "azureMachineLearningWorkspacePrivateDnsZoneId": {
+            "value": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/azfwprem-privatedns/providers/Microsoft.Network/privateDnsZones/privatelink.api.azureml.ms"
+          },
+          "azureServiceBusNamespacePrivateDnsZoneId": {
+            "value": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/azfwprem-privatedns/providers/Microsoft.Network/privateDnsZones/privatelink.servicebus.windows.net"
+          },
+          "azureCognitiveSearchPrivateDnsZoneId": {
+            "value": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/azfwprem-privatedns/providers/Microsoft.Network/privateDnsZones/privatelink.search.windows.net"
+          }
+        },
+        "NonComplianceMessages": null
+      }
+    }
+  ],
+  "outputs": {}
+}

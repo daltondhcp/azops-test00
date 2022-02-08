@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/roleAssignments",
+      "name": "375297de-12fd-516c-b152-0a84ac14e8a3",
+      "apiVersion": "2021-04-01-preview",
+      "properties": {
+        "DisplayName": "Enforce-TLS-SSL",
+        "ObjectType": "ServicePrincipal",
+        "PrincipalId": "e1b8e766-0c17-487a-aec2-d84c9ecdfab2",
+        "RoleDefinitionId": "/providers/Microsoft.Authorization/RoleDefinitions/8e3af657-a8ff-443c-a75c-2fe8c4bcb635",
+        "RoleDefinitionName": "Owner"
+      }
+    }
+  ],
+  "outputs": {}
+}

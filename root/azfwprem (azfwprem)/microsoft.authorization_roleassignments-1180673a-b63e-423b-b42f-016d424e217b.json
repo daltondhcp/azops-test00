@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/roleAssignments",
+      "name": "1180673a-b63e-423b-b42f-016d424e217b",
+      "apiVersion": "2021-04-01-preview",
+      "properties": {
+        "DisplayName": "test123-agentpool",
+        "ObjectType": "ServicePrincipal",
+        "PrincipalId": "bbb654d9-c5ba-4a82-ba23-6bb4c816f27c",
+        "RoleDefinitionId": "/providers/Microsoft.Authorization/RoleDefinitions/fb1c8493-542b-48eb-b624-b4c8fea62acd",
+        "RoleDefinitionName": "Security Admin"
+      }
+    }
+  ],
+  "outputs": {}
+}
