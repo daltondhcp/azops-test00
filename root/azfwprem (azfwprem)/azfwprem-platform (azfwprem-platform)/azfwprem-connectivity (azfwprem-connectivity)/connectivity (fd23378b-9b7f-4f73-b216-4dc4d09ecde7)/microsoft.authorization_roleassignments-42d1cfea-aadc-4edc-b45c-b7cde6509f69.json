@@ -15,7 +15,7 @@
       "apiVersion": "2021-04-01-preview",
       "properties": {
         "DisplayName": null,
-        "ObjectType": "Group",
+        "ObjectType": "Unknown",
         "PrincipalId": "a573e4b8-d496-49c8-8883-47a422a43f0c",
         "RoleDefinitionId": "/providers/Microsoft.Authorization/RoleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
         "RoleDefinitionName": "Reader"
