@@ -12,7 +12,7 @@
     {
       "type": "Microsoft.Authorization/roleAssignments",
       "name": "d9e245ea-18cb-49f0-875e-601cf36e5525",
-      "apiVersion": "2021-04-01-preview",
+      "apiVersion": "2022-01-01-preview",
       "properties": {
         "DisplayName": "my-alwayson-deployment-sp",
         "ObjectType": "ServicePrincipal",
