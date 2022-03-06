@@ -12,7 +12,7 @@
     {
       "type": "Microsoft.Authorization/roleAssignments",
       "name": "1180673a-b63e-423b-b42f-016d424e217b",
-      "apiVersion": "2021-04-01-preview",
+      "apiVersion": "2022-01-01-preview",
       "properties": {
         "DisplayName": "test123-agentpool",
         "ObjectType": "ServicePrincipal",

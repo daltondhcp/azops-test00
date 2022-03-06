@@ -12,7 +12,7 @@
     {
       "type": "Microsoft.Authorization/roleAssignments",
       "name": "9b0c9c37-0e42-54ae-a3ed-7b0570811695",
-      "apiVersion": "2021-04-01-preview",
+      "apiVersion": "2022-01-01-preview",
       "properties": {
         "DisplayName": "Deploy-Private-DNS-Zones",
         "ObjectType": "ServicePrincipal",

@@ -12,7 +12,7 @@
     {
       "type": "Microsoft.Authorization/roleAssignments",
       "name": "b0c72da7-3053-4f89-a0d1-14ae15c23662",
-      "apiVersion": "2021-04-01-preview",
+      "apiVersion": "2022-01-01-preview",
       "properties": {
         "DisplayName": "azops-3",
         "ObjectType": "ServicePrincipal",
