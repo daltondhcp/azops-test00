@@ -12,7 +12,7 @@
     {
       "type": "Microsoft.Authorization/roleAssignments",
       "name": "edfe7b2e-c348-5e5d-a716-87c6b25ccdf3",
-      "apiVersion": "2021-04-01-preview",
+      "apiVersion": "2022-01-01-preview",
       "properties": {
         "DisplayName": "Enable-DDoS-VNET",
         "ObjectType": "ServicePrincipal",

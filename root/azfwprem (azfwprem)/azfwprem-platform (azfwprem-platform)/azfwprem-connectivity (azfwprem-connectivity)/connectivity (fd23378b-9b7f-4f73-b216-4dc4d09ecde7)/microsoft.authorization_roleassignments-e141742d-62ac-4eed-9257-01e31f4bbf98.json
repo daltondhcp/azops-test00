@@ -12,7 +12,7 @@
     {
       "type": "Microsoft.Authorization/roleAssignments",
       "name": "e141742d-62ac-4eed-9257-01e31f4bbf98",
-      "apiVersion": "2021-04-01-preview",
+      "apiVersion": "2022-01-01-preview",
       "properties": {
         "DisplayName": "demoazurelab-enterprise-scale-fd23378b-9b7f-4f73-b216-4dc4d09ecde7",
         "ObjectType": "ServicePrincipal",
