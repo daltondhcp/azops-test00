@@ -11,14 +11,14 @@
   "resources": [
     {
       "type": "Microsoft.Authorization/roleAssignments",
-      "name": "91febc72-2020-5ccc-a819-3ea4e06ece32",
+      "name": "4d29c8af-66e1-40f9-8b06-4bea50fbd9ea",
       "apiVersion": "2022-01-01-preview",
       "properties": {
-        "DisplayName": null,
-        "ObjectType": "Unknown",
-        "PrincipalId": "1021fa99-267d-4f34-8242-dccea3ab889e",
-        "RoleDefinitionId": "/providers/Microsoft.Authorization/RoleDefinitions/4d97b98b-1d4f-4787-a291-c67834d212e7",
-        "RoleDefinitionName": "Network Contributor"
+        "DisplayName": "MS-PIM",
+        "ObjectType": "ServicePrincipal",
+        "PrincipalId": "8d3b19c7-8575-48d0-bb82-e04d30b8a79e",
+        "RoleDefinitionId": "/providers/Microsoft.Authorization/RoleDefinitions/18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
+        "RoleDefinitionName": "User Access Administrator"
       }
     }
   ],
