@@ -11,12 +11,12 @@
   "resources": [
     {
       "type": "Microsoft.Authorization/roleAssignments",
-      "name": "91febc72-2020-5ccc-a819-3ea4e06ece32",
+      "name": "8dae86d3-11f2-4d85-8ca6-ef8c9ce91d5d",
       "apiVersion": "2022-01-01-preview",
       "properties": {
         "DisplayName": null,
         "ObjectType": "Unknown",
-        "PrincipalId": "1021fa99-267d-4f34-8242-dccea3ab889e",
+        "PrincipalId": "66f5ef5a-c223-4f7f-8fc4-54b1db6c609d",
         "RoleDefinitionId": "/providers/Microsoft.Authorization/RoleDefinitions/4d97b98b-1d4f-4787-a291-c67834d212e7",
         "RoleDefinitionName": "Network Contributor"
       }

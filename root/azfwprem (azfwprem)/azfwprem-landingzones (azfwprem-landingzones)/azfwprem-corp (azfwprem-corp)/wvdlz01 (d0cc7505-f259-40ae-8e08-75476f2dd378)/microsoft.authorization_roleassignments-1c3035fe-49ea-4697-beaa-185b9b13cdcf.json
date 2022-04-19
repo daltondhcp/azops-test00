@@ -11,14 +11,14 @@
   "resources": [
     {
       "type": "Microsoft.Authorization/roleAssignments",
-      "name": "91febc72-2020-5ccc-a819-3ea4e06ece32",
+      "name": "1c3035fe-49ea-4697-beaa-185b9b13cdcf",
       "apiVersion": "2022-01-01-preview",
       "properties": {
-        "DisplayName": null,
-        "ObjectType": "Unknown",
-        "PrincipalId": "1021fa99-267d-4f34-8242-dccea3ab889e",
-        "RoleDefinitionId": "/providers/Microsoft.Authorization/RoleDefinitions/4d97b98b-1d4f-4787-a291-c67834d212e7",
-        "RoleDefinitionName": "Network Contributor"
+        "DisplayName": "7f73f6a0eafe4cc9965bc8d0",
+        "ObjectType": "ServicePrincipal",
+        "PrincipalId": "c9251691-0b4d-4bd5-a498-07526bc0cc93",
+        "RoleDefinitionId": "/providers/Microsoft.Authorization/RoleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c",
+        "RoleDefinitionName": "Contributor"
       }
     }
   ],

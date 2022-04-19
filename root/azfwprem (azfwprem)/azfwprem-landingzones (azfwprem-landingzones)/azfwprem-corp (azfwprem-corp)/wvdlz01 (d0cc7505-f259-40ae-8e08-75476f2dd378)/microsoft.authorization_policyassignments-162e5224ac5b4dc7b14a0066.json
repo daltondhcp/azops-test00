@@ -1,0 +1,30 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/policyAssignments",
+      "name": "162e5224ac5b4dc7b14a0066",
+      "apiVersion": "2021-06-01",
+      "location": null,
+      "properties": {
+        "Scope": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378",
+        "NotScopes": [],
+        "DisplayName": "Deny Subnet without NSG",
+        "Description": null,
+        "EnforcementMode": "DoNotEnforce",
+        "PolicyDefinitionId": "/providers/Microsoft.Management/managementGroups/ctx01/providers/Microsoft.Authorization/policyDefinitions/b038db07-4ca5-424b-9643-f8eef8db4ca8",
+        "Parameters": {},
+        "NonComplianceMessages": null
+      }
+    }
+  ],
+  "outputs": {}
+}
