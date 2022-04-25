@@ -1,0 +1,27 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/policyExemptions",
+      "name": "0b91d5e37a184ba3b7758f84",
+      "apiVersion": "2020-07-01-preview",
+      "properties": {
+        "PolicyAssignmentId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyAssignments/56ec07b7dfe3402698b36498",
+        "PolicyDefinitionReferenceIds": [],
+        "ExemptionCategory": "Waiver",
+        "DisplayName": "auto - Deploy Azure Defender for ACR",
+        "Description": null,
+        "ExpiresOn": null
+      }
+    }
+  ],
+  "outputs": {}
+}
