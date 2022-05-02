@@ -6,16 +6,15 @@
       "value": {
         "Name": "Deny-Subnet-Without-Udr",
         "ResourceType": "Microsoft.Authorization/policyDefinitions",
-        "properties": {
-          "displayName": "Subnets should have a User Defined Route",
-          "policyType": "Custom",
-          "mode": "All",
-          "description": "This policy denies the creation of a subnet with out a User Defined Route.",
-          "metadata": {
+        "Properties": {
+          "Description": "This policy denies the creation of a subnet with out a User Defined Route.",
+          "DisplayName": "Subnets should have a User Defined Route",
+          "Metadata": {
             "version": "1.1.0",
             "category": "Network"
           },
-          "parameters": {
+          "Mode": "All",
+          "Parameters": {
             "effect": {
               "type": "String",
               "metadata": {
@@ -40,7 +39,7 @@
               ]
             }
           },
-          "policyRule": {
+          "PolicyRule": {
             "if": {
               "allOf": [
                 {

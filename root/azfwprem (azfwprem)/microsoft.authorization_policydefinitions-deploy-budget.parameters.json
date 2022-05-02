@@ -6,16 +6,15 @@
       "value": {
         "Name": "Deploy-Budget",
         "ResourceType": "Microsoft.Authorization/policyDefinitions",
-        "properties": {
-          "displayName": "Deploy a default budget on all subscriptions under the assigned scope",
-          "policyType": "Custom",
-          "mode": "All",
-          "description": "Deploy a default budget on all subscriptions under the assigned scope",
-          "metadata": {
+        "Properties": {
+          "Description": "Deploy a default budget on all subscriptions under the assigned scope",
+          "DisplayName": "Deploy a default budget on all subscriptions under the assigned scope",
+          "Metadata": {
             "version": "1.0.0",
             "category": "Budget"
           },
-          "parameters": {
+          "Mode": "All",
+          "Parameters": {
             "amount": {
               "type": "String",
               "metadata": {
@@ -77,7 +76,7 @@
               "defaultValue": []
             }
           },
-          "policyRule": {
+          "PolicyRule": {
             "if": {
               "allOf": [
                 {

@@ -15,16 +15,18 @@
       "apiVersion": "2021-06-01",
       "location": null,
       "properties": {
-        "displayName": "Kubernetes clusters should be accessible only over HTTPS",
-        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1a5b4dca-0b6f-4cf5-907c-56316bc1bf3d",
-        "scope": "/providers/Microsoft.Management/managementGroups/azfwprem-landingzones",
-        "parameters": {
+        "Scope": "/providers/Microsoft.Management/managementGroups/azfwprem-landingzones",
+        "NotScopes": null,
+        "DisplayName": "Kubernetes clusters should be accessible only over HTTPS",
+        "Description": "Use of HTTPS ensures authentication and protects data in transit from network layer eavesdropping attacks. This capability is currently generally available for Kubernetes Service (AKS), and in preview for AKS Engine and Azure Arc enabled Kubernetes. For more info, visit https://aka.ms/kubepolicydoc",
+        "EnforcementMode": "Default",
+        "PolicyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1a5b4dca-0b6f-4cf5-907c-56316bc1bf3d",
+        "Parameters": {
           "effect": {
             "value": "deny"
           }
         },
-        "description": "Use of HTTPS ensures authentication and protects data in transit from network layer eavesdropping attacks. This capability is currently generally available for Kubernetes Service (AKS), and in preview for AKS Engine and Azure Arc enabled Kubernetes. For more info, visit https://aka.ms/kubepolicydoc",
-        "enforcementMode": "Default"
+        "NonComplianceMessages": null
       }
     }
   ],

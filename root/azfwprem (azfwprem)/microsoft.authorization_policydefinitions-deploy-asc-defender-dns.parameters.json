@@ -6,16 +6,15 @@
       "value": {
         "Name": "Deploy-ASC-Defender-DNS",
         "ResourceType": "Microsoft.Authorization/policyDefinitions",
-        "properties": {
-          "displayName": "Deploy Azure Defender for DNS",
-          "policyType": "Custom",
-          "mode": "All",
-          "description": "Deploy the Azure Defender settings for DNS",
-          "metadata": {
+        "Properties": {
+          "Description": "Deploy the Azure Defender settings for DNS",
+          "DisplayName": "Deploy Azure Defender for DNS",
+          "Metadata": {
             "version": "1.0.0",
             "category": "Security Center"
           },
-          "parameters": {
+          "Mode": "All",
+          "Parameters": {
             "pricingTier": {
               "type": "string",
               "metadata": {
@@ -41,7 +40,7 @@
               "defaultValue": "DeployIfNotExists"
             }
           },
-          "policyRule": {
+          "PolicyRule": {
             "if": {
               "allOf": [
                 {

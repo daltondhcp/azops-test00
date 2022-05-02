@@ -15,16 +15,17 @@
       "apiVersion": "2021-06-01",
       "location": null,
       "properties": {
-        "displayName": "DenyDelete-VirtualNetwork",
-        "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/da2ee4e7-339b-46b3-b947-61fb41ace25b",
-        "scope": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7",
-        "notScopes": [],
-        "parameters": {},
-        "description": "",
-        "enforcementMode": "Default",
-        "nonComplianceMessages": [
+        "Scope": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7",
+        "NotScopes": [],
+        "DisplayName": "DenyDelete-VirtualNetwork",
+        "Description": "",
+        "EnforcementMode": "Default",
+        "PolicyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/da2ee4e7-339b-46b3-b947-61fb41ace25b",
+        "Parameters": {},
+        "NonComplianceMessages": [
           {
-            "message": "Deletion of platform resources is not allowed!"
+            "Message": "Deletion of platform resources is not allowed!",
+            "PolicyDefinitionReferenceId": null
           }
         ]
       }

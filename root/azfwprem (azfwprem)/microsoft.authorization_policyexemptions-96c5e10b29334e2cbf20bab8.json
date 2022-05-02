@@ -14,10 +14,12 @@
       "name": "96c5e10b29334e2cbf20bab8",
       "apiVersion": "2020-07-01-preview",
       "properties": {
-        "policyAssignmentId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyAssignments/b5fc896f8c584377810e07a0",
-        "policyDefinitionReferenceIds": [],
-        "exemptionCategory": "Waiver",
-        "displayName": "azfwprem - test"
+        "PolicyAssignmentId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyAssignments/b5fc896f8c584377810e07a0",
+        "PolicyDefinitionReferenceIds": [],
+        "ExemptionCategory": "Waiver",
+        "DisplayName": "azfwprem - test",
+        "Description": null,
+        "ExpiresOn": null
       }
     }
   ],

@@ -15,13 +15,14 @@
       "apiVersion": "2021-06-01",
       "location": null,
       "properties": {
-        "displayName": "Management policies should be enabled for storage accounts",
-        "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/3114ebe8-8d3f-4bac-b3ce-59b4210a1287/providers/Microsoft.Authorization/policyDefinitions/32e68135-fcb1-4c03-a4e0-0a522bb82126",
-        "scope": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7",
-        "notScopes": [],
-        "parameters": {},
-        "enforcementMode": "Default",
-        "nonComplianceMessages": []
+        "Scope": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7",
+        "NotScopes": [],
+        "DisplayName": "Management policies should be enabled for storage accounts",
+        "Description": null,
+        "EnforcementMode": "Default",
+        "PolicyDefinitionId": "/providers/Microsoft.Management/managementGroups/3114ebe8-8d3f-4bac-b3ce-59b4210a1287/providers/Microsoft.Authorization/policyDefinitions/32e68135-fcb1-4c03-a4e0-0a522bb82126",
+        "Parameters": {},
+        "NonComplianceMessages": []
       }
     }
   ],

@@ -6,16 +6,15 @@
       "value": {
         "Name": "Deny-Sql-minTLS",
         "ResourceType": "Microsoft.Authorization/policyDefinitions",
-        "properties": {
-          "displayName": "Azure SQL Database should have the minimal TLS version set to the highest version",
-          "policyType": "Custom",
-          "mode": "Indexed",
-          "description": "Setting minimal TLS version to 1.2 improves security by ensuring your Azure SQL Database can only be accessed from clients using TLS 1.2. Using versions of TLS less than 1.2 is not reccomended since they have well documented security vunerabilities.",
-          "metadata": {
+        "Properties": {
+          "Description": "Setting minimal TLS version to 1.2 improves security by ensuring your Azure SQL Database can only be accessed from clients using TLS 1.2. Using versions of TLS less than 1.2 is not reccomended since they have well documented security vunerabilities.",
+          "DisplayName": "Azure SQL Database should have the minimal TLS version set to the highest version",
+          "Metadata": {
             "version": "1.0.0",
             "category": "SQL"
           },
-          "parameters": {
+          "Mode": "Indexed",
+          "Parameters": {
             "effect": {
               "type": "String",
               "metadata": {
@@ -43,7 +42,7 @@
               "defaultValue": "1.2"
             }
           },
-          "policyRule": {
+          "PolicyRule": {
             "if": {
               "allOf": [
                 {
