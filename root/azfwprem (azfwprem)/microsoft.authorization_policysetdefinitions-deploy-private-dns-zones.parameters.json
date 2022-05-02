@@ -6,15 +6,15 @@
       "value": {
         "Name": "Deploy-Private-DNS-Zones",
         "ResourceType": "Microsoft.Authorization/policySetDefinitions",
-        "PolicySetDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policySetDefinitions/Deploy-Private-DNS-Zones",
-        "Properties": {
-          "Description": "This policy initiative is a group of policies that ensures private endpoints to Azure PaaS services are integrated with Azure Private DNS zones",
-          "DisplayName": "Configure Azure PaaS services to use private DNS zones",
-          "Metadata": {
+        "properties": {
+          "displayName": "Configure Azure PaaS services to use private DNS zones",
+          "policyType": "Custom",
+          "description": "This policy initiative is a group of policies that ensures private endpoints to Azure PaaS services are integrated with Azure Private DNS zones",
+          "metadata": {
             "version": "1.0.0",
             "category": "Network"
           },
-          "Parameters": {
+          "parameters": {
             "azureFilePrivateDnsZoneId": {
               "type": "string",
               "metadata": {
@@ -200,8 +200,7 @@
               "defaultValue": "deployIfNotExists"
             }
           },
-          "PolicyDefinitionGroups": null,
-          "PolicyDefinitions": [
+          "policyDefinitions": [
             {
               "policyDefinitionReferenceId": "DINE-Private-DNS-Azure-File-Sync",
               "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/06695360-db88-47f6-b976-7500d4297475",

@@ -6,15 +6,16 @@
       "value": {
         "Name": "Deny-Storage-minTLS",
         "ResourceType": "Microsoft.Authorization/policyDefinitions",
-        "Properties": {
-          "Description": "Audit requirement of Secure transfer in your storage account. Secure transfer is an option that forces your storage account to accept requests only from secure connections (HTTPS). Use of HTTPS ensures authentication between the server and the service and protects data in transit from network layer attacks such as man-in-the-middle, eavesdropping, and session-hijacking",
-          "DisplayName": "Storage Account set to minumum TLS and Secure transfer should be enabled",
-          "Metadata": {
+        "properties": {
+          "displayName": "Storage Account set to minumum TLS and Secure transfer should be enabled",
+          "policyType": "Custom",
+          "mode": "Indexed",
+          "description": "Audit requirement of Secure transfer in your storage account. Secure transfer is an option that forces your storage account to accept requests only from secure connections (HTTPS). Use of HTTPS ensures authentication between the server and the service and protects data in transit from network layer attacks such as man-in-the-middle, eavesdropping, and session-hijacking",
+          "metadata": {
             "version": "1.0.0",
             "category": "Storage"
           },
-          "Mode": "Indexed",
-          "Parameters": {
+          "parameters": {
             "effect": {
               "type": "String",
               "metadata": {
@@ -42,7 +43,7 @@
               "defaultValue": "TLS1_2"
             }
           },
-          "PolicyRule": {
+          "policyRule": {
             "if": {
               "allOf": [
                 {

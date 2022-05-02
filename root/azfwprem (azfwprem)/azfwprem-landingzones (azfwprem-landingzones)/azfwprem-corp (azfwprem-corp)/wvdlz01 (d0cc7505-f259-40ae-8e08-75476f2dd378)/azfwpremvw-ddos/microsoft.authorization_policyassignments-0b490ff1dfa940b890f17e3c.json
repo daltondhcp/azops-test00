@@ -15,13 +15,11 @@
       "apiVersion": "2021-06-01",
       "location": null,
       "properties": {
-        "Scope": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/azfwpremvw-ddos",
-        "NotScopes": [],
-        "DisplayName": "Deny internet inbound",
-        "Description": "",
-        "EnforcementMode": "Default",
-        "PolicyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/a509d105-a526-4afe-afd7-6bb21f03add7",
-        "Parameters": {
+        "displayName": "Deny internet inbound",
+        "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/a509d105-a526-4afe-afd7-6bb21f03add7",
+        "scope": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/azfwpremvw-ddos",
+        "notScopes": [],
+        "parameters": {
           "deniedPorts": {
             "value": [
               "22",
@@ -30,10 +28,11 @@
             ]
           }
         },
-        "NonComplianceMessages": [
+        "description": "",
+        "enforcementMode": "Default",
+        "nonComplianceMessages": [
           {
-            "Message": "This is not allowed sir",
-            "PolicyDefinitionReferenceId": null
+            "message": "This is not allowed sir"
           }
         ]
       }

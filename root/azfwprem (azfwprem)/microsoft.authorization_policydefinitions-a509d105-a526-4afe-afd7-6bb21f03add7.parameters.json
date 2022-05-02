@@ -6,12 +6,12 @@
       "value": {
         "Name": "a509d105-a526-4afe-afd7-6bb21f03add7",
         "ResourceType": "Microsoft.Authorization/policyDefinitions",
-        "Properties": {
-          "Description": null,
-          "DisplayName": "Deny internet inbound",
-          "Metadata": {},
-          "Mode": "All",
-          "Parameters": {
+        "properties": {
+          "displayName": "Deny internet inbound",
+          "policyType": "Custom",
+          "mode": "All",
+          "metadata": {},
+          "parameters": {
             "deniedPorts": {
               "type": "Array",
               "metadata": {
@@ -37,7 +37,7 @@
               "defaultValue": "Deny"
             }
           },
-          "PolicyRule": {
+          "policyRule": {
             "if": {
               "anyOf": [
                 {

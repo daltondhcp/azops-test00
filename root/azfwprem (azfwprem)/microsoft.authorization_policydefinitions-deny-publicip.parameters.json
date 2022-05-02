@@ -6,15 +6,16 @@
       "value": {
         "Name": "Deny-PublicIP",
         "ResourceType": "Microsoft.Authorization/policyDefinitions",
-        "Properties": {
-          "Description": "This policy denies creation of Public IPs under the assigned scope.",
-          "DisplayName": "Deny the creation of public IP",
-          "Metadata": {
+        "properties": {
+          "displayName": "Deny the creation of public IP",
+          "policyType": "Custom",
+          "mode": "Indexed",
+          "description": "This policy denies creation of Public IPs under the assigned scope.",
+          "metadata": {
             "version": "1.0.0",
             "category": "Network"
           },
-          "Mode": "Indexed",
-          "Parameters": {
+          "parameters": {
             "effect": {
               "type": "String",
               "metadata": {
@@ -29,7 +30,7 @@
               "defaultValue": "Deny"
             }
           },
-          "PolicyRule": {
+          "policyRule": {
             "if": {
               "field": "type",
               "equals": "Microsoft.Network/publicIPAddresses"

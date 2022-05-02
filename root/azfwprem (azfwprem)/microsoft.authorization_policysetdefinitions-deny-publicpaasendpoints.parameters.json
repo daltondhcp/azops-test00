@@ -6,12 +6,12 @@
       "value": {
         "Name": "Deny-PublicPaaSEndpoints",
         "ResourceType": "Microsoft.Authorization/policySetDefinitions",
-        "PolicySetDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policySetDefinitions/Deny-PublicPaaSEndpoints",
-        "Properties": {
-          "Description": "This policy initiative is a group of policies that prevents creation of Azure PaaS services with exposed public endpoints",
-          "DisplayName": "Public network access should be disabled for PaaS services",
-          "Metadata": {},
-          "Parameters": {
+        "properties": {
+          "displayName": "Public network access should be disabled for PaaS services",
+          "policyType": "Custom",
+          "description": "This policy initiative is a group of policies that prevents creation of Azure PaaS services with exposed public endpoints",
+          "metadata": {},
+          "parameters": {
             "CosmosPublicIpDenyEffect": {
               "type": "String",
               "metadata": {
@@ -143,8 +143,7 @@
               "defaultValue": "Deny"
             }
           },
-          "PolicyDefinitionGroups": null,
-          "PolicyDefinitions": [
+          "policyDefinitions": [
             {
               "policyDefinitionReferenceId": "CosmosDenyPaasPublicIP",
               "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/797b37f7-06b8-444c-b1ad-fc62867f335a",
