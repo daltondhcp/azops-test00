@@ -6,15 +6,16 @@
       "value": {
         "Name": "Deny-PublicEndpoint-MariaDB",
         "ResourceType": "Microsoft.Authorization/policyDefinitions",
-        "Properties": {
-          "Description": "This policy denies the creation of Maria DB accounts with exposed public endpoints",
-          "DisplayName": "Public network access should be disabled for MariaDB",
-          "Metadata": {
+        "properties": {
+          "displayName": "Public network access should be disabled for MariaDB",
+          "policyType": "Custom",
+          "mode": "Indexed",
+          "description": "This policy denies the creation of Maria DB accounts with exposed public endpoints",
+          "metadata": {
             "version": "1.0.0",
             "category": "SQL"
           },
-          "Mode": "Indexed",
-          "Parameters": {
+          "parameters": {
             "effect": {
               "type": "String",
               "metadata": {
@@ -29,7 +30,7 @@
               "defaultValue": "Deny"
             }
           },
-          "PolicyRule": {
+          "policyRule": {
             "if": {
               "allOf": [
                 {

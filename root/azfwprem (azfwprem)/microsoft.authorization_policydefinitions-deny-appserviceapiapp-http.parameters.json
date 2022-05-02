@@ -6,15 +6,16 @@
       "value": {
         "Name": "Deny-AppServiceApiApp-http",
         "ResourceType": "Microsoft.Authorization/policyDefinitions",
-        "Properties": {
-          "Description": "Use of HTTPS ensures server/service authentication and protects data in transit from network layer eavesdropping attacks.",
-          "DisplayName": "API App should only be accessible over HTTPS",
-          "Metadata": {
+        "properties": {
+          "displayName": "API App should only be accessible over HTTPS",
+          "policyType": "Custom",
+          "mode": "Indexed",
+          "description": "Use of HTTPS ensures server/service authentication and protects data in transit from network layer eavesdropping attacks.",
+          "metadata": {
             "version": "1.0.0",
             "category": "App Service"
           },
-          "Mode": "Indexed",
-          "Parameters": {
+          "parameters": {
             "effect": {
               "type": "String",
               "metadata": {
@@ -29,7 +30,7 @@
               "defaultValue": "Deny"
             }
           },
-          "PolicyRule": {
+          "policyRule": {
             "if": {
               "allOf": [
                 {

@@ -6,15 +6,16 @@
       "value": {
         "Name": "Deploy-DDoSProtection",
         "ResourceType": "Microsoft.Authorization/policyDefinitions",
-        "Properties": {
-          "Description": "Deploys an Azure DDoS Protection Standard plan",
-          "DisplayName": "Deploy an Azure DDoS Protection Standard plan",
-          "Metadata": {
+        "properties": {
+          "displayName": "Deploy an Azure DDoS Protection Standard plan",
+          "policyType": "Custom",
+          "mode": "All",
+          "description": "Deploys an Azure DDoS Protection Standard plan",
+          "metadata": {
             "version": "1.0.0",
             "category": "Network"
           },
-          "Mode": "All",
-          "Parameters": {
+          "parameters": {
             "ddosName": {
               "type": "String",
               "metadata": {
@@ -50,7 +51,7 @@
               "defaultValue": "DeployIfNotExists"
             }
           },
-          "PolicyRule": {
+          "policyRule": {
             "if": {
               "allOf": [
                 {
