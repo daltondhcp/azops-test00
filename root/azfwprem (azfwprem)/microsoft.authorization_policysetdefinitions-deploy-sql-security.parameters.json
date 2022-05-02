@@ -6,15 +6,15 @@
       "value": {
         "Name": "Deploy-Sql-Security",
         "ResourceType": "Microsoft.Authorization/policySetDefinitions",
-        "properties": {
-          "displayName": "Deploy SQL Database built-in SQL security configuration",
-          "policyType": "Custom",
-          "description": "Deploy auditing, Alert, TDE and SQL vulnerability to SQL Databases when it not exist in the deployment",
-          "metadata": {
+        "PolicySetDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policySetDefinitions/Deploy-Sql-Security",
+        "Properties": {
+          "Description": "Deploy auditing, Alert, TDE and SQL vulnerability to SQL Databases when it not exist in the deployment",
+          "DisplayName": "Deploy SQL Database built-in SQL security configuration",
+          "Metadata": {
             "version": "1.0.0",
             "category": "SQL"
           },
-          "parameters": {
+          "Parameters": {
             "vulnerabilityAssessmentsEmail": {
               "type": "String",
               "metadata": {
@@ -78,7 +78,8 @@
               "defaultValue": "DeployIfNotExists"
             }
           },
-          "policyDefinitions": [
+          "PolicyDefinitionGroups": null,
+          "PolicyDefinitions": [
             {
               "policyDefinitionReferenceId": "SqlDbTdeDeploySqlSecurity",
               "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Sql-Tde",

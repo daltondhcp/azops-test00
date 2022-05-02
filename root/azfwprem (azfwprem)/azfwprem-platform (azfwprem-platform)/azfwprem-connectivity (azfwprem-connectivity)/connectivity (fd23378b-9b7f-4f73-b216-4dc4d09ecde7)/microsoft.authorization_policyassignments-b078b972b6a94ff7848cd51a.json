@@ -15,13 +15,14 @@
       "apiVersion": "2021-06-01",
       "location": null,
       "properties": {
-        "displayName": "KeyVault SoftDelete should be enabled",
-        "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Append-KV-SoftDelete",
-        "scope": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7",
-        "notScopes": [],
-        "parameters": {},
-        "enforcementMode": "Default",
-        "nonComplianceMessages": []
+        "Scope": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7",
+        "NotScopes": [],
+        "DisplayName": "KeyVault SoftDelete should be enabled",
+        "Description": null,
+        "EnforcementMode": "Default",
+        "PolicyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Append-KV-SoftDelete",
+        "Parameters": {},
+        "NonComplianceMessages": []
       }
     }
   ],

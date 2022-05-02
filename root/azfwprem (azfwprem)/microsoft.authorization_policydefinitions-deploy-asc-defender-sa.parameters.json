@@ -6,16 +6,15 @@
       "value": {
         "Name": "Deploy-ASC-Defender-SA",
         "ResourceType": "Microsoft.Authorization/policyDefinitions",
-        "properties": {
-          "displayName": "Deploy Azure Defender for Storage Accounts",
-          "policyType": "Custom",
-          "mode": "All",
-          "description": "Deploy the Azure Defender settings in Azure Security Center for Storage Accounts",
-          "metadata": {
+        "Properties": {
+          "Description": "Deploy the Azure Defender settings in Azure Security Center for Storage Accounts",
+          "DisplayName": "Deploy Azure Defender for Storage Accounts",
+          "Metadata": {
             "version": "1.0.0",
             "category": "Security Center"
           },
-          "parameters": {
+          "Mode": "All",
+          "Parameters": {
             "pricingTier": {
               "type": "string",
               "metadata": {
@@ -41,7 +40,7 @@
               "defaultValue": "DeployIfNotExists"
             }
           },
-          "policyRule": {
+          "PolicyRule": {
             "if": {
               "allOf": [
                 {

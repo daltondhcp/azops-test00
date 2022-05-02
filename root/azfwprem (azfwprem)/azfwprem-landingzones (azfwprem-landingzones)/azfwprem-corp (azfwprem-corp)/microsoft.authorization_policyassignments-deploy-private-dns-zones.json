@@ -15,15 +15,18 @@
       "apiVersion": "2021-06-01",
       "location": "eastus",
       "identity": {
-        "principalId": "3cbabcc4-d5a0-4282-b0d9-9d228b4b9e60",
-        "tenantId": "3114ebe8-8d3f-4bac-b3ce-59b4210a1287",
-        "type": "SystemAssigned"
+        "PrincipalId": "3cbabcc4-d5a0-4282-b0d9-9d228b4b9e60",
+        "TenantId": "3114ebe8-8d3f-4bac-b3ce-59b4210a1287",
+        "Type": "SystemAssigned"
       },
       "properties": {
-        "displayName": "Configure Azure PaaS services to use private DNS zones",
-        "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policySetDefinitions/Deploy-Private-DNS-Zones",
-        "scope": "/providers/Microsoft.Management/managementGroups/azfwprem-corp",
-        "parameters": {
+        "Scope": "/providers/Microsoft.Management/managementGroups/azfwprem-corp",
+        "NotScopes": null,
+        "DisplayName": "Configure Azure PaaS services to use private DNS zones",
+        "Description": "This policy initiative is a group of policies that ensures private endpoints to Azure PaaS services are integrated with Azure Private DNS zones",
+        "EnforcementMode": "Default",
+        "PolicyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policySetDefinitions/Deploy-Private-DNS-Zones",
+        "Parameters": {
           "azureFilePrivateDnsZoneId": {
             "value": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/azfwprem-privatedns/providers/Microsoft.Network/privateDnsZones/privatelink.afs.azure.net"
           },
@@ -85,8 +88,7 @@
             "value": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/azfwprem-privatedns/providers/Microsoft.Network/privateDnsZones/privatelink.search.windows.net"
           }
         },
-        "description": "This policy initiative is a group of policies that ensures private endpoints to Azure PaaS services are integrated with Azure Private DNS zones",
-        "enforcementMode": "Default"
+        "NonComplianceMessages": null
       }
     }
   ],

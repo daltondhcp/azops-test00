@@ -6,16 +6,15 @@
       "value": {
         "Name": "Deploy-Sql-Tde",
         "ResourceType": "Microsoft.Authorization/policyDefinitions",
-        "properties": {
-          "displayName": "Deploy SQL Database Transparent Data Encryption ",
-          "policyType": "Custom",
-          "mode": "Indexed",
-          "description": "Deploy the Transparent Data Encryption when it is not enabled in the deployment",
-          "metadata": {
+        "Properties": {
+          "Description": "Deploy the Transparent Data Encryption when it is not enabled in the deployment",
+          "DisplayName": "Deploy SQL Database Transparent Data Encryption ",
+          "Metadata": {
             "version": "1.0.0",
             "category": "SQL"
           },
-          "parameters": {
+          "Mode": "Indexed",
+          "Parameters": {
             "effect": {
               "type": "String",
               "metadata": {
@@ -29,7 +28,7 @@
               "defaultValue": "DeployIfNotExists"
             }
           },
-          "policyRule": {
+          "PolicyRule": {
             "if": {
               "field": "type",
               "equals": "Microsoft.Sql/servers/databases"
