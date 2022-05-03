@@ -6,15 +6,16 @@
       "value": {
         "Name": "Deploy-Sql-AuditingSettings",
         "ResourceType": "Microsoft.Authorization/policyDefinitions",
-        "Properties": {
-          "Description": "Deploy auditing settings to SQL Database when it not exist in the deployment",
-          "DisplayName": "Deploy SQL database auditing settings",
-          "Metadata": {
+        "properties": {
+          "displayName": "Deploy SQL database auditing settings",
+          "policyType": "Custom",
+          "mode": "Indexed",
+          "description": "Deploy auditing settings to SQL Database when it not exist in the deployment",
+          "metadata": {
             "version": "1.0.0",
             "category": "SQL"
           },
-          "Mode": "Indexed",
-          "Parameters": {
+          "parameters": {
             "effect": {
               "type": "String",
               "metadata": {
@@ -28,7 +29,7 @@
               "defaultValue": "DeployIfNotExists"
             }
           },
-          "PolicyRule": {
+          "policyRule": {
             "if": {
               "field": "type",
               "equals": "Microsoft.Sql/servers/databases"

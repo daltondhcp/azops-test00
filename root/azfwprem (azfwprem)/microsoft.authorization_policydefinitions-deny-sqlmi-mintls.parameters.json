@@ -6,15 +6,16 @@
       "value": {
         "Name": "Deny-SqlMi-minTLS",
         "ResourceType": "Microsoft.Authorization/policyDefinitions",
-        "Properties": {
-          "Description": "Setting minimal TLS version to 1.2 improves security by ensuring your SQL Managed Instance can only be accessed from clients using TLS 1.2. Using versions of TLS less than 1.2 is not reccomended since they have well documented security vunerabilities.",
-          "DisplayName": "SQL Managed Instance should have the minimal TLS version set to the highest version",
-          "Metadata": {
+        "properties": {
+          "displayName": "SQL Managed Instance should have the minimal TLS version set to the highest version",
+          "policyType": "Custom",
+          "mode": "Indexed",
+          "description": "Setting minimal TLS version to 1.2 improves security by ensuring your SQL Managed Instance can only be accessed from clients using TLS 1.2. Using versions of TLS less than 1.2 is not reccomended since they have well documented security vunerabilities.",
+          "metadata": {
             "version": "1.0.0",
             "category": "SQL"
           },
-          "Mode": "Indexed",
-          "Parameters": {
+          "parameters": {
             "effect": {
               "type": "String",
               "metadata": {
@@ -42,7 +43,7 @@
               "defaultValue": "1.2"
             }
           },
-          "PolicyRule": {
+          "policyRule": {
             "if": {
               "allOf": [
                 {

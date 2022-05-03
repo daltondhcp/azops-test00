@@ -6,15 +6,15 @@
       "value": {
         "Name": "Enforce-Encryption-CMK",
         "ResourceType": "Microsoft.Authorization/policySetDefinitions",
-        "PolicySetDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policySetDefinitions/Enforce-Encryption-CMK",
-        "Properties": {
-          "Description": "Deny or Audit resources without Encryption with a customer-managed key (CMK)",
-          "DisplayName": "Deny or Audit resources without Encryption with a customer-managed key (CMK)",
-          "Metadata": {
+        "properties": {
+          "displayName": "Deny or Audit resources without Encryption with a customer-managed key (CMK)",
+          "policyType": "Custom",
+          "description": "Deny or Audit resources without Encryption with a customer-managed key (CMK)",
+          "metadata": {
             "version": "1.0.0",
             "category": "Encryption"
           },
-          "Parameters": {
+          "parameters": {
             "ACRCmkEffect": {
               "type": "String",
               "metadata": {
@@ -205,8 +205,7 @@
               "defaultValue": "AuditIfNotExists"
             }
           },
-          "PolicyDefinitionGroups": null,
-          "PolicyDefinitions": [
+          "policyDefinitions": [
             {
               "policyDefinitionReferenceId": "ACRCmkDeny",
               "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/5b9159ae-1701-4a6f-9a7a-aa9c8ddd0580",

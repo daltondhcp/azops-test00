@@ -6,15 +6,16 @@
       "value": {
         "Name": "Deploy-Windows-DomainJoin",
         "ResourceType": "Microsoft.Authorization/policyDefinitions",
-        "Properties": {
-          "Description": "Deploy Windows Domain Join Extension with keyvault configuration when the extension does not exist on a given windows Virtual Machine",
-          "DisplayName": "Deploy Windows Domain Join Extension with keyvault configuration",
-          "Metadata": {
+        "properties": {
+          "displayName": "Deploy Windows Domain Join Extension with keyvault configuration",
+          "policyType": "Custom",
+          "mode": "Indexed",
+          "description": "Deploy Windows Domain Join Extension with keyvault configuration when the extension does not exist on a given windows Virtual Machine",
+          "metadata": {
             "version": "1.0.0",
             "category": "Guest Configuration"
           },
-          "Mode": "Indexed",
-          "Parameters": {
+          "parameters": {
             "domainUsername": {
               "type": "String",
               "metadata": {
@@ -58,7 +59,7 @@
               "defaultValue": "DeployIfNotExists"
             }
           },
-          "PolicyRule": {
+          "policyRule": {
             "if": {
               "allOf": [
                 {

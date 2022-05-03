@@ -6,15 +6,16 @@
       "value": {
         "Name": "Deploy-ASC-Defender-ARM",
         "ResourceType": "Microsoft.Authorization/policyDefinitions",
-        "Properties": {
-          "Description": "Deploy the Azure Defender settings for Azure Resource Manager",
-          "DisplayName": "Deploy Azure Defender for ARM",
-          "Metadata": {
+        "properties": {
+          "displayName": "Deploy Azure Defender for ARM",
+          "policyType": "Custom",
+          "mode": "All",
+          "description": "Deploy the Azure Defender settings for Azure Resource Manager",
+          "metadata": {
             "version": "1.0.0",
             "category": "Security Center"
           },
-          "Mode": "All",
-          "Parameters": {
+          "parameters": {
             "pricingTier": {
               "type": "string",
               "metadata": {
@@ -40,7 +41,7 @@
               "defaultValue": "DeployIfNotExists"
             }
           },
-          "PolicyRule": {
+          "policyRule": {
             "if": {
               "allOf": [
                 {

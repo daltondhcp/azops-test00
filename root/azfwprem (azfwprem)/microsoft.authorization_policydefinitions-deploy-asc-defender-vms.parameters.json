@@ -6,15 +6,16 @@
       "value": {
         "Name": "Deploy-ASC-Defender-VMs",
         "ResourceType": "Microsoft.Authorization/policyDefinitions",
-        "Properties": {
-          "Description": "Deploy the Azure Defender settings in Azure Security Center for Virtual Machines",
-          "DisplayName": "Deploy Azure Defender for Virtual Machines",
-          "Metadata": {
+        "properties": {
+          "displayName": "Deploy Azure Defender for Virtual Machines",
+          "policyType": "Custom",
+          "mode": "All",
+          "description": "Deploy the Azure Defender settings in Azure Security Center for Virtual Machines",
+          "metadata": {
             "version": "1.0.0",
             "category": "Security Center"
           },
-          "Mode": "All",
-          "Parameters": {
+          "parameters": {
             "pricingTier": {
               "type": "string",
               "metadata": {
@@ -40,7 +41,7 @@
               "defaultValue": "DeployIfNotExists"
             }
           },
-          "PolicyRule": {
+          "policyRule": {
             "if": {
               "allOf": [
                 {

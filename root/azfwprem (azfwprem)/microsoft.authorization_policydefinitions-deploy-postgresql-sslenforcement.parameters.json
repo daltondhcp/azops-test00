@@ -6,15 +6,16 @@
       "value": {
         "Name": "Deploy-PostgreSQL-sslEnforcement",
         "ResourceType": "Microsoft.Authorization/policyDefinitions",
-        "Properties": {
-          "Description": "Deploy a specific min TLS version requirement and enforce SSL on Azure Database for PostgreSQL server. Enables secure server to client by enforce  minimal Tls Version to secure the connection between your database server and your client applications helps protect against 'man in the middle' attacks by encrypting the data stream between the server and your application. This configuration enforces that SSL is always enabled for accessing your database server.",
-          "DisplayName": "Azure Database for PostgreSQL server deploy a specific min TLS version requirement and enforce SSL ",
-          "Metadata": {
+        "properties": {
+          "displayName": "Azure Database for PostgreSQL server deploy a specific min TLS version requirement and enforce SSL ",
+          "policyType": "Custom",
+          "mode": "Indexed",
+          "description": "Deploy a specific min TLS version requirement and enforce SSL on Azure Database for PostgreSQL server. Enables secure server to client by enforce  minimal Tls Version to secure the connection between your database server and your client applications helps protect against 'man in the middle' attacks by encrypting the data stream between the server and your application. This configuration enforces that SSL is always enabled for accessing your database server.",
+          "metadata": {
             "version": "1.0.0",
             "category": "SQL"
           },
-          "Mode": "Indexed",
-          "Parameters": {
+          "parameters": {
             "effect": {
               "type": "String",
               "metadata": {
@@ -42,7 +43,7 @@
               "defaultValue": "TLS1_2"
             }
           },
-          "PolicyRule": {
+          "policyRule": {
             "if": {
               "allOf": [
                 {

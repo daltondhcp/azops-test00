@@ -6,15 +6,16 @@
       "value": {
         "Name": "Deny-VNET-Peer-Cross-Sub",
         "ResourceType": "Microsoft.Authorization/policyDefinitions",
-        "Properties": {
-          "Description": "This policy denies the creation of vNet Peerings outside of the same subscriptions under the assigned scope.",
-          "DisplayName": "Deny vNet peering cross subscription.",
-          "Metadata": {
+        "properties": {
+          "displayName": "Deny vNet peering cross subscription.",
+          "policyType": "Custom",
+          "mode": "All",
+          "description": "This policy denies the creation of vNet Peerings outside of the same subscriptions under the assigned scope.",
+          "metadata": {
             "version": "1.0.1",
             "category": "Network"
           },
-          "Mode": "All",
-          "Parameters": {
+          "parameters": {
             "effect": {
               "type": "String",
               "metadata": {
@@ -29,7 +30,7 @@
               "defaultValue": "Deny"
             }
           },
-          "PolicyRule": {
+          "policyRule": {
             "if": {
               "allOf": [
                 {
