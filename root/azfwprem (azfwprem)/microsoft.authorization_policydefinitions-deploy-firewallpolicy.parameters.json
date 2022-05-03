@@ -6,15 +6,16 @@
       "value": {
         "Name": "Deploy-FirewallPolicy",
         "ResourceType": "Microsoft.Authorization/policyDefinitions",
-        "Properties": {
-          "Description": "Deploys Azure Firewall Manager policy in subscription where the policy is assigned.",
-          "DisplayName": "Deploy Azure Firewall Manager policy in the subscription",
-          "Metadata": {
+        "properties": {
+          "displayName": "Deploy Azure Firewall Manager policy in the subscription",
+          "policyType": "Custom",
+          "mode": "All",
+          "description": "Deploys Azure Firewall Manager policy in subscription where the policy is assigned.",
+          "metadata": {
             "version": "1.0.0",
             "category": "Network"
           },
-          "Mode": "All",
-          "Parameters": {
+          "parameters": {
             "fwpolicy": {
               "type": "Object",
               "metadata": {
@@ -51,7 +52,7 @@
               "defaultValue": "DeployIfNotExists"
             }
           },
-          "PolicyRule": {
+          "policyRule": {
             "if": {
               "allOf": [
                 {

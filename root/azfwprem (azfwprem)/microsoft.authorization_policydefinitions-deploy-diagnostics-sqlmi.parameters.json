@@ -6,15 +6,16 @@
       "value": {
         "Name": "Deploy-Diagnostics-SQLMI",
         "ResourceType": "Microsoft.Authorization/policyDefinitions",
-        "Properties": {
-          "Description": "Deploys the diagnostic settings for SQL Managed Instances to stream to a Log Analytics workspace when any SQL Managed Instances which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-          "DisplayName": "Deploy Diagnostic Settings for SQL Managed Instances to Log Analytics workspace",
-          "Metadata": {
+        "properties": {
+          "displayName": "Deploy Diagnostic Settings for SQL Managed Instances to Log Analytics workspace",
+          "policyType": "Custom",
+          "mode": "Indexed",
+          "description": "Deploys the diagnostic settings for SQL Managed Instances to stream to a Log Analytics workspace when any SQL Managed Instances which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+          "metadata": {
             "version": "1.0.0",
             "category": "Monitoring"
           },
-          "Mode": "Indexed",
-          "Parameters": {
+          "parameters": {
             "logAnalytics": {
               "type": "String",
               "metadata": {
@@ -56,7 +57,7 @@
               "defaultValue": "True"
             }
           },
-          "PolicyRule": {
+          "policyRule": {
             "if": {
               "field": "type",
               "equals": "Microsoft.Sql/managedInstances"

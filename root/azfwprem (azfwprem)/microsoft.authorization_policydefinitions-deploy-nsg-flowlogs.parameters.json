@@ -6,15 +6,16 @@
       "value": {
         "Name": "Deploy-Nsg-FlowLogs",
         "ResourceType": "Microsoft.Authorization/policyDefinitions",
-        "Properties": {
-          "Description": "Deploys NSG flow logs and traffic analytics to a storageaccountid with a specfied retention period.",
-          "DisplayName": "Deploys NSG flow logs and traffic analytics",
-          "Metadata": {
+        "properties": {
+          "displayName": "Deploys NSG flow logs and traffic analytics",
+          "policyType": "Custom",
+          "mode": "Indexed",
+          "description": "Deploys NSG flow logs and traffic analytics to a storageaccountid with a specfied retention period.",
+          "metadata": {
             "version": "1.0.0",
             "category": "Monitoring"
           },
-          "Mode": "Indexed",
-          "Parameters": {
+          "parameters": {
             "retention": {
               "type": "Integer",
               "metadata": {
@@ -65,7 +66,7 @@
               "defaultValue": "DeployIfNotExists"
             }
           },
-          "PolicyRule": {
+          "policyRule": {
             "if": {
               "field": "type",
               "equals": "Microsoft.Network/networkSecurityGroups"

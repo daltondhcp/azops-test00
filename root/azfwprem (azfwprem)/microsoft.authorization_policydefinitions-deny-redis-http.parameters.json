@@ -6,15 +6,16 @@
       "value": {
         "Name": "Deny-Redis-http",
         "ResourceType": "Microsoft.Authorization/policyDefinitions",
-        "Properties": {
-          "Description": "Audit enabling of only connections via SSL to Azure Cache for Redis. Validate both minimum TLS version and enableNonSslPort is disabled. Use of secure connections ensures authentication between the server and the service and protects data in transit from network layer attacks such as man-in-the-middle, eavesdropping, and session-hijacking",
-          "DisplayName": "Azure Cache for Redis only secure connections should be enabled",
-          "Metadata": {
+        "properties": {
+          "displayName": "Azure Cache for Redis only secure connections should be enabled",
+          "policyType": "Custom",
+          "mode": "Indexed",
+          "description": "Audit enabling of only connections via SSL to Azure Cache for Redis. Validate both minimum TLS version and enableNonSslPort is disabled. Use of secure connections ensures authentication between the server and the service and protects data in transit from network layer attacks such as man-in-the-middle, eavesdropping, and session-hijacking",
+          "metadata": {
             "version": "1.0.0",
             "category": "Cache"
           },
-          "Mode": "Indexed",
-          "Parameters": {
+          "parameters": {
             "effect": {
               "type": "String",
               "metadata": {
@@ -42,7 +43,7 @@
               "defaultValue": "1.2"
             }
           },
-          "PolicyRule": {
+          "policyRule": {
             "if": {
               "allOf": [
                 {
