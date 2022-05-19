@@ -1,0 +1,43 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "microsoft.insights/actionGroups",
+      "name": "StartStop_VM_Notification",
+      "apiVersion": "2022-04-01",
+      "location": "Global",
+      "tags": null,
+      "properties": {
+        "groupShortName": "StStAlert",
+        "enabled": true,
+        "emailReceivers": [
+          {
+            "name": "Emailnt3m3rhm56gq4",
+            "emailAddress": "xlkjciekc321c3@microsoft.com",
+            "status": "Enabled",
+            "useCommonAlertSchema": false
+          }
+        ],
+        "smsReceivers": [],
+        "webhookReceivers": [],
+        "eventHubReceivers": [],
+        "itsmReceivers": [],
+        "azureAppPushReceivers": [],
+        "automationRunbookReceivers": [],
+        "voiceReceivers": [],
+        "logicAppReceivers": [],
+        "azureFunctionReceivers": [],
+        "armRoleReceivers": []
+      }
+    }
+  ],
+  "outputs": {}
+}

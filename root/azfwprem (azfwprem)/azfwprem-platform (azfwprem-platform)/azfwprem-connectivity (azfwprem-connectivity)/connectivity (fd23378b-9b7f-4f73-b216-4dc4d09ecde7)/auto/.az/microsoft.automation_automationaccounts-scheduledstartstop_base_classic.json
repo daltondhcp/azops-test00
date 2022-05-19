@@ -1,0 +1,54 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Automation/automationAccounts/runbooks",
+      "name": "ScheduledStartStop_Base_Classic",
+      "apiVersion": "2021-06-22",
+      "location": "eastus2",
+      "tags": {
+        "version": "2.0.0.0"
+      },
+      "properties": {
+        "description": "This runbook is called by the parent runbook ScheduledStartStop_Parent to start/stop classic VMs based on each cloud service mapping",
+        "logVerbose": false,
+        "logProgress": false,
+        "logActivityTrace": 0,
+        "runbookType": "PowerShell",
+        "parameters": {
+          "CloudServiceName": {
+            "type": "System.String",
+            "isMandatory": true,
+            "position": 0,
+            "defaultValue": null
+          },
+          "Action": {
+            "type": "System.String",
+            "isMandatory": true,
+            "position": 1,
+            "defaultValue": null
+          },
+          "VMList": {
+            "type": "System.String",
+            "isMandatory": false,
+            "position": 2,
+            "defaultValue": null
+          }
+        },
+        "jobCount": 0,
+        "serviceManagementTags": null,
+        "outputTypes": [],
+        "lastModifiedBy": null
+      }
+    }
+  ],
+  "outputs": {}
+}

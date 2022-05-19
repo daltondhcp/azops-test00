@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.OperationsManagement/solutions",
+      "name": "VMInsights(test34-law)",
+      "apiVersion": "2015-11-01-preview",
+      "location": "West Europe",
+      "tags": null,
+      "properties": {
+        "workspaceResourceId": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourcegroups/test34-mgmt/providers/Microsoft.OperationalInsights/workspaces/test34-law",
+        "containedResources": [],
+        "workbookTemplates": []
+      }
+    }
+  ],
+  "outputs": {}
+}
