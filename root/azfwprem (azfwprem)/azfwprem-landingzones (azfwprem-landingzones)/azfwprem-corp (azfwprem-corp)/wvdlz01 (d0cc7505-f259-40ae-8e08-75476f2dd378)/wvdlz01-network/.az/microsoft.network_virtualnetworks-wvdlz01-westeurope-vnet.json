@@ -1,0 +1,110 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Network/virtualNetworks",
+      "name": "wvdlz01-westeurope-vnet",
+      "apiVersion": "2022-01-01",
+      "location": "westeurope",
+      "tags": null,
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "10.30.0.0/20"
+          ]
+        },
+        "dhcpOptions": {
+          "dnsServers": [
+            "10.254.1.4",
+            "10.254.1.5"
+          ]
+        },
+        "subnets": [
+          {
+            "name": "sessionhost01",
+            "id": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/wvdlz01-network/providers/Microsoft.Network/virtualNetworks/wvdlz01-westeurope-vnet/subnets/sessionhost01",
+            "properties": {
+              "addressPrefix": "10.30.0.0/23",
+              "networkSecurityGroup": {
+                "id": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/wvdlz01-network/providers/Microsoft.Network/networkSecurityGroups/wvdnsg01"
+              },
+              "ipConfigurations": [
+                {
+                  "id": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/wvdlz01-network/providers/Microsoft.Network/networkInterfaces/test60/ipConfigurations/ipconfig1"
+                },
+                {
+                  "id": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/wvdlz01-network/providers/Microsoft.Network/networkInterfaces/test1.nic.f855a537-fe16-4585-ab62-fa1372c2782f/ipConfigurations/blob-blob.privateEndpoint"
+                },
+                {
+                  "id": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/aks/providers/Microsoft.Network/networkInterfaces/test01685/ipConfigurations/ipconfig1"
+                }
+              ],
+              "privateEndpoints": [
+                {
+                  "id": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/wvdlz01-network/providers/Microsoft.Network/privateEndpoints/test1"
+                }
+              ],
+              "serviceEndpoints": [
+                {
+                  "service": "Microsoft.Storage",
+                  "locations": [
+                    "westeurope",
+                    "northeurope"
+                  ]
+                }
+              ],
+              "delegations": [],
+              "purpose": "PrivateEndpoints",
+              "privateEndpointNetworkPolicies": "Disabled",
+              "privateLinkServiceNetworkPolicies": "Enabled"
+            },
+            "type": "Microsoft.Network/virtualNetworks/subnets"
+          }
+        ],
+        "virtualNetworkPeerings": [
+          {
+            "name": "RemoteVnetToHubPeering_96743e11-676d-4be9-af76-57985a17a514",
+            "id": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/wvdlz01-network/providers/Microsoft.Network/virtualNetworks/wvdlz01-westeurope-vnet/virtualNetworkPeerings/RemoteVnetToHubPeering_96743e11-676d-4be9-af76-57985a17a514",
+            "properties": {
+              "peeringState": "Connected",
+              "peeringSyncLevel": "FullyInSync",
+              "remoteVirtualNetwork": {
+                "id": "/subscriptions/32eb6048-ff1b-41ba-b687-ec73b2e45910/resourceGroups/RG_azwe_f1a8a3c2-c7dd-4327-ac7b-abdf9551f1f1/providers/Microsoft.Network/virtualNetworks/HV_azwe_5e3d7df1-5c01-4b2c-a83b-5f6c949f5a89"
+              },
+              "allowVirtualNetworkAccess": true,
+              "allowForwardedTraffic": false,
+              "allowGatewayTransit": false,
+              "useRemoteGateways": true,
+              "doNotVerifyRemoteGateways": true,
+              "peerCompleteVnets": true,
+              "remoteAddressSpace": {
+                "addressPrefixes": [
+                  "10.0.0.0/16"
+                ]
+              },
+              "remoteVirtualNetworkAddressSpace": {
+                "addressPrefixes": [
+                  "10.0.0.0/16"
+                ]
+              },
+              "routeServiceVips": {
+                "60429412-b3ed-4c66-9f2d-98ea9b6f8a4c": "51.105.116.22"
+              }
+            },
+            "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings"
+          }
+        ],
+        "enableDdosProtection": false
+      }
+    }
+  ],
+  "outputs": {}
+}
