@@ -6,15 +6,15 @@
       "value": {
         "Name": "Deploy-ASC-Config",
         "ResourceType": "Microsoft.Authorization/policySetDefinitions",
-        "properties": {
-          "displayName": "Deploy Azure Security Center configuration",
-          "policyType": "Custom",
-          "description": "Deploy Azure Security Center configuration",
-          "metadata": {
+        "PolicySetDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policySetDefinitions/Deploy-ASC-Config",
+        "Properties": {
+          "Description": "Deploy Azure Security Center configuration",
+          "DisplayName": "Deploy Azure Security Center configuration",
+          "Metadata": {
             "version": "1.0.0",
             "category": "Security Center"
           },
-          "parameters": {
+          "Parameters": {
             "emailSecurityContact": {
               "type": "string",
               "metadata": {
@@ -165,7 +165,8 @@
               "defaultValue": "Standard"
             }
           },
-          "policyDefinitions": [
+          "PolicyDefinitionGroups": null,
+          "PolicyDefinitions": [
             {
               "policyDefinitionReferenceId": "defenderForVM",
               "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-ASC-Defender-VMs",

@@ -6,16 +6,15 @@
       "value": {
         "Name": "Deploy-Nsg-FlowLogs-to-LA",
         "ResourceType": "Microsoft.Authorization/policyDefinitions",
-        "properties": {
-          "displayName": "Deploys NSG flow logs and traffic analytics to Log Analytics",
-          "policyType": "Custom",
-          "mode": "Indexed",
-          "description": "Deploys NSG flow logs and traffic analytics to Log Analytics with a specfied retention period.",
-          "metadata": {
+        "Properties": {
+          "Description": "Deploys NSG flow logs and traffic analytics to Log Analytics with a specfied retention period.",
+          "DisplayName": "Deploys NSG flow logs and traffic analytics to Log Analytics",
+          "Metadata": {
             "version": "1.1.0",
             "category": "Monitoring"
           },
-          "parameters": {
+          "Mode": "Indexed",
+          "Parameters": {
             "retention": {
               "type": "Integer",
               "metadata": {
@@ -52,7 +51,7 @@
               "defaultValue": "DeployIfNotExists"
             }
           },
-          "policyRule": {
+          "PolicyRule": {
             "if": {
               "allOf": [
                 {

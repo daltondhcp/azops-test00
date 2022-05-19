@@ -15,11 +15,14 @@
       "apiVersion": "2021-06-01",
       "location": null,
       "properties": {
-        "displayName": "Subnets should have a Network Security Group",
-        "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deny-Subnet-Without-Nsg",
-        "scope": "/providers/Microsoft.Management/managementGroups/azfwprem-landingzones",
-        "description": "This policy denies the creation of a subnet without a Network Security Group to protect traffic across subnets.",
-        "enforcementMode": "Default"
+        "Scope": "/providers/Microsoft.Management/managementGroups/azfwprem-landingzones",
+        "NotScopes": null,
+        "DisplayName": "Subnets should have a Network Security Group",
+        "Description": "This policy denies the creation of a subnet without a Network Security Group to protect traffic across subnets.",
+        "EnforcementMode": "Default",
+        "PolicyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deny-Subnet-Without-Nsg",
+        "Parameters": null,
+        "NonComplianceMessages": null
       }
     }
   ],

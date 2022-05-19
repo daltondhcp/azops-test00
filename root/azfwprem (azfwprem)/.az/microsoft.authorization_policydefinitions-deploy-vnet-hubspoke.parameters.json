@@ -6,16 +6,15 @@
       "value": {
         "Name": "Deploy-VNET-HubSpoke",
         "ResourceType": "Microsoft.Authorization/policyDefinitions",
-        "properties": {
-          "displayName": "Deploy Virtual Network with peering to the hub",
-          "policyType": "Custom",
-          "mode": "All",
-          "description": "This policy deploys virtual network and peer to the hub",
-          "metadata": {
+        "Properties": {
+          "Description": "This policy deploys virtual network and peer to the hub",
+          "DisplayName": "Deploy Virtual Network with peering to the hub",
+          "Metadata": {
             "version": "1.1.0",
             "category": "Network"
           },
-          "parameters": {
+          "Mode": "All",
+          "Parameters": {
             "vNetName": {
               "type": "String",
               "metadata": {
@@ -68,7 +67,7 @@
               "defaultValue": false
             }
           },
-          "policyRule": {
+          "PolicyRule": {
             "if": {
               "allOf": [
                 {

@@ -6,16 +6,15 @@
       "value": {
         "Name": "Deny-AA-child-resources",
         "ResourceType": "Microsoft.Authorization/policyDefinitions",
-        "properties": {
-          "displayName": "No child resources in Automation Account",
-          "policyType": "Custom",
-          "mode": "Indexed",
-          "description": "This policy denies the creation of child resources on the Automation Account",
-          "metadata": {
+        "Properties": {
+          "Description": "This policy denies the creation of child resources on the Automation Account",
+          "DisplayName": "No child resources in Automation Account",
+          "Metadata": {
             "version": "1.0.0",
             "category": "Automation"
           },
-          "parameters": {
+          "Mode": "Indexed",
+          "Parameters": {
             "effect": {
               "type": "String",
               "metadata": {
@@ -30,7 +29,7 @@
               "defaultValue": "Deny"
             }
           },
-          "policyRule": {
+          "PolicyRule": {
             "if": {
               "allOf": [
                 {

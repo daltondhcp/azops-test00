@@ -6,16 +6,15 @@
       "value": {
         "Name": "Deny-RDP-From-Internet",
         "ResourceType": "Microsoft.Authorization/policyDefinitions",
-        "properties": {
-          "displayName": "RDP access from the Internet should be blocked",
-          "policyType": "Custom",
-          "mode": "All",
-          "description": "This policy denies any network security rule that allows RDP access from Internet",
-          "metadata": {
+        "Properties": {
+          "Description": "This policy denies any network security rule that allows RDP access from Internet",
+          "DisplayName": "RDP access from the Internet should be blocked",
+          "Metadata": {
             "version": "1.0.0",
             "category": "Network"
           },
-          "parameters": {
+          "Mode": "All",
+          "Parameters": {
             "effect": {
               "type": "String",
               "metadata": {
@@ -30,7 +29,7 @@
               "defaultValue": "Deny"
             }
           },
-          "policyRule": {
+          "PolicyRule": {
             "if": {
               "allOf": [
                 {

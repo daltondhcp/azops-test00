@@ -6,16 +6,15 @@
       "value": {
         "Name": "Deploy-Default-Udr",
         "ResourceType": "Microsoft.Authorization/policyDefinitions",
-        "properties": {
-          "displayName": "Deploy a user-defined route to a VNET with specific routes.",
-          "policyType": "Custom",
-          "mode": "Indexed",
-          "description": "Deploy a user-defined route to a VNET with routes from spoke to hub firewall. This policy must be assigned for each region you plan to use.",
-          "metadata": {
+        "Properties": {
+          "Description": "Deploy a user-defined route to a VNET with routes from spoke to hub firewall. This policy must be assigned for each region you plan to use.",
+          "DisplayName": "Deploy a user-defined route to a VNET with specific routes.",
+          "Metadata": {
             "version": "1.0.0",
             "category": "Network"
           },
-          "parameters": {
+          "Mode": "Indexed",
+          "Parameters": {
             "defaultRoute": {
               "type": "String",
               "metadata": {
@@ -44,7 +43,7 @@
               "defaultValue": "DeployIfNotExists"
             }
           },
-          "policyRule": {
+          "PolicyRule": {
             "if": {
               "allOf": [
                 {
