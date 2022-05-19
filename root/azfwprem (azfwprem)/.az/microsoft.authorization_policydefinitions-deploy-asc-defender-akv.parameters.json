@@ -6,16 +6,15 @@
       "value": {
         "Name": "Deploy-ASC-Defender-AKV",
         "ResourceType": "Microsoft.Authorization/policyDefinitions",
-        "properties": {
-          "displayName": "Deploy Azure Defender for AKV",
-          "policyType": "Custom",
-          "mode": "All",
-          "description": "Deploy the Azure Defender settings for Azure Key Vault",
-          "metadata": {
+        "Properties": {
+          "Description": "Deploy the Azure Defender settings for Azure Key Vault",
+          "DisplayName": "Deploy Azure Defender for AKV",
+          "Metadata": {
             "version": "1.0.0",
             "category": "Security Center"
           },
-          "parameters": {
+          "Mode": "All",
+          "Parameters": {
             "pricingTier": {
               "type": "string",
               "metadata": {
@@ -41,7 +40,7 @@
               "defaultValue": "DeployIfNotExists"
             }
           },
-          "policyRule": {
+          "PolicyRule": {
             "if": {
               "allOf": [
                 {

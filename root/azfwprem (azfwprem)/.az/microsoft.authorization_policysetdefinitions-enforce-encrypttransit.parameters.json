@@ -6,15 +6,15 @@
       "value": {
         "Name": "Enforce-EncryptTransit",
         "ResourceType": "Microsoft.Authorization/policySetDefinitions",
-        "properties": {
-          "displayName": "Deny or Deploy and append TLS requirements and SSL enforcement on resources without Encryption in transit",
-          "policyType": "Custom",
-          "description": "Choose either Deploy if not exist and append in combination with audit or Select Deny in the Policy effect. Deny polices shift left. Deploy if not exist and append enforce but can be changed, and because missing exsistense condition require then the combination of Audit. ",
-          "metadata": {
+        "PolicySetDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policySetDefinitions/Enforce-EncryptTransit",
+        "Properties": {
+          "Description": "Choose either Deploy if not exist and append in combination with audit or Select Deny in the Policy effect. Deny polices shift left. Deploy if not exist and append enforce but can be changed, and because missing exsistense condition require then the combination of Audit. ",
+          "DisplayName": "Deny or Deploy and append TLS requirements and SSL enforcement on resources without Encryption in transit",
+          "Metadata": {
             "version": "1.0.0",
             "category": "Encryption"
           },
-          "parameters": {
+          "Parameters": {
             "AppServiceHttpEffect": {
               "type": "String",
               "metadata": {
@@ -371,7 +371,8 @@
               "defaultValue": "Audit"
             }
           },
-          "policyDefinitions": [
+          "PolicyDefinitionGroups": null,
+          "PolicyDefinitions": [
             {
               "policyDefinitionReferenceId": "AppServiceHttpEffect",
               "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Append-AppService-httpsonly",

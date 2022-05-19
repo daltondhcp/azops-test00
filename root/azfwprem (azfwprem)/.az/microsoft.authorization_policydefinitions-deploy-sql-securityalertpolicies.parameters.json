@@ -6,16 +6,15 @@
       "value": {
         "Name": "Deploy-Sql-SecurityAlertPolicies",
         "ResourceType": "Microsoft.Authorization/policyDefinitions",
-        "properties": {
-          "displayName": "Deploy SQL Database security Alert Policies configuration with email admin accounts",
-          "policyType": "Custom",
-          "mode": "Indexed",
-          "description": "Deploy the security Alert Policies configuration with email admin accounts when it not exist in current configuration",
-          "metadata": {
+        "Properties": {
+          "Description": "Deploy the security Alert Policies configuration with email admin accounts when it not exist in current configuration",
+          "DisplayName": "Deploy SQL Database security Alert Policies configuration with email admin accounts",
+          "Metadata": {
             "version": "1.0.0",
             "category": "SQL"
           },
-          "parameters": {
+          "Mode": "Indexed",
+          "Parameters": {
             "effect": {
               "type": "String",
               "metadata": {
@@ -29,7 +28,7 @@
               "defaultValue": "DeployIfNotExists"
             }
           },
-          "policyRule": {
+          "PolicyRule": {
             "if": {
               "field": "type",
               "equals": "Microsoft.Sql/servers/databases"

@@ -6,16 +6,15 @@
       "value": {
         "Name": "Deploy-ASC-SecurityContacts",
         "ResourceType": "Microsoft.Authorization/policyDefinitions",
-        "properties": {
-          "displayName": "Deploy Azure Security Center Security Contacts",
-          "policyType": "Custom",
-          "mode": "All",
-          "description": "Deploy Azure Security Center Security Contacts",
-          "metadata": {
+        "Properties": {
+          "Description": "Deploy Azure Security Center Security Contacts",
+          "DisplayName": "Deploy Azure Security Center Security Contacts",
+          "Metadata": {
             "version": "1.0.0",
             "category": "Security Center"
           },
-          "parameters": {
+          "Mode": "All",
+          "Parameters": {
             "emailSecurityContact": {
               "type": "string",
               "metadata": {
@@ -36,7 +35,7 @@
               "defaultValue": "DeployIfNotExists"
             }
           },
-          "policyRule": {
+          "PolicyRule": {
             "if": {
               "allOf": [
                 {

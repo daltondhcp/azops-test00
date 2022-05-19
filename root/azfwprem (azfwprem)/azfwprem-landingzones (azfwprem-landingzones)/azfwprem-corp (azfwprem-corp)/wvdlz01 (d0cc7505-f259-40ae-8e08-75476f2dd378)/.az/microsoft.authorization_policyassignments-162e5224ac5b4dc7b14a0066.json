@@ -15,12 +15,14 @@
       "apiVersion": "2021-06-01",
       "location": null,
       "properties": {
-        "displayName": "Deny Subnet without NSG",
-        "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/ctx01/providers/Microsoft.Authorization/policyDefinitions/b038db07-4ca5-424b-9643-f8eef8db4ca8",
-        "scope": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378",
-        "notScopes": [],
-        "parameters": {},
-        "enforcementMode": "DoNotEnforce"
+        "Scope": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378",
+        "NotScopes": [],
+        "DisplayName": "Deny Subnet without NSG",
+        "Description": null,
+        "EnforcementMode": "DoNotEnforce",
+        "PolicyDefinitionId": "/providers/Microsoft.Management/managementGroups/ctx01/providers/Microsoft.Authorization/policyDefinitions/b038db07-4ca5-424b-9643-f8eef8db4ca8",
+        "Parameters": {},
+        "NonComplianceMessages": null
       }
     }
   ],

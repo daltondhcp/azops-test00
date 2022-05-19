@@ -6,16 +6,15 @@
       "value": {
         "Name": "Deny-VNet-Peering",
         "ResourceType": "Microsoft.Authorization/policyDefinitions",
-        "properties": {
-          "displayName": "Deny vNet peering ",
-          "policyType": "Custom",
-          "mode": "All",
-          "description": "This policy denies the creation of vNet Peerings under the assigned scope.",
-          "metadata": {
+        "Properties": {
+          "Description": "This policy denies the creation of vNet Peerings under the assigned scope.",
+          "DisplayName": "Deny vNet peering ",
+          "Metadata": {
             "version": "1.0.1",
             "category": "Network"
           },
-          "parameters": {
+          "Mode": "All",
+          "Parameters": {
             "effect": {
               "type": "String",
               "metadata": {
@@ -30,7 +29,7 @@
               "defaultValue": "Deny"
             }
           },
-          "policyRule": {
+          "PolicyRule": {
             "if": {
               "field": "type",
               "equals": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings"
