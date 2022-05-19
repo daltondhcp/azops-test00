@@ -8,7 +8,7 @@
         "ResourceType": "Microsoft.Authorization/policySetDefinitions",
         "PolicySetDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policySetDefinitions/Enforce-Encryption-CMK",
         "Properties": {
-          "Description": "Deny or Audit resources without Encryption with a customer-managed key (CMK)",
+          "Description": "Deny or A udit resources without Encryption with a customer-managed key (CMK)",
           "DisplayName": "Deny or Audit resources without Encryption with a customer-managed key (CMK)",
           "Metadata": {
             "version": "1.0.0",
