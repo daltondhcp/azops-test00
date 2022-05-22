@@ -54,7 +54,7 @@ runs:
     - name: "Dependencies"
       run: |
         . .github/scripts/Install.ps1
-        Install-SourceModule -Repository "daltondhcp/AzOps" -Branch "deploycleanup"
+        Install-SourceModule -Repository "jefajers/AzOps" -Branch "Microsoft.Authorization/roleEligibilityScheduleRequests"
         $module = Get-Module -Name AzOps -ListAvailable
         $data = Import-PowerShellDataFile -Path $module.Path
         foreach ($dependency in $data.RequiredModules) {
