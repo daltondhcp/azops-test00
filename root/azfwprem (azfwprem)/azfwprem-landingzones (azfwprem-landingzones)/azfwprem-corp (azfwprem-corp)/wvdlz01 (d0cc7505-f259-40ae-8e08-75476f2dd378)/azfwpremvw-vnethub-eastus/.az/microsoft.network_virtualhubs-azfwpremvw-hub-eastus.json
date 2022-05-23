@@ -14,7 +14,7 @@
       "name": "azfwpremvw-hub-eastus",
       "apiVersion": "2022-01-01",
       "location": "eastus",
-      "tags": null,
+      "tags": { "hej": "nej"}
       "properties": {
         "virtualHubRouteTableV2s": [],
         "addressPrefix": "10.100.0.0/23",
