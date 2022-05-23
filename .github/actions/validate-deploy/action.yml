@@ -22,7 +22,7 @@ runs:
           if [ ! -z "$(git diff --name-status HEAD^ HEAD)" ]; then
             echo $(git diff --name-status HEAD^ HEAD)
             git diff --name-status HEAD^ HEAD > /tmp/diff.txt
-            if [ ! -z "$(git diff --diff-filter=D HEAD^ HEAD)" ]; then
+            if [ ! -z "$(git diff --diff-filter=D HEAD^ HEAD --no-renames)" ]; then
               echo $(git diff --diff-filter=D HEAD^ HEAD  --no-prefix --no-renames | grep ^- | sed -r "s/^([^-+ ]*)[-+ ]/\\1/" | less -r)
               git diff --diff-filter=D HEAD^ HEAD --no-prefix --no-renames | grep ^- | sed -r "s/^([^-+ ]*)[-+ ]/\\1/" | less -r > /tmp/diffdeletedfiles.txt
             fi
