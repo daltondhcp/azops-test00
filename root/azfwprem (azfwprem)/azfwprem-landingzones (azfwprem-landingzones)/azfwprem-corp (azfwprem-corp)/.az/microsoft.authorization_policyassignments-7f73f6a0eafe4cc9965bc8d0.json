@@ -20,7 +20,7 @@
         "Type": "SystemAssigned"
       },
       "properties": {
-        "Scope": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378",
+        "Scope": "/providers/Microsoft.Management/managementGroups/azfwprem-corp",
         "NotScopes": [],
         "DisplayName": "Deploy-UDR",
         "Description": null,
