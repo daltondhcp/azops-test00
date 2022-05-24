@@ -45,7 +45,7 @@
         }
       },
       "dependsOn": [
-        "/providers/Microsoft.Management/managementGroups/azfwprem-connectivity"
+        "Microsoft.Management/managementGroups/azfwprem-connectivity"
       ]
     }
   ],
