@@ -21,7 +21,7 @@
           {
             "name": "ipconfig1",
             "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/auto/providers/Microsoft.Network/networkInterfaces/mitest553/ipConfigurations/ipconfig1",
-            "etag": "W/\"a4b20d5a-1f8f-4648-a664-175ebd986f70\"",
+            "etag": "W/\"788cdec0-4979-43f7-a100-aa8948f8529c\"",
             "type": "Microsoft.Network/networkInterfaces/ipConfigurations",
             "properties": {
               "provisioningState": "Succeeded",
@@ -40,8 +40,7 @@
         ],
         "dnsSettings": {
           "dnsServers": [],
-          "appliedDnsServers": [],
-          "internalDomainNameSuffix": "oqwz00ugulvexp1m2pffoasp1h.ax.internal.cloudapp.net"
+          "appliedDnsServers": []
         },
         "macAddress": "00-0D-3A-AC-4C-C0",
         "enableAcceleratedNetworking": true,
