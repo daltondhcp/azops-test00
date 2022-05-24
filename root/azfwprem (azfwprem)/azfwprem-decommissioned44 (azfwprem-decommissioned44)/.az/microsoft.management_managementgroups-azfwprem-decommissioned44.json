@@ -38,7 +38,7 @@
         }
       },
       "dependsOn": [
-        "/providers/Microsoft.Management/managementGroups/azfwprem-decommissioned44"
+        "Microsoft.Management/managementGroups/azfwprem-decommissioned44"
       ]
     }
   ],

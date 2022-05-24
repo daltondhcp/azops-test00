@@ -33,41 +33,12 @@
         "template": {
           "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
           "contentVersion": "1.0.0.0",
-          "resources": [
-            {
-              "type": "Microsoft.Management/managementGroups",
-              "apiVersion": "2020-05-01",
-              "name": "azfwprem-online",
-              "scope": "/",
-              "properties": {
-                "displayName": "azfwprem-online",
-                "details": {
-                  "parent": {
-                    "id": "/providers/Microsoft.Management/managementGroups/azfwprem-landingzones"
-                  }
-                }
-              }
-            },
-            {
-              "type": "Microsoft.Management/managementGroups",
-              "apiVersion": "2020-05-01",
-              "name": "azfwprem-corp",
-              "scope": "/",
-              "properties": {
-                "displayName": "azfwprem-corp",
-                "details": {
-                  "parent": {
-                    "id": "/providers/Microsoft.Management/managementGroups/azfwprem-landingzones"
-                  }
-                }
-              }
-            }
-          ],
+          "resources": [],
           "outputs": {}
         }
       },
       "dependsOn": [
-        "/providers/Microsoft.Management/managementGroups/azfwprem-landingzones"
+        "Microsoft.Management/managementGroups/azfwprem-landingzones"
       ]
     }
   ],
