@@ -1,0 +1,38 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Network/localNetworkGateways",
+      "name": "localnetworktest",
+      "apiVersion": "2022-01-01",
+      "location": "westeurope",
+      "tags": null,
+      "properties": {
+        "localNetworkAddressSpace": {
+          "addressPrefixes": [
+            "10.0.0.0/9",
+            "10.128.0.0/10",
+            "10.192.0.0/14",
+            "10.197.0.0/16",
+            "10.198.0.0/16",
+            "10.200.0.0/13",
+            "10.208.0.0/12",
+            "10.224.0.0/11",
+            "192.168.0.0/16",
+            "172.16.0.0/12"
+          ]
+        },
+        "gatewayIpAddress": "80.84.36.60"
+      }
+    }
+  ],
+  "outputs": {}
+}

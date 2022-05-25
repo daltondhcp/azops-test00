@@ -1,0 +1,27 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/policyExemptions",
+      "name": "23e95cd7664c44b6be50d8e6",
+      "apiVersion": "2020-07-01-preview",
+      "properties": {
+        "PolicyAssignmentId": "/providers/Microsoft.Management/managementGroups/ctx01/providers/Microsoft.Authorization/policyAssignments/50f7f9d84f25429ca51cbda6",
+        "PolicyDefinitionReferenceIds": [],
+        "ExemptionCategory": "Waiver",
+        "DisplayName": "connectivity - Deploy-DNSZ neGroup-AKS",
+        "Description": "cheesebat",
+        "ExpiresOn": null
+      }
+    }
+  ],
+  "outputs": {}
+}

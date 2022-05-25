@@ -1,0 +1,43 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/policyAssignments",
+      "name": "0b490ff1dfa940b890f17e3c",
+      "apiVersion": "2021-06-01",
+      "location": null,
+      "properties": {
+        "Scope": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/azfwpremvw-ddos",
+        "NotScopes": [],
+        "DisplayName": "Deny internet inbound",
+        "Description": "",
+        "EnforcementMode": "Default",
+        "PolicyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/a509d105-a526-4afe-afd7-6bb21f03add7",
+        "Parameters": {
+          "deniedPorts": {
+            "value": [
+              "22",
+              "3389",
+              "3390"
+            ]
+          }
+        },
+        "NonComplianceMessages": [
+          {
+            "Message": "This is not allowed sir",
+            "PolicyDefinitionReferenceId": null
+          }
+        ]
+      }
+    }
+  ],
+  "outputs": {}
+}

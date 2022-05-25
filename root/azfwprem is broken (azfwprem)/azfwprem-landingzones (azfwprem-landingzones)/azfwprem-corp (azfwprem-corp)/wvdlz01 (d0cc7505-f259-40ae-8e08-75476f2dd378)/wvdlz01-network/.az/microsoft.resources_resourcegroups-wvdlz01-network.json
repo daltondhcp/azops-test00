@@ -1,0 +1,30 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Resources/resourceGroups",
+      "name": "wvdlz01-network",
+      "apiVersion": "2019-05-01",
+      "location": "westeurope",
+      "tags": {
+        "CostCenter": "cheese",
+        "Tag1": "tag1value",
+        "Tag2": "tag2valeu",
+        "Tag3": "Tag3Value",
+        "environment": "production",
+        "hey": "1234",
+        "serviceowner": "johan"
+      },
+      "properties": {}
+    }
+  ],
+  "outputs": {}
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Network/routeTables",
+      "name": "testrt",
+      "apiVersion": "2022-01-01",
+      "location": "westeurope",
+      "tags": null,
+      "properties": {
+        "disableBgpRoutePropagation": false,
+        "routes": [
+          {
+            "name": "DefaultRoute",
+            "id": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/wvdlz01-network/providers/Microsoft.Network/routeTables/testrt/routes/DefaultRoute",
+            "etag": "W/\"6541aee8-c751-4055-91a5-668b84506e02\"",
+            "properties": {
+              "provisioningState": "Succeeded",
+              "addressPrefix": "0.0.0.0/0",
+              "nextHopType": "VirtualAppliance",
+              "nextHopIpAddress": "10.100.0.4",
+              "hasBgpOverride": false
+            },
+            "type": "Microsoft.Network/routeTables/routes"
+          }
+        ]
+      }
+    }
+  ],
+  "outputs": {}
+}

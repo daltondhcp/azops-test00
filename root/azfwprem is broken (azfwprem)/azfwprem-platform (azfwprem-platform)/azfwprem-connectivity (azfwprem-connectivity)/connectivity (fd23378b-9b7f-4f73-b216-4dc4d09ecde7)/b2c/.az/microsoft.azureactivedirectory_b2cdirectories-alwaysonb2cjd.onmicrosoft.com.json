@@ -1,0 +1,36 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.AzureActiveDirectory/b2cDirectories",
+      "name": "alwaysonb2cjd.onmicrosoft.com",
+      "sku": {
+        "Name": "PremiumP1",
+        "Tier": "A0",
+        "Size": null,
+        "Family": null,
+        "Model": null,
+        "Capacity": null
+      },
+      "apiVersion": "2021-04-01-preview",
+      "location": "Europe",
+      "tags": null,
+      "properties": {
+        "billingConfig": {
+          "billingType": "MAU",
+          "effectiveStartDateUtc": "1/1/0001 12:00:00 AM"
+        },
+        "tenantId": "765bf455-83c8-4752-a7f8-4a01d9491253"
+      }
+    }
+  ],
+  "outputs": {}
+}
