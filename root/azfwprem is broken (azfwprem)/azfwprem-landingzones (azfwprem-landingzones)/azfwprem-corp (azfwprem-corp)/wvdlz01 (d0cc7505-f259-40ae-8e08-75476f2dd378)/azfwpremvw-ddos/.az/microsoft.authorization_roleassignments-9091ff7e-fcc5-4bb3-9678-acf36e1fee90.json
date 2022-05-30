@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/roleAssignments",
+      "name": "9091ff7e-fcc5-4bb3-9678-acf36e1fee90",
+      "apiVersion": "2022-01-01-preview",
+      "properties": {
+        "DisplayName": "Adele Vance",
+        "ObjectType": "User",
+        "PrincipalId": "e20c40b1-88b0-40f5-af82-5c74ee70e66d",
+        "RoleDefinitionId": "/providers/Microsoft.Authorization/RoleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c",
+        "RoleDefinitionName": "Contributor"
+      }
+    }
+  ],
+  "outputs": {}
+}

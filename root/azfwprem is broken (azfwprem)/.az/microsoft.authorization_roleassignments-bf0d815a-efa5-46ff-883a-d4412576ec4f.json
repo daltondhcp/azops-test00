@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/roleAssignments",
+      "name": "bf0d815a-efa5-46ff-883a-d4412576ec4f",
+      "apiVersion": "2022-01-01-preview",
+      "properties": {
+        "DisplayName": "azops-3",
+        "ObjectType": "ServicePrincipal",
+        "PrincipalId": "6b76aeb5-f4f8-4e60-8753-e3ecfd39cf61",
+        "RoleDefinitionId": "/providers/Microsoft.Authorization/RoleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
+        "RoleDefinitionName": "Reader"
+      }
+    }
+  ],
+  "outputs": {}
+}

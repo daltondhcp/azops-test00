@@ -36,8 +36,7 @@
             "managedDisk": {
               "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/AUTO/providers/Microsoft.Compute/disks/mitest_OsDisk_1_139eef30c8df443e8dcaa395dbb83a39"
             },
-            "deleteOption": "Detach",
-            "diskSizeGB": 30
+            "deleteOption": "Detach"
           },
           "dataDisks": []
         },

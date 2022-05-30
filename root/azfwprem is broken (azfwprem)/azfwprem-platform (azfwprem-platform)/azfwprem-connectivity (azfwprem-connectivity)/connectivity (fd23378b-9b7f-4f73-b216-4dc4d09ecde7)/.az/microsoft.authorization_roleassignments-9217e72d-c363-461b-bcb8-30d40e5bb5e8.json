@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/roleAssignments",
+      "name": "9217e72d-c363-461b-bcb8-30d40e5bb5e8",
+      "apiVersion": "2022-01-01-preview",
+      "properties": {
+        "DisplayName": "PowerTest",
+        "ObjectType": "ServicePrincipal",
+        "PrincipalId": "4bf3e19b-2dc2-4d6d-b559-c40bf46722a8",
+        "RoleDefinitionId": "/providers/Microsoft.Authorization/RoleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
+        "RoleDefinitionName": "Reader"
+      }
+    }
+  ],
+  "outputs": {}
+}
