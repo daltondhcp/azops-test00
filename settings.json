@@ -27,7 +27,7 @@
             "Core.SkipResource": false,
             "Core.SkipChildResource": true,
             "Core.SkipResourceGroup": false,
-            "Core.SkipResourceType": [
+            "Core.SkipResourceType": [''
             ],
             "Core.SkipRole": false,
             "Core.SubscriptionsToIncludeResourceGroups": "*",
