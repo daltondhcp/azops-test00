@@ -15,7 +15,10 @@
       "apiVersion": "2020-10-30-preview",
       "location": "europe",
       "tags": null,
-      "properties": null
+      "properties": {
+        "systemId": "/regions/europe/providers/Microsoft.PowerPlatform/accounts/51a837ad-1980-4c16-941f-62934ba8d8fa",
+        "description": "Dedicated billing subscription for Power Platform tenant for North Star Architecture"
+      }
     }
   ],
   "outputs": {}
