@@ -27,9 +27,9 @@
             "Core.SkipResource": false,
             "Core.SkipChildResource": true,
             "Core.SkipResourceGroup": false,
-            "Core.SkipResourceType": [""
+            "Core.SkipResourceType": ["Microsoft.ContainerService/managedClusters"
             ],
-            "Core.IncludeResourceType": ["Microsoft.ContainerService/managedClusters"
+            "Core.IncludeResourceType": ['*'
             ],
             "Core.SkipRole": false,
             "Core.SubscriptionsToIncludeResourceGroups": "*",
