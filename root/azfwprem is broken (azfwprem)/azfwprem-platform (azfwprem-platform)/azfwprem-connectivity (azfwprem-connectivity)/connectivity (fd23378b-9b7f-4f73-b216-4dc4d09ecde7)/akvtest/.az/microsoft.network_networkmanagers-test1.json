@@ -1,0 +1,36 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Network/networkManagers",
+      "name": "test1",
+      "apiVersion": "2022-04-01-preview",
+      "location": "eastus",
+      "tags": {},
+      "properties": {
+        "displayName": "test1",
+        "description": "test1",
+        "networkManagerScopes": {
+          "managementGroups": [
+            "/providers/Microsoft.Management/managementGroups/azfwprem"
+          ],
+          "subscriptions": [],
+          "crossTenantScopes": []
+        },
+        "networkManagerScopeAccesses": [
+          "Connectivity",
+          "SecurityAdmin"
+        ]
+      }
+    }
+  ],
+  "outputs": {}
+}

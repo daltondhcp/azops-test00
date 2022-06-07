@@ -1,0 +1,58 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.ContainerRegistry/registries",
+      "name": "acr111a234",
+      "sku": {
+        "Name": "Standard",
+        "Tier": "Standard",
+        "Size": null,
+        "Family": null,
+        "Model": null,
+        "Capacity": null
+      },
+      "apiVersion": "2022-02-01-preview",
+      "location": "westeurope",
+      "tags": {},
+      "properties": {
+        "loginServer": "acr111a234.azurecr.io",
+        "adminUserEnabled": true,
+        "policies": {
+          "quarantinePolicy": {
+            "status": "disabled"
+          },
+          "trustPolicy": {
+            "type": "Notary",
+            "status": "disabled"
+          },
+          "retentionPolicy": {
+            "days": 7,
+            "status": "disabled"
+          },
+          "exportPolicy": {
+            "status": "enabled"
+          }
+        },
+        "encryption": {
+          "status": "disabled"
+        },
+        "dataEndpointEnabled": false,
+        "dataEndpointHostNames": [],
+        "privateEndpointConnections": [],
+        "publicNetworkAccess": "Enabled",
+        "networkRuleBypassOptions": "AzureServices",
+        "zoneRedundancy": "Disabled"
+      }
+    }
+  ],
+  "outputs": {}
+}

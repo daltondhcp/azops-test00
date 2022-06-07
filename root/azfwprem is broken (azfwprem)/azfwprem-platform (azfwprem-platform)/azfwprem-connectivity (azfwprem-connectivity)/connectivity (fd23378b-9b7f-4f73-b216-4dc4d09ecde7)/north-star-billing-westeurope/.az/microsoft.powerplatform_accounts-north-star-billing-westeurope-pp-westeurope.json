@@ -1,0 +1,25 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.PowerPlatform/accounts",
+      "name": "North-Star-billing-westeurope-PP-westeurope",
+      "apiVersion": "2020-10-30-preview",
+      "location": "europe",
+      "tags": null,
+      "properties": {
+        "systemId": "/regions/europe/providers/Microsoft.PowerPlatform/accounts/51a837ad-1980-4c16-941f-62934ba8d8fa",
+        "description": "Dedicated billing subscription for Power Platform tenant for North Star Architecture"
+      }
+    }
+  ],
+  "outputs": {}
+}
