@@ -1,0 +1,39 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Network/publicIPAddresses",
+      "name": "test01-ip",
+      "sku": {
+        "Name": "Standard",
+        "Tier": "Regional",
+        "Size": null,
+        "Family": null,
+        "Model": null,
+        "Capacity": null
+      },
+      "apiVersion": "2022-01-01",
+      "location": "westeurope",
+      "tags": null,
+      "properties": {
+        "ipAddress": "20.56.131.185",
+        "publicIPAddressVersion": "IPv4",
+        "publicIPAllocationMethod": "Static",
+        "idleTimeoutInMinutes": 4,
+        "ipTags": [],
+        "ipConfiguration": {
+          "id": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/aks/providers/Microsoft.Network/networkInterfaces/test01685/ipConfigurations/ipconfig1"
+        }
+      }
+    }
+  ],
+  "outputs": {}
+}

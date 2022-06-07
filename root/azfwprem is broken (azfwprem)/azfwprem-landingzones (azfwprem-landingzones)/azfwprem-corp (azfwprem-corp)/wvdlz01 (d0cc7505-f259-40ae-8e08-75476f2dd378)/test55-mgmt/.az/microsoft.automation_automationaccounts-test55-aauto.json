@@ -1,0 +1,50 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Automation/automationAccounts",
+      "name": "test55-aauto",
+      "apiVersion": "2021-06-22",
+      "location": "eastus2",
+      "tags": {},
+      "properties": {
+        "sku": {
+          "name": "Basic",
+          "family": null,
+          "capacity": null
+        },
+        "RegistrationUrl": "https://4821728d-90dd-484c-bc87-4d9b91f6bb04.agentsvc.eus2.azure-automation.net/accounts/4821728d-90dd-484c-bc87-4d9b91f6bb04",
+        "encryption": {
+          "keySource": "Microsoft.Automation",
+          "identity": {
+            "userAssignedIdentity": null
+          }
+        },
+        "privateEndpointConnections": [],
+        "automationHybridServiceUrl": "https://4821728d-90dd-484c-bc87-4d9b91f6bb04.jrds.eus2.azure-automation.net/automationAccounts/4821728d-90dd-484c-bc87-4d9b91f6bb04",
+        "RuntimeConfiguration": {
+          "powershell": {
+            "builtinModules": {
+              "Az": "6.5.0"
+            }
+          },
+          "powershell7": {
+            "builtinModules": {
+              "Az": "6.5.0"
+            }
+          }
+        },
+        "lastModifiedBy": null
+      }
+    }
+  ],
+  "outputs": {}
+}

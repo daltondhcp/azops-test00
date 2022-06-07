@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
+      "name": "test55-azops-umi",
+      "apiVersion": "2022-01-31-PREVIEW",
+      "location": "eastus2",
+      "tags": {},
+      "properties": {
+        "tenantId": "3114ebe8-8d3f-4bac-b3ce-59b4210a1287",
+        "principalId": "d3240b91-1b36-4195-8c88-031a562bc0a2",
+        "clientId": "8e191e55-fb22-4a28-8c6d-68a2dde364c5"
+      }
+    }
+  ],
+  "outputs": {}
+}
