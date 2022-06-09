@@ -11,21 +11,21 @@
   "resources": [
     {
       "type": "Microsoft.Authorization/policyAssignments",
-      "name": "ae0d6ffe37884fb292f80a72",
+      "name": "b631e841eec94f04a8f86393",
       "apiVersion": "2021-06-01",
       "location": "eastus",
       "identity": {
-        "PrincipalId": "590770f6-cdff-4ce9-a499-e10e0fbdbcf4",
+        "PrincipalId": "cc44d86a-3131-417b-b6e7-faa2e039621c",
         "TenantId": "3114ebe8-8d3f-4bac-b3ce-59b4210a1287",
         "Type": "SystemAssigned"
       },
       "properties": {
         "Scope": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378",
         "NotScopes": [],
-        "DisplayName": "Deploy-MDE",
+        "DisplayName": "mYdEPLOY-MDE",
         "Description": null,
         "EnforcementMode": "Default",
-        "PolicyDefinitionId": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/providers/Microsoft.Authorization/policyDefinitions/c35d7179-67a5-4d06-9b97-5e2daf519ffb",
+        "PolicyDefinitionId": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/providers/Microsoft.Authorization/policyDefinitions/d8d26049-3e13-4b29-af46-26c798d4d661",
         "Parameters": {},
         "NonComplianceMessages": []
       }
