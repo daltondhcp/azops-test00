@@ -20,7 +20,7 @@
           {
             "name": "SSH",
             "id": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/azfwpremvw-ddos/providers/Microsoft.Network/networkSecurityGroups/test01-nsg/securityRules/SSH",
-            "etag": "W/\"b0551e09-b897-4c84-9433-b3a75ed9d165\"",
+            "etag": "W/\"a2358d39-8193-4d1d-a85a-0598b8df324f\"",
             "type": "Microsoft.Network/networkSecurityGroups/securityRules",
             "properties": {
               "provisioningState": "Succeeded",
@@ -43,7 +43,7 @@
           {
             "name": "AllowVnetInBound",
             "id": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/azfwpremvw-ddos/providers/Microsoft.Network/networkSecurityGroups/test01-nsg/defaultSecurityRules/AllowVnetInBound",
-            "etag": "W/\"b0551e09-b897-4c84-9433-b3a75ed9d165\"",
+            "etag": "W/\"a2358d39-8193-4d1d-a85a-0598b8df324f\"",
             "type": "Microsoft.Network/networkSecurityGroups/defaultSecurityRules",
             "properties": {
               "provisioningState": "Succeeded",
@@ -65,7 +65,7 @@
           {
             "name": "AllowAzureLoadBalancerInBound",
             "id": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/azfwpremvw-ddos/providers/Microsoft.Network/networkSecurityGroups/test01-nsg/defaultSecurityRules/AllowAzureLoadBalancerInBound",
-            "etag": "W/\"b0551e09-b897-4c84-9433-b3a75ed9d165\"",
+            "etag": "W/\"a2358d39-8193-4d1d-a85a-0598b8df324f\"",
             "type": "Microsoft.Network/networkSecurityGroups/defaultSecurityRules",
             "properties": {
               "provisioningState": "Succeeded",
@@ -87,7 +87,7 @@
           {
             "name": "DenyAllInBound",
             "id": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/azfwpremvw-ddos/providers/Microsoft.Network/networkSecurityGroups/test01-nsg/defaultSecurityRules/DenyAllInBound",
-            "etag": "W/\"b0551e09-b897-4c84-9433-b3a75ed9d165\"",
+            "etag": "W/\"a2358d39-8193-4d1d-a85a-0598b8df324f\"",
             "type": "Microsoft.Network/networkSecurityGroups/defaultSecurityRules",
             "properties": {
               "provisioningState": "Succeeded",
@@ -109,7 +109,7 @@
           {
             "name": "AllowVnetOutBound",
             "id": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/azfwpremvw-ddos/providers/Microsoft.Network/networkSecurityGroups/test01-nsg/defaultSecurityRules/AllowVnetOutBound",
-            "etag": "W/\"b0551e09-b897-4c84-9433-b3a75ed9d165\"",
+            "etag": "W/\"a2358d39-8193-4d1d-a85a-0598b8df324f\"",
             "type": "Microsoft.Network/networkSecurityGroups/defaultSecurityRules",
             "properties": {
               "provisioningState": "Succeeded",
@@ -131,7 +131,7 @@
           {
             "name": "AllowInternetOutBound",
             "id": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/azfwpremvw-ddos/providers/Microsoft.Network/networkSecurityGroups/test01-nsg/defaultSecurityRules/AllowInternetOutBound",
-            "etag": "W/\"b0551e09-b897-4c84-9433-b3a75ed9d165\"",
+            "etag": "W/\"a2358d39-8193-4d1d-a85a-0598b8df324f\"",
             "type": "Microsoft.Network/networkSecurityGroups/defaultSecurityRules",
             "properties": {
               "provisioningState": "Succeeded",
@@ -153,7 +153,7 @@
           {
             "name": "DenyAllOutBound",
             "id": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/azfwpremvw-ddos/providers/Microsoft.Network/networkSecurityGroups/test01-nsg/defaultSecurityRules/DenyAllOutBound",
-            "etag": "W/\"b0551e09-b897-4c84-9433-b3a75ed9d165\"",
+            "etag": "W/\"a2358d39-8193-4d1d-a85a-0598b8df324f\"",
             "type": "Microsoft.Network/networkSecurityGroups/defaultSecurityRules",
             "properties": {
               "provisioningState": "Succeeded",
@@ -171,6 +171,11 @@
               "sourceAddressPrefixes": [],
               "destinationAddressPrefixes": []
             }
+          }
+        ],
+        "subnets": [
+          {
+            "id": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/mymg-vnet-westeurope/providers/Microsoft.Network/virtualNetworks/d0cc7505-f259-40ae-8e08-75476f2dd378-mymg-vnet-westeurope/subnets/subnet1"
           }
         ]
       }

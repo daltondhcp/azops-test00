@@ -24,7 +24,31 @@
         "dhcpOptions": {
           "dnsServers": []
         },
-        "subnets": [],
+        "subnets": [
+          {
+            "name": "subnet1",
+            "id": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/mymg-vnet-westeurope/providers/Microsoft.Network/virtualNetworks/d0cc7505-f259-40ae-8e08-75476f2dd378-mymg-vnet-westeurope/subnets/subnet1",
+            "properties": {
+              "addressPrefix": "172.16.200.0/24",
+              "networkSecurityGroup": {
+                "id": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/azfwpremvw-ddos/providers/Microsoft.Network/networkSecurityGroups/test01-nsg"
+              },
+              "ipConfigurations": [
+                {
+                  "id": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/azfwpremvw-ddos/providers/Microsoft.Compute/virtualMachineScaleSets/testvmss/virtualMachines/0/networkInterfaces/d0cc7505-f259-40ae-8e08-75476f2dd378-mymg-vnet-west-nic01/ipConfigurations/d0cc7505-f259-40ae-8e08-75476f2dd378-mymg-vnet-west-nic01-defaultIpConfiguration"
+                },
+                {
+                  "id": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/azfwpremvw-ddos/providers/Microsoft.Compute/virtualMachineScaleSets/testvmss/virtualMachines/1/networkInterfaces/d0cc7505-f259-40ae-8e08-75476f2dd378-mymg-vnet-west-nic01/ipConfigurations/d0cc7505-f259-40ae-8e08-75476f2dd378-mymg-vnet-west-nic01-defaultIpConfiguration"
+                }
+              ],
+              "serviceEndpoints": [],
+              "delegations": [],
+              "privateEndpointNetworkPolicies": "Enabled",
+              "privateLinkServiceNetworkPolicies": "Enabled"
+            },
+            "type": "Microsoft.Network/virtualNetworks/subnets"
+          }
+        ],
         "virtualNetworkPeerings": [
           {
             "name": "peerToHub",
