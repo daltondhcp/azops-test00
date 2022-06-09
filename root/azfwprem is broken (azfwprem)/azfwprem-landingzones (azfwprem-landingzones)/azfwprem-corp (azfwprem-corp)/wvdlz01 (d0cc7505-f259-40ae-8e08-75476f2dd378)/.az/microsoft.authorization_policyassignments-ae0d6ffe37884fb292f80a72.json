@@ -1,0 +1,35 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/policyAssignments",
+      "name": "ae0d6ffe37884fb292f80a72",
+      "apiVersion": "2021-06-01",
+      "location": "eastus",
+      "identity": {
+        "PrincipalId": "590770f6-cdff-4ce9-a499-e10e0fbdbcf4",
+        "TenantId": "3114ebe8-8d3f-4bac-b3ce-59b4210a1287",
+        "Type": "SystemAssigned"
+      },
+      "properties": {
+        "Scope": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378",
+        "NotScopes": [],
+        "DisplayName": "Deploy-MDE",
+        "Description": null,
+        "EnforcementMode": "Default",
+        "PolicyDefinitionId": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/providers/Microsoft.Authorization/policyDefinitions/c35d7179-67a5-4d06-9b97-5e2daf519ffb",
+        "Parameters": {},
+        "NonComplianceMessages": []
+      }
+    }
+  ],
+  "outputs": {}
+}
