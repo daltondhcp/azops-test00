@@ -14,11 +14,11 @@
       "name": "AzureActivity(test34-law)",
       "apiVersion": "2015-11-01-preview",
       "location": "West Europe",
-      "tags": null,
+      "tags": {},
       "properties": {
         "workspaceResourceId": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourcegroups/test34-mgmt/providers/Microsoft.OperationalInsights/workspaces/test34-law",
         "containedResources": [
-          "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourcegroups/test34-mgmt/providers/Microsoft.OperationalInsights/workspaces/test34-law/views/AzureActivity(test34-law)"
+          "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourcegroups/test34-mgmt/providers/microsoft.operationalinsights/workspaces/test34-law/views/AzureActivity(test34-law)"
         ],
         "workbookTemplates": [
           {
