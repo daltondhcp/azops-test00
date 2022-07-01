@@ -14,11 +14,11 @@
       "name": "AgentHealthAssessment(azOpsTest-law)",
       "apiVersion": "2015-11-01-preview",
       "location": "West Europe",
-      "tags": {},
+      "tags": null,
       "properties": {
         "workspaceResourceId": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourcegroups/azOpsTest-mgmt/providers/Microsoft.OperationalInsights/workspaces/azOpsTest-law",
         "containedResources": [
-          "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourcegroups/azopstest-mgmt/providers/microsoft.operationalinsights/workspaces/azopstest-law/views/AgentHealthAssessment(azOpsTest-law)"
+          "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourcegroups/azOpsTest-mgmt/providers/Microsoft.OperationalInsights/workspaces/azOpsTest-law/views/AgentHealthAssessment(azOpsTest-law)"
         ]
       }
     }
