@@ -11,21 +11,24 @@
   "resources": [
     {
       "type": "Microsoft.Network/networkManagers",
-      "name": "test12331",
+      "name": "avnmtest",
       "apiVersion": "2022-04-01-preview",
       "location": "westeurope",
       "tags": {},
       "properties": {
-        "displayName": "my avnm, ' Network Manager')]",
-        "description": "hej",
+        "displayName": "avnmtest",
+        "description": "",
         "networkManagerScopes": {
           "managementGroups": [
-            "/providers/Microsoft.Management/managementGroups/azfwprem-landingzones"
+            "/providers/Microsoft.Management/managementGroups/azfwprem-corp"
           ],
           "subscriptions": [],
           "crossTenantScopes": []
         },
-        "networkManagerScopeAccesses": []
+        "networkManagerScopeAccesses": [
+          "Connectivity",
+          "SecurityAdmin"
+        ]
       }
     }
   ],
