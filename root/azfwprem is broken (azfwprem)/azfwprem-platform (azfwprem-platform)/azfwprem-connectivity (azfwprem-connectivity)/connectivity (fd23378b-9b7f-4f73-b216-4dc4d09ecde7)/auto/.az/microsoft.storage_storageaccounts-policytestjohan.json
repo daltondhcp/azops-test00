@@ -1,0 +1,73 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "policytestjohan",
+      "sku": {
+        "Name": "Standard_RAGRS",
+        "Tier": "Standard",
+        "Size": null,
+        "Family": null,
+        "Model": null,
+        "Capacity": null
+      },
+      "kind": "StorageV2",
+      "apiVersion": "2021-09-01",
+      "location": "eastus",
+      "tags": {},
+      "properties": {
+        "defaultToOAuthAuthentication": false,
+        "keyCreationTime": {
+          "key1": "2022-01-27T22:40:19.0091545Z",
+          "key2": "2022-01-27T22:40:19.0091545Z"
+        },
+        "allowCrossTenantReplication": true,
+        "privateEndpointConnections": [],
+        "minimumTlsVersion": "TLS1_2",
+        "allowBlobPublicAccess": true,
+        "allowSharedKeyAccess": true,
+        "networkAcls": {
+          "bypass": "AzureServices",
+          "virtualNetworkRules": [],
+          "ipRules": [],
+          "defaultAction": "Allow"
+        },
+        "supportsHttpsTrafficOnly": true,
+        "encryption": {
+          "requireInfrastructureEncryption": false,
+          "services": {
+            "file": {
+              "keyType": "Account",
+              "enabled": true
+            },
+            "blob": {
+              "keyType": "Account",
+              "enabled": true
+            }
+          },
+          "keySource": "Microsoft.Storage"
+        },
+        "accessTier": "Hot",
+        "secondaryLocation": "westus",
+        "statusOfSecondary": "available",
+        "secondaryEndpoints": {
+          "dfs": "https://policytestjohan-secondary.dfs.core.windows.net/",
+          "web": "https://policytestjohan-secondary.z13.web.core.windows.net/",
+          "blob": "https://policytestjohan-secondary.blob.core.windows.net/",
+          "queue": "https://policytestjohan-secondary.queue.core.windows.net/",
+          "table": "https://policytestjohan-secondary.table.core.windows.net/"
+        }
+      }
+    }
+  ],
+  "outputs": {}
+}

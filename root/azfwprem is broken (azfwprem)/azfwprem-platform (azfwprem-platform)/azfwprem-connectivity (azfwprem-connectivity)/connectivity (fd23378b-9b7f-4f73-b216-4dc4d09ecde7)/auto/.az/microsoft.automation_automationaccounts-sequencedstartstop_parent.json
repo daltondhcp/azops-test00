@@ -1,0 +1,60 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Automation/automationAccounts/runbooks",
+      "name": "SequencedStartStop_Parent",
+      "apiVersion": "2021-06-22",
+      "location": "eastus2",
+      "tags": {
+        "version": "2.0.0.0"
+      },
+      "properties": {
+        "description": "Sequenced Snooze(stop) or UnSnooze(start)",
+        "logVerbose": false,
+        "logProgress": false,
+        "logActivityTrace": 0,
+        "runbookType": "PowerShell",
+        "parameters": {
+          "Action": {
+            "type": "System.String",
+            "isMandatory": true,
+            "position": 0,
+            "defaultValue": null
+          },
+          "VMList": {
+            "type": "System.String",
+            "isMandatory": false,
+            "position": 3,
+            "defaultValue": null
+          },
+          "WhatIf": {
+            "type": "System.Boolean",
+            "isMandatory": false,
+            "position": 1,
+            "defaultValue": "$false"
+          },
+          "ContinueOnError": {
+            "type": "System.Boolean",
+            "isMandatory": false,
+            "position": 2,
+            "defaultValue": "$false"
+          }
+        },
+        "jobCount": 0,
+        "serviceManagementTags": null,
+        "outputTypes": [],
+        "lastModifiedBy": null
+      }
+    }
+  ],
+  "outputs": {}
+}
