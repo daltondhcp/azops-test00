@@ -1,0 +1,42 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Automation/automationAccounts/runbooks",
+      "name": "AutoStop_VM_Child_ARM",
+      "apiVersion": "2021-06-22",
+      "location": "eastus2",
+      "tags": {
+        "version": "1.0.0.0"
+      },
+      "properties": {
+        "description": "Runbook to stop individual ARM VM, called by CreateAlertsForAzureRmVM",
+        "logVerbose": false,
+        "logProgress": false,
+        "logActivityTrace": 0,
+        "runbookType": "PowerShell",
+        "parameters": {
+          "webhookData": {
+            "type": "System.Object",
+            "isMandatory": false,
+            "position": 0,
+            "defaultValue": null
+          }
+        },
+        "jobCount": 0,
+        "serviceManagementTags": null,
+        "outputTypes": [],
+        "lastModifiedBy": null
+      }
+    }
+  ],
+  "outputs": {}
+}
