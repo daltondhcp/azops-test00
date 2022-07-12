@@ -1,0 +1,27 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/policyExemptions",
+      "name": "a617d0650af64158b932d93c",
+      "apiVersion": "2020-07-01-preview",
+      "properties": {
+        "PolicyAssignmentId": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/providers/Microsoft.Authorization/policyAssignments/b078b972b6a94ff7848cd51a",
+        "PolicyDefinitionReferenceIds": [],
+        "ExemptionCategory": "Waiver",
+        "DisplayName": "connectivity - KeyVault SoftDelete should be enabled",
+        "Description": "hej hopp",
+        "ExpiresOn": null
+      }
+    }
+  ],
+  "outputs": {}
+}
