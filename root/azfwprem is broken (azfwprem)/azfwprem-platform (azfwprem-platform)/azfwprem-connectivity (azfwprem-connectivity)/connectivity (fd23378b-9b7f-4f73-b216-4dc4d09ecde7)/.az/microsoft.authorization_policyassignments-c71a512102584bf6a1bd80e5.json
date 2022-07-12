@@ -1,0 +1,35 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/policyAssignments",
+      "name": "c71a512102584bf6a1bd80e5",
+      "apiVersion": "2021-06-01",
+      "location": null,
+      "properties": {
+        "Scope": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7",
+        "NotScopes": [],
+        "DisplayName": "DenyDelete-VirtualNetwork",
+        "Description": "",
+        "EnforcementMode": "Default",
+        "PolicyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/da2ee4e7-339b-46b3-b947-61fb41ace25b",
+        "Parameters": {},
+        "NonComplianceMessages": [
+          {
+            "Message": "Deletion of platform resources is not allowed!",
+            "PolicyDefinitionReferenceId": null
+          }
+        ]
+      }
+    }
+  ],
+  "outputs": {}
+}
