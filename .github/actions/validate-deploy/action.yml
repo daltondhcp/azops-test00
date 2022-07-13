@@ -17,19 +17,26 @@ runs:
       #
       
       - name: "Diff"
-        shell: bash
+        shell: pwsh
         run: |
-          if [ ! -z "$(git diff --name-status HEAD^ HEAD)" ]; then
-            echo $(git diff --name-status HEAD^ HEAD)
-            git diff --name-status HEAD^ HEAD > /tmp/diff.txt
-            if [ ! -z "$(git diff --diff-filter=D HEAD^ HEAD --no-renames)" ]; then
-              echo $(git diff --diff-filter=D HEAD^ HEAD  --no-prefix --no-renames | grep ^- | sed -r "s/^([^-+ ]*)[-+ ]/\\1/" | less -r)
-              git diff --diff-filter=D HEAD^ HEAD --no-prefix --no-renames | grep ^- | sed -r "s/^([^-+ ]*)[-+ ]/\\1/" | less -r > /tmp/diffdeletedfiles.txt
-            fi
-          else
-            echo "The validation pipeline failed because there is currently no change to be processed"
+          $gitDiff = git diff --name-status HEAD^ HEAD
+          if ($null -ne $gitDiff) {
+            $gitDiff | Write-Host
+            $gitDiff | Out-File -FilePath '/tmp/diff.txt'
+            
+            $deletedContent = git diff --diff-filter=D HEAD^ HEAD --no-prefix --no-rename
+            if($null -ne $deletedContent) {
+                $deletedContent = $deletedContent -match '^-' -replace '^([^-+ ]*)[-+ ]', '$1'
+                Write-Host '##[group]Deleted files content'
+                $deletedContent | Write-Host
+                Write-Host '##[endgroup]'
+                $deletedContent | Out-File -FilePath '/tmp/diffdeletedfiles.txt'
+            }
+          }
+          else {
+            Write-Host '##[error]The validation pipeline failed because there is currently no change to be processed'
             exit 1
-          fi
+          }
 
       #
       # Deploy
@@ -43,10 +50,11 @@ runs:
           Initialize-AzOpsEnvironment
           $RunWhatIf = -not ('${{inputs.deploy}}' -eq 'true')
           $diff = Get-Content -Path /tmp/diff.txt
-          if (Test-Path -Path "/tmp/diffdeletedfiles.txt") {
+          if(Test-Path -Path "/tmp/diffdeletedfiles.txt") {
             $diffdeletedfiles = Get-Content -Path /tmp/diffdeletedfiles.txt
             Invoke-AzOpsPush -ChangeSet $diff -DeleteSetContents $diffdeletedfiles -WhatIf:$RunWhatIf
-          } else {
+          } 
+          else {
             Invoke-AzOpsPush -ChangeSet $diff -WhatIf:$RunWhatIf
           }
           Get-Job | Remove-Job -Force
