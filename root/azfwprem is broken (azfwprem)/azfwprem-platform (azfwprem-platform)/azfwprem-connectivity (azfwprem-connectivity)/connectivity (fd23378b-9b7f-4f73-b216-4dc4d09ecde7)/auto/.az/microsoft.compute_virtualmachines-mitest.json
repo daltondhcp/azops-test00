@@ -12,7 +12,7 @@
     {
       "type": "Microsoft.Compute/virtualMachines",
       "name": "mitest",
-      "apiVersion": "2022-03-01",
+      "apiVersion": "2022-08-01",
       "location": "westeurope",
       "tags": null,
       "properties": {
@@ -34,9 +34,11 @@
             "createOption": "FromImage",
             "caching": "ReadWrite",
             "managedDisk": {
+              "storageAccountType": "Standard_LRS",
               "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/AUTO/providers/Microsoft.Compute/disks/mitest_OsDisk_1_139eef30c8df443e8dcaa395dbb83a39"
             },
-            "deleteOption": "Detach"
+            "deleteOption": "Detach",
+            "diskSizeGB": 30
           },
           "dataDisks": []
         },
