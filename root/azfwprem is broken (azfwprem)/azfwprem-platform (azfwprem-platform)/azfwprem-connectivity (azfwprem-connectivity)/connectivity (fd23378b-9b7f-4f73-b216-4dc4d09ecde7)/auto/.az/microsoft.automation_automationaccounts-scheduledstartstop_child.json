@@ -19,34 +19,34 @@
       },
       "properties": {
         "description": "This runbook is called by the parent runbook ScheduledStartStop_Parent to start/start ARM VMs ",
-        "logVerbose": false,
-        "logProgress": false,
+        "jobCount": 0,
+        "lastModifiedBy": null,
         "logActivityTrace": 0,
-        "runbookType": "PowerShell",
+        "logProgress": false,
+        "logVerbose": false,
+        "outputTypes": [],
         "parameters": {
-          "VMName": {
-            "type": "System.String",
-            "isMandatory": false,
-            "position": 0,
-            "defaultValue": "$(throw \"Value for VMName is missing\")"
-          },
           "Action": {
-            "type": "System.String",
+            "defaultValue": "$(throw \"Value for Action is missing\")",
             "isMandatory": false,
             "position": 1,
-            "defaultValue": "$(throw \"Value for Action is missing\")"
+            "type": "System.String"
           },
           "ResourceGroupName": {
-            "type": "System.String",
+            "defaultValue": "$(throw \"Value for ResourceGroupName is missing\")",
             "isMandatory": false,
             "position": 2,
-            "defaultValue": "$(throw \"Value for ResourceGroupName is missing\")"
+            "type": "System.String"
+          },
+          "VMName": {
+            "defaultValue": "$(throw \"Value for VMName is missing\")",
+            "isMandatory": false,
+            "position": 0,
+            "type": "System.String"
           }
         },
-        "jobCount": 0,
-        "serviceManagementTags": null,
-        "outputTypes": [],
-        "lastModifiedBy": null
+        "runbookType": "PowerShell",
+        "serviceManagementTags": null
       }
     }
   ],

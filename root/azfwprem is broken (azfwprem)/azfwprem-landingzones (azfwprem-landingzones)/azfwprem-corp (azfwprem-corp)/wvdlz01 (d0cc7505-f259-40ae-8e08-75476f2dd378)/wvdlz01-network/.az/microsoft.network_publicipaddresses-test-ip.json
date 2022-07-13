@@ -13,25 +13,25 @@
       "type": "Microsoft.Network/publicIPAddresses",
       "name": "test-ip",
       "sku": {
-        "Name": "Standard",
-        "Tier": "Regional",
-        "Size": null,
+        "Capacity": null,
         "Family": null,
         "Model": null,
-        "Capacity": null
+        "Name": "Standard",
+        "Size": null,
+        "Tier": "Regional"
       },
       "apiVersion": "2022-01-01",
       "location": "westeurope",
       "tags": null,
       "properties": {
-        "ipAddress": "20.86.144.3",
-        "publicIPAddressVersion": "IPv4",
-        "publicIPAllocationMethod": "Static",
         "idleTimeoutInMinutes": 4,
-        "ipTags": [],
+        "ipAddress": "20.86.144.3",
         "ipConfiguration": {
           "id": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/wvdlz01-network/providers/Microsoft.Network/networkInterfaces/test60/ipConfigurations/ipconfig1"
-        }
+        },
+        "ipTags": [],
+        "publicIPAddressVersion": "IPv4",
+        "publicIPAllocationMethod": "Static"
       }
     }
   ],

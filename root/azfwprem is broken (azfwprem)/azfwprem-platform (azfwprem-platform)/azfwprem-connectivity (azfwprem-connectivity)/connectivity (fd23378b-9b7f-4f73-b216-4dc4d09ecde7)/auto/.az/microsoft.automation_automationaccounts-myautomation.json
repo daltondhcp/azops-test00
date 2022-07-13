@@ -16,20 +16,7 @@
       "location": "westeurope",
       "tags": {},
       "properties": {
-        "sku": {
-          "name": "Basic",
-          "family": null,
-          "capacity": null
-        },
         "RegistrationUrl": "https://fa2109bc-ccc3-4de6-b8cb-b1e5e95e64eb.agentsvc.we.azure-automation.net/accounts/fa2109bc-ccc3-4de6-b8cb-b1e5e95e64eb",
-        "encryption": {
-          "keySource": "Microsoft.Automation",
-          "identity": {
-            "userAssignedIdentity": null
-          }
-        },
-        "privateEndpointConnections": [],
-        "automationHybridServiceUrl": "https://fa2109bc-ccc3-4de6-b8cb-b1e5e95e64eb.jrds.we.azure-automation.net/automationAccounts/fa2109bc-ccc3-4de6-b8cb-b1e5e95e64eb",
         "RuntimeConfiguration": {
           "powershell": {
             "builtinModules": {
@@ -42,7 +29,20 @@
             }
           }
         },
-        "lastModifiedBy": null
+        "automationHybridServiceUrl": "https://fa2109bc-ccc3-4de6-b8cb-b1e5e95e64eb.jrds.we.azure-automation.net/automationAccounts/fa2109bc-ccc3-4de6-b8cb-b1e5e95e64eb",
+        "encryption": {
+          "identity": {
+            "userAssignedIdentity": null
+          },
+          "keySource": "Microsoft.Automation"
+        },
+        "lastModifiedBy": null,
+        "privateEndpointConnections": [],
+        "sku": {
+          "capacity": null,
+          "family": null,
+          "name": "Basic"
+        }
       }
     }
   ],

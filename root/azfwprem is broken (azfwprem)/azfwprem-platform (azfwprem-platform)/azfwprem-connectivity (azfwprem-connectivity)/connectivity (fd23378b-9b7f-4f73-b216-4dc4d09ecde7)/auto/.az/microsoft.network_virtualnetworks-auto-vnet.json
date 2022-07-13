@@ -22,12 +22,14 @@
             "10.100.100.0/24"
           ]
         },
+        "enableDdosProtection": false,
         "subnets": [
           {
-            "name": "default",
             "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/auto/providers/Microsoft.Network/virtualNetworks/auto-vnet/subnets/default",
+            "name": "default",
             "properties": {
               "addressPrefix": "172.16.0.0/24",
+              "delegations": [],
               "ipConfigurations": [
                 {
                   "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/auto/providers/Microsoft.Network/networkInterfaces/mitest553/ipConfigurations/ipconfig1"
@@ -36,33 +38,31 @@
                   "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/auto/providers/Microsoft.Network/networkInterfaces/pe01.nic.117ea4b6-187b-4631-ac89-6c6bdc7aea0f/ipConfigurations/privateEndpointIpConfig.4e56fd43-ee68-4913-a09a-35ec63876ca0"
                 }
               ],
+              "privateEndpointNetworkPolicies": "Disabled",
               "privateEndpoints": [
                 {
                   "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/auto/providers/Microsoft.Network/privateEndpoints/pe01"
                 }
               ],
-              "delegations": [],
-              "purpose": "PrivateEndpoints",
-              "privateEndpointNetworkPolicies": "Disabled",
-              "privateLinkServiceNetworkPolicies": "Enabled"
+              "privateLinkServiceNetworkPolicies": "Enabled",
+              "purpose": "PrivateEndpoints"
             },
             "type": "Microsoft.Network/virtualNetworks/subnets"
           },
           {
-            "name": "test",
             "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/auto/providers/Microsoft.Network/virtualNetworks/auto-vnet/subnets/test",
+            "name": "test",
             "properties": {
               "addressPrefix": "172.16.1.0/24",
-              "serviceEndpoints": [],
               "delegations": [],
               "privateEndpointNetworkPolicies": "Enabled",
-              "privateLinkServiceNetworkPolicies": "Enabled"
+              "privateLinkServiceNetworkPolicies": "Enabled",
+              "serviceEndpoints": []
             },
             "type": "Microsoft.Network/virtualNetworks/subnets"
           }
         ],
-        "virtualNetworkPeerings": [],
-        "enableDdosProtection": false
+        "virtualNetworkPeerings": []
       }
     }
   ],

@@ -13,46 +13,46 @@
       "type": "Microsoft.Storage/storageAccounts",
       "name": "aoe2rejd123444",
       "sku": {
-        "Name": "Standard_ZRS",
-        "Tier": "Standard",
-        "Size": null,
+        "Capacity": null,
         "Family": null,
         "Model": null,
-        "Capacity": null
+        "Name": "Standard_ZRS",
+        "Size": null,
+        "Tier": "Standard"
       },
       "kind": "StorageV2",
       "apiVersion": "2021-09-01",
       "location": "westeurope",
       "tags": {},
       "properties": {
+        "accessTier": "Hot",
+        "allowBlobPublicAccess": true,
+        "encryption": {
+          "keySource": "Microsoft.Storage",
+          "services": {
+            "blob": {
+              "enabled": true,
+              "keyType": "Account"
+            },
+            "file": {
+              "enabled": true,
+              "keyType": "Account"
+            }
+          }
+        },
         "keyCreationTime": {
           "key1": "2021-10-05T16:24:20.7000983Z",
           "key2": "2021-10-05T16:24:20.7000983Z"
         },
-        "privateEndpointConnections": [],
         "minimumTlsVersion": "TLS1_0",
-        "allowBlobPublicAccess": true,
         "networkAcls": {
           "bypass": "AzureServices",
-          "virtualNetworkRules": [],
+          "defaultAction": "Allow",
           "ipRules": [],
-          "defaultAction": "Allow"
+          "virtualNetworkRules": []
         },
-        "supportsHttpsTrafficOnly": true,
-        "encryption": {
-          "services": {
-            "file": {
-              "keyType": "Account",
-              "enabled": true
-            },
-            "blob": {
-              "keyType": "Account",
-              "enabled": true
-            }
-          },
-          "keySource": "Microsoft.Storage"
-        },
-        "accessTier": "Hot"
+        "privateEndpointConnections": [],
+        "supportsHttpsTrafficOnly": true
       }
     }
   ],

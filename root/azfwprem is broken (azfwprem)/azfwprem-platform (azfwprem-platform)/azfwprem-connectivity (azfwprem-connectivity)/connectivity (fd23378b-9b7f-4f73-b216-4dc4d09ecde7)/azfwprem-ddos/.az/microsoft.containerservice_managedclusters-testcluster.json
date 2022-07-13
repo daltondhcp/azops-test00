@@ -13,112 +13,112 @@
       "type": "Microsoft.ContainerService/managedClusters",
       "name": "testcluster",
       "sku": {
-        "Name": "Basic",
-        "Tier": "Free",
-        "Size": null,
+        "Capacity": null,
         "Family": null,
         "Model": null,
-        "Capacity": null
+        "Name": "Basic",
+        "Size": null,
+        "Tier": "Free"
       },
       "apiVersion": "2022-06-02-preview",
       "location": "eastus",
       "tags": null,
       "properties": {
-        "powerState": {
-          "code": "Running"
+        "addonProfiles": {
+          "azurepolicy": {
+            "config": null,
+            "enabled": false
+          },
+          "httpApplicationRouting": {
+            "config": null,
+            "enabled": false
+          }
         },
-        "kubernetesVersion": "1.21.2",
-        "currentKubernetesVersion": "1.21.2",
-        "dnsPrefix": "testcluster-dns",
-        "fqdn": "testcluster-dns-4a0c5e7f.hcp.eastus.azmk8s.io",
-        "azurePortalFQDN": "25b8db32a3d4d71f24137d0549933f9a-priv.portal.hcp.eastus.azmk8s.io",
-        "privateFQDN": "testcluster-dns-66502381.d7a08257-5a55-4814-bf27-5449158aa5bd.privatelink.eastus.azmk8s.io",
         "agentPoolProfiles": [
           {
-            "name": "agentpool",
-            "count": 3,
-            "vmSize": "Standard_DS2_v2",
-            "osDiskSizeGB": 128,
-            "osDiskType": "Managed",
-            "kubeletDiskType": "OS",
-            "maxPods": 110,
-            "type": "VirtualMachineScaleSets",
             "availabilityZones": [
               "1",
               "2",
               "3"
             ],
+            "count": 3,
+            "currentOrchestratorVersion": "1.21.2",
             "enableAutoScaling": false,
-            "provisioningState": "Succeeded",
+            "enableFIPS": false,
+            "kubeletDiskType": "OS",
+            "maxPods": 110,
+            "mode": "System",
+            "name": "agentpool",
+            "nodeImageVersion": "AKSUbuntu-1804gen2containerd-2021.09.06",
+            "orchestratorVersion": "1.21.2",
+            "osDiskSizeGB": 128,
+            "osDiskType": "Managed",
+            "osSKU": "Ubuntu",
+            "osType": "Linux",
             "powerState": {
               "code": "Running"
             },
-            "orchestratorVersion": "1.21.2",
-            "currentOrchestratorVersion": "1.21.2",
-            "mode": "System",
-            "osType": "Linux",
-            "osSKU": "Ubuntu",
-            "nodeImageVersion": "AKSUbuntu-1804gen2containerd-2021.09.06",
-            "enableFIPS": false
-          }
-        ],
-        "servicePrincipalProfile": {
-          "clientId": "msi"
-        },
-        "addonProfiles": {
-          "azurepolicy": {
-            "enabled": false,
-            "config": null
-          },
-          "httpApplicationRouting": {
-            "enabled": false,
-            "config": null
-          }
-        },
-        "nodeResourceGroup": "MC_azfwprem-ddos_testcluster_eastus",
-        "enableRBAC": true,
-        "networkProfile": {
-          "networkPlugin": "kubenet",
-          "loadBalancerSku": "Standard",
-          "loadBalancerProfile": {
-            "managedOutboundIPs": {
-              "count": 1
-            },
-            "effectiveOutboundIPs": [
-              {
-                "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/MC_azfwprem-ddos_testcluster_eastus/providers/Microsoft.Network/publicIPAddresses/597b86f7-3380-47e2-9ccb-6231ebb0818a"
-              }
-            ]
-          },
-          "podCidr": "10.244.0.0/16",
-          "serviceCidr": "10.0.0.0/16",
-          "dnsServiceIP": "10.0.0.10",
-          "dockerBridgeCidr": "172.17.0.1/16",
-          "outboundType": "loadBalancer"
-        },
-        "maxAgentPools": 100,
-        "privateLinkResources": [
-          {
-            "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourcegroups/azfwprem-ddos/providers/Microsoft.ContainerService/managedClusters/testcluster/privateLinkResources/management",
-            "name": "management",
-            "type": "Microsoft.ContainerService/managedClusters/privateLinkResources",
-            "groupId": "management",
-            "requiredMembers": [
-              "management"
-            ]
+            "provisioningState": "Succeeded",
+            "type": "VirtualMachineScaleSets",
+            "vmSize": "Standard_DS2_v2"
           }
         ],
         "apiServerAccessProfile": {
           "enablePrivateCluster": true,
-          "privateDNSZone": "system",
-          "enablePrivateClusterPublicFQDN": true
+          "enablePrivateClusterPublicFQDN": true,
+          "privateDNSZone": "system"
         },
+        "azurePortalFQDN": "25b8db32a3d4d71f24137d0549933f9a-priv.portal.hcp.eastus.azmk8s.io",
+        "currentKubernetesVersion": "1.21.2",
+        "dnsPrefix": "testcluster-dns",
+        "enableRBAC": true,
+        "fqdn": "testcluster-dns-4a0c5e7f.hcp.eastus.azmk8s.io",
         "identityProfile": {
           "kubeletidentity": {
-            "resourceId": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourcegroups/MC_azfwprem-ddos_testcluster_eastus/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testcluster-agentpool",
             "clientId": "a685dffa-377e-4b27-a44f-4836b56b6718",
-            "objectId": "1916ce42-4da2-498a-87bd-4220f304fe5e"
+            "objectId": "1916ce42-4da2-498a-87bd-4220f304fe5e",
+            "resourceId": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourcegroups/MC_azfwprem-ddos_testcluster_eastus/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testcluster-agentpool"
           }
+        },
+        "kubernetesVersion": "1.21.2",
+        "maxAgentPools": 100,
+        "networkProfile": {
+          "dnsServiceIP": "10.0.0.10",
+          "dockerBridgeCidr": "172.17.0.1/16",
+          "loadBalancerProfile": {
+            "effectiveOutboundIPs": [
+              {
+                "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/MC_azfwprem-ddos_testcluster_eastus/providers/Microsoft.Network/publicIPAddresses/597b86f7-3380-47e2-9ccb-6231ebb0818a"
+              }
+            ],
+            "managedOutboundIPs": {
+              "count": 1
+            }
+          },
+          "loadBalancerSku": "Standard",
+          "networkPlugin": "kubenet",
+          "outboundType": "loadBalancer",
+          "podCidr": "10.244.0.0/16",
+          "serviceCidr": "10.0.0.0/16"
+        },
+        "nodeResourceGroup": "MC_azfwprem-ddos_testcluster_eastus",
+        "powerState": {
+          "code": "Running"
+        },
+        "privateFQDN": "testcluster-dns-66502381.d7a08257-5a55-4814-bf27-5449158aa5bd.privatelink.eastus.azmk8s.io",
+        "privateLinkResources": [
+          {
+            "groupId": "management",
+            "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourcegroups/azfwprem-ddos/providers/Microsoft.ContainerService/managedClusters/testcluster/privateLinkResources/management",
+            "name": "management",
+            "requiredMembers": [
+              "management"
+            ],
+            "type": "Microsoft.ContainerService/managedClusters/privateLinkResources"
+          }
+        ],
+        "servicePrincipalProfile": {
+          "clientId": "msi"
         }
       }
     }

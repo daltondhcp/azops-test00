@@ -16,8 +16,8 @@
       "location": "eastus",
       "tags": null,
       "properties": {
-        "disableVpnEncryption": false,
         "allowBranchToBranchTraffic": true,
+        "disableVpnEncryption": false,
         "office365LocalBreakoutCategory": "None",
         "type": "Standard",
         "virtualHubs": [

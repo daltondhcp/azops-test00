@@ -13,69 +13,69 @@
       "type": "Microsoft.Storage/storageAccounts",
       "name": "teststoragejohan12345",
       "sku": {
-        "Name": "Standard_LRS",
-        "Tier": "Standard",
-        "Size": null,
+        "Capacity": null,
         "Family": null,
         "Model": null,
-        "Capacity": null
+        "Name": "Standard_LRS",
+        "Size": null,
+        "Tier": "Standard"
       },
       "kind": "StorageV2",
       "apiVersion": "2021-09-01",
       "location": "westeurope",
       "tags": {},
       "properties": {
+        "accessTier": "Hot",
+        "allowBlobPublicAccess": false,
+        "allowSharedKeyAccess": false,
+        "encryption": {
+          "keySource": "Microsoft.Storage",
+          "services": {
+            "blob": {
+              "enabled": true,
+              "keyType": "Account"
+            },
+            "file": {
+              "enabled": true,
+              "keyType": "Account"
+            }
+          }
+        },
         "keyCreationTime": {
           "key1": "2021-05-17T08:24:11.9799202Z",
           "key2": "2021-05-17T08:24:11.9799202Z"
+        },
+        "minimumTlsVersion": "TLS1_2",
+        "networkAcls": {
+          "bypass": "AzureServices",
+          "defaultAction": "Deny",
+          "ipRules": [
+            {
+              "action": "Allow",
+              "value": "152.44.26.251"
+            }
+          ],
+          "virtualNetworkRules": []
         },
         "privateEndpointConnections": [
           {
             "id": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/wvdlz01-network2/providers/Microsoft.Storage/storageAccounts/teststoragejohan12345/privateEndpointConnections/teststoragejohan12345.602bdc45-cd51-431c-b4f3-e9594e9b12d4",
             "name": "teststoragejohan12345.602bdc45-cd51-431c-b4f3-e9594e9b12d4",
-            "type": "Microsoft.Storage/storageAccounts/privateEndpointConnections",
             "properties": {
-              "provisioningState": "Succeeded",
               "privateEndpoint": {
                 "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/auto/providers/Microsoft.Network/privateEndpoints/pe01"
               },
               "privateLinkServiceConnectionState": {
-                "status": "Approved",
+                "actionRequired": "None",
                 "description": "Auto-Approved",
-                "actionRequired": "None"
-              }
-            }
+                "status": "Approved"
+              },
+              "provisioningState": "Succeeded"
+            },
+            "type": "Microsoft.Storage/storageAccounts/privateEndpointConnections"
           }
         ],
-        "minimumTlsVersion": "TLS1_2",
-        "allowBlobPublicAccess": false,
-        "allowSharedKeyAccess": false,
-        "networkAcls": {
-          "bypass": "AzureServices",
-          "virtualNetworkRules": [],
-          "ipRules": [
-            {
-              "value": "152.44.26.251",
-              "action": "Allow"
-            }
-          ],
-          "defaultAction": "Deny"
-        },
-        "supportsHttpsTrafficOnly": true,
-        "encryption": {
-          "services": {
-            "file": {
-              "keyType": "Account",
-              "enabled": true
-            },
-            "blob": {
-              "keyType": "Account",
-              "enabled": true
-            }
-          },
-          "keySource": "Microsoft.Storage"
-        },
-        "accessTier": "Hot"
+        "supportsHttpsTrafficOnly": true
       }
     }
   ],

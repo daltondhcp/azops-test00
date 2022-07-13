@@ -13,43 +13,43 @@
       "type": "Microsoft.ContainerRegistry/registries",
       "name": "acr111a234",
       "sku": {
-        "Name": "Standard",
-        "Tier": "Standard",
-        "Size": null,
+        "Capacity": null,
         "Family": null,
         "Model": null,
-        "Capacity": null
+        "Name": "Standard",
+        "Size": null,
+        "Tier": "Standard"
       },
       "apiVersion": "2022-02-01-preview",
       "location": "westeurope",
       "tags": {},
       "properties": {
-        "loginServer": "acr111a234.azurecr.io",
         "adminUserEnabled": true,
+        "dataEndpointEnabled": false,
+        "dataEndpointHostNames": [],
+        "encryption": {
+          "status": "disabled"
+        },
+        "loginServer": "acr111a234.azurecr.io",
+        "networkRuleBypassOptions": "AzureServices",
         "policies": {
-          "quarantinePolicy": {
-            "status": "disabled"
+          "exportPolicy": {
+            "status": "enabled"
           },
-          "trustPolicy": {
-            "type": "Notary",
+          "quarantinePolicy": {
             "status": "disabled"
           },
           "retentionPolicy": {
             "days": 7,
             "status": "disabled"
           },
-          "exportPolicy": {
-            "status": "enabled"
+          "trustPolicy": {
+            "status": "disabled",
+            "type": "Notary"
           }
         },
-        "encryption": {
-          "status": "disabled"
-        },
-        "dataEndpointEnabled": false,
-        "dataEndpointHostNames": [],
         "privateEndpointConnections": [],
         "publicNetworkAccess": "Enabled",
-        "networkRuleBypassOptions": "AzureServices",
         "zoneRedundancy": "Disabled"
       }
     }

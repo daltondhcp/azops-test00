@@ -16,9 +16,9 @@
       "location": "westeurope",
       "tags": {},
       "properties": {
-        "tenantId": "3114ebe8-8d3f-4bac-b3ce-59b4210a1287",
+        "clientId": "255b50b9-cc27-4598-acbc-51f1b939b150",
         "principalId": "b47015a9-2c4e-45d2-8bd0-5e16bcb4cba2",
-        "clientId": "255b50b9-cc27-4598-acbc-51f1b939b150"
+        "tenantId": "3114ebe8-8d3f-4bac-b3ce-59b4210a1287"
       }
     }
   ],

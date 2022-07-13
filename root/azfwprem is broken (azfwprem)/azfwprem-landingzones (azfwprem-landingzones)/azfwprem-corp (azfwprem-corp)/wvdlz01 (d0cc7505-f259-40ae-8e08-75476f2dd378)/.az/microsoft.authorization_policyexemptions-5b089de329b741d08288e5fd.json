@@ -14,12 +14,12 @@
       "name": "5b089de329b741d08288e5fd",
       "apiVersion": "2020-07-01-preview",
       "properties": {
-        "PolicyAssignmentId": "/providers/Microsoft.Management/managementGroups/azfwprem-landingzones/providers/Microsoft.Authorization/policyAssignments/Enforce-TLS-SSL",
-        "PolicyDefinitionReferenceIds": [],
-        "ExemptionCategory": "Waiver",
-        "DisplayName": "wvdlz01 - Deny or Deploy and append TLS requirements and SSL enforcement on resources without Encryption in transit",
         "Description": null,
-        "ExpiresOn": null
+        "DisplayName": "wvdlz01 - Deny or Deploy and append TLS requirements and SSL enforcement on resources without Encryption in transit",
+        "ExemptionCategory": "Waiver",
+        "ExpiresOn": null,
+        "PolicyAssignmentId": "/providers/Microsoft.Management/managementGroups/azfwprem-landingzones/providers/Microsoft.Authorization/policyAssignments/Enforce-TLS-SSL",
+        "PolicyDefinitionReferenceIds": []
       }
     }
   ],

@@ -16,26 +16,26 @@
       "location": "westeurope",
       "tags": {},
       "properties": {
-        "virtualHubRouteTableV2s": [],
         "addressPrefix": "10.0.0.0/16",
+        "allowBranchToBranchTraffic": false,
+        "networkVirtualAppliances": [],
+        "routeTable": {
+          "routes": []
+        },
+        "routingState": "Provisioned",
+        "sku": "Standard",
+        "virtualHubRouteTableV2s": [],
         "virtualRouterAsn": 65515,
+        "virtualRouterAutoScaleConfiguration": {
+          "minCapacity": 2
+        },
         "virtualRouterIps": [
           "10.0.32.5",
           "10.0.32.4"
         ],
-        "routeTable": {
-          "routes": []
-        },
-        "virtualRouterAutoScaleConfiguration": {
-          "minCapacity": 2
-        },
         "virtualWan": {
           "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/vwan/providers/Microsoft.Network/virtualWans/vwan-test"
-        },
-        "networkVirtualAppliances": [],
-        "sku": "Standard",
-        "routingState": "Provisioned",
-        "allowBranchToBranchTraffic": false
+        }
       }
     }
   ],

@@ -16,6 +16,7 @@
       "location": "westeurope",
       "tags": null,
       "properties": {
+        "gatewayIpAddress": "80.84.36.60",
         "localNetworkAddressSpace": {
           "addressPrefixes": [
             "10.0.0.0/9",
@@ -29,8 +30,7 @@
             "192.168.0.0/16",
             "172.16.0.0/12"
           ]
-        },
-        "gatewayIpAddress": "80.84.36.60"
+        }
       }
     }
   ],

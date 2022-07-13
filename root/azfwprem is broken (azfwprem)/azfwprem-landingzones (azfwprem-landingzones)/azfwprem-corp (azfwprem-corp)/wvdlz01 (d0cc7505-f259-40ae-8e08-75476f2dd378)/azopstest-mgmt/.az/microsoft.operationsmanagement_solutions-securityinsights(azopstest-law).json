@@ -16,12 +16,12 @@
       "location": "West Europe",
       "tags": null,
       "properties": {
-        "workspaceResourceId": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourcegroups/azOpsTest-mgmt/providers/Microsoft.OperationalInsights/workspaces/azOpsTest-law",
+        "containedResources": [],
         "sku": {
           "name": "PerGB"
         },
-        "containedResources": [],
-        "workbookTemplates": []
+        "workbookTemplates": [],
+        "workspaceResourceId": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourcegroups/azOpsTest-mgmt/providers/Microsoft.OperationalInsights/workspaces/azOpsTest-law"
       }
     }
   ],

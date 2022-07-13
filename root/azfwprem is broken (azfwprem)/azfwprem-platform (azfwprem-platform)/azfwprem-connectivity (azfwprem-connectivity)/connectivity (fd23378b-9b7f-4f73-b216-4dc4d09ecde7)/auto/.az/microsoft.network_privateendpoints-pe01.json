@@ -16,37 +16,6 @@
       "location": "westeurope",
       "tags": {},
       "properties": {
-        "privateLinkServiceConnections": [
-          {
-            "name": "pe01",
-            "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/auto/providers/Microsoft.Network/privateEndpoints/pe01/privateLinkServiceConnections/pe01",
-            "etag": "W/\"2857c38f-a3d9-4db2-aef9-cad07260dd36\"",
-            "properties": {
-              "provisioningState": "Succeeded",
-              "privateLinkServiceId": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/wvdlz01-network2/providers/Microsoft.Storage/storageAccounts/teststoragejohan12345",
-              "groupIds": [
-                "blob"
-              ],
-              "privateLinkServiceConnectionState": {
-                "status": "Approved",
-                "description": "Auto-Approved",
-                "actionsRequired": "None"
-              }
-            },
-            "type": "Microsoft.Network/privateEndpoints/privateLinkServiceConnections"
-          }
-        ],
-        "manualPrivateLinkServiceConnections": [],
-        "customNetworkInterfaceName": "",
-        "subnet": {
-          "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/auto/providers/Microsoft.Network/virtualNetworks/auto-vnet/subnets/default"
-        },
-        "ipConfigurations": [],
-        "networkInterfaces": [
-          {
-            "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/auto/providers/Microsoft.Network/networkInterfaces/pe01.nic.117ea4b6-187b-4631-ac89-6c6bdc7aea0f"
-          }
-        ],
         "customDnsConfigs": [
           {
             "fqdn": "teststoragejohan12345.blob.core.windows.net",
@@ -54,7 +23,38 @@
               "172.16.0.5"
             ]
           }
-        ]
+        ],
+        "customNetworkInterfaceName": "",
+        "ipConfigurations": [],
+        "manualPrivateLinkServiceConnections": [],
+        "networkInterfaces": [
+          {
+            "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/auto/providers/Microsoft.Network/networkInterfaces/pe01.nic.117ea4b6-187b-4631-ac89-6c6bdc7aea0f"
+          }
+        ],
+        "privateLinkServiceConnections": [
+          {
+            "etag": "W/\"2857c38f-a3d9-4db2-aef9-cad07260dd36\"",
+            "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/auto/providers/Microsoft.Network/privateEndpoints/pe01/privateLinkServiceConnections/pe01",
+            "name": "pe01",
+            "properties": {
+              "groupIds": [
+                "blob"
+              ],
+              "privateLinkServiceConnectionState": {
+                "actionsRequired": "None",
+                "description": "Auto-Approved",
+                "status": "Approved"
+              },
+              "privateLinkServiceId": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/wvdlz01-network2/providers/Microsoft.Storage/storageAccounts/teststoragejohan12345",
+              "provisioningState": "Succeeded"
+            },
+            "type": "Microsoft.Network/privateEndpoints/privateLinkServiceConnections"
+          }
+        ],
+        "subnet": {
+          "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/auto/providers/Microsoft.Network/virtualNetworks/auto-vnet/subnets/default"
+        }
       }
     }
   ],

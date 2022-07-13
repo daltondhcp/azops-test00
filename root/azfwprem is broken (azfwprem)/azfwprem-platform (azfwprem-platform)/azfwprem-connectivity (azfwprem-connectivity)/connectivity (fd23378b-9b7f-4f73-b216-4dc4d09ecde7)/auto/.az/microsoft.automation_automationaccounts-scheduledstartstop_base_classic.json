@@ -19,34 +19,34 @@
       },
       "properties": {
         "description": "This runbook is called by the parent runbook ScheduledStartStop_Parent to start/stop classic VMs based on each cloud service mapping",
-        "logVerbose": false,
-        "logProgress": false,
+        "jobCount": 0,
+        "lastModifiedBy": null,
         "logActivityTrace": 0,
-        "runbookType": "PowerShell",
+        "logProgress": false,
+        "logVerbose": false,
+        "outputTypes": [],
         "parameters": {
-          "CloudServiceName": {
-            "type": "System.String",
-            "isMandatory": true,
-            "position": 0,
-            "defaultValue": null
-          },
           "Action": {
-            "type": "System.String",
+            "defaultValue": null,
             "isMandatory": true,
             "position": 1,
-            "defaultValue": null
+            "type": "System.String"
+          },
+          "CloudServiceName": {
+            "defaultValue": null,
+            "isMandatory": true,
+            "position": 0,
+            "type": "System.String"
           },
           "VMList": {
-            "type": "System.String",
+            "defaultValue": null,
             "isMandatory": false,
             "position": 2,
-            "defaultValue": null
+            "type": "System.String"
           }
         },
-        "jobCount": 0,
-        "serviceManagementTags": null,
-        "outputTypes": [],
-        "lastModifiedBy": null
+        "runbookType": "PowerShell",
+        "serviceManagementTags": null
       }
     }
   ],

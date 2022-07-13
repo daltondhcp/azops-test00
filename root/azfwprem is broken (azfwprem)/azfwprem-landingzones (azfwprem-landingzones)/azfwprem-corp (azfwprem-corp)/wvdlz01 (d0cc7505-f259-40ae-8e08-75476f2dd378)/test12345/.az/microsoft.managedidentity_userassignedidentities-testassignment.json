@@ -16,9 +16,9 @@
       "location": "eastus2",
       "tags": {},
       "properties": {
-        "tenantId": "3114ebe8-8d3f-4bac-b3ce-59b4210a1287",
+        "clientId": "c2e15b09-a534-485f-9136-f8c112c2c9f8",
         "principalId": "abb5f6ed-c92f-45d3-bb3e-9437f426f6e6",
-        "clientId": "c2e15b09-a534-485f-9136-f8c112c2c9f8"
+        "tenantId": "3114ebe8-8d3f-4bac-b3ce-59b4210a1287"
       }
     }
   ],

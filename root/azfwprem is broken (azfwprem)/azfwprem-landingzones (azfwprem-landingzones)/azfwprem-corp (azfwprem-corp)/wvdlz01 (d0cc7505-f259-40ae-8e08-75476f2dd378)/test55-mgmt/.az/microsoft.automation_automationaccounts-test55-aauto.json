@@ -16,20 +16,7 @@
       "location": "eastus2",
       "tags": {},
       "properties": {
-        "sku": {
-          "name": "Basic",
-          "family": null,
-          "capacity": null
-        },
         "RegistrationUrl": "https://4821728d-90dd-484c-bc87-4d9b91f6bb04.agentsvc.eus2.azure-automation.net/accounts/4821728d-90dd-484c-bc87-4d9b91f6bb04",
-        "encryption": {
-          "keySource": "Microsoft.Automation",
-          "identity": {
-            "userAssignedIdentity": null
-          }
-        },
-        "privateEndpointConnections": [],
-        "automationHybridServiceUrl": "https://4821728d-90dd-484c-bc87-4d9b91f6bb04.jrds.eus2.azure-automation.net/automationAccounts/4821728d-90dd-484c-bc87-4d9b91f6bb04",
         "RuntimeConfiguration": {
           "powershell": {
             "builtinModules": {
@@ -42,7 +29,20 @@
             }
           }
         },
-        "lastModifiedBy": null
+        "automationHybridServiceUrl": "https://4821728d-90dd-484c-bc87-4d9b91f6bb04.jrds.eus2.azure-automation.net/automationAccounts/4821728d-90dd-484c-bc87-4d9b91f6bb04",
+        "encryption": {
+          "identity": {
+            "userAssignedIdentity": null
+          },
+          "keySource": "Microsoft.Automation"
+        },
+        "lastModifiedBy": null,
+        "privateEndpointConnections": [],
+        "sku": {
+          "capacity": null,
+          "family": null,
+          "name": "Basic"
+        }
       }
     }
   ],

@@ -15,18 +15,18 @@
       "apiVersion": "2021-06-01",
       "location": null,
       "properties": {
-        "Scope": "/providers/Microsoft.Management/managementGroups/azfwprem-landingzones",
-        "NotScopes": null,
-        "DisplayName": "Secure transfer to storage accounts should be enabled",
         "Description": "Audit requirement of Secure transfer in your storage account. Secure transfer is an option that forces your storage account to accept requests only from secure connections (HTTPS). Use of HTTPS ensures authentication between the server and the service and protects data in transit from network layer attacks such as man-in-the-middle, eavesdropping, and session-hijacking",
+        "DisplayName": "Secure transfer to storage accounts should be enabled",
         "EnforcementMode": "Default",
-        "PolicyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/404c3081-a854-4457-ae30-26a93ef643f9",
+        "NonComplianceMessages": null,
+        "NotScopes": null,
         "Parameters": {
           "effect": {
             "value": "Deny"
           }
         },
-        "NonComplianceMessages": null
+        "PolicyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/404c3081-a854-4457-ae30-26a93ef643f9",
+        "Scope": "/providers/Microsoft.Management/managementGroups/azfwprem-landingzones"
       }
     }
   ],

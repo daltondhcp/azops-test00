@@ -19,15 +19,15 @@
       },
       "properties": {
         "description": "Disable the AutoStartStop",
-        "logVerbose": false,
-        "logProgress": false,
-        "logActivityTrace": 0,
-        "runbookType": "PowerShell",
-        "parameters": {},
         "jobCount": 0,
-        "serviceManagementTags": null,
+        "lastModifiedBy": null,
+        "logActivityTrace": 0,
+        "logProgress": false,
+        "logVerbose": false,
         "outputTypes": [],
-        "lastModifiedBy": null
+        "parameters": {},
+        "runbookType": "PowerShell",
+        "serviceManagementTags": null
       }
     }
   ],

@@ -16,19 +16,19 @@
       "location": "westeurope",
       "tags": {},
       "properties": {
-        "displayName": "avnmtest",
         "description": "",
-        "networkManagerScopes": {
-          "managementGroups": [
-            "/providers/Microsoft.Management/managementGroups/azfwprem-corp"
-          ],
-          "subscriptions": [],
-          "crossTenantScopes": []
-        },
+        "displayName": "avnmtest",
         "networkManagerScopeAccesses": [
           "Connectivity",
           "SecurityAdmin"
-        ]
+        ],
+        "networkManagerScopes": {
+          "crossTenantScopes": [],
+          "managementGroups": [
+            "/providers/Microsoft.Management/managementGroups/azfwprem-corp"
+          ],
+          "subscriptions": []
+        }
       }
     }
   ],

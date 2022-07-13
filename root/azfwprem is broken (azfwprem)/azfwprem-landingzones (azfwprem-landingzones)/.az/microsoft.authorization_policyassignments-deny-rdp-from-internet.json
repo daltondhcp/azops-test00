@@ -15,14 +15,14 @@
       "apiVersion": "2021-06-01",
       "location": null,
       "properties": {
-        "Scope": "/providers/Microsoft.Management/managementGroups/azfwprem-landingzones",
-        "NotScopes": null,
-        "DisplayName": "RDP access from the Internet should be blocked",
         "Description": "This policy denies any network security rule that allows RDP access from Internet",
+        "DisplayName": "RDP access from the Internet should be blocked",
         "EnforcementMode": "Default",
-        "PolicyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deny-RDP-From-Internet",
+        "NonComplianceMessages": null,
+        "NotScopes": null,
         "Parameters": null,
-        "NonComplianceMessages": null
+        "PolicyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deny-RDP-From-Internet",
+        "Scope": "/providers/Microsoft.Management/managementGroups/azfwprem-landingzones"
       }
     }
   ],

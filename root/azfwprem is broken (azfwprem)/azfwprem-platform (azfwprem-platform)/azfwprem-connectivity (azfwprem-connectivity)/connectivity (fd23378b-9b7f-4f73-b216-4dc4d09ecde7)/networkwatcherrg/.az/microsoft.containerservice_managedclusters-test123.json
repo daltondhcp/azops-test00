@@ -13,114 +13,62 @@
       "type": "Microsoft.ContainerService/managedClusters",
       "name": "test123",
       "sku": {
-        "Name": "Basic",
-        "Tier": "Free",
-        "Size": null,
+        "Capacity": null,
         "Family": null,
         "Model": null,
-        "Capacity": null
+        "Name": "Basic",
+        "Size": null,
+        "Tier": "Free"
       },
       "apiVersion": "2022-06-02-preview",
       "location": "eastus",
       "tags": null,
       "properties": {
-        "powerState": {
-          "code": "Running"
+        "addonProfiles": {
+          "azurepolicy": {
+            "config": null,
+            "enabled": false
+          },
+          "httpApplicationRouting": {
+            "config": null,
+            "enabled": false
+          }
         },
-        "kubernetesVersion": "1.21.2",
-        "currentKubernetesVersion": "1.21.2",
-        "dnsPrefix": "test123-dns",
-        "fqdn": "test123-dns-bbd6184c.hcp.eastus.azmk8s.io",
-        "azurePortalFQDN": "a2271f89ed568271772c1a63c7720e60-priv.portal.hcp.eastus.azmk8s.io",
-        "privateFQDN": "test123-dns-ac0378ef.f1fa03c7-0d44-4418-88aa-58eb9f6271be.privatelink.eastus.azmk8s.io",
         "agentPoolProfiles": [
           {
-            "name": "agentpool",
-            "count": 3,
-            "vmSize": "Standard_DS2_v2",
-            "osDiskSizeGB": 128,
-            "osDiskType": "Managed",
-            "kubeletDiskType": "OS",
-            "maxPods": 110,
-            "type": "VirtualMachineScaleSets",
             "availabilityZones": [
               "1",
               "2",
               "3"
             ],
-            "maxCount": 5,
-            "minCount": 1,
+            "count": 3,
+            "currentOrchestratorVersion": "1.21.2",
             "enableAutoScaling": true,
-            "provisioningState": "Succeeded",
+            "enableFIPS": false,
+            "kubeletDiskType": "OS",
+            "maxCount": 5,
+            "maxPods": 110,
+            "minCount": 1,
+            "mode": "System",
+            "name": "agentpool",
+            "nodeImageVersion": "AKSUbuntu-1804gen2containerd-2021.09.06",
+            "orchestratorVersion": "1.21.2",
+            "osDiskSizeGB": 128,
+            "osDiskType": "Managed",
+            "osSKU": "Ubuntu",
+            "osType": "Linux",
             "powerState": {
               "code": "Running"
             },
-            "orchestratorVersion": "1.21.2",
-            "currentOrchestratorVersion": "1.21.2",
-            "mode": "System",
-            "osType": "Linux",
-            "osSKU": "Ubuntu",
-            "nodeImageVersion": "AKSUbuntu-1804gen2containerd-2021.09.06",
-            "enableFIPS": false
-          }
-        ],
-        "servicePrincipalProfile": {
-          "clientId": "msi"
-        },
-        "addonProfiles": {
-          "azurepolicy": {
-            "enabled": false,
-            "config": null
-          },
-          "httpApplicationRouting": {
-            "enabled": false,
-            "config": null
-          }
-        },
-        "nodeResourceGroup": "MC_NetworkWatcherRG_test123_eastus",
-        "enableRBAC": true,
-        "networkProfile": {
-          "networkPlugin": "kubenet",
-          "loadBalancerSku": "Standard",
-          "loadBalancerProfile": {
-            "managedOutboundIPs": {
-              "count": 1
-            },
-            "effectiveOutboundIPs": [
-              {
-                "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/MC_NetworkWatcherRG_test123_eastus/providers/Microsoft.Network/publicIPAddresses/0d3a5460-2aff-4c01-bdd7-4081fb591818"
-              }
-            ]
-          },
-          "podCidr": "10.244.0.0/16",
-          "serviceCidr": "10.0.0.0/16",
-          "dnsServiceIP": "10.0.0.10",
-          "dockerBridgeCidr": "172.17.0.1/16",
-          "outboundType": "loadBalancer"
-        },
-        "maxAgentPools": 100,
-        "privateLinkResources": [
-          {
-            "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourcegroups/NetworkWatcherRG/providers/Microsoft.ContainerService/managedClusters/test123/privateLinkResources/management",
-            "name": "management",
-            "type": "Microsoft.ContainerService/managedClusters/privateLinkResources",
-            "groupId": "management",
-            "requiredMembers": [
-              "management"
-            ]
+            "provisioningState": "Succeeded",
+            "type": "VirtualMachineScaleSets",
+            "vmSize": "Standard_DS2_v2"
           }
         ],
         "apiServerAccessProfile": {
           "enablePrivateCluster": true,
-          "privateDNSZone": "system",
-          "enablePrivateClusterPublicFQDN": true
-        },
-        "identityProfile": {
-          "kubeletidentity": {
-            "resourceId": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourcegroups/MC_NetworkWatcherRG_test123_eastus/providers/Microsoft.ManagedIdentity/userAssignedIdentities/test123-agentpool",
-            "clientId": "65ce8b9b-5c5e-4eee-9e14-23c986cf4e01",
-            "objectId": "bbb654d9-c5ba-4a82-ba23-6bb4c816f27c"
-          }
+          "enablePrivateClusterPublicFQDN": true,
+          "privateDNSZone": "system"
         },
         "autoScalerProfile": {
           "balance-similar-node-groups": "false",
@@ -140,6 +88,58 @@
           "scan-interval": "10s",
           "skip-nodes-with-local-storage": "false",
           "skip-nodes-with-system-pods": "true"
+        },
+        "azurePortalFQDN": "a2271f89ed568271772c1a63c7720e60-priv.portal.hcp.eastus.azmk8s.io",
+        "currentKubernetesVersion": "1.21.2",
+        "dnsPrefix": "test123-dns",
+        "enableRBAC": true,
+        "fqdn": "test123-dns-bbd6184c.hcp.eastus.azmk8s.io",
+        "identityProfile": {
+          "kubeletidentity": {
+            "clientId": "65ce8b9b-5c5e-4eee-9e14-23c986cf4e01",
+            "objectId": "bbb654d9-c5ba-4a82-ba23-6bb4c816f27c",
+            "resourceId": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourcegroups/MC_NetworkWatcherRG_test123_eastus/providers/Microsoft.ManagedIdentity/userAssignedIdentities/test123-agentpool"
+          }
+        },
+        "kubernetesVersion": "1.21.2",
+        "maxAgentPools": 100,
+        "networkProfile": {
+          "dnsServiceIP": "10.0.0.10",
+          "dockerBridgeCidr": "172.17.0.1/16",
+          "loadBalancerProfile": {
+            "effectiveOutboundIPs": [
+              {
+                "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/MC_NetworkWatcherRG_test123_eastus/providers/Microsoft.Network/publicIPAddresses/0d3a5460-2aff-4c01-bdd7-4081fb591818"
+              }
+            ],
+            "managedOutboundIPs": {
+              "count": 1
+            }
+          },
+          "loadBalancerSku": "Standard",
+          "networkPlugin": "kubenet",
+          "outboundType": "loadBalancer",
+          "podCidr": "10.244.0.0/16",
+          "serviceCidr": "10.0.0.0/16"
+        },
+        "nodeResourceGroup": "MC_NetworkWatcherRG_test123_eastus",
+        "powerState": {
+          "code": "Running"
+        },
+        "privateFQDN": "test123-dns-ac0378ef.f1fa03c7-0d44-4418-88aa-58eb9f6271be.privatelink.eastus.azmk8s.io",
+        "privateLinkResources": [
+          {
+            "groupId": "management",
+            "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourcegroups/NetworkWatcherRG/providers/Microsoft.ContainerService/managedClusters/test123/privateLinkResources/management",
+            "name": "management",
+            "requiredMembers": [
+              "management"
+            ],
+            "type": "Microsoft.ContainerService/managedClusters/privateLinkResources"
+          }
+        ],
+        "servicePrincipalProfile": {
+          "clientId": "msi"
         }
       }
     }

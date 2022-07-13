@@ -16,23 +16,23 @@
       "location": "westeurope",
       "tags": null,
       "properties": {
-        "source": "Azure",
         "customerId": "f6012046-344c-440a-a21b-c530672f5d55",
+        "features": {
+          "enableLogAccessUsingOnlyResourcePermissions": true,
+          "legacy": 0,
+          "searchVersion": 1
+        },
+        "publicNetworkAccessForIngestion": "Enabled",
+        "publicNetworkAccessForQuery": "Enabled",
+        "retentionInDays": 30,
         "sku": {
           "name": "pergb2018"
         },
-        "retentionInDays": 30,
-        "features": {
-          "legacy": 0,
-          "searchVersion": 1,
-          "enableLogAccessUsingOnlyResourcePermissions": true
-        },
+        "source": "Azure",
         "workspaceCapping": {
           "dailyQuotaGb": -1,
           "dataIngestionStatus": "RespectQuota"
-        },
-        "publicNetworkAccessForIngestion": "Enabled",
-        "publicNetworkAccessForQuery": "Enabled"
+        }
       }
     }
   ],

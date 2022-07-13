@@ -20,14 +20,14 @@
         "Type": "SystemAssigned"
       },
       "properties": {
-        "Scope": "/providers/Microsoft.Management/managementGroups/azfwprem-landingzones",
-        "NotScopes": null,
-        "DisplayName": "Deploy Azure Policy Add-on to Azure Kubernetes Service clusters",
         "Description": "Use Azure Policy Add-on to manage and report on the compliance state of your Azure Kubernetes Service (AKS) clusters. For more information, see https://aka.ms/akspolicydoc.",
+        "DisplayName": "Deploy Azure Policy Add-on to Azure Kubernetes Service clusters",
         "EnforcementMode": "Default",
-        "PolicyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/a8eff44f-8c92-45c3-a3fb-9880802d67a7",
+        "NonComplianceMessages": null,
+        "NotScopes": null,
         "Parameters": null,
-        "NonComplianceMessages": null
+        "PolicyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/a8eff44f-8c92-45c3-a3fb-9880802d67a7",
+        "Scope": "/providers/Microsoft.Management/managementGroups/azfwprem-landingzones"
       }
     }
   ],
