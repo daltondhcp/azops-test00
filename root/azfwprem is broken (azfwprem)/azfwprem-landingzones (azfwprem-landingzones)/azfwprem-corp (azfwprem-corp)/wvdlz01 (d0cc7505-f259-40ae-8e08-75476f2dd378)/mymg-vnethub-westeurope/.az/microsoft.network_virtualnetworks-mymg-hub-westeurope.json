@@ -21,39 +21,39 @@
             "10.100.0.0/16"
           ]
         },
+        "enableDdosProtection": false,
         "subnets": [],
         "virtualNetworkPeerings": [
           {
-            "name": "d0cc7505-f259-40ae-8e08-75476f2dd378-mymg-vnet-westeurope",
             "id": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/mymg-vnethub-westeurope/providers/Microsoft.Network/virtualNetworks/mymg-hub-westeurope/virtualNetworkPeerings/d0cc7505-f259-40ae-8e08-75476f2dd378-mymg-vnet-westeurope",
+            "name": "d0cc7505-f259-40ae-8e08-75476f2dd378-mymg-vnet-westeurope",
             "properties": {
-              "peeringState": "Connected",
-              "peeringSyncLevel": "FullyInSync",
-              "remoteVirtualNetwork": {
-                "id": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/mymg-vnet-westeurope/providers/Microsoft.Network/virtualNetworks/d0cc7505-f259-40ae-8e08-75476f2dd378-mymg-vnet-westeurope"
-              },
-              "allowVirtualNetworkAccess": true,
               "allowForwardedTraffic": true,
               "allowGatewayTransit": true,
-              "useRemoteGateways": false,
+              "allowVirtualNetworkAccess": true,
               "doNotVerifyRemoteGateways": false,
               "peerCompleteVnets": true,
+              "peeringState": "Connected",
+              "peeringSyncLevel": "FullyInSync",
               "remoteAddressSpace": {
                 "addressPrefixes": [
                   "172.16.200.0/24"
                 ]
+              },
+              "remoteVirtualNetwork": {
+                "id": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/mymg-vnet-westeurope/providers/Microsoft.Network/virtualNetworks/d0cc7505-f259-40ae-8e08-75476f2dd378-mymg-vnet-westeurope"
               },
               "remoteVirtualNetworkAddressSpace": {
                 "addressPrefixes": [
                   "172.16.200.0/24"
                 ]
               },
-              "routeServiceVips": {}
+              "routeServiceVips": {},
+              "useRemoteGateways": false
             },
             "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings"
           }
-        ],
-        "enableDdosProtection": false
+        ]
       }
     }
   ],

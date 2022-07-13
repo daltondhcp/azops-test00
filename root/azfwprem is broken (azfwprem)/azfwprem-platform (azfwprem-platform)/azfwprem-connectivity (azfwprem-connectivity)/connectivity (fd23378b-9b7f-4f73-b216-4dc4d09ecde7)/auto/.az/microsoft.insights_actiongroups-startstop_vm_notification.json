@@ -16,26 +16,26 @@
       "location": "Global",
       "tags": null,
       "properties": {
-        "groupShortName": "StStAlert",
-        "enabled": true,
+        "armRoleReceivers": [],
+        "automationRunbookReceivers": [],
+        "azureAppPushReceivers": [],
+        "azureFunctionReceivers": [],
         "emailReceivers": [
           {
-            "name": "Emailnt3m3rhm56gq4",
             "emailAddress": "xlkjciekc321c3@microsoft.com",
+            "name": "Emailnt3m3rhm56gq4",
             "status": "Enabled",
             "useCommonAlertSchema": false
           }
         ],
-        "smsReceivers": [],
-        "webhookReceivers": [],
+        "enabled": true,
         "eventHubReceivers": [],
+        "groupShortName": "StStAlert",
         "itsmReceivers": [],
-        "azureAppPushReceivers": [],
-        "automationRunbookReceivers": [],
-        "voiceReceivers": [],
         "logicAppReceivers": [],
-        "azureFunctionReceivers": [],
-        "armRoleReceivers": []
+        "smsReceivers": [],
+        "voiceReceivers": [],
+        "webhookReceivers": []
       }
     }
   ],

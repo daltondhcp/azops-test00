@@ -18,20 +18,7 @@
         "StartStopVMVersion": "1.0.0.0"
       },
       "properties": {
-        "sku": {
-          "name": "Basic",
-          "family": null,
-          "capacity": null
-        },
         "RegistrationUrl": "https://89dfba11-5fdd-44cd-be39-2fc783b1ebcb.agentsvc.eus2.azure-automation.net/accounts/89dfba11-5fdd-44cd-be39-2fc783b1ebcb",
-        "encryption": {
-          "keySource": "Microsoft.Automation",
-          "identity": {
-            "userAssignedIdentity": null
-          }
-        },
-        "privateEndpointConnections": [],
-        "automationHybridServiceUrl": "https://89dfba11-5fdd-44cd-be39-2fc783b1ebcb.jrds.eus2.azure-automation.net/automationAccounts/89dfba11-5fdd-44cd-be39-2fc783b1ebcb",
         "RuntimeConfiguration": {
           "powershell": {
             "builtinModules": {
@@ -44,7 +31,20 @@
             }
           }
         },
-        "lastModifiedBy": null
+        "automationHybridServiceUrl": "https://89dfba11-5fdd-44cd-be39-2fc783b1ebcb.jrds.eus2.azure-automation.net/automationAccounts/89dfba11-5fdd-44cd-be39-2fc783b1ebcb",
+        "encryption": {
+          "identity": {
+            "userAssignedIdentity": null
+          },
+          "keySource": "Microsoft.Automation"
+        },
+        "lastModifiedBy": null,
+        "privateEndpointConnections": [],
+        "sku": {
+          "capacity": null,
+          "family": null,
+          "name": "Basic"
+        }
       }
     }
   ],

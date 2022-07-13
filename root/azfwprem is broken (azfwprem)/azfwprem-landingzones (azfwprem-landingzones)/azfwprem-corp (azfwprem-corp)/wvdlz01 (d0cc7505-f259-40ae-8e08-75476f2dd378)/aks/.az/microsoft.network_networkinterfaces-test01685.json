@@ -17,39 +17,39 @@
       "location": "westeurope",
       "tags": null,
       "properties": {
+        "allowPort25Out": false,
+        "dnsSettings": {
+          "appliedDnsServers": [],
+          "dnsServers": []
+        },
+        "enableAcceleratedNetworking": true,
+        "enableIPForwarding": false,
+        "hostedWorkloads": [],
         "ipConfigurations": [
           {
-            "name": "ipconfig1",
-            "id": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/aks/providers/Microsoft.Network/networkInterfaces/test01685/ipConfigurations/ipconfig1",
             "etag": "W/\"24db9f63-8485-450d-9fea-50043395348a\"",
-            "type": "Microsoft.Network/networkInterfaces/ipConfigurations",
+            "id": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/aks/providers/Microsoft.Network/networkInterfaces/test01685/ipConfigurations/ipconfig1",
+            "name": "ipconfig1",
             "properties": {
-              "provisioningState": "Succeeded",
+              "primary": true,
               "privateIPAddress": "10.30.0.4",
+              "privateIPAddressVersion": "IPv4",
               "privateIPAllocationMethod": "Dynamic",
+              "provisioningState": "Succeeded",
               "publicIPAddress": {
                 "id": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/aks/providers/Microsoft.Network/publicIPAddresses/test01-ip"
               },
               "subnet": {
                 "id": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/wvdlz01-network/providers/Microsoft.Network/virtualNetworks/wvdlz01-westeurope-vnet/subnets/sessionhost01"
-              },
-              "primary": true,
-              "privateIPAddressVersion": "IPv4"
-            }
+              }
+            },
+            "type": "Microsoft.Network/networkInterfaces/ipConfigurations"
           }
         ],
-        "dnsSettings": {
-          "dnsServers": [],
-          "appliedDnsServers": []
-        },
         "macAddress": "60-45-BD-90-D9-0E",
-        "enableAcceleratedNetworking": true,
-        "vnetEncryptionSupported": false,
-        "enableIPForwarding": false,
-        "hostedWorkloads": [],
-        "tapConfigurations": [],
         "nicType": "Standard",
-        "allowPort25Out": false
+        "tapConfigurations": [],
+        "vnetEncryptionSupported": false
       }
     }
   ],

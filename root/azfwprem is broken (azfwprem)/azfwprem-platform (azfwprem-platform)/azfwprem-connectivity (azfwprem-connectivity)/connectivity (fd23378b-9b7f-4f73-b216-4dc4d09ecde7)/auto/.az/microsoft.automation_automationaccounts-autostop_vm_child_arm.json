@@ -19,22 +19,22 @@
       },
       "properties": {
         "description": "Runbook to stop individual ARM VM, called by CreateAlertsForAzureRmVM",
-        "logVerbose": false,
-        "logProgress": false,
+        "jobCount": 0,
+        "lastModifiedBy": null,
         "logActivityTrace": 0,
-        "runbookType": "PowerShell",
+        "logProgress": false,
+        "logVerbose": false,
+        "outputTypes": [],
         "parameters": {
           "webhookData": {
-            "type": "System.Object",
+            "defaultValue": null,
             "isMandatory": false,
             "position": 0,
-            "defaultValue": null
+            "type": "System.Object"
           }
         },
-        "jobCount": 0,
-        "serviceManagementTags": null,
-        "outputTypes": [],
-        "lastModifiedBy": null
+        "runbookType": "PowerShell",
+        "serviceManagementTags": null
       }
     }
   ],

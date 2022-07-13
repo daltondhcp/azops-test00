@@ -19,15 +19,15 @@
         "disableBgpRoutePropagation": false,
         "routes": [
           {
-            "name": "DefaultRoute",
-            "id": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/udr01/providers/Microsoft.Network/routeTables/udr01/routes/DefaultRoute",
             "etag": "W/\"0f2cfb91-9912-4ee3-9100-be80f8b41bf8\"",
+            "id": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/udr01/providers/Microsoft.Network/routeTables/udr01/routes/DefaultRoute",
+            "name": "DefaultRoute",
             "properties": {
-              "provisioningState": "Succeeded",
               "addressPrefix": "0.0.0.0/0",
-              "nextHopType": "VirtualAppliance",
+              "hasBgpOverride": false,
               "nextHopIpAddress": "10.100.0.4",
-              "hasBgpOverride": false
+              "nextHopType": "VirtualAppliance",
+              "provisioningState": "Succeeded"
             },
             "type": "Microsoft.Network/routeTables/routes"
           }

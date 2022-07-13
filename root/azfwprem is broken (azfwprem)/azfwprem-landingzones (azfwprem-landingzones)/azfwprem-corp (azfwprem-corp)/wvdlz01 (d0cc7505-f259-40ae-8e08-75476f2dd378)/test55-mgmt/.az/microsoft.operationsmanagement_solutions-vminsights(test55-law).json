@@ -16,9 +16,9 @@
       "location": "East US 2",
       "tags": null,
       "properties": {
-        "workspaceResourceId": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourcegroups/test55-mgmt/providers/Microsoft.OperationalInsights/workspaces/test55-law",
         "containedResources": [],
-        "workbookTemplates": []
+        "workbookTemplates": [],
+        "workspaceResourceId": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourcegroups/test55-mgmt/providers/Microsoft.OperationalInsights/workspaces/test55-law"
       }
     }
   ],

@@ -20,14 +20,14 @@
         "Type": "SystemAssigned"
       },
       "properties": {
-        "Scope": "/providers/Microsoft.Management/managementGroups/azfwprem-landingzones",
-        "NotScopes": null,
-        "DisplayName": "Deny or Deploy and append TLS requirements and SSL enforcement on resources without Encryption in transit",
         "Description": "Choose either Deploy if not exist and append in combination with audit or Select Deny in the Policy effect. Deny polices shift left. Deploy if not exist and append enforce but can be changed, and because missing exsistense condition require then the combination of Audit.",
+        "DisplayName": "Deny or Deploy and append TLS requirements and SSL enforcement on resources without Encryption in transit",
         "EnforcementMode": "Default",
-        "PolicyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policySetDefinitions/Enforce-EncryptTransit",
+        "NonComplianceMessages": null,
+        "NotScopes": null,
         "Parameters": {},
-        "NonComplianceMessages": null
+        "PolicyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policySetDefinitions/Enforce-EncryptTransit",
+        "Scope": "/providers/Microsoft.Management/managementGroups/azfwprem-landingzones"
       }
     }
   ],

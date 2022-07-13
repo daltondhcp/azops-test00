@@ -19,34 +19,34 @@
       },
       "properties": {
         "description": "Parallel execution of scheduled stop/start actions",
-        "logVerbose": false,
-        "logProgress": false,
+        "jobCount": 0,
+        "lastModifiedBy": null,
         "logActivityTrace": 0,
-        "runbookType": "PowerShell",
+        "logProgress": false,
+        "logVerbose": false,
+        "outputTypes": [],
         "parameters": {
           "Action": {
-            "type": "System.String",
+            "defaultValue": null,
             "isMandatory": true,
             "position": 0,
-            "defaultValue": null
+            "type": "System.String"
           },
           "VMList": {
-            "type": "System.String",
+            "defaultValue": null,
             "isMandatory": false,
             "position": 2,
-            "defaultValue": null
+            "type": "System.String"
           },
           "WhatIf": {
-            "type": "System.Boolean",
+            "defaultValue": "$false",
             "isMandatory": false,
             "position": 1,
-            "defaultValue": "$false"
+            "type": "System.Boolean"
           }
         },
-        "jobCount": 0,
-        "serviceManagementTags": null,
-        "outputTypes": [],
-        "lastModifiedBy": null
+        "runbookType": "PowerShell",
+        "serviceManagementTags": null
       }
     }
   ],

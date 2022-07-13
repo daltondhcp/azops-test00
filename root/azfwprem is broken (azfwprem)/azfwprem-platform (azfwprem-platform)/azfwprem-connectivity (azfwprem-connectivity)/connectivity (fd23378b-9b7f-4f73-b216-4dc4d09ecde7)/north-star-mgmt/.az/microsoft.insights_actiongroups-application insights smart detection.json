@@ -16,18 +16,6 @@
       "location": "Global",
       "tags": null,
       "properties": {
-        "groupShortName": "SmartDetect",
-        "enabled": true,
-        "emailReceivers": [],
-        "smsReceivers": [],
-        "webhookReceivers": [],
-        "eventHubReceivers": [],
-        "itsmReceivers": [],
-        "azureAppPushReceivers": [],
-        "automationRunbookReceivers": [],
-        "voiceReceivers": [],
-        "logicAppReceivers": [],
-        "azureFunctionReceivers": [],
         "armRoleReceivers": [
           {
             "name": "Monitoring Contributor",
@@ -39,7 +27,19 @@
             "roleId": "43d0d8ad-25c7-4714-9337-8ba259a9fe05",
             "useCommonAlertSchema": true
           }
-        ]
+        ],
+        "automationRunbookReceivers": [],
+        "azureAppPushReceivers": [],
+        "azureFunctionReceivers": [],
+        "emailReceivers": [],
+        "enabled": true,
+        "eventHubReceivers": [],
+        "groupShortName": "SmartDetect",
+        "itsmReceivers": [],
+        "logicAppReceivers": [],
+        "smsReceivers": [],
+        "voiceReceivers": [],
+        "webhookReceivers": []
       }
     }
   ],

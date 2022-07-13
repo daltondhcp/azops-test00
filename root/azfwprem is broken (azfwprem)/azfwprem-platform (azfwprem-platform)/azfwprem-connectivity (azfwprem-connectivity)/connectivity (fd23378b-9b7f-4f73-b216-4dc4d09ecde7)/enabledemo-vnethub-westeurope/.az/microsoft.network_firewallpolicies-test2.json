@@ -16,15 +16,8 @@
       "location": "eastus2",
       "tags": {},
       "properties": {
-        "sku": {
-          "tier": "Standard"
-        },
-        "threatIntelMode": "Alert",
-        "threatIntelWhitelist": {
-          "fqdns": [],
-          "ipAddresses": []
-        },
         "childPolicies": [],
+        "firewalls": [],
         "ruleCollectionGroups": [
           {
             "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/enableDemo-vnethub-westeurope/providers/Microsoft.Network/firewallPolicies/test2/ruleCollectionGroups/Common-LZ"
@@ -36,7 +29,14 @@
             "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/enableDemo-vnethub-westeurope/providers/Microsoft.Network/firewallPolicies/test2/ruleCollectionGroups/Network-LZ"
           }
         ],
-        "firewalls": []
+        "sku": {
+          "tier": "Standard"
+        },
+        "threatIntelMode": "Alert",
+        "threatIntelWhitelist": {
+          "fqdns": [],
+          "ipAddresses": []
+        }
       }
     }
   ],

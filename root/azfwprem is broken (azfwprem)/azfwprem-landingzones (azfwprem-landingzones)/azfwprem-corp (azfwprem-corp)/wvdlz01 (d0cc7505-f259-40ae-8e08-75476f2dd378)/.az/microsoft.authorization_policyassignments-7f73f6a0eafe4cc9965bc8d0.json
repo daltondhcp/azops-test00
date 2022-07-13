@@ -20,27 +20,27 @@
         "Type": "SystemAssigned"
       },
       "properties": {
-        "Scope": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378",
-        "NotScopes": [],
-        "DisplayName": "Deploy-UDR",
         "Description": null,
+        "DisplayName": "Deploy-UDR",
         "EnforcementMode": "Default",
-        "PolicyDefinitionId": "/providers/Microsoft.Management/managementGroups/ctx01/providers/Microsoft.Authorization/policyDefinitions/1c3035fe-49ea-4697-beaa-185b9b13cdb8",
+        "NonComplianceMessages": [],
+        "NotScopes": [],
         "Parameters": {
-          "udrRgName": {
-            "value": "udr01"
-          },
-          "udrName": {
-            "value": "udr01"
+          "defaultRouteNextHop": {
+            "value": "10.100.0.4"
           },
           "location": {
             "value": "westeurope"
           },
-          "defaultRouteNextHop": {
-            "value": "10.100.0.4"
+          "udrName": {
+            "value": "udr01"
+          },
+          "udrRgName": {
+            "value": "udr01"
           }
         },
-        "NonComplianceMessages": []
+        "PolicyDefinitionId": "/providers/Microsoft.Management/managementGroups/ctx01/providers/Microsoft.Authorization/policyDefinitions/1c3035fe-49ea-4697-beaa-185b9b13cdb8",
+        "Scope": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378"
       }
     }
   ],

@@ -20,14 +20,14 @@
         "Type": "SystemAssigned"
       },
       "properties": {
-        "Scope": "/providers/Microsoft.Management/managementGroups/azfwprem-landingzones",
-        "NotScopes": null,
-        "DisplayName": "Deploy Threat Detection on SQL servers",
         "Description": "This policy ensures that Threat Detection is enabled on SQL Servers.",
+        "DisplayName": "Deploy Threat Detection on SQL servers",
         "EnforcementMode": "Default",
-        "PolicyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/36d49e87-48c4-4f2e-beed-ba4ed02b71f5",
+        "NonComplianceMessages": null,
+        "NotScopes": null,
         "Parameters": null,
-        "NonComplianceMessages": null
+        "PolicyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/36d49e87-48c4-4f2e-beed-ba4ed02b71f5",
+        "Scope": "/providers/Microsoft.Management/managementGroups/azfwprem-landingzones"
       }
     }
   ],

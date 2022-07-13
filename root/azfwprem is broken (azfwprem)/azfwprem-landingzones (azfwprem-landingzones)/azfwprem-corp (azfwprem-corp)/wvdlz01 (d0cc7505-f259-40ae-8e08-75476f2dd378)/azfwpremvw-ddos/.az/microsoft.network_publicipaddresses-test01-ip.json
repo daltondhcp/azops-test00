@@ -13,22 +13,22 @@
       "type": "Microsoft.Network/publicIPAddresses",
       "name": "test01-ip",
       "sku": {
-        "Name": "Standard",
-        "Tier": "Regional",
-        "Size": null,
+        "Capacity": null,
         "Family": null,
         "Model": null,
-        "Capacity": null
+        "Name": "Standard",
+        "Size": null,
+        "Tier": "Regional"
       },
       "apiVersion": "2022-01-01",
       "location": "westeurope",
       "tags": null,
       "properties": {
-        "ipAddress": "20.56.131.133",
-        "publicIPAddressVersion": "IPv4",
-        "publicIPAllocationMethod": "Static",
         "idleTimeoutInMinutes": 4,
-        "ipTags": []
+        "ipAddress": "20.56.131.133",
+        "ipTags": [],
+        "publicIPAddressVersion": "IPv4",
+        "publicIPAllocationMethod": "Static"
       }
     }
   ],

@@ -20,14 +20,14 @@
         "Type": "SystemAssigned"
       },
       "properties": {
-        "Scope": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378",
-        "NotScopes": [],
-        "DisplayName": "mYdEPLOY-MDE",
         "Description": null,
+        "DisplayName": "mYdEPLOY-MDE",
         "EnforcementMode": "Default",
-        "PolicyDefinitionId": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/providers/Microsoft.Authorization/policyDefinitions/d8d26049-3e13-4b29-af46-26c798d4d661",
+        "NonComplianceMessages": [],
+        "NotScopes": [],
         "Parameters": {},
-        "NonComplianceMessages": []
+        "PolicyDefinitionId": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/providers/Microsoft.Authorization/policyDefinitions/d8d26049-3e13-4b29-af46-26c798d4d661",
+        "Scope": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378"
       }
     }
   ],

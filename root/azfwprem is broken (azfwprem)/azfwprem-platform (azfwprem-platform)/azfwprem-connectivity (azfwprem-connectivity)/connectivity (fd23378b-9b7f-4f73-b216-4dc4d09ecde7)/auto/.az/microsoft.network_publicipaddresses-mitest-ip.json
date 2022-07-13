@@ -13,25 +13,25 @@
       "type": "Microsoft.Network/publicIPAddresses",
       "name": "mitest-ip",
       "sku": {
-        "Name": "Standard",
-        "Tier": "Regional",
-        "Size": null,
+        "Capacity": null,
         "Family": null,
         "Model": null,
-        "Capacity": null
+        "Name": "Standard",
+        "Size": null,
+        "Tier": "Regional"
       },
       "apiVersion": "2022-01-01",
       "location": "westeurope",
       "tags": null,
       "properties": {
-        "ipAddress": "20.86.20.44",
-        "publicIPAddressVersion": "IPv4",
-        "publicIPAllocationMethod": "Static",
         "idleTimeoutInMinutes": 4,
-        "ipTags": [],
+        "ipAddress": "20.86.20.44",
         "ipConfiguration": {
           "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/auto/providers/Microsoft.Network/networkInterfaces/mitest553/ipConfigurations/ipconfig1"
-        }
+        },
+        "ipTags": [],
+        "publicIPAddressVersion": "IPv4",
+        "publicIPAllocationMethod": "Static"
       }
     }
   ],

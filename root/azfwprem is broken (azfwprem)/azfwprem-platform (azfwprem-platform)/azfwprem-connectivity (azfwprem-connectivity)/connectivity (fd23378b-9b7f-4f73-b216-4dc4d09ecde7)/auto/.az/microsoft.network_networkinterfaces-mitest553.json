@@ -17,47 +17,47 @@
       "location": "westeurope",
       "tags": null,
       "properties": {
+        "allowPort25Out": false,
+        "dnsSettings": {
+          "appliedDnsServers": [],
+          "dnsServers": [],
+          "internalDomainNameSuffix": "oqwz00ugulvexp1m2pffoasp1h.ax.internal.cloudapp.net"
+        },
+        "enableAcceleratedNetworking": true,
+        "enableIPForwarding": false,
+        "hostedWorkloads": [],
         "ipConfigurations": [
           {
-            "name": "ipconfig1",
-            "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/auto/providers/Microsoft.Network/networkInterfaces/mitest553/ipConfigurations/ipconfig1",
             "etag": "W/\"0cd4d51e-43eb-4ae9-94fd-005e1e5544f3\"",
-            "type": "Microsoft.Network/networkInterfaces/ipConfigurations",
+            "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/auto/providers/Microsoft.Network/networkInterfaces/mitest553/ipConfigurations/ipconfig1",
+            "name": "ipconfig1",
             "properties": {
-              "provisioningState": "Succeeded",
+              "primary": true,
               "privateIPAddress": "172.16.0.4",
+              "privateIPAddressVersion": "IPv4",
               "privateIPAllocationMethod": "Static",
+              "provisioningState": "Succeeded",
               "publicIPAddress": {
                 "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/auto/providers/Microsoft.Network/publicIPAddresses/mitest-ip"
               },
               "subnet": {
                 "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/auto/providers/Microsoft.Network/virtualNetworks/auto-vnet/subnets/default"
-              },
-              "primary": true,
-              "privateIPAddressVersion": "IPv4"
-            }
+              }
+            },
+            "type": "Microsoft.Network/networkInterfaces/ipConfigurations"
           }
         ],
-        "dnsSettings": {
-          "dnsServers": [],
-          "appliedDnsServers": [],
-          "internalDomainNameSuffix": "oqwz00ugulvexp1m2pffoasp1h.ax.internal.cloudapp.net"
-        },
         "macAddress": "00-0D-3A-AC-4C-C0",
-        "enableAcceleratedNetworking": true,
-        "vnetEncryptionSupported": false,
-        "enableIPForwarding": false,
         "networkSecurityGroup": {
           "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/auto/providers/Microsoft.Network/networkSecurityGroups/mitest-nsg"
         },
+        "nicType": "Standard",
         "primary": true,
+        "tapConfigurations": [],
         "virtualMachine": {
           "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/auto/providers/Microsoft.Compute/virtualMachines/mitest"
         },
-        "hostedWorkloads": [],
-        "tapConfigurations": [],
-        "nicType": "Standard",
-        "allowPort25Out": false
+        "vnetEncryptionSupported": false
       }
     }
   ],

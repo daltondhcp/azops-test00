@@ -19,40 +19,40 @@
       },
       "properties": {
         "description": "Sequenced Snooze(stop) or UnSnooze(start)",
-        "logVerbose": false,
-        "logProgress": false,
+        "jobCount": 0,
+        "lastModifiedBy": null,
         "logActivityTrace": 0,
-        "runbookType": "PowerShell",
+        "logProgress": false,
+        "logVerbose": false,
+        "outputTypes": [],
         "parameters": {
           "Action": {
-            "type": "System.String",
+            "defaultValue": null,
             "isMandatory": true,
             "position": 0,
-            "defaultValue": null
-          },
-          "VMList": {
-            "type": "System.String",
-            "isMandatory": false,
-            "position": 3,
-            "defaultValue": null
-          },
-          "WhatIf": {
-            "type": "System.Boolean",
-            "isMandatory": false,
-            "position": 1,
-            "defaultValue": "$false"
+            "type": "System.String"
           },
           "ContinueOnError": {
-            "type": "System.Boolean",
+            "defaultValue": "$false",
             "isMandatory": false,
             "position": 2,
-            "defaultValue": "$false"
+            "type": "System.Boolean"
+          },
+          "VMList": {
+            "defaultValue": null,
+            "isMandatory": false,
+            "position": 3,
+            "type": "System.String"
+          },
+          "WhatIf": {
+            "defaultValue": "$false",
+            "isMandatory": false,
+            "position": 1,
+            "type": "System.Boolean"
           }
         },
-        "jobCount": 0,
-        "serviceManagementTags": null,
-        "outputTypes": [],
-        "lastModifiedBy": null
+        "runbookType": "PowerShell",
+        "serviceManagementTags": null
       }
     }
   ],

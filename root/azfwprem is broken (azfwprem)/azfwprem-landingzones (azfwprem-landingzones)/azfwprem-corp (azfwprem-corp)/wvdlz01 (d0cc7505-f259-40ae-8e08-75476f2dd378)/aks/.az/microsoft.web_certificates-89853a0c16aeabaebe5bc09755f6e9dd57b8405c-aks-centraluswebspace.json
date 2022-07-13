@@ -16,28 +16,28 @@
       "location": "Central US",
       "tags": null,
       "properties": {
-        "password": null,
+        "cerBlob": null,
         "friendlyName": "",
-        "subjectName": "365lab.net",
         "hostNames": [
           "365lab.net"
         ],
-        "pfxBlob": null,
-        "siteName": null,
-        "selfLink": null,
-        "issuer": "365lab.net",
-        "thumbprint": "89853A0C16AEABAEBE5BC09755F6E9DD57B8405C",
-        "valid": null,
-        "toDelete": null,
-        "cerBlob": null,
-        "publicKeyHash": null,
         "hostingEnvironment": null,
         "hostingEnvironmentProfile": null,
+        "issuer": "365lab.net",
         "keyVaultSecretStatus": "Initialized",
-        "webSpace": "aks-CentralUSwebspace",
+        "password": null,
+        "pfxBlob": null,
+        "publicKeyHash": null,
+        "resourceGroup": "aks",
+        "selfLink": null,
         "serverFarmId": null,
+        "siteName": null,
+        "subjectName": "365lab.net",
         "tags": null,
-        "resourceGroup": "aks"
+        "thumbprint": "89853A0C16AEABAEBE5BC09755F6E9DD57B8405C",
+        "toDelete": null,
+        "valid": null,
+        "webSpace": "aks-CentralUSwebspace"
       }
     }
   ],

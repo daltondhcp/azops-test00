@@ -15,14 +15,14 @@
       "apiVersion": "2021-06-01",
       "location": "eastus",
       "properties": {
-        "Scope": "/providers/Microsoft.Management/managementGroups/azfwprem-corp",
-        "NotScopes": null,
-        "DisplayName": "Public network access should be disabled for PaaS services",
         "Description": "This policy initiative is a group of policies that prevents creation of Azure PaaS services with exposed public endpoints",
+        "DisplayName": "Public network access should be disabled for PaaS services",
         "EnforcementMode": "Default",
-        "PolicyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policySetDefinitions/Deny-PublicPaaSEndpoints",
+        "NonComplianceMessages": null,
+        "NotScopes": null,
         "Parameters": {},
-        "NonComplianceMessages": null
+        "PolicyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policySetDefinitions/Deny-PublicPaaSEndpoints",
+        "Scope": "/providers/Microsoft.Management/managementGroups/azfwprem-corp"
       }
     }
   ],

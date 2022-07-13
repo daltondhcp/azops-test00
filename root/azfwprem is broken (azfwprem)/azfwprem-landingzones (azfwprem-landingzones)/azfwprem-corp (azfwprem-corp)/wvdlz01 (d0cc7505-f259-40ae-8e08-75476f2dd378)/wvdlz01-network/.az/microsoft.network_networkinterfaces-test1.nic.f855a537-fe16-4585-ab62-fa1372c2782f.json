@@ -17,47 +17,47 @@
       "location": "westeurope",
       "tags": {},
       "properties": {
-        "ipConfigurations": [
-          {
-            "name": "blob-blob.privateEndpoint",
-            "id": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/wvdlz01-network/providers/Microsoft.Network/networkInterfaces/test1.nic.f855a537-fe16-4585-ab62-fa1372c2782f/ipConfigurations/blob-blob.privateEndpoint",
-            "etag": "W/\"05640fa8-6bfb-4404-91b0-b6a4cc26a318\"",
-            "type": "Microsoft.Network/networkInterfaces/ipConfigurations",
-            "properties": {
-              "provisioningState": "Succeeded",
-              "privateIPAddress": "10.30.0.9",
-              "privateIPAllocationMethod": "Dynamic",
-              "subnet": {
-                "id": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/wvdlz01-network/providers/Microsoft.Network/virtualNetworks/wvdlz01-westeurope-vnet/subnets/sessionhost01"
-              },
-              "primary": true,
-              "privateIPAddressVersion": "IPv4",
-              "privateLinkConnectionProperties": {
-                "groupId": "blob",
-                "requiredMemberName": "blob",
-                "fqdns": [
-                  "teststoragejohan1233446.blob.core.windows.net"
-                ]
-              }
-            }
-          }
-        ],
+        "allowPort25Out": false,
         "dnsSettings": {
-          "dnsServers": [],
           "appliedDnsServers": [],
+          "dnsServers": [],
           "internalDomainNameSuffix": "bh3jenmmq1lefbf0pbnf2z034c.ax.internal.cloudapp.net"
         },
-        "macAddress": "",
         "enableAcceleratedNetworking": false,
-        "vnetEncryptionSupported": false,
         "enableIPForwarding": false,
         "hostedWorkloads": [],
-        "tapConfigurations": [],
+        "ipConfigurations": [
+          {
+            "etag": "W/\"05640fa8-6bfb-4404-91b0-b6a4cc26a318\"",
+            "id": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/wvdlz01-network/providers/Microsoft.Network/networkInterfaces/test1.nic.f855a537-fe16-4585-ab62-fa1372c2782f/ipConfigurations/blob-blob.privateEndpoint",
+            "name": "blob-blob.privateEndpoint",
+            "properties": {
+              "primary": true,
+              "privateIPAddress": "10.30.0.9",
+              "privateIPAddressVersion": "IPv4",
+              "privateIPAllocationMethod": "Dynamic",
+              "privateLinkConnectionProperties": {
+                "fqdns": [
+                  "teststoragejohan1233446.blob.core.windows.net"
+                ],
+                "groupId": "blob",
+                "requiredMemberName": "blob"
+              },
+              "provisioningState": "Succeeded",
+              "subnet": {
+                "id": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/wvdlz01-network/providers/Microsoft.Network/virtualNetworks/wvdlz01-westeurope-vnet/subnets/sessionhost01"
+              }
+            },
+            "type": "Microsoft.Network/networkInterfaces/ipConfigurations"
+          }
+        ],
+        "macAddress": "",
+        "nicType": "Standard",
         "privateEndpoint": {
           "id": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/wvdlz01-network/providers/Microsoft.Network/privateEndpoints/test1"
         },
-        "nicType": "Standard",
-        "allowPort25Out": false
+        "tapConfigurations": [],
+        "vnetEncryptionSupported": false
       }
     }
   ],

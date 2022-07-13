@@ -13,12 +13,12 @@
       "type": "Microsoft.AzureActiveDirectory/b2cDirectories",
       "name": "alwaysonb2cjd.onmicrosoft.com",
       "sku": {
-        "Name": "PremiumP1",
-        "Tier": "A0",
-        "Size": null,
+        "Capacity": null,
         "Family": null,
         "Model": null,
-        "Capacity": null
+        "Name": "PremiumP1",
+        "Size": null,
+        "Tier": "A0"
       },
       "apiVersion": "2022-03-01-preview",
       "location": "Europe",

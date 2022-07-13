@@ -20,12 +20,11 @@
         "Type": "SystemAssigned"
       },
       "properties": {
-        "Scope": "/providers/Microsoft.Management/managementGroups/azfwprem-landingzones",
-        "NotScopes": null,
-        "DisplayName": "Virtual networks should be protected by Azure DDoS Protection Standard",
         "Description": "Protect your virtual networks against volumetric and protocol attacks with Azure DDoS Protection Standard. For more information, visit https://aka.ms/ddosprotectiondocs.",
+        "DisplayName": "Virtual networks should be protected by Azure DDoS Protection Standard",
         "EnforcementMode": "Default",
-        "PolicyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/94de2ad3-e0c1-4caf-ad78-5d47bbc83d3d",
+        "NonComplianceMessages": null,
+        "NotScopes": null,
         "Parameters": {
           "ddosPlan": {
             "value": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/azfwprem-ddos/providers/Microsoft.Network/ddosProtectionPlans/azfwprem-ddos-eastus"
@@ -34,7 +33,8 @@
             "value": "Modify"
           }
         },
-        "NonComplianceMessages": null
+        "PolicyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/94de2ad3-e0c1-4caf-ad78-5d47bbc83d3d",
+        "Scope": "/providers/Microsoft.Management/managementGroups/azfwprem-landingzones"
       }
     }
   ],
