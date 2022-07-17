@@ -20,15 +20,14 @@
         "allowPort25Out": false,
         "dnsSettings": {
           "appliedDnsServers": [],
-          "dnsServers": [],
-          "internalDomainNameSuffix": "oqwz00ugulvexp1m2pffoasp1h.ax.internal.cloudapp.net"
+          "dnsServers": []
         },
         "enableAcceleratedNetworking": true,
         "enableIPForwarding": false,
         "hostedWorkloads": [],
         "ipConfigurations": [
           {
-            "etag": "W/\"742ddf21-d270-4ced-a8af-e31109bd05d0\"",
+            "etag": "W/\"3a389492-176b-4bab-be1a-f869f2dec5f0\"",
             "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/auto/providers/Microsoft.Network/networkInterfaces/mitest553/ipConfigurations/ipconfig1",
             "name": "ipconfig1",
             "properties": {
