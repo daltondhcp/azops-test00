@@ -12,7 +12,7 @@
     {
       "type": "microsoft.operationalinsights/workspaces",
       "name": "test34-law",
-      "apiVersion": "2021-12-01-preview",
+      "apiVersion": "2022-10-01",
       "location": "westeurope",
       "tags": null,
       "properties": {
