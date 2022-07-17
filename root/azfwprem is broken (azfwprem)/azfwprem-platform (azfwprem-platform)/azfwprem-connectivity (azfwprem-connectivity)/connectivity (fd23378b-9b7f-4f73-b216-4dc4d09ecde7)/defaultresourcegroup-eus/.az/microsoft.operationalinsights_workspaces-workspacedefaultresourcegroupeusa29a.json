@@ -12,7 +12,7 @@
     {
       "type": "Microsoft.OperationalInsights/workspaces",
       "name": "workspacedefaultresourcegroupeusa29a",
-      "apiVersion": "2022-10-01",
+      "apiVersion": "2021-12-01-preview",
       "location": "canadacentral",
       "tags": null,
       "properties": {
