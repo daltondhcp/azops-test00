@@ -20,7 +20,7 @@
         "Size": null,
         "Tier": "Standard"
       },
-      "apiVersion": "2022-03-02",
+      "apiVersion": "2022-07-02",
       "location": "westeurope",
       "tags": null,
       "properties": {
