@@ -38,6 +38,7 @@
         "itsmReceivers": [],
         "logicAppReceivers": [],
         "smsReceivers": [],
+        "tags": null,
         "voiceReceivers": [],
         "webhookReceivers": []
       }
