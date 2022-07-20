@@ -13,7 +13,7 @@
       "type": "Microsoft.Network/networkInterfaces",
       "name": "test1.nic.f855a537-fe16-4585-ab62-fa1372c2782f",
       "kind": "Regular",
-      "apiVersion": "2022-01-01",
+      "apiVersion": "2022-05-01",
       "location": "westeurope",
       "tags": {},
       "properties": {
