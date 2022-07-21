@@ -1,0 +1,50 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Automation/automationAccounts",
+      "name": "North-Star-aauto-westeurope",
+      "apiVersion": "2021-06-22",
+      "location": "westeurope",
+      "tags": {},
+      "properties": {
+        "RegistrationUrl": "https://f1665bad-f7a8-42ee-999b-ae5b06e0577f.agentsvc.we.azure-automation.net/accounts/f1665bad-f7a8-42ee-999b-ae5b06e0577f",
+        "RuntimeConfiguration": {
+          "powershell": {
+            "builtinModules": {
+              "Az": "6.5.0"
+            }
+          },
+          "powershell7": {
+            "builtinModules": {
+              "Az": "6.5.0"
+            }
+          }
+        },
+        "automationHybridServiceUrl": "https://f1665bad-f7a8-42ee-999b-ae5b06e0577f.jrds.we.azure-automation.net/automationAccounts/f1665bad-f7a8-42ee-999b-ae5b06e0577f",
+        "encryption": {
+          "identity": {
+            "userAssignedIdentity": null
+          },
+          "keySource": "Microsoft.Automation"
+        },
+        "lastModifiedBy": null,
+        "privateEndpointConnections": [],
+        "sku": {
+          "capacity": null,
+          "family": null,
+          "name": "Basic"
+        }
+      }
+    }
+  ],
+  "outputs": {}
+}

@@ -1,0 +1,54 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Automation/automationAccounts/runbooks",
+      "name": "ScheduledStartStop_Child",
+      "apiVersion": "2021-06-22",
+      "location": "eastus2",
+      "tags": {
+        "version": "2.0.0.0"
+      },
+      "properties": {
+        "description": "This runbook is called by the parent runbook ScheduledStartStop_Parent to start/start ARM VMs ",
+        "jobCount": 0,
+        "lastModifiedBy": null,
+        "logActivityTrace": 0,
+        "logProgress": false,
+        "logVerbose": false,
+        "outputTypes": [],
+        "parameters": {
+          "Action": {
+            "defaultValue": "$(throw \"Value for Action is missing\")",
+            "isMandatory": false,
+            "position": 1,
+            "type": "System.String"
+          },
+          "ResourceGroupName": {
+            "defaultValue": "$(throw \"Value for ResourceGroupName is missing\")",
+            "isMandatory": false,
+            "position": 2,
+            "type": "System.String"
+          },
+          "VMName": {
+            "defaultValue": "$(throw \"Value for VMName is missing\")",
+            "isMandatory": false,
+            "position": 0,
+            "type": "System.String"
+          }
+        },
+        "runbookType": "PowerShell",
+        "serviceManagementTags": null
+      }
+    }
+  ],
+  "outputs": {}
+}
