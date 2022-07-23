@@ -20,7 +20,7 @@
         "Size": null,
         "Tier": "Premium"
       },
-      "apiVersion": "2022-07-02",
+      "apiVersion": "2022-03-02",
       "location": "westeurope",
       "tags": null,
       "properties": {
