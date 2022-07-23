@@ -13,21 +13,22 @@
       "type": "Microsoft.Network/networkInterfaces",
       "name": "mitest553",
       "kind": "Regular",
-      "apiVersion": "2022-01-01",
+      "apiVersion": "2022-05-01",
       "location": "westeurope",
       "tags": null,
       "properties": {
         "allowPort25Out": false,
         "dnsSettings": {
           "appliedDnsServers": [],
-          "dnsServers": []
+          "dnsServers": [],
+          "internalDomainNameSuffix": "oqwz00ugulvexp1m2pffoasp1h.ax.internal.cloudapp.net"
         },
         "enableAcceleratedNetworking": true,
         "enableIPForwarding": false,
         "hostedWorkloads": [],
         "ipConfigurations": [
           {
-            "etag": "W/\"1b0f2632-acf5-453f-b70e-617d73ee23cd\"",
+            "etag": "W/\"21148d65-a593-4698-a657-520ca89ab9d6\"",
             "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/auto/providers/Microsoft.Network/networkInterfaces/mitest553/ipConfigurations/ipconfig1",
             "name": "ipconfig1",
             "properties": {
