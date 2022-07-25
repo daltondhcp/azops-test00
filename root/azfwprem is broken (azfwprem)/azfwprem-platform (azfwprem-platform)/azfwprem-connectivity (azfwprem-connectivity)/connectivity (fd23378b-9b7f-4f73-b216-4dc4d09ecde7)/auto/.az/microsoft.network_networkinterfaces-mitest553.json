@@ -13,7 +13,7 @@
       "type": "Microsoft.Network/networkInterfaces",
       "name": "mitest553",
       "kind": "Regular",
-      "apiVersion": "2022-05-01",
+      "apiVersion": "2022-01-01",
       "location": "westeurope",
       "tags": null,
       "properties": {
@@ -28,7 +28,7 @@
         "hostedWorkloads": [],
         "ipConfigurations": [
           {
-            "etag": "W/\"21148d65-a593-4698-a657-520ca89ab9d6\"",
+            "etag": "W/\"df3d1c3d-2bd4-4c14-9f56-055b7c64742b\"",
             "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/auto/providers/Microsoft.Network/networkInterfaces/mitest553/ipConfigurations/ipconfig1",
             "name": "ipconfig1",
             "properties": {
