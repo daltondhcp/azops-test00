@@ -37,7 +37,6 @@ runs:
             Write-Host '##[error]The validation pipeline failed because there is currently no change to be processed'
             exit 1
           }
-
       #
       # Deploy
       # Initial deployment of any index changes
