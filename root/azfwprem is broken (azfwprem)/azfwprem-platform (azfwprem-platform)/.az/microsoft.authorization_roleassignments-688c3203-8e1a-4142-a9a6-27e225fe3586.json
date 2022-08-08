@@ -14,7 +14,7 @@
       "name": "688c3203-8e1a-4142-a9a6-27e225fe3586",
       "apiVersion": "2022-01-01-preview",
       "properties": {
-        "DisplayName": "MS-PIM",
+        "DisplayName": "MS-PIM ",
         "ObjectType": "ServicePrincipal",
         "PrincipalId": "8d3b19c7-8575-48d0-bb82-e04d30b8a79e",
         "RoleDefinitionId": "/providers/Microsoft.Authorization/RoleDefinitions/18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
