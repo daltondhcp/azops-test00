@@ -1,0 +1,128 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Compute/virtualMachineScaleSets",
+      "name": "testvmss",
+      "sku": {
+        "Capacity": 2,
+        "Family": null,
+        "Model": null,
+        "Name": "Standard_D2s_v3",
+        "Size": null,
+        "Tier": "Standard"
+      },
+      "apiVersion": "2022-08-01",
+      "location": "westeurope",
+      "tags": null,
+      "properties": {
+        "doNotRunExtensionsOnOverprovisionedVMs": false,
+        "overprovision": false,
+        "platformFaultDomainCount": 1,
+        "scaleInPolicy": {
+          "rules": [
+            "Default"
+          ]
+        },
+        "singlePlacementGroup": false,
+        "uniqueId": "a25b38fa-37d8-4b51-9a35-6abde39d8b34",
+        "upgradePolicy": {
+          "mode": "Manual"
+        },
+        "virtualMachineProfile": {
+          "diagnosticsProfile": {
+            "bootDiagnostics": {
+              "enabled": true
+            }
+          },
+          "extensionProfile": {
+            "extensions": [
+              {
+                "name": "MDE.Windows",
+                "properties": {
+                  "autoUpgradeMinorVersion": true,
+                  "publisher": "Microsoft.Azure.AzureDefenderForServers",
+                  "settings": {
+                    "azureResourceId": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/azfwpremvw-ddos/providers/Microsoft.Compute/virtualMachineScaleSets/testvmss",
+                    "installedBy": "Policy",
+                    "vNextEnabled": "true"
+                  },
+                  "type": "MDE.Windows",
+                  "typeHandlerVersion": "1.0"
+                }
+              }
+            ]
+          },
+          "networkProfile": {
+            "networkInterfaceConfigurations": [
+              {
+                "name": "d0cc7505-f259-40ae-8e08-75476f2dd378-mymg-vnet-west-nic01",
+                "properties": {
+                  "dnsSettings": {
+                    "dnsServers": []
+                  },
+                  "enableAcceleratedNetworking": true,
+                  "enableIPForwarding": false,
+                  "ipConfigurations": [
+                    {
+                      "name": "d0cc7505-f259-40ae-8e08-75476f2dd378-mymg-vnet-west-nic01-defaultIpConfiguration",
+                      "properties": {
+                        "primary": true,
+                        "privateIPAddressVersion": "IPv4",
+                        "subnet": {
+                          "id": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/mymg-vnet-westeurope/providers/Microsoft.Network/virtualNetworks/d0cc7505-f259-40ae-8e08-75476f2dd378-mymg-vnet-westeurope/subnets/subnet1"
+                        }
+                      }
+                    }
+                  ],
+                  "networkSecurityGroup": {
+                    "id": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/azfwpremvw-ddos/providers/Microsoft.Network/networkSecurityGroups/basicNsgd0cc7505-f259-40ae-8e08-75476f2dd378-mymg-vnet-west-nic01"
+                  },
+                  "primary": true
+                }
+              }
+            ]
+          },
+          "osProfile": {
+            "adminUsername": "sysadmin",
+            "allowExtensionOperations": true,
+            "computerNamePrefix": "testvmss5",
+            "requireGuestProvisionSignal": true,
+            "secrets": [],
+            "windowsConfiguration": {
+              "enableAutomaticUpdates": true,
+              "enableVMAgentPlatformUpdates": false,
+              "provisionVMAgent": true
+            }
+          },
+          "storageProfile": {
+            "imageReference": {
+              "offer": "WindowsServer",
+              "publisher": "MicrosoftWindowsServer",
+              "sku": "2019-Datacenter",
+              "version": "latest"
+            },
+            "osDisk": {
+              "caching": "ReadWrite",
+              "createOption": "FromImage",
+              "diskSizeGB": 127,
+              "managedDisk": {
+                "storageAccountType": "Premium_LRS"
+              },
+              "osType": "Windows"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "outputs": {}
+}

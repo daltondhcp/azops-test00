@@ -1,0 +1,58 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Network/networkInterfaces",
+      "name": "test01685",
+      "kind": "Regular",
+      "apiVersion": "2022-05-01",
+      "location": "westeurope",
+      "tags": null,
+      "properties": {
+        "allowPort25Out": false,
+        "disableTcpStateTracking": false,
+        "dnsSettings": {
+          "appliedDnsServers": [],
+          "dnsServers": []
+        },
+        "enableAcceleratedNetworking": true,
+        "enableIPForwarding": false,
+        "hostedWorkloads": [],
+        "ipConfigurations": [
+          {
+            "etag": "W/\"24db9f63-8485-450d-9fea-50043395348a\"",
+            "id": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/aks/providers/Microsoft.Network/networkInterfaces/test01685/ipConfigurations/ipconfig1",
+            "name": "ipconfig1",
+            "properties": {
+              "primary": true,
+              "privateIPAddress": "10.30.0.4",
+              "privateIPAddressVersion": "IPv4",
+              "privateIPAllocationMethod": "Dynamic",
+              "provisioningState": "Succeeded",
+              "publicIPAddress": {
+                "id": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/aks/providers/Microsoft.Network/publicIPAddresses/test01-ip"
+              },
+              "subnet": {
+                "id": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/wvdlz01-network/providers/Microsoft.Network/virtualNetworks/wvdlz01-westeurope-vnet/subnets/sessionhost01"
+              }
+            },
+            "type": "Microsoft.Network/networkInterfaces/ipConfigurations"
+          }
+        ],
+        "macAddress": "60-45-BD-90-D9-0E",
+        "nicType": "Standard",
+        "tapConfigurations": [],
+        "vnetEncryptionSupported": false
+      }
+    }
+  ],
+  "outputs": {}
+}
