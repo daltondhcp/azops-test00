@@ -18,6 +18,7 @@
       "tags": {},
       "properties": {
         "allowPort25Out": false,
+        "disableTcpStateTracking": false,
         "dnsSettings": {
           "appliedDnsServers": [],
           "dnsServers": [],

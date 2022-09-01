@@ -12,7 +12,7 @@
     {
       "type": "Microsoft.Authorization/roleAssignments",
       "name": "6871fe9f-de05-4251-af77-7f23460e198c",
-      "apiVersion": "2022-01-01-preview",
+      "apiVersion": "2022-04-01",
       "properties": {
         "DisplayName": "Johanna Lorenz",
         "ObjectType": "User",

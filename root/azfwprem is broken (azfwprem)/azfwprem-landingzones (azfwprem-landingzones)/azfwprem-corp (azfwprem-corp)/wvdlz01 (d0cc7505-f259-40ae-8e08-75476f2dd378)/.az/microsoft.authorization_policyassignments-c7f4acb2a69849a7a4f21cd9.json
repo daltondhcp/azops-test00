@@ -12,7 +12,7 @@
     {
       "type": "Microsoft.Authorization/policyAssignments",
       "name": "c7f4acb2a69849a7a4f21cd9",
-      "apiVersion": "2021-06-01",
+      "apiVersion": "2022-06-01",
       "location": "eastus",
       "identity": {
         "PrincipalId": "2bc3c8c4-e452-4368-ade5-824a3459c301",

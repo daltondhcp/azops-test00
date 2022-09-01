@@ -12,7 +12,7 @@
     {
       "type": "Microsoft.Authorization/policyExemptions",
       "name": "0b91d5e37a184ba3b7758f84",
-      "apiVersion": "2020-07-01-preview",
+      "apiVersion": "2022-07-01-preview",
       "properties": {
         "Description": null,
         "DisplayName": "auto - Deploy Azure Defender for ACR",

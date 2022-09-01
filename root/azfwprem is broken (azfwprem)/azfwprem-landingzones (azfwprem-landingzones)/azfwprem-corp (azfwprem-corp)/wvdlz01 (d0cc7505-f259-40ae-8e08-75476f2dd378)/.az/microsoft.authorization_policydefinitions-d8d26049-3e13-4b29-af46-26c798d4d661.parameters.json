@@ -8,7 +8,7 @@
         "ResourceType": "Microsoft.Authorization/policyDefinitions",
         "Properties": {
           "Description": null,
-          "DisplayName": "mYdEPLOY-MDE",
+          "DisplayName": "mYdEPLOY-MDE<c",
           "Metadata": {},
           "Mode": "All",
           "Parameters": {
@@ -255,7 +255,7 @@
                   "properties": {
                     "mode": "Incremental",
                     "template": {
-                      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
                       "contentVersion": "1.0.0.0",
                       "parameters": {
                         "vmName": {
@@ -264,51 +264,41 @@
                         "location": {
                           "type": "string"
                         },
-                        "vmssResourceId": {
+                        "azureResourceId": {
                           "type": "string"
                         }
                       },
-                      "variables": {
-                        "vmExtensionName": "MDE.Windows",
-                        "vmExtensionPublisher": "Microsoft.Azure.AzureDefenderForServers",
-                        "vmExtensionType": "MDE.Windows",
-                        "vmExtensionTypeHandlerVersion": "1.0"
-                      },
                       "resources": [
                         {
+                          "apiVersion": "2020-06-01",
+                          "name": "[concat(parameters('vmName'), '/MDE.Windows')]",
                           "type": "Microsoft.Compute/virtualMachineScaleSets/extensions",
-                          "apiVersion": "2021-11-01",
-                          "name": "[concat(parameters('vmName'), '/', variables('vmExtensionName'))]",
                           "location": "[parameters('location')]",
                           "properties": {
                             "autoUpgradeMinorVersion": true,
-                            "publisher": "[variables('vmExtensionPublisher')]",
-                            "type": "[variables('vmExtensionType')]",
-                            "typeHandlerVersion": "[variables('vmExtensionTypeHandlerVersion')]",
+                            "publisher": "Microsoft.Azure.AzureDefenderForServers",
+                            "type": "MDE.Windows",
+                            "typeHandlerVersion": "1.0",
                             "settings": {
-                              "azureResourceId": "[parameters('vmssResourceId')]"
+                              "azureResourceId": "[parameters('azureResourceId')]",
+                              "vNextEnabled": "true",
+                              "installedBy": "Policy"
                             },
                             "protectedSettings": {
-                              "defenderForEndpointOnboardingScript": "[reference(subscriptionResourceId('Microsoft.Security/mdeOnboardings', 'Windows'), '2021-10-01-preview', 'full').properties.onboardingPackageWindows]"
+                              "defenderForEndpointOnboardingScript": "M1MjlFREI3fVwiIH07IHByaXZhdGUgRXZlbnRTb3VyY2UgZXMgPSBuZXcgRXZlbnRTb3VyY2UoXCJNaWNyb3NvZnQuV2luZG93cy5TZW5zZS5DbGllbnQuTWFuYWdlbWVudFwiLEV2ZW50U291cmNlU2V0dGluZ3MuRXR3U2VsZkRlc2NyaWJpbmdFdmVudEZvcm1hdCx0ZWxlbWV0cnlUcmFpdHMpO319JzsgJGxvZ2dlciA9IE5ldy1PYmplY3QgLVR5cGVOYW1lIFNlbnNlLlRyYWNlOyAkbG9nZ2VyLldyaXRlT25ib2FyZGluZ01lc3NhZ2UoJyVzdWNjZXNzT3V0cHV0JScpIiA+TlVMIDI+JjENCiIlUFJPR1JBTUZJTEVTJVxXaW5kb3dzIERlZmVuZGVyXE1wQ21kUnVuLmV4ZSIgLVJlbG9hZEVuZ2luZSA+TlVMIDI+JjENCg0KR09UTyBDTEVBTlVQDQoNCjpDTEVBTlVQDQppZiBleGlzdCAlVE1QJVxzZW5zZVRtcC50eHQgZGVsICVUTVAlXHNlbnNlVG1wLnR4dA0KRVhJVCAvQiAlZXJyb3JDb2RlJQ0KCg=="
                             }
                           }
                         }
-                      ],
-                      "outputs": {
-                        "policy": {
-                          "type": "string",
-                          "value": "[concat('Enabled extension for: ', parameters('vmName'))]"
-                        }
-                      }
+                      ]
                     },
                     "parameters": {
                       "vmName": {
-                        "type": "[field('name')]"
+                        "value": "[field('name')]"
                       },
                       "location": {
                         "value": "[field('location')]"
                       },
-                      "vmssResourceId": {
+                      "azureResourceId": {
                         "value": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Compute/virtualMachineScaleSets/',field('name'))]"
                       }
                     }

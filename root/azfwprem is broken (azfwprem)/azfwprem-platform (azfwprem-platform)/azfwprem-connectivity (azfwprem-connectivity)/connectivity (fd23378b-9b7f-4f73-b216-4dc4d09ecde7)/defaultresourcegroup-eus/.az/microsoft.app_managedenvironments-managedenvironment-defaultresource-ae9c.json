@@ -12,7 +12,7 @@
     {
       "type": "Microsoft.App/managedEnvironments",
       "name": "managedEnvironment-DefaultResource-ae9c",
-      "apiVersion": "2022-03-01",
+      "apiVersion": "2022-06-01-preview",
       "location": "canadacentral",
       "tags": null,
       "properties": {

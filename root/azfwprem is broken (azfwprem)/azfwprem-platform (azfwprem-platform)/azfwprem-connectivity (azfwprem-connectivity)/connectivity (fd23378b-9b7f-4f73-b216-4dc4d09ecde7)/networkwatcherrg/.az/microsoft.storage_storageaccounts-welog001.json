@@ -21,7 +21,7 @@
         "Tier": "Standard"
       },
       "kind": "Storage",
-      "apiVersion": "2021-09-01",
+      "apiVersion": "2022-05-01",
       "location": "westeurope",
       "tags": {
         "ms-resource-usage": "azure-cloud-shell"

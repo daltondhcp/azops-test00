@@ -44,7 +44,22 @@
             }
           },
           "extensionProfile": {
-            "extensions": []
+            "extensions": [
+              {
+                "name": "MDE.Windows",
+                "properties": {
+                  "autoUpgradeMinorVersion": true,
+                  "publisher": "Microsoft.Azure.AzureDefenderForServers",
+                  "settings": {
+                    "azureResourceId": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/azfwpremvw-ddos/providers/Microsoft.Compute/virtualMachineScaleSets/testvmss",
+                    "installedBy": "Policy",
+                    "vNextEnabled": "true"
+                  },
+                  "type": "MDE.Windows",
+                  "typeHandlerVersion": "1.0"
+                }
+              }
+            ]
           },
           "networkProfile": {
             "networkInterfaceConfigurations": [

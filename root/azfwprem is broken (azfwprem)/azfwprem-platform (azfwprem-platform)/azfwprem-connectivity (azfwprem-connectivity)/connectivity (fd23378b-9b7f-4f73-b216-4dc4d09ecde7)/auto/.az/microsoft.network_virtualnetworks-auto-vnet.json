@@ -54,10 +54,41 @@
             "name": "test",
             "properties": {
               "addressPrefix": "172.16.1.0/24",
-              "delegations": [],
+              "delegations": [
+                {
+                  "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/auto/providers/Microsoft.Network/virtualNetworks/auto-vnet/subnets/test/delegations/Microsoft.Network.dnsResolvers",
+                  "name": "Microsoft.Network.dnsResolvers",
+                  "properties": {
+                    "actions": [
+                      "Microsoft.Network/virtualNetworks/subnets/join/action"
+                    ],
+                    "serviceName": "Microsoft.Network/dnsResolvers"
+                  },
+                  "type": "Microsoft.Network/virtualNetworks/subnets/delegations"
+                }
+              ],
+              "ipConfigurations": [
+                {
+                  "id": "/subscriptions/8e67445f-b162-4152-a4d1-39dac35ea8b1/resourceGroups/rg-prod-westeurope-main-endpoints/providers/Microsoft.Network/loadBalancers/lbi-prod-westeurope-main-ept-780e36965e0c4f86a05767b21aaed7ee/frontendIPConfigurations/frontend-ipconfig"
+                }
+              ],
               "privateEndpointNetworkPolicies": "Enabled",
               "privateLinkServiceNetworkPolicies": "Enabled",
-              "serviceEndpoints": []
+              "serviceAssociationLinks": [
+                {
+                  "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/auto/providers/Microsoft.Network/virtualNetworks/auto-vnet/subnets/test/serviceAssociationLinks/dnsResolverLink",
+                  "name": "dnsResolverLink",
+                  "properties": {
+                    "allowDelete": false,
+                    "enabledForArmDeployments": false,
+                    "link": "/InboundEndpoint/780e3696-5e0c-4f86-a057-67b21aaed7ee",
+                    "linkedResourceType": "Microsoft.Network/dnsResolvers",
+                    "locations": [],
+                    "subnetId": "00000000-0000-0000-0000-000000000000"
+                  },
+                  "type": "Microsoft.Network/virtualNetworks/subnets/serviceAssociationLinks"
+                }
+              ]
             },
             "type": "Microsoft.Network/virtualNetworks/subnets"
           }

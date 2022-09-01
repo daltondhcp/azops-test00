@@ -12,7 +12,7 @@
     {
       "type": "Microsoft.Authorization/policyAssignments",
       "name": "Deploy-SQL-Threat",
-      "apiVersion": "2021-06-01",
+      "apiVersion": "2022-06-01",
       "location": "eastus",
       "identity": {
         "PrincipalId": "624c64eb-b991-4751-bbe9-19cd4ccb9bc6",

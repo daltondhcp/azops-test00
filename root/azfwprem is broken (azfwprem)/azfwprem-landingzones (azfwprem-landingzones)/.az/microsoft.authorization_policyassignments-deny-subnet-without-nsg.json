@@ -12,7 +12,7 @@
     {
       "type": "Microsoft.Authorization/policyAssignments",
       "name": "Deny-Subnet-Without-Nsg",
-      "apiVersion": "2021-06-01",
+      "apiVersion": "2022-06-01",
       "location": null,
       "properties": {
         "Description": "This policy denies the creation of a subnet without a Network Security Group to protect traffic across subnets.",

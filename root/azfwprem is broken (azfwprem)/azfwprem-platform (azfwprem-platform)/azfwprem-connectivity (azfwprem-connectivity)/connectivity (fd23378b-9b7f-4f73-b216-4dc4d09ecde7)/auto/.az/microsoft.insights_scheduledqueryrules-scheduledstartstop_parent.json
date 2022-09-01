@@ -12,7 +12,7 @@
     {
       "type": "microsoft.insights/scheduledqueryrules",
       "name": "ScheduledStartStop_Parent",
-      "apiVersion": "2021-08-01",
+      "apiVersion": "2022-06-15",
       "location": "eastus",
       "tags": {
         "hidden-link:/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/auto/providers/Microsoft.OperationalInsights/workspaces/myla": "Resource"

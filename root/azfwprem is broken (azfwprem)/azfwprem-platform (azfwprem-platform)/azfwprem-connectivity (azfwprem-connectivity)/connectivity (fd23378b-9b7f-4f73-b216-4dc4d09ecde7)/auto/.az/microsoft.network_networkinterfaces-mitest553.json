@@ -18,6 +18,7 @@
       "tags": null,
       "properties": {
         "allowPort25Out": false,
+        "disableTcpStateTracking": false,
         "dnsSettings": {
           "appliedDnsServers": [],
           "dnsServers": [],
@@ -28,7 +29,7 @@
         "hostedWorkloads": [],
         "ipConfigurations": [
           {
-            "etag": "W/\"21148d65-a593-4698-a657-520ca89ab9d6\"",
+            "etag": "W/\"95f1c591-1234-4963-9276-bf58ac340473\"",
             "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/auto/providers/Microsoft.Network/networkInterfaces/mitest553/ipConfigurations/ipconfig1",
             "name": "ipconfig1",
             "properties": {

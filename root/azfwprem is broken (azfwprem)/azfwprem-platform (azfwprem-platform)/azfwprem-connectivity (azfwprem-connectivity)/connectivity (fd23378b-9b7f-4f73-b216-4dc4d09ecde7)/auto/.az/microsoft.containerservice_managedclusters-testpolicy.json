@@ -11,23 +11,32 @@
   "resources": [
     {
       "type": "Microsoft.ContainerService/managedClusters",
-      "name": "test123",
+      "name": "testpolicy",
       "sku": {
         "Capacity": null,
         "Family": null,
         "Model": null,
         "Name": "Basic",
         "Size": null,
-        "Tier": "Free"
+        "Tier": "Paid"
       },
-      "apiVersion": "2022-06-02-preview",
-      "location": "eastus",
+      "apiVersion": "2022-08-02-preview",
+      "location": "westeurope",
       "tags": null,
       "properties": {
         "addonProfiles": {
-          "azurepolicy": {
+          "azureKeyvaultSecretsProvider": {
             "config": null,
             "enabled": false
+          },
+          "azurepolicy": {
+            "config": null,
+            "enabled": true,
+            "identity": {
+              "clientId": "dda19ca4-67bf-4233-9a58-d486497b631e",
+              "objectId": "1cfd8b44-4d01-4ab8-9731-607ff373f927",
+              "resourceId": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourcegroups/MC_auto_testpolicy_westeurope/providers/Microsoft.ManagedIdentity/userAssignedIdentities/azurepolicy-testpolicy"
+            }
           },
           "httpApplicationRouting": {
             "config": null,
@@ -41,18 +50,19 @@
               "2",
               "3"
             ],
-            "count": 3,
-            "currentOrchestratorVersion": "1.21.2",
+            "count": 1,
+            "currentOrchestratorVersion": "1.22.11",
             "enableAutoScaling": true,
             "enableFIPS": false,
+            "enableNodePublicIP": false,
             "kubeletDiskType": "OS",
             "maxCount": 5,
             "maxPods": 110,
             "minCount": 1,
             "mode": "System",
             "name": "agentpool",
-            "nodeImageVersion": "AKSUbuntu-1804gen2containerd-2021.09.06",
-            "orchestratorVersion": "1.21.2",
+            "nodeImageVersion": "AKSUbuntu-1804gen2containerd-2022.07.18",
+            "orchestratorVersion": "1.22.11",
             "osDiskSizeGB": 128,
             "osDiskType": "Managed",
             "osSKU": "Ubuntu",
@@ -65,11 +75,6 @@
             "vmSize": "Standard_DS2_v2"
           }
         ],
-        "apiServerAccessProfile": {
-          "enablePrivateCluster": true,
-          "enablePrivateClusterPublicFQDN": true,
-          "privateDNSZone": "system"
-        },
         "autoScalerProfile": {
           "balance-similar-node-groups": "false",
           "expander": "random",
@@ -89,27 +94,31 @@
           "skip-nodes-with-local-storage": "false",
           "skip-nodes-with-system-pods": "true"
         },
-        "azurePortalFQDN": "a2271f89ed568271772c1a63c7720e60-priv.portal.hcp.eastus.azmk8s.io",
-        "currentKubernetesVersion": "1.21.2",
-        "dnsPrefix": "test123-dns",
+        "azurePortalFQDN": "testpolicy-dns-a9b7bf12.portal.hcp.westeurope.azmk8s.io",
+        "currentKubernetesVersion": "1.22.11",
+        "disableLocalAccounts": false,
+        "dnsPrefix": "testpolicy-dns",
         "enableRBAC": true,
-        "fqdn": "test123-dns-bbd6184c.hcp.eastus.azmk8s.io",
+        "fqdn": "testpolicy-dns-a9b7bf12.hcp.westeurope.azmk8s.io",
         "identityProfile": {
           "kubeletidentity": {
-            "clientId": "65ce8b9b-5c5e-4eee-9e14-23c986cf4e01",
-            "objectId": "bbb654d9-c5ba-4a82-ba23-6bb4c816f27c",
-            "resourceId": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourcegroups/MC_NetworkWatcherRG_test123_eastus/providers/Microsoft.ManagedIdentity/userAssignedIdentities/test123-agentpool"
+            "clientId": "251d0bce-ad97-4377-9823-ef58bd0f86ad",
+            "objectId": "186f1916-e373-4978-b610-b49e71c2177e",
+            "resourceId": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourcegroups/MC_auto_testpolicy_westeurope/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testpolicy-agentpool"
           }
         },
-        "kubernetesVersion": "1.21.2",
+        "kubernetesVersion": "1.22.11",
         "maxAgentPools": 100,
         "networkProfile": {
           "dnsServiceIP": "10.0.0.10",
           "dockerBridgeCidr": "172.17.0.1/16",
+          "ipFamilies": [
+            "IPv4"
+          ],
           "loadBalancerProfile": {
             "effectiveOutboundIPs": [
               {
-                "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/MC_NetworkWatcherRG_test123_eastus/providers/Microsoft.Network/publicIPAddresses/0d3a5460-2aff-4c01-bdd7-4081fb591818"
+                "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/MC_auto_testpolicy_westeurope/providers/Microsoft.Network/publicIPAddresses/d068287c-46be-4f70-af41-387e142bfb56"
               }
             ],
             "managedOutboundIPs": {
@@ -120,26 +129,32 @@
           "networkPlugin": "kubenet",
           "outboundType": "loadBalancer",
           "podCidr": "10.244.0.0/16",
-          "serviceCidr": "10.0.0.0/16"
+          "podCidrs": [
+            "10.244.0.0/16"
+          ],
+          "serviceCidr": "10.0.0.0/16",
+          "serviceCidrs": [
+            "10.0.0.0/16"
+          ]
         },
-        "nodeResourceGroup": "MC_NetworkWatcherRG_test123_eastus",
+        "nodeResourceGroup": "MC_auto_testpolicy_westeurope",
         "powerState": {
           "code": "Running"
         },
-        "privateFQDN": "test123-dns-ac0378ef.f1fa03c7-0d44-4418-88aa-58eb9f6271be.privatelink.eastus.azmk8s.io",
-        "privateLinkResources": [
-          {
-            "groupId": "management",
-            "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourcegroups/NetworkWatcherRG/providers/Microsoft.ContainerService/managedClusters/test123/privateLinkResources/management",
-            "name": "management",
-            "requiredMembers": [
-              "management"
-            ],
-            "type": "Microsoft.ContainerService/managedClusters/privateLinkResources"
-          }
-        ],
+        "securityProfile": {},
         "servicePrincipalProfile": {
           "clientId": "msi"
+        },
+        "storageProfile": {
+          "diskCSIDriver": {
+            "enabled": true
+          },
+          "fileCSIDriver": {
+            "enabled": true
+          },
+          "snapshotController": {
+            "enabled": true
+          }
         }
       }
     }

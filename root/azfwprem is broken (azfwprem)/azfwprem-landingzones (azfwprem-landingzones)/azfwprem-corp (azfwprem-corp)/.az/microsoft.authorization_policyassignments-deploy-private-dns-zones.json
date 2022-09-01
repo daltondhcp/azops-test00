@@ -12,7 +12,7 @@
     {
       "type": "Microsoft.Authorization/policyAssignments",
       "name": "Deploy-Private-DNS-Zones",
-      "apiVersion": "2021-06-01",
+      "apiVersion": "2022-06-01",
       "location": "eastus",
       "identity": {
         "PrincipalId": "3cbabcc4-d5a0-4282-b0d9-9d228b4b9e60",

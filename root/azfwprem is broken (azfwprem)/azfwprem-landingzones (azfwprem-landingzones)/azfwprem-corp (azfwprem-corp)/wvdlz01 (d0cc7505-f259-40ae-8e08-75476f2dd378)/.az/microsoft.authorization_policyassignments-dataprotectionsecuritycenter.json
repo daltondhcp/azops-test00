@@ -12,7 +12,7 @@
     {
       "type": "Microsoft.Authorization/policyAssignments",
       "name": "DataProtectionSecurityCenter",
-      "apiVersion": "2021-06-01",
+      "apiVersion": "2022-06-01",
       "location": null,
       "properties": {
         "Description": "This policy assignment was automatically created by Azure Security Center",

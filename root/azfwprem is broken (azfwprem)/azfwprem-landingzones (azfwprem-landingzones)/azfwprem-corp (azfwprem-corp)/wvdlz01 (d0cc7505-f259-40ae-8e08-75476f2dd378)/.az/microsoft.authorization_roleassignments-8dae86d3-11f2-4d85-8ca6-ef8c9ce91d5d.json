@@ -12,7 +12,7 @@
     {
       "type": "Microsoft.Authorization/roleAssignments",
       "name": "8dae86d3-11f2-4d85-8ca6-ef8c9ce91d5d",
-      "apiVersion": "2022-01-01-preview",
+      "apiVersion": "2022-04-01",
       "properties": {
         "DisplayName": null,
         "ObjectType": "Unknown",

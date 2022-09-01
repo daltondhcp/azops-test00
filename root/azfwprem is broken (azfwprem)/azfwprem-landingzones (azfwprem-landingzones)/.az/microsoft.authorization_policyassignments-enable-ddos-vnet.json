@@ -12,7 +12,7 @@
     {
       "type": "Microsoft.Authorization/policyAssignments",
       "name": "Enable-DDoS-VNET",
-      "apiVersion": "2021-06-01",
+      "apiVersion": "2022-06-01",
       "location": "eastus",
       "identity": {
         "PrincipalId": "0012f05b-ce8e-4158-a8e1-944f2b522a40",

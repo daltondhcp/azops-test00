@@ -12,7 +12,7 @@
     {
       "type": "Microsoft.App/containerapps",
       "name": "test",
-      "apiVersion": "2022-03-01",
+      "apiVersion": "2022-06-01-preview",
       "location": "Canada Central",
       "tags": null,
       "properties": {

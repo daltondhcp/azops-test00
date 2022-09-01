@@ -14,10 +14,10 @@
       "name": "AgentHealthAssessment(test55-law)",
       "apiVersion": "2015-11-01-preview",
       "location": "East US 2",
-      "tags": null,
+      "tags": {},
       "properties": {
         "containedResources": [
-          "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourcegroups/test55-mgmt/providers/Microsoft.OperationalInsights/workspaces/test55-law/views/AgentHealthAssessment(test55-law)"
+          "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourcegroups/test55-mgmt/providers/microsoft.operationalinsights/workspaces/test55-law/views/AgentHealthAssessment(test55-law)"
         ],
         "workspaceResourceId": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourcegroups/test55-mgmt/providers/Microsoft.OperationalInsights/workspaces/test55-law"
       }

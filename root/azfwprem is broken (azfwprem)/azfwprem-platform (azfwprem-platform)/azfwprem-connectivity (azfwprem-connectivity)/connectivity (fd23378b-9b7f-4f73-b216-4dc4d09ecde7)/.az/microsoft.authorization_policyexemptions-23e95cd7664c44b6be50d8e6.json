@@ -12,7 +12,7 @@
     {
       "type": "Microsoft.Authorization/policyExemptions",
       "name": "23e95cd7664c44b6be50d8e6",
-      "apiVersion": "2020-07-01-preview",
+      "apiVersion": "2022-07-01-preview",
       "properties": {
         "Description": "cheesebat",
         "DisplayName": "connectivity - Deploy-DNSZ neGroup-AKS",

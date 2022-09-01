@@ -12,7 +12,7 @@
     {
       "type": "Microsoft.Authorization/roleAssignments",
       "name": "9091ff7e-fcc5-4bb3-9678-acf36e1fee90",
-      "apiVersion": "2022-01-01-preview",
+      "apiVersion": "2022-04-01",
       "properties": {
         "DisplayName": "Adele Vance",
         "ObjectType": "User",

@@ -12,7 +12,7 @@
     {
       "type": "Microsoft.Authorization/policyAssignments",
       "name": "162e5224ac5b4dc7b14a0066",
-      "apiVersion": "2021-06-01",
+      "apiVersion": "2022-06-01",
       "location": null,
       "properties": {
         "Description": null,
