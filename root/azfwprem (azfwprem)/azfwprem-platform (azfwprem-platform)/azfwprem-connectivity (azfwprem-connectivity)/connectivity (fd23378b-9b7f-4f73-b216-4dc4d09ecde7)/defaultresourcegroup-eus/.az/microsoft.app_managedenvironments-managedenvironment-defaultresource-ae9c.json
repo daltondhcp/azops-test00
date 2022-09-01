@@ -1,0 +1,32 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.App/managedEnvironments",
+      "name": "managedEnvironment-DefaultResource-ae9c",
+      "apiVersion": "2022-06-01-preview",
+      "location": "canadacentral",
+      "tags": null,
+      "properties": {
+        "appLogsConfiguration": {
+          "destination": "log-analytics",
+          "logAnalyticsConfiguration": {
+            "customerId": "b79f52fc-c4f7-4b92-be0c-f91112c7b953"
+          }
+        },
+        "defaultDomain": "purplehill-abc157f7.canadacentral.azurecontainerapps.io",
+        "staticIp": "20.200.83.15",
+        "zoneRedundant": false
+      }
+    }
+  ],
+  "outputs": {}
+}

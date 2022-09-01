@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/roleAssignments",
+      "name": "e21496e3-68cb-4f26-977a-53c3b614ec78",
+      "apiVersion": "2022-04-01",
+      "properties": {
+        "DisplayName": "demoazurelab-enterprise-scale-d0cc7505-f259-40ae-8e08-75476f2dd378",
+        "ObjectType": "ServicePrincipal",
+        "PrincipalId": "9f51d912-6aca-4ec1-87e1-b0b516170689",
+        "RoleDefinitionId": "/providers/Microsoft.Authorization/RoleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c",
+        "RoleDefinitionName": "Contributor"
+      }
+    }
+  ],
+  "outputs": {}
+}

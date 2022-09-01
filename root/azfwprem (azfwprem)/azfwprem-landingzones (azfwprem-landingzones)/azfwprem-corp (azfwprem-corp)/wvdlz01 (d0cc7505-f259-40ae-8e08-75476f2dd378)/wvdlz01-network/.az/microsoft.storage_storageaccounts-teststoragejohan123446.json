@@ -1,0 +1,66 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "teststoragejohan123446",
+      "sku": {
+        "Capacity": null,
+        "Family": null,
+        "Model": null,
+        "Name": "Standard_LRS",
+        "Size": null,
+        "Tier": "Standard"
+      },
+      "kind": "StorageV2",
+      "apiVersion": "2022-05-01",
+      "location": "westeurope",
+      "tags": {},
+      "properties": {
+        "accessTier": "Hot",
+        "allowBlobPublicAccess": false,
+        "allowSharedKeyAccess": false,
+        "encryption": {
+          "keySource": "Microsoft.Storage",
+          "services": {
+            "blob": {
+              "enabled": true,
+              "keyType": "Account"
+            },
+            "file": {
+              "enabled": true,
+              "keyType": "Account"
+            }
+          }
+        },
+        "keyCreationTime": {
+          "key1": "2021-06-07T14:17:29.4543126Z",
+          "key2": "2021-06-07T14:17:29.4543126Z"
+        },
+        "minimumTlsVersion": "TLS1_2",
+        "networkAcls": {
+          "bypass": "AzureServices",
+          "defaultAction": "Deny",
+          "ipRules": [
+            {
+              "action": "Allow",
+              "value": "152.44.26.251"
+            }
+          ],
+          "virtualNetworkRules": []
+        },
+        "privateEndpointConnections": [],
+        "supportsHttpsTrafficOnly": true
+      }
+    }
+  ],
+  "outputs": {}
+}
