@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/roleAssignments",
+      "name": "a49f7454-d192-4b8d-bf45-587aa9457025",
+      "apiVersion": "2022-04-01",
+      "properties": {
+        "DisplayName": "242c34267a1449468d8867ae",
+        "ObjectType": "ServicePrincipal",
+        "PrincipalId": "bde97fca-eefe-4d1d-942f-46b2a70182f4",
+        "RoleDefinitionId": "/providers/Microsoft.Authorization/RoleDefinitions/fb1c8493-542b-48eb-b624-b4c8fea62acd",
+        "RoleDefinitionName": "Security Admin"
+      }
+    }
+  ],
+  "outputs": {}
+}

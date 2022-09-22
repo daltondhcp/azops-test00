@@ -1,0 +1,119 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.DocumentDB/databaseAccounts",
+      "name": "testtable1115",
+      "kind": "GlobalDocumentDB",
+      "apiVersion": "2022-08-15-preview",
+      "location": "West US",
+      "tags": {
+        "defaultExperience": "Azure Table",
+        "hidden-cosmos-mmspecial": ""
+      },
+      "properties": {
+        "EnabledApiTypes": "Table, Sql",
+        "analyticalStorageConfiguration": {
+          "schemaType": "WellDefined"
+        },
+        "backupPolicy": {
+          "periodicModeProperties": {
+            "backupIntervalInMinutes": 240,
+            "backupRetentionIntervalInHours": 8,
+            "backupStorageRedundancy": "Geo"
+          },
+          "type": "Periodic"
+        },
+        "capabilities": [
+          {
+            "name": "EnableServerless"
+          },
+          {
+            "name": "EnableTable"
+          }
+        ],
+        "capacity": {
+          "totalThroughputLimit": 4000
+        },
+        "configurationOverrides": {},
+        "consistencyPolicy": {
+          "defaultConsistencyLevel": "BoundedStaleness",
+          "maxIntervalInSeconds": 86400,
+          "maxStalenessPrefix": 1000000
+        },
+        "cors": [],
+        "databaseAccountOfferType": "Standard",
+        "defaultIdentity": "FirstPartyIdentity",
+        "disableKeyBasedMetadataWriteAccess": false,
+        "disableLocalAuth": false,
+        "documentEndpoint": "https://testtable1115.documents.azure.com:443/",
+        "enableAnalyticalStorage": false,
+        "enableAutomaticFailover": false,
+        "enableFreeTier": false,
+        "enableMultipleWriteLocations": false,
+        "enablePartitionKeyMonitor": false,
+        "enablePartitionMerge": false,
+        "failoverPolicies": [
+          {
+            "failoverPriority": 0,
+            "id": "testtable1115-westus",
+            "locationName": "West US"
+          }
+        ],
+        "instanceId": "b7c2a6ea-e1ff-4c12-a084-32cb2dd2161f",
+        "ipRules": [],
+        "isVirtualNetworkFilterEnabled": false,
+        "keysMetadata": {
+          "primaryMasterKey": {},
+          "primaryReadonlyMasterKey": {},
+          "secondaryMasterKey": {},
+          "secondaryReadonlyMasterKey": {}
+        },
+        "locations": [
+          {
+            "documentEndpoint": "https://testtable1115-westus.documents.azure.com:443/",
+            "failoverPriority": 0,
+            "id": "testtable1115-westus",
+            "isZoneRedundant": false,
+            "locationName": "West US",
+            "provisioningState": "Succeeded"
+          }
+        ],
+        "networkAclBypass": "None",
+        "networkAclBypassResourceIds": [],
+        "publicNetworkAccess": "Enabled",
+        "readLocations": [
+          {
+            "documentEndpoint": "https://testtable1115-westus.documents.azure.com:443/",
+            "failoverPriority": 0,
+            "id": "testtable1115-westus",
+            "isZoneRedundant": false,
+            "locationName": "West US",
+            "provisioningState": "Succeeded"
+          }
+        ],
+        "tableEndpoint": "https://testtable1115.table.cosmos.azure.com:443/",
+        "virtualNetworkRules": [],
+        "writeLocations": [
+          {
+            "documentEndpoint": "https://testtable1115-westus.documents.azure.com:443/",
+            "failoverPriority": 0,
+            "id": "testtable1115-westus",
+            "isZoneRedundant": false,
+            "locationName": "West US",
+            "provisioningState": "Succeeded"
+          }
+        ]
+      }
+    }
+  ],
+  "outputs": {}
+}
