@@ -17,9 +17,9 @@
       "properties": {
         "Description": "This policy initiative is a group of policies that prevents creation of Azure PaaS services with exposed public endpoints",
         "DisplayName": "Public network access should be disabled for PaaS services",
-        "EnforcementMode": "Default",
-        "NonComplianceMessages": null,
-        "NotScopes": null,
+        "EnforcementMode": "DoNotEnforce",
+        "NonComplianceMessages": [],
+        "NotScopes": [],
         "Parameters": {},
         "PolicyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policySetDefinitions/Deny-PublicPaaSEndpoints",
         "Scope": "/providers/Microsoft.Management/managementGroups/azfwprem-corp"
