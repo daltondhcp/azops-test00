@@ -1,0 +1,122 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "input": {
+      "value": {
+        "Name": "cosmosdbaccDeployAtp",
+        "ResourceType": "Microsoft.Authorization/policyDefinitions",
+        "Properties": {
+          "Description": "This policy enables Advanced Threat Protection across supported Cosmos DB accounts.",
+          "DisplayName": "Cosmos DB Account - Deploy Advanced Threat Protection",
+          "Metadata": {
+            "category": "MMS",
+            "product": "cosmosdb-account",
+            "securityCenter": {
+              "RemediationDescription": "SwissRe remediation steps: <a href=\"https://wiki.swissre.com/display/CDC/HAC-0162-Cosmos+DB+Account-Deploy+Advanced+Threat+Protection-Remediation\">Learn more ></a>",
+              "Severity": "Low"
+            }
+          },
+          "Mode": "Indexed",
+          "Parameters": {
+            "effectType": {
+              "type": "String",
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists"
+            }
+          },
+          "PolicyRule": {
+            "if": {
+              "allOf": [
+                {
+                  "field": "type",
+                  "equals": "Microsoft.DocumentDB/databaseAccounts"
+                },
+                {
+                  "field": "kind",
+                  "equals": "GlobalDocumentDB"
+                },
+                {
+                  "anyOf": [
+                    {
+                      "allOf": [
+                        {
+                          "count": {
+                            "field": "Microsoft.DocumentDB/databaseAccounts/capabilities[*]"
+                          },
+                          "equals": 0
+                        }
+                      ]
+                    },
+                    {
+                      "allOf": [
+                        {
+                          "field": "Microsoft.DocumentDB/databaseAccounts/capabilities[*].name",
+                          "notEquals": "EnableGremlin"
+                        },
+                        {
+                          "field": "Microsoft.DocumentDB/databaseAccounts/capabilities[*].name",
+                          "notEquals": "EnableTable"
+                        },
+                        {
+                          "field": "Microsoft.DocumentDB/databaseAccounts/capabilities[*].name",
+                          "notEquals": "EnableCassandra"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            "then": {
+              "effect": "[parameters('effectType')]",
+              "details": {
+                "type": "Microsoft.Security/advancedThreatProtectionSettings",
+                "name": "current",
+                "existenceCondition": {
+                  "field": "Microsoft.Security/advancedThreatProtectionSettings/isEnabled",
+                  "equals": "true"
+                },
+                "roleDefinitionIds": [
+                  "/providers/Microsoft.Authorization/roleDefinitions/fb1c8493-542b-48eb-b624-b4c8fea62acd"
+                ],
+                "deployment": {
+                  "properties": {
+                    "mode": "incremental",
+                    "template": {
+                      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                      "contentVersion": "1.0.0.0",
+                      "parameters": {
+                        "cosmosDbAccountName": {
+                          "type": "string"
+                        }
+                      },
+                      "resources": [
+                        {
+                          "apiVersion": "2019-01-01",
+                          "type": "Microsoft.DocumentDB/databaseAccounts/providers/advancedThreatProtectionSettings",
+                          "name": "[concat(parameters('cosmosDbAccountName'), '/Microsoft.Security/current')]",
+                          "properties": {
+                            "isEnabled": true
+                          }
+                        }
+                      ]
+                    },
+                    "parameters": {
+                      "cosmosDbAccountName": {
+                        "value": "[field('name')]"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
