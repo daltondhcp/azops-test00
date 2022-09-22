@@ -1,0 +1,111 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.DocumentDB/databaseAccounts",
+      "name": "testcosmos21234",
+      "kind": "GlobalDocumentDB",
+      "apiVersion": "2022-08-15-preview",
+      "location": "West US",
+      "tags": {
+        "defaultExperience": "Core (SQL)",
+        "hidden-cosmos-mmspecial": ""
+      },
+      "properties": {
+        "EnabledApiTypes": "Sql",
+        "analyticalStorageConfiguration": {
+          "schemaType": "WellDefined"
+        },
+        "backupPolicy": {
+          "periodicModeProperties": {
+            "backupIntervalInMinutes": 240,
+            "backupRetentionIntervalInHours": 8,
+            "backupStorageRedundancy": "Geo"
+          },
+          "type": "Periodic"
+        },
+        "capabilities": [],
+        "capacity": {
+          "totalThroughputLimit": 1000
+        },
+        "configurationOverrides": {},
+        "consistencyPolicy": {
+          "defaultConsistencyLevel": "Session",
+          "maxIntervalInSeconds": 5,
+          "maxStalenessPrefix": 100
+        },
+        "cors": [],
+        "databaseAccountOfferType": "Standard",
+        "defaultIdentity": "FirstPartyIdentity",
+        "disableKeyBasedMetadataWriteAccess": false,
+        "disableLocalAuth": false,
+        "documentEndpoint": "https://testcosmos21234.documents.azure.com:443/",
+        "enableAnalyticalStorage": false,
+        "enableAutomaticFailover": false,
+        "enableFreeTier": true,
+        "enableMultipleWriteLocations": false,
+        "enablePartitionKeyMonitor": false,
+        "enablePartitionMerge": false,
+        "failoverPolicies": [
+          {
+            "failoverPriority": 0,
+            "id": "testcosmos21234-westus",
+            "locationName": "West US"
+          }
+        ],
+        "instanceId": "d508506c-7343-4de8-aa11-2e9bf045b798",
+        "ipRules": [],
+        "isVirtualNetworkFilterEnabled": false,
+        "keysMetadata": {
+          "primaryMasterKey": {},
+          "primaryReadonlyMasterKey": {},
+          "secondaryMasterKey": {},
+          "secondaryReadonlyMasterKey": {}
+        },
+        "locations": [
+          {
+            "documentEndpoint": "https://testcosmos21234-westus.documents.azure.com:443/",
+            "failoverPriority": 0,
+            "id": "testcosmos21234-westus",
+            "isZoneRedundant": false,
+            "locationName": "West US",
+            "provisioningState": "Succeeded"
+          }
+        ],
+        "networkAclBypass": "None",
+        "networkAclBypassResourceIds": [],
+        "publicNetworkAccess": "Enabled",
+        "readLocations": [
+          {
+            "documentEndpoint": "https://testcosmos21234-westus.documents.azure.com:443/",
+            "failoverPriority": 0,
+            "id": "testcosmos21234-westus",
+            "isZoneRedundant": false,
+            "locationName": "West US",
+            "provisioningState": "Succeeded"
+          }
+        ],
+        "virtualNetworkRules": [],
+        "writeLocations": [
+          {
+            "documentEndpoint": "https://testcosmos21234-westus.documents.azure.com:443/",
+            "failoverPriority": 0,
+            "id": "testcosmos21234-westus",
+            "isZoneRedundant": false,
+            "locationName": "West US",
+            "provisioningState": "Succeeded"
+          }
+        ]
+      }
+    }
+  ],
+  "outputs": {}
+}
