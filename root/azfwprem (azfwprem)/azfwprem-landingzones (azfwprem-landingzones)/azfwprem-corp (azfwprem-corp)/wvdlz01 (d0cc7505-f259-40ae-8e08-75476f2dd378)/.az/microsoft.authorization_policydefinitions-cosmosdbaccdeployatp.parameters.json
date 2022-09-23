@@ -21,6 +21,7 @@
           "Parameters": {
             "effectType": {
               "type": "String",
+              "metadata": {},
               "allowedValues": [
                 "DeployIfNotExists",
                 "Disabled"
@@ -55,15 +56,11 @@
                       "allOf": [
                         {
                           "field": "Microsoft.DocumentDB/databaseAccounts/capabilities[*].name",
-                          "notEquals": "EnableGremlin"
-                        },
-                        {
-                          "field": "Microsoft.DocumentDB/databaseAccounts/capabilities[*].name",
-                          "notEquals": "EnableTable"
-                        },
-                        {
-                          "field": "Microsoft.DocumentDB/databaseAccounts/capabilities[*].name",
-                          "notEquals": "EnableCassandra"
+                          "notIn": [
+                            "EnableGremlin",
+                            "EnableTable",
+                            "EnableCassandra"
+                          ]
                         }
                       ]
                     }
