@@ -21,15 +21,14 @@
         "disableTcpStateTracking": false,
         "dnsSettings": {
           "appliedDnsServers": [],
-          "dnsServers": [],
-          "internalDomainNameSuffix": "oqwz00ugulvexp1m2pffoasp1h.ax.internal.cloudapp.net"
+          "dnsServers": []
         },
         "enableAcceleratedNetworking": true,
         "enableIPForwarding": false,
         "hostedWorkloads": [],
         "ipConfigurations": [
           {
-            "etag": "W/\"b1e79b55-2b1b-4112-939f-0c5004f83950\"",
+            "etag": "W/\"8669dbf8-3e69-4c15-ac64-5a6bdb86498d\"",
             "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/auto/providers/Microsoft.Network/networkInterfaces/mitest553/ipConfigurations/ipconfig1",
             "name": "ipconfig1",
             "properties": {
