@@ -29,7 +29,7 @@
         "hostedWorkloads": [],
         "ipConfigurations": [
           {
-            "etag": "W/\"a34cea91-3181-44ce-8080-81b6518d3482\"",
+            "etag": "W/\"afa12a88-dc7c-4c5d-9c0b-90ce04429d5a\"",
             "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/auto/providers/Microsoft.Network/networkInterfaces/mitest553/ipConfigurations/ipconfig1",
             "name": "ipconfig1",
             "properties": {
