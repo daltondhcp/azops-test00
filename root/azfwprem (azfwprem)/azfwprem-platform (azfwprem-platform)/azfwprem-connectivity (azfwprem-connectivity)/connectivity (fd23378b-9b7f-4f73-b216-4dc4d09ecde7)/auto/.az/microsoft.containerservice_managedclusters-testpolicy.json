@@ -20,7 +20,7 @@
         "Size": null,
         "Tier": "Paid"
       },
-      "apiVersion": "2022-09-02-preview",
+      "apiVersion": "2022-08-03-preview",
       "location": "westeurope",
       "tags": null,
       "properties": {
@@ -138,9 +138,6 @@
           ]
         },
         "nodeResourceGroup": "MC_auto_testpolicy_westeurope",
-        "oidcIssuerProfile": {
-          "enabled": false
-        },
         "powerState": {
           "code": "Running"
         },
