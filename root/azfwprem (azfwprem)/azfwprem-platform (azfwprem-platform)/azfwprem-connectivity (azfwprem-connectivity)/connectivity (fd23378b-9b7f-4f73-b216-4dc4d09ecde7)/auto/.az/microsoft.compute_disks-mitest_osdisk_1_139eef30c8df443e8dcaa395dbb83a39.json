@@ -34,7 +34,7 @@
         "diskMBpsReadWrite": 60,
         "diskSizeBytes": 32213303296,
         "diskSizeGB": 30,
-        "diskState": "Reserved",
+        "diskState": "Attached",
         "encryption": {
           "type": "EncryptionAtRestWithPlatformKey"
         },
