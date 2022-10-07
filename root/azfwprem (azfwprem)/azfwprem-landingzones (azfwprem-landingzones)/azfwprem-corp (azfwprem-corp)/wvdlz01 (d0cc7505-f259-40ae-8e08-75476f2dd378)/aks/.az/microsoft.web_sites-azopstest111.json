@@ -101,7 +101,6 @@
         "resourceGroup": "aks",
         "runtimeAvailabilityState": "Normal",
         "scmSiteAlsoStopped": false,
-        "secretsCollection": [],
         "selfLink": "https://waws-prod-dm1-271.api.azurewebsites.windows.net:454/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/webspaces/aks-CentralUSwebspace/sites/azopstest111",
         "serverFarm": null,
         "serverFarmId": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/aks/providers/Microsoft.Web/serverfarms/ASP-aks-bf8a",
