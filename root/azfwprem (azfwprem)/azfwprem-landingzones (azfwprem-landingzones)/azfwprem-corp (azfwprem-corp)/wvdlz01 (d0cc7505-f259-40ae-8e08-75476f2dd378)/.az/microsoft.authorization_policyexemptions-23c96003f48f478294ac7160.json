@@ -1,0 +1,27 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/policyExemptions",
+      "name": "23c96003f48f478294ac7160",
+      "apiVersion": "2022-07-01-preview",
+      "properties": {
+        "Description": null,
+        "DisplayName": "wvdlz01 - Public network access should be disabled for PaaS services",
+        "ExemptionCategory": "Waiver",
+        "ExpiresOn": null,
+        "PolicyAssignmentId": "/providers/Microsoft.Management/managementGroups/azfwprem-corp/providers/Microsoft.Authorization/policyAssignments/Deny-Public-Endpoints",
+        "PolicyDefinitionReferenceIds": []
+      }
+    }
+  ],
+  "outputs": {}
+}
