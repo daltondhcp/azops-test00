@@ -13,7 +13,7 @@
       "type": "Microsoft.Network/networkInterfaces",
       "name": "mitest553",
       "kind": "Regular",
-      "apiVersion": "2022-05-01",
+      "apiVersion": "2022-07-01",
       "location": "westeurope",
       "tags": null,
       "properties": {
@@ -21,15 +21,14 @@
         "disableTcpStateTracking": false,
         "dnsSettings": {
           "appliedDnsServers": [],
-          "dnsServers": [],
-          "internalDomainNameSuffix": "oqwz00ugulvexp1m2pffoasp1h.ax.internal.cloudapp.net"
+          "dnsServers": []
         },
         "enableAcceleratedNetworking": true,
         "enableIPForwarding": false,
         "hostedWorkloads": [],
         "ipConfigurations": [
           {
-            "etag": "W/\"0636db84-a517-4a96-b0e3-3183d23fa617\"",
+            "etag": "W/\"bcb95866-e06f-42da-8afe-99058b76ccd9\"",
             "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/auto/providers/Microsoft.Network/networkInterfaces/mitest553/ipConfigurations/ipconfig1",
             "name": "ipconfig1",
             "properties": {
