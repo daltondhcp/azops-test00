@@ -1,0 +1,27 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/policyExemptions",
+      "name": "73b24d1c0d614439b888b61e",
+      "apiVersion": "2022-07-01-preview",
+      "properties": {
+        "Description": null,
+        "DisplayName": "wvdlz01 - Deny or Deploy and append TLS requirements and SSL enforcement on resources without Encryption in transit",
+        "ExemptionCategory": "Waiver",
+        "ExpiresOn": null,
+        "PolicyAssignmentId": "/providers/Microsoft.Management/managementGroups/azfwprem-landingzones/providers/Microsoft.Authorization/policyAssignments/Enforce-TLS-SSL",
+        "PolicyDefinitionReferenceIds": []
+      }
+    }
+  ],
+  "outputs": {}
+}
