@@ -12,7 +12,7 @@
     {
       "type": "Microsoft.Network/routeTables",
       "name": "testrt",
-      "apiVersion": "2022-07-01",
+      "apiVersion": "2022-05-01",
       "location": "westeurope",
       "tags": null,
       "properties": {
