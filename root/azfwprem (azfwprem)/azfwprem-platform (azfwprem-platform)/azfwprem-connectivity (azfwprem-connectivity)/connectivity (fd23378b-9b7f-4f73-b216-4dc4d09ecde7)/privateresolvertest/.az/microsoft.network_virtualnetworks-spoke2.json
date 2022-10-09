@@ -12,7 +12,7 @@
     {
       "type": "Microsoft.Network/virtualNetworks",
       "name": "spoke2",
-      "apiVersion": "2022-05-01",
+      "apiVersion": "2022-07-01",
       "location": "westeurope",
       "tags": {},
       "properties": {
