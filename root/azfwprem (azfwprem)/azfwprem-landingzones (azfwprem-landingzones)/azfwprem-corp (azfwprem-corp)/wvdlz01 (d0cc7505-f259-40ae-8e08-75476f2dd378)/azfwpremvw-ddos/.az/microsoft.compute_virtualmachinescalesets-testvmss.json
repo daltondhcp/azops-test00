@@ -25,6 +25,7 @@
       "tags": null,
       "properties": {
         "doNotRunExtensionsOnOverprovisionedVMs": false,
+        "orchestrationMode": "Uniform",
         "overprovision": false,
         "platformFaultDomainCount": 1,
         "scaleInPolicy": {
