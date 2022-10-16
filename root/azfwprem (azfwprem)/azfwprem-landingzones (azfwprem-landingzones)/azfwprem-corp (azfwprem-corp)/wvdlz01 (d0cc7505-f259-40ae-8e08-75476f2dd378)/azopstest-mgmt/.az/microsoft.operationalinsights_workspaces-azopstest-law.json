@@ -1,0 +1,40 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "microsoft.operationalinsights/workspaces",
+      "name": "azOpsTest-law",
+      "apiVersion": "2022-10-01",
+      "location": "westeurope",
+      "tags": null,
+      "properties": {
+        "customerId": "1a815b0c-9e16-43e3-9800-73099b5a0b96",
+        "features": {
+          "enableLogAccessUsingOnlyResourcePermissions": true,
+          "legacy": 0,
+          "searchVersion": 1
+        },
+        "publicNetworkAccessForIngestion": "Enabled",
+        "publicNetworkAccessForQuery": "Enabled",
+        "retentionInDays": 30,
+        "sku": {
+          "name": "pergb2018"
+        },
+        "source": "Azure",
+        "workspaceCapping": {
+          "dailyQuotaGb": -1,
+          "dataIngestionStatus": "RespectQuota"
+        }
+      }
+    }
+  ],
+  "outputs": {}
+}
