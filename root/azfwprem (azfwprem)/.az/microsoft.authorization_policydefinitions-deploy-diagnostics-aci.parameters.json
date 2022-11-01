@@ -7,7 +7,7 @@
         "Name": "Deploy-Diagnostics-ACI",
         "ResourceType": "Microsoft.Authorization/policyDefinitions",
         "Properties": {
-          "Description": "Deploys the diagnostic settings for Container Instances to stream to a Log Analytics workspace when any ACR which is missing this diagnostic settings is created or updated. The Policy willset the diagnostic with all metrics enabled.",
+          "Description": "Deploys the diagnostic s  ettings for Container Instances to stream to a Log Analytics workspace when any ACR which is missing this diagnostic settings is created or updated. The Policy willset the diagnostic with all metrics enabled.",
           "DisplayName": "Deploy Diagnostic Settings for Container Instances to Log Analytics workspace",
           "Metadata": {
             "version": "1.0.0",
