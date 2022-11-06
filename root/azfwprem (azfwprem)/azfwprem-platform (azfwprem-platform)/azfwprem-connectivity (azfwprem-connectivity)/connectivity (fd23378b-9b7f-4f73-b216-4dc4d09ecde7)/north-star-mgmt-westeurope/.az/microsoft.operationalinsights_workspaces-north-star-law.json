@@ -28,7 +28,6 @@
         "sku": {
           "name": "pergb2018"
         },
-        "source": "Azure",
         "workspaceCapping": {
           "dailyQuotaGb": -1,
           "dataIngestionStatus": "RespectQuota"
