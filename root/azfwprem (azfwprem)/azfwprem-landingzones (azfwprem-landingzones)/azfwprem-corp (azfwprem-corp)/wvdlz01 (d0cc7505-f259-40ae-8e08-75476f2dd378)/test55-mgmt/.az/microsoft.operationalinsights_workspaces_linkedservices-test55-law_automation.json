@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "apiVersion": "2020-08-01",
+      "location": "eastus2",
+      "name": "test55-law/Automation",
+      "properties": {
+        "provisioningState": "Succeeded",
+        "resourceId": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/test55-mgmt/providers/Microsoft.Automation/automationAccounts/test55-aauto"
+      },
+      "type": "Microsoft.OperationalInsights/workspaces/linkedservices"
+    }
+  ],
+  "outputs": {}
+}

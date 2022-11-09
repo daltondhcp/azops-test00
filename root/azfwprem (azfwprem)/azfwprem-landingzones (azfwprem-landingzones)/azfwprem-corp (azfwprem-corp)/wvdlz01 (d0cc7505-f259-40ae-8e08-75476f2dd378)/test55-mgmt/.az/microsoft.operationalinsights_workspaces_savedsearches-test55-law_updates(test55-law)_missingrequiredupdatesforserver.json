@@ -1,0 +1,25 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "apiVersion": "2020-08-01",
+      "name": "test55-law/Updates(test55-law)_MissingRequiredUpdatesForServer",
+      "properties": {
+        "category": "Updates",
+        "displayName": "Missing updates for computer \"COMPUTER01.contoso.com\" (replace with your own computer name)",
+        "query": "search in (Update) OSType != \"Linux\" and UpdateState == \"Needed\" and Optional == \"false\" and Computer == \"COMPUTER01.contoso.com\" | project Computer, Title, KBID, Product, UpdateSeverity, PublishedDate | sort by TimeGenerated desc // Oql: Type=Update OSType!=Linux UpdateState=Needed Optional=false Computer=\"COMPUTER01.contoso.com\" | select Computer,Title,KBID,Product,UpdateSeverity,PublishedDate",
+        "version": 2
+      },
+      "type": "Microsoft.OperationalInsights/workspaces/savedSearches"
+    }
+  ],
+  "outputs": {}
+}

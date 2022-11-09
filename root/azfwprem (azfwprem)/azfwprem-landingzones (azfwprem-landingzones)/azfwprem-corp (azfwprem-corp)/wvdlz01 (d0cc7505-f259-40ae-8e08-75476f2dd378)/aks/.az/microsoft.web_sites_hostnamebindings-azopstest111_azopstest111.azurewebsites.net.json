@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "apiVersion": "2022-03-01",
+      "location": "Central US",
+      "name": "azopstest111/azopstest111.azurewebsites.net",
+      "properties": {
+        "hostNameType": "Verified",
+        "siteName": "azopstest111"
+      },
+      "type": "Microsoft.Web/sites/hostNameBindings"
+    }
+  ],
+  "outputs": {}
+}

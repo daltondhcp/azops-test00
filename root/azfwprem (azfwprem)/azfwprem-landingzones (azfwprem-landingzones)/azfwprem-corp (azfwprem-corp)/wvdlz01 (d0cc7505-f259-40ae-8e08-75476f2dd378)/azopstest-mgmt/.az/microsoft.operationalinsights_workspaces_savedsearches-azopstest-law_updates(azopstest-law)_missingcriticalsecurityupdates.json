@@ -1,0 +1,25 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "apiVersion": "2020-08-01",
+      "name": "azopstest-law/Updates(azopstest-law)_MissingCriticalSecurityUpdates",
+      "properties": {
+        "category": "Updates",
+        "displayName": "All computers with missing critical or security updates",
+        "query": "search in (Update) OSType != \"Linux\" and UpdateState == \"Needed\" and Optional == \"false\" and (Classification == \"Security Updates\" or Classification == \"Critical Updates\") | sort by TimeGenerated desc // Oql: Type=Update OSType!=Linux UpdateState=Needed Optional=false (Classification=\"Security Updates\" OR Classification=\"Critical Updates\")",
+        "version": 2
+      },
+      "type": "Microsoft.OperationalInsights/workspaces/savedSearches"
+    }
+  ],
+  "outputs": {}
+}

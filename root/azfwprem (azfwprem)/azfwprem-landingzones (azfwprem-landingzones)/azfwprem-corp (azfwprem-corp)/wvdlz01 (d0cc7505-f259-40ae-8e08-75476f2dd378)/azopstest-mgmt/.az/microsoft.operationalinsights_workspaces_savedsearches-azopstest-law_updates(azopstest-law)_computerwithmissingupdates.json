@@ -1,0 +1,25 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "apiVersion": "2020-08-01",
+      "name": "azopstest-law/Updates(azopstest-law)_ComputerWithMissingUpdates",
+      "properties": {
+        "category": "Updates",
+        "displayName": "All computers with missing updates",
+        "query": "search in (Update) OSType != \"Linux\" and UpdateState == \"Needed\" and Optional == \"false\" | project Computer, Title, KBID, Classification, UpdateSeverity, PublishedDate | sort by TimeGenerated desc // Oql: Type=Update OSType!=Linux UpdateState=Needed Optional=false | select Computer,Title,KBID,Classification,UpdateSeverity,PublishedDate",
+        "version": 2
+      },
+      "type": "Microsoft.OperationalInsights/workspaces/savedSearches"
+    }
+  ],
+  "outputs": {}
+}

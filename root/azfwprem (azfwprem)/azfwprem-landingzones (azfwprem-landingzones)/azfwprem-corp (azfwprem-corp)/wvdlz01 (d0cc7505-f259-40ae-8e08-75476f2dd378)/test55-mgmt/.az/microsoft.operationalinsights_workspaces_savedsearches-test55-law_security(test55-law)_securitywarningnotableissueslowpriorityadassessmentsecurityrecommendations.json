@@ -1,0 +1,25 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "apiVersion": "2020-08-01",
+      "name": "test55-law/Security(test55-law)_SecurityWarningNotableIssues|LowPriorityADAssessmentSecurityRecommendations",
+      "properties": {
+        "category": "Security Warning Notable Issues",
+        "displayName": "Low priority AD assessment security recommendations",
+        "query": "let schemaColumns = datatable(TimeGenerated:datetime, RecommendationId:string)[]; union isfuzzy=true schemaColumns, (ADAssessmentRecommendation | where FocusArea == 'Security and Compliance' and RecommendationResult == 'Failed' and RecommendationScore<35) | summarize arg_max(TimeGenerated, *) by RecommendationId",
+        "version": 2
+      },
+      "type": "Microsoft.OperationalInsights/workspaces/savedSearches"
+    }
+  ],
+  "outputs": {}
+}

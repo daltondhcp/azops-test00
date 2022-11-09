@@ -1,0 +1,25 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "apiVersion": "2020-08-01",
+      "name": "test55-law/SQLAssessment(test55-law)_SQLRecommendationByDatabase",
+      "properties": {
+        "category": "SQLAssessment",
+        "displayName": "Recommendations by Database",
+        "query": "SQLAssessmentRecommendation | where RecommendationResult == \"Failed\" | summarize AggregatedValue = count() by DatabaseName",
+        "version": 2
+      },
+      "type": "Microsoft.OperationalInsights/workspaces/savedSearches"
+    }
+  ],
+  "outputs": {}
+}

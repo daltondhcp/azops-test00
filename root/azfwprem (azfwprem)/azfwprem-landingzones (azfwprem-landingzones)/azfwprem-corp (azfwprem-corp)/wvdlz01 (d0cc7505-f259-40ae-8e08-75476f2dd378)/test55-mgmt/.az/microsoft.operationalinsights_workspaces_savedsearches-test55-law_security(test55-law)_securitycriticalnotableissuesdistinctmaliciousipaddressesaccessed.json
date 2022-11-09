@@ -1,0 +1,25 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "apiVersion": "2020-08-01",
+      "name": "test55-law/Security(test55-law)_SecurityCriticalNotableIssues|DistinctMaliciousIPAddressesAccessed",
+      "properties": {
+        "category": "Security Critical Notable Issues",
+        "displayName": "Distinct malicious IP addresses accessed",
+        "query": "union isfuzzy=true (WireData | where Direction == 'Outbound'), (WindowsFirewall | where CommunicationDirection == 'SEND'), (CommonSecurityLog | where CommunicationDirection == 'Outbound') | where isnotempty(MaliciousIP) | summarize by MaliciousIP",
+        "version": 2
+      },
+      "type": "Microsoft.OperationalInsights/workspaces/savedSearches"
+    }
+  ],
+  "outputs": {}
+}
