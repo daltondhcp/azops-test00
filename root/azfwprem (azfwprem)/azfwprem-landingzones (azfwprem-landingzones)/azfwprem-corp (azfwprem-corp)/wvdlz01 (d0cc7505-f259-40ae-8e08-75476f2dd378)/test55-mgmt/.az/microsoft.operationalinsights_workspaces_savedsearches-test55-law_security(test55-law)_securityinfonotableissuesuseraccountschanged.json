@@ -1,0 +1,25 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "apiVersion": "2020-08-01",
+      "name": "test55-law/Security(test55-law)_SecurityInfoNotableIssues|UserAccountsChanged",
+      "properties": {
+        "category": "Security Info Notable Issues",
+        "displayName": "User accounts created or enabled",
+        "query": "SecurityEvent | where EventID in (4720, 4722) | summarize by TargetAccount",
+        "version": 2
+      },
+      "type": "Microsoft.OperationalInsights/workspaces/savedSearches"
+    }
+  ],
+  "outputs": {}
+}

@@ -1,0 +1,81 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "apiVersion": "2021-12-01-preview",
+      "name": "workspacedefaultresourcegroupeusa29a/ContainerAppConsoleLogs_CL",
+      "properties": {
+        "plan": "Analytics",
+        "retentionInDays": 30,
+        "schema": {
+          "columns": [
+            {
+              "name": "_timestamp_d",
+              "type": "real"
+            },
+            {
+              "name": "time_s",
+              "type": "string"
+            },
+            {
+              "name": "ContainerId_s",
+              "type": "string"
+            },
+            {
+              "name": "Log_s",
+              "type": "string"
+            },
+            {
+              "name": "RevisionName_s",
+              "type": "string"
+            },
+            {
+              "name": "ContainerAppName_s",
+              "type": "string"
+            },
+            {
+              "name": "Stream_s",
+              "type": "string"
+            },
+            {
+              "name": "logtag_s",
+              "type": "string"
+            },
+            {
+              "name": "ContainerGroupName_s",
+              "type": "string"
+            },
+            {
+              "name": "ContainerGroupId_g",
+              "type": "guid"
+            },
+            {
+              "name": "ContainerName_s",
+              "type": "string"
+            },
+            {
+              "name": "ContainerImage_s",
+              "type": "string"
+            },
+            {
+              "name": "EnvironmentName_s",
+              "type": "string"
+            }
+          ],
+          "name": "ContainerAppConsoleLogs_CL"
+        },
+        "totalRetentionInDays": 30
+      },
+      "type": "Microsoft.OperationalInsights/workspaces/tables"
+    }
+  ],
+  "outputs": {}
+}

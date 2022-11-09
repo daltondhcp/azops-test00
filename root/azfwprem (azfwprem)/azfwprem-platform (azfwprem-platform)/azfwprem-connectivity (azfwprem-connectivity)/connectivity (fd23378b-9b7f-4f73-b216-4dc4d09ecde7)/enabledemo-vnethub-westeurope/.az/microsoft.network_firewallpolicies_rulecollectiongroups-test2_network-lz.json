@@ -1,0 +1,43 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "apiVersion": "2022-01-01",
+      "location": "eastus2",
+      "name": "test2/Network-LZ",
+      "properties": {
+        "priority": 102,
+        "ruleCollections": [
+          {
+            "action": {
+              "type": "Allow"
+            },
+            "name": "LandingZone1-Network",
+            "priority": 101,
+            "ruleCollectionType": "FirewallPolicyFilterRuleCollection",
+            "rules": []
+          },
+          {
+            "action": {
+              "type": "Allow"
+            },
+            "name": "LandingZone2-Network",
+            "priority": 102,
+            "ruleCollectionType": "FirewallPolicyFilterRuleCollection",
+            "rules": []
+          }
+        ]
+      },
+      "type": "Microsoft.Network/firewallPolicies/ruleCollectionGroups"
+    }
+  ],
+  "outputs": {}
+}

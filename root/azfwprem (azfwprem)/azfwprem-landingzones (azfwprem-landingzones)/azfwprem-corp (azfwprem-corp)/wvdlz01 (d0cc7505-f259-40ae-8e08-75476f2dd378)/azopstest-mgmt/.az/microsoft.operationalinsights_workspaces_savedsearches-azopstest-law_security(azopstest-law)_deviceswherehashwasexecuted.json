@@ -1,0 +1,25 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "apiVersion": "2020-08-01",
+      "name": "azopstest-law/Security(azopstest-law)_DevicesWhereHashWasExecuted",
+      "properties": {
+        "category": "Security",
+        "displayName": "Computers where \"hash.exe\" was executed (replace with different process name) more than 5 times",
+        "query": "search in (SecurityEvent) EventID == 4688 and \"hash.exe\" | summarize ExecutionCount = count() by Computer | limit 500000 | where ExecutionCount > 5",
+        "version": 2
+      },
+      "type": "Microsoft.OperationalInsights/workspaces/savedSearches"
+    }
+  ],
+  "outputs": {}
+}
