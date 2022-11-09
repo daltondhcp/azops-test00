@@ -23,9 +23,9 @@
             "Core.OfferType": "MS-AZR-0017P",
             "Core.PartialMgDiscoveryRoot": ['azfwprem'],
             "Core.SkipPolicy": false,
-            "Core.SkipPim": false,
+            "Core.SkipPim": true,
             "Core.SkipResource": false,
-            "Core.SkipChildResource": true,
+            "Core.SkipChildResource": false,
             "Core.SkipResourceGroup": false,
             "Core.IncludeResourceType": ['*'
             ],
