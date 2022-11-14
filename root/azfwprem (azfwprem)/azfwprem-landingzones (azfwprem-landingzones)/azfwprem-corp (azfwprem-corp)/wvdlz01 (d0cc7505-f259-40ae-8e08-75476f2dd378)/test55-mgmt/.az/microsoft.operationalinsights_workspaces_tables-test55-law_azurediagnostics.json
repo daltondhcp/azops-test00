@@ -18,6 +18,14 @@
         "schema": {
           "columns": [
             {
+              "name": "identity_claim_appidacr_s",
+              "type": "string"
+            },
+            {
+              "name": "tlsVersion_s",
+              "type": "string"
+            },
+            {
               "name": "trustedService_s",
               "type": "string"
             },
