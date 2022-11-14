@@ -1,0 +1,35 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.RecoveryServices/vaults",
+      "name": "testvaultfff",
+      "sku": {
+        "Capacity": null,
+        "Family": null,
+        "Model": null,
+        "Name": "RS0",
+        "Size": null,
+        "Tier": "Standard"
+      },
+      "apiVersion": "2022-10-01",
+      "location": "westeurope",
+      "tags": null,
+      "properties": {
+        "encryption": null,
+        "privateEndpointStateForBackup": "None",
+        "privateEndpointStateForSiteRecovery": "None",
+        "publicNetworkAccess": "Enabled"
+      }
+    }
+  ],
+  "outputs": {}
+}
