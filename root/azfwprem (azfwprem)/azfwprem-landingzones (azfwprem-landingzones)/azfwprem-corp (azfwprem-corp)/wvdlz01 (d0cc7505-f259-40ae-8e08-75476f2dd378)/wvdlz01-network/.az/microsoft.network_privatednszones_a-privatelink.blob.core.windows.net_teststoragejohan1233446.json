@@ -1,0 +1,30 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "apiVersion": "2018-09-01",
+      "name": "privatelink.blob.core.windows.net/teststoragejohan1233446",
+      "properties": {
+        "aRecords": [
+          {
+            "ipv4Address": "10.30.0.9"
+          }
+        ],
+        "metadata": {
+          "creator": "created by private endpoint test1 with resource guid ec1e4754-2628-45c8-a54c-1307ed9bb6ac"
+        },
+        "ttl": 10
+      },
+      "type": "Microsoft.Network/privateDnsZones/A"
+    }
+  ],
+  "outputs": {}
+}
