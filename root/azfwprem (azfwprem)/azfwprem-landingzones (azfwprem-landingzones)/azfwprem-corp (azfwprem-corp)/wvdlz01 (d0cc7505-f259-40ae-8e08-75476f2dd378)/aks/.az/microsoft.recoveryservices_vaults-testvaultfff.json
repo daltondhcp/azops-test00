@@ -12,14 +12,6 @@
     {
       "type": "Microsoft.RecoveryServices/vaults",
       "name": "testvaultfff",
-      "sku": {
-        "Capacity": null,
-        "Family": null,
-        "Model": null,
-        "Name": "RS0",
-        "Size": null,
-        "Tier": "Standard"
-      },
       "apiVersion": "2022-10-01",
       "location": "westeurope",
       "tags": null,
