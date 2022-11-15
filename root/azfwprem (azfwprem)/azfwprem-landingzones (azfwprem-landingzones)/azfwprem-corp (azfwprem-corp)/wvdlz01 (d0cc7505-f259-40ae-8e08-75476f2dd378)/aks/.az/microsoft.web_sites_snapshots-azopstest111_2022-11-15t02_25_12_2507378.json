@@ -10,14 +10,9 @@
   "variables": {},
   "resources": [
     {
-      "apiVersion": "2022-05-01",
-      "name": "test232jwtugmnitmuy/default",
-      "properties": {
-        "cors": {
-          "corsRules": []
-        }
-      },
-      "type": "Microsoft.Storage/storageAccounts/tableServices"
+      "apiVersion": "2015-08-01",
+      "name": "azopstest111/2022-11-15T02_25_12_2507378",
+      "type": "Microsoft.Web/sites/snapshots"
     }
   ],
   "outputs": {}
