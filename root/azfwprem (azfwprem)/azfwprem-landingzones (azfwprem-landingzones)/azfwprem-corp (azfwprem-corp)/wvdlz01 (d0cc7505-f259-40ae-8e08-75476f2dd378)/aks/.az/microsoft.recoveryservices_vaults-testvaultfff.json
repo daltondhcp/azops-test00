@@ -16,9 +16,6 @@
       "location": "westeurope",
       "tags": null,
       "properties": {
-        "privateEndpointStateForBackup": "None",
-        "privateEndpointStateForSiteRecovery": "None",
-        "publicNetworkAccess": "Enabled"
       }
     }
   ],
