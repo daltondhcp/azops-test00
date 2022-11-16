@@ -1,0 +1,25 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "apiVersion": "2020-08-01",
+      "name": "test34-law/Security(test34-law)_SecurityInfoNotableIssues|SecurityGroupsCreatedOrModified",
+      "properties": {
+        "category": "Security Info Notable Issues",
+        "displayName": "Security groups created or modified",
+        "query": "SecurityEvent | where EventID in (4727, 4731, 4735, 4737, 4754, 4755) | summarize count() by TargetAccount",
+        "version": 2
+      },
+      "type": "Microsoft.OperationalInsights/workspaces/savedSearches"
+    }
+  ],
+  "outputs": {}
+}
