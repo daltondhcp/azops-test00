@@ -1,0 +1,25 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "apiVersion": "2020-08-01",
+      "name": "test34-law/LogManagement(test34-law)_LogManagement|TotalBytesRespondedToClientsByEachIISServerIPAddress",
+      "properties": {
+        "category": "Log Management",
+        "displayName": "Total Bytes responded back to clients by each IIS ServerIP Address",
+        "query": "search * | extend Type = $table | where Type == W3CIISLog | summarize AggregatedValue = sum(scBytes) by sIP\r\n// Oql: Type=W3CIISLog | Measure Sum(scBytes) by sIP // Args: {OQ: True; WorkspaceId: 00000000-0000-0000-0000-000000000000} // Settings: {PEF: True; SortI: True; SortF: True} // Version: 0.1.122",
+        "version": 2
+      },
+      "type": "Microsoft.OperationalInsights/workspaces/savedSearches"
+    }
+  ],
+  "outputs": {}
+}
