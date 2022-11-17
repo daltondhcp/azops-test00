@@ -11,13 +11,13 @@
   "resources": [
     {
       "apiVersion": "2022-05-01",
-      "name": "csb100320012e7fde40/default/cs-jasper-demo-azurelab-se-100320012e7fde40",
+      "name": "welog001/default",
       "properties": {
-        "accessTier": "TransactionOptimized",
-        "enabledProtocols": "SMB",
-        "shareQuota": 6
+        "cors": {
+          "corsRules": []
+        }
       },
-      "type": "Microsoft.Storage/storageAccounts/fileServices/shares"
+      "type": "Microsoft.Storage/storageAccounts/tableServices"
     }
   ],
   "outputs": {}

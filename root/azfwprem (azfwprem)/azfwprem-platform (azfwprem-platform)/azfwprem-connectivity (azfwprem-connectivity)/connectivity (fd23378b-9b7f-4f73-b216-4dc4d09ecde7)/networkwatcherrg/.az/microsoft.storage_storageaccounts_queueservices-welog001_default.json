@@ -10,15 +10,14 @@
   "variables": {},
   "resources": [
     {
-      "apiVersion": "2022-01-01",
-      "name": "azwe/noneRouteTable",
+      "apiVersion": "2022-05-01",
+      "name": "welog001/default",
       "properties": {
-        "labels": [
-          "none"
-        ],
-        "routes": []
+        "cors": {
+          "corsRules": []
+        }
       },
-      "type": "Microsoft.Network/virtualHubs/hubRouteTables"
+      "type": "Microsoft.Storage/storageAccounts/queueServices"
     }
   ],
   "outputs": {}

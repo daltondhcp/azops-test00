@@ -11,21 +11,16 @@
   "resources": [
     {
       "apiVersion": "2022-05-01",
-      "name": "teststoragejohan12346/default",
+      "name": "welog001/default/insights-logs-networksecuritygroupflowevent",
       "properties": {
-        "cors": {
-          "corsRules": []
-        },
-        "deleteRetentionPolicy": {
-          "allowPermanentDelete": false,
+        "defaultEncryptionScope": "$account-encryption-key",
+        "denyEncryptionScopeOverride": false,
+        "immutableStorageWithVersioning": {
           "enabled": false
-        }
+        },
+        "publicAccess": "None"
       },
-      "sku": {
-        "name": "Standard_LRS",
-        "tier": "Standard"
-      },
-      "type": "Microsoft.Storage/storageAccounts/blobServices"
+      "type": "Microsoft.Storage/storageAccounts/blobServices/containers"
     }
   ],
   "outputs": {}
