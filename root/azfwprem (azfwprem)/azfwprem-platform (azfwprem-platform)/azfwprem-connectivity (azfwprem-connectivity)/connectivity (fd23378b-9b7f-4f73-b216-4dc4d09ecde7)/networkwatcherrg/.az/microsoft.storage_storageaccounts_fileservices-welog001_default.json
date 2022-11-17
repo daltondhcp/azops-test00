@@ -11,7 +11,7 @@
   "resources": [
     {
       "apiVersion": "2022-05-01",
-      "name": "csb100320012e7fde40/default",
+      "name": "welog001/default",
       "properties": {
         "cors": {
           "corsRules": []
