@@ -10,12 +10,9 @@
   "variables": {},
   "resources": [
     {
-      "apiVersion": "2020-01-13-preview",
-      "name": "azOpsTest-aauto/Az.DataLakeAnalytics",
-      "properties": {
-        "contentLink": {}
-      },
-      "type": "Microsoft.Automation/automationAccounts/modules"
+      "apiVersion": "2015-08-01",
+      "name": "azopstest111/2022-11-17T10_25_18_2766031",
+      "type": "Microsoft.Web/sites/snapshots"
     }
   ],
   "outputs": {}
