@@ -10,9 +10,10 @@
   "variables": {},
   "resources": [
     {
-      "apiVersion": "2015-08-01",
-      "name": "azopstest111/2022-11-14T03_25_10_5968007",
-      "type": "Microsoft.Web/sites/snapshots"
+      "apiVersion": "2022-04-01",
+      "name": "testvaultfff/default",
+      "properties": {},
+      "type": "Microsoft.RecoveryServices/vaults/replicationVaultSettings"
     }
   ],
   "outputs": {}
