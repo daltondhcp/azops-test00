@@ -10,14 +10,12 @@
   "variables": {},
   "resources": [
     {
-      "apiVersion": "2022-05-01",
-      "name": "aoe2rejd123444/default",
+      "apiVersion": "2022-04-01-preview",
+      "name": "avnmtest/test",
       "properties": {
-        "cors": {
-          "corsRules": []
-        }
+        "memberType": "VirtualNetwork"
       },
-      "type": "Microsoft.Storage/storageAccounts/tableServices"
+      "type": "Microsoft.Network/networkManagers/networkGroups"
     }
   ],
   "outputs": {}
