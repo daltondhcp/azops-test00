@@ -10,16 +10,26 @@
   "variables": {},
   "resources": [
     {
-            "type": "Microsoft.RecoveryServices/vaults",
-            "apiVersion": "2022-04-01",
-            "name": "testvaultfff",
-            "location": "westeurope",
-            "sku": {
-                "name": "RS0",
-                "tier": "Standard"
-            },
-            "properties": {}
-        }
+      "type": "Microsoft.RecoveryServices/vaults",
+      "name": "testvaultfff",
+      "sku": {
+        "Capacity": null,
+        "Family": null,
+        "Model": null,
+        "Name": "RS0",
+        "Size": null,
+        "Tier": "Standard"
+      },
+      "apiVersion": "2022-10-01",
+      "location": "westeurope",
+      "tags": null,
+      "properties": {
+        "encryption": null,
+        "privateEndpointStateForBackup": "None",
+        "privateEndpointStateForSiteRecovery": "None",
+        "publicNetworkAccess": "Enabled"
+      }
+    }
   ],
   "outputs": {}
 }
