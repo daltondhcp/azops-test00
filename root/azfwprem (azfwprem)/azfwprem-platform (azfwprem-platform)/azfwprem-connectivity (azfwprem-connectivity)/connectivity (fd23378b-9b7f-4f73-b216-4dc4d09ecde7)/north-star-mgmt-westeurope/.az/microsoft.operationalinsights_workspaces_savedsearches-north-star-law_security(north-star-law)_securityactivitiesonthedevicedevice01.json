@@ -1,0 +1,25 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "apiVersion": "2020-08-01",
+      "name": "north-star-law/Security(north-star-law)_SecurityActivitiesonTheDeviceDevice01",
+      "properties": {
+        "category": "Security",
+        "displayName": "Security Activities on the computer \"Computer01.contoso.com\" (replace with your own computer name)",
+        "query": "search in (SecurityEvent) Computer == \"COMPUTER01.contoso.com\" | project TimeGenerated, Account, Activity, Computer | sort by TimeGenerated desc",
+        "version": 2
+      },
+      "type": "Microsoft.OperationalInsights/workspaces/savedSearches"
+    }
+  ],
+  "outputs": {}
+}
