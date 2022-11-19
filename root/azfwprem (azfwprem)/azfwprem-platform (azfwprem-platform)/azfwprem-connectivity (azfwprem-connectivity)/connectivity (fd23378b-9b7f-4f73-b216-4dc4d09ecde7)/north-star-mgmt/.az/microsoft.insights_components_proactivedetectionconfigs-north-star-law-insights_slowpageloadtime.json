@@ -12,7 +12,7 @@
     {
       "apiVersion": "2018-05-01-preview",
       "location": "westeurope",
-      "name": "North-Star-law-westeurope-insights/slowpageloadtime",
+      "name": "North-Star-law-insights/slowpageloadtime",
       "properties": {
         "customEmails": [],
         "enabled": true,

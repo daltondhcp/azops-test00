@@ -12,18 +12,18 @@
     {
       "apiVersion": "2018-05-01-preview",
       "location": "westeurope",
-      "name": "North-Star-law-westeurope-insights/degradationinserverresponsetime",
+      "name": "North-Star-law-insights/slowpageloadtime",
       "properties": {
         "customEmails": [],
         "enabled": true,
         "ruleDefinitions": {
           "Description": "Smart Detection rules notify you of performance anomaly issues.",
-          "DisplayName": "Degradation in server response time",
+          "DisplayName": "Slow page load time",
           "HelpUrl": "https://docs.microsoft.com/en-us/azure/application-insights/app-insights-proactive-performance-diagnostics",
           "IsEnabledByDefault": true,
           "IsHidden": false,
           "IsInPreview": false,
-          "Name": "degradationinserverresponsetime",
+          "Name": "slowpageloadtime",
           "SupportsEmailNotifications": true
         },
         "sendEmailsToSubscriptionOwners": true

@@ -12,19 +12,19 @@
     {
       "apiVersion": "2018-05-01-preview",
       "location": "westeurope",
-      "name": "North-Star-law-westeurope-insights/longdependencyduration",
+      "name": "North-Star-law-insights/extension_canaryextension",
       "properties": {
         "customEmails": [],
         "enabled": true,
         "ruleDefinitions": {
-          "Description": "Smart Detection rules notify you of performance anomaly issues.",
-          "DisplayName": "Long dependency duration",
-          "HelpUrl": "https://docs.microsoft.com/en-us/azure/application-insights/app-insights-proactive-performance-diagnostics",
+          "Description": "Canary extension",
+          "DisplayName": "Canary extension",
+          "HelpUrl": "https://github.com/Microsoft/ApplicationInsights-Home/blob/master/SmartDetection/",
           "IsEnabledByDefault": true,
-          "IsHidden": false,
-          "IsInPreview": false,
-          "Name": "longdependencyduration",
-          "SupportsEmailNotifications": true
+          "IsHidden": true,
+          "IsInPreview": true,
+          "Name": "extension_canaryextension",
+          "SupportsEmailNotifications": false
         },
         "sendEmailsToSubscriptionOwners": true
       },

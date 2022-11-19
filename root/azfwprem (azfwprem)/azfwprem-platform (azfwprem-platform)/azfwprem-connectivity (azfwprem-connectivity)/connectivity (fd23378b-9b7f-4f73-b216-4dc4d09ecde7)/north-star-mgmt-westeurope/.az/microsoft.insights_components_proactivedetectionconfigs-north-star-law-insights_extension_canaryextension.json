@@ -12,19 +12,19 @@
     {
       "apiVersion": "2018-05-01-preview",
       "location": "westeurope",
-      "name": "North-Star-law-westeurope-insights/digestMailConfiguration",
+      "name": "North-Star-law-insights/extension_canaryextension",
       "properties": {
         "customEmails": [],
         "enabled": true,
         "ruleDefinitions": {
-          "Description": "This rule describes the digest mail preferences",
-          "DisplayName": "Digest Mail Configuration",
-          "HelpUrl": "www.homail.com",
+          "Description": "Canary extension",
+          "DisplayName": "Canary extension",
+          "HelpUrl": "https://github.com/Microsoft/ApplicationInsights-Home/blob/master/SmartDetection/",
           "IsEnabledByDefault": true,
           "IsHidden": true,
-          "IsInPreview": false,
-          "Name": "digestMailConfiguration",
-          "SupportsEmailNotifications": true
+          "IsInPreview": true,
+          "Name": "extension_canaryextension",
+          "SupportsEmailNotifications": false
         },
         "sendEmailsToSubscriptionOwners": true
       },

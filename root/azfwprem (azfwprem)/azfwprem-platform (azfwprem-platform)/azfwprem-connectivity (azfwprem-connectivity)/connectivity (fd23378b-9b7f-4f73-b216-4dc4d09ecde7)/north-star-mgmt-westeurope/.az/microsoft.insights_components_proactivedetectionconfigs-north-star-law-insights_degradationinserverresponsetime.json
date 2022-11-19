@@ -12,19 +12,19 @@
     {
       "apiVersion": "2018-05-01-preview",
       "location": "westeurope",
-      "name": "North-Star-law-westeurope-insights/extension_exceptionchangeextension",
+      "name": "North-Star-law-insights/degradationinserverresponsetime",
       "properties": {
         "customEmails": [],
         "enabled": true,
         "ruleDefinitions": {
-          "Description": "This detection rule automatically analyzes the exceptions thrown in your application, and can warn you about unusual patterns in your exception telemetry.",
-          "DisplayName": "Abnormal rise in exception volume (preview)",
-          "HelpUrl": "https://github.com/Microsoft/ApplicationInsights-Home/blob/master/SmartDetection/abnormal-rise-in-exception-volume.md",
+          "Description": "Smart Detection rules notify you of performance anomaly issues.",
+          "DisplayName": "Degradation in server response time",
+          "HelpUrl": "https://docs.microsoft.com/en-us/azure/application-insights/app-insights-proactive-performance-diagnostics",
           "IsEnabledByDefault": true,
           "IsHidden": false,
-          "IsInPreview": true,
-          "Name": "extension_exceptionchangeextension",
-          "SupportsEmailNotifications": false
+          "IsInPreview": false,
+          "Name": "degradationinserverresponsetime",
+          "SupportsEmailNotifications": true
         },
         "sendEmailsToSubscriptionOwners": true
       },
