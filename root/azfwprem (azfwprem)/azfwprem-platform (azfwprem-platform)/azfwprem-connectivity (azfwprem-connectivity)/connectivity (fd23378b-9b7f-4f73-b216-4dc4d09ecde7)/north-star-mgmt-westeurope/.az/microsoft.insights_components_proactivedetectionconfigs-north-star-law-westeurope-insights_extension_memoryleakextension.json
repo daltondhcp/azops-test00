@@ -12,19 +12,19 @@
     {
       "apiVersion": "2018-05-01-preview",
       "location": "westeurope",
-      "name": "North-Star-law-insights/longdependencyduration",
+      "name": "North-Star-law-westeurope-insights/extension_memoryleakextension",
       "properties": {
         "customEmails": [],
         "enabled": true,
         "ruleDefinitions": {
-          "Description": "Smart Detection rules notify you of performance anomaly issues.",
-          "DisplayName": "Long dependency duration",
-          "HelpUrl": "https://docs.microsoft.com/en-us/azure/application-insights/app-insights-proactive-performance-diagnostics",
+          "Description": "This detection rule automatically analyzes the memory consumption of each process in your application, and can warn you about potential memory leaks or increased memory consumption.",
+          "DisplayName": "Potential memory leak detected (preview)",
+          "HelpUrl": "https://github.com/Microsoft/ApplicationInsights-Home/tree/master/SmartDetection/memory-leak.md",
           "IsEnabledByDefault": true,
           "IsHidden": false,
-          "IsInPreview": false,
-          "Name": "longdependencyduration",
-          "SupportsEmailNotifications": true
+          "IsInPreview": true,
+          "Name": "extension_memoryleakextension",
+          "SupportsEmailNotifications": false
         },
         "sendEmailsToSubscriptionOwners": true
       },

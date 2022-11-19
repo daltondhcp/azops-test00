@@ -12,18 +12,18 @@
     {
       "apiVersion": "2018-05-01-preview",
       "location": "westeurope",
-      "name": "North-Star-law-insights/degradationinserverresponsetime",
+      "name": "North-Star-law-westeurope-insights/digestMailConfiguration",
       "properties": {
         "customEmails": [],
         "enabled": true,
         "ruleDefinitions": {
-          "Description": "Smart Detection rules notify you of performance anomaly issues.",
-          "DisplayName": "Degradation in server response time",
-          "HelpUrl": "https://docs.microsoft.com/en-us/azure/application-insights/app-insights-proactive-performance-diagnostics",
+          "Description": "This rule describes the digest mail preferences",
+          "DisplayName": "Digest Mail Configuration",
+          "HelpUrl": "www.homail.com",
           "IsEnabledByDefault": true,
-          "IsHidden": false,
+          "IsHidden": true,
           "IsInPreview": false,
-          "Name": "degradationinserverresponsetime",
+          "Name": "digestMailConfiguration",
           "SupportsEmailNotifications": true
         },
         "sendEmailsToSubscriptionOwners": true
