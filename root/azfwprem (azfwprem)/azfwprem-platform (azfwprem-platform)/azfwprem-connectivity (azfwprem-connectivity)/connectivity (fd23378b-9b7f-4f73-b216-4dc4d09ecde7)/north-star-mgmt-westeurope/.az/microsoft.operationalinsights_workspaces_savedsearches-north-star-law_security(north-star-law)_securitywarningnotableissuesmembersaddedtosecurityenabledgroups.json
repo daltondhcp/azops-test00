@@ -1,0 +1,25 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "apiVersion": "2020-08-01",
+      "name": "north-star-law/Security(north-star-law)_SecurityWarningNotableIssues|MembersAddedToSecurityEnabledGroups",
+      "properties": {
+        "category": "Security Warning Notable Issues",
+        "displayName": "Members added To security-enabled groups",
+        "query": "SecurityEvent | where EventID in (4728, 4732, 4756) | summarize count() by SubjectAccount",
+        "version": 2
+      },
+      "type": "Microsoft.OperationalInsights/workspaces/savedSearches"
+    }
+  ],
+  "outputs": {}
+}
