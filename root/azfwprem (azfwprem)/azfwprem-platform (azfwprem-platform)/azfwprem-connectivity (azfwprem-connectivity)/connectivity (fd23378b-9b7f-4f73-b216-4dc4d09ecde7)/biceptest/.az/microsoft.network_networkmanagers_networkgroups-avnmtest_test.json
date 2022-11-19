@@ -10,9 +10,12 @@
   "variables": {},
   "resources": [
     {
-      "apiVersion": "2015-08-01",
-      "name": "azopstest111/2022-10-20T16_46_46_0003062",
-      "type": "Microsoft.Web/sites/snapshots"
+      "apiVersion": "2022-04-01-preview",
+      "name": "avnmtest/test",
+      "properties": {
+        "memberType": "VirtualNetwork"
+      },
+      "type": "Microsoft.Network/networkManagers/networkGroups"
     }
   ],
   "outputs": {}

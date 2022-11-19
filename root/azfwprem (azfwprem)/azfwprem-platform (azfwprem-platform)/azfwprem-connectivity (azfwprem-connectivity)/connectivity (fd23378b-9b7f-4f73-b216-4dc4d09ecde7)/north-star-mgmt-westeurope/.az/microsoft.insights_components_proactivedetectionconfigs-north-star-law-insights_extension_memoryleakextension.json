@@ -12,18 +12,18 @@
     {
       "apiVersion": "2018-05-01-preview",
       "location": "westeurope",
-      "name": "North-Star-law-westeurope-insights/extension_traceseveritydetector",
+      "name": "North-Star-law-insights/extension_memoryleakextension",
       "properties": {
         "customEmails": [],
         "enabled": true,
         "ruleDefinitions": {
-          "Description": "This detection rule automatically analyzes the trace logs emitted from your application, and can warn you about unusual patterns in the severity of your trace telemetry.",
-          "DisplayName": "Degradation in trace severity ratio (preview)",
-          "HelpUrl": "https://github.com/Microsoft/ApplicationInsights-Home/blob/master/SmartDetection/degradation-in-trace-severity-ratio.md",
+          "Description": "This detection rule automatically analyzes the memory consumption of each process in your application, and can warn you about potential memory leaks or increased memory consumption.",
+          "DisplayName": "Potential memory leak detected (preview)",
+          "HelpUrl": "https://github.com/Microsoft/ApplicationInsights-Home/tree/master/SmartDetection/memory-leak.md",
           "IsEnabledByDefault": true,
           "IsHidden": false,
           "IsInPreview": true,
-          "Name": "extension_traceseveritydetector",
+          "Name": "extension_memoryleakextension",
           "SupportsEmailNotifications": false
         },
         "sendEmailsToSubscriptionOwners": true

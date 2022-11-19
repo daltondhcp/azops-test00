@@ -12,19 +12,19 @@
     {
       "apiVersion": "2018-05-01-preview",
       "location": "westeurope",
-      "name": "North-Star-law-westeurope-insights/degradationindependencyduration",
+      "name": "North-Star-law-insights/extension_traceseveritydetector",
       "properties": {
         "customEmails": [],
         "enabled": true,
         "ruleDefinitions": {
-          "Description": "Smart Detection rules notify you of performance anomaly issues.",
-          "DisplayName": "Degradation in dependency duration",
-          "HelpUrl": "https://docs.microsoft.com/en-us/azure/application-insights/app-insights-proactive-performance-diagnostics",
+          "Description": "This detection rule automatically analyzes the trace logs emitted from your application, and can warn you about unusual patterns in the severity of your trace telemetry.",
+          "DisplayName": "Degradation in trace severity ratio (preview)",
+          "HelpUrl": "https://github.com/Microsoft/ApplicationInsights-Home/blob/master/SmartDetection/degradation-in-trace-severity-ratio.md",
           "IsEnabledByDefault": true,
           "IsHidden": false,
-          "IsInPreview": false,
-          "Name": "degradationindependencyduration",
-          "SupportsEmailNotifications": true
+          "IsInPreview": true,
+          "Name": "extension_traceseveritydetector",
+          "SupportsEmailNotifications": false
         },
         "sendEmailsToSubscriptionOwners": true
       },
