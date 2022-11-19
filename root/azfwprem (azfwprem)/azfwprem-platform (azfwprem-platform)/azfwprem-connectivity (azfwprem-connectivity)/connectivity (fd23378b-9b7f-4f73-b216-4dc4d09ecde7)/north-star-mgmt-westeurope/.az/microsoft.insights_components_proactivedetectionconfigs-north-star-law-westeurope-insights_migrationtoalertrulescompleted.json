@@ -12,18 +12,18 @@
     {
       "apiVersion": "2018-05-01-preview",
       "location": "westeurope",
-      "name": "North-Star-law-insights/extension_canaryextension",
+      "name": "North-Star-law-westeurope-insights/migrationToAlertRulesCompleted",
       "properties": {
         "customEmails": [],
-        "enabled": true,
+        "enabled": false,
         "ruleDefinitions": {
-          "Description": "Canary extension",
-          "DisplayName": "Canary extension",
-          "HelpUrl": "https://github.com/Microsoft/ApplicationInsights-Home/blob/master/SmartDetection/",
-          "IsEnabledByDefault": true,
+          "Description": "A configuration that controls the migration state of Smart Detection to Smart Alerts",
+          "DisplayName": "Migration To Alert Rules Completed",
+          "HelpUrl": "https://docs.microsoft.com/en-us/azure/application-insights/app-insights-proactive-performance-diagnostics",
+          "IsEnabledByDefault": false,
           "IsHidden": true,
           "IsInPreview": true,
-          "Name": "extension_canaryextension",
+          "Name": "migrationToAlertRulesCompleted",
           "SupportsEmailNotifications": false
         },
         "sendEmailsToSubscriptionOwners": true
