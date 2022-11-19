@@ -10,14 +10,13 @@
   "variables": {},
   "resources": [
     {
-      "apiVersion": "2022-05-01",
-      "name": "welog001/default",
+      "apiVersion": "2022-04-01",
+      "name": "testvaultfff/defaultAlertSetting",
       "properties": {
-        "cors": {
-          "corsRules": []
-        }
+        "customEmailAddresses": [],
+        "sendToOwners": "DoNotSend"
       },
-      "type": "Microsoft.Storage/storageAccounts/tableServices"
+      "type": "Microsoft.RecoveryServices/vaults/replicationAlertSettings"
     }
   ],
   "outputs": {}
