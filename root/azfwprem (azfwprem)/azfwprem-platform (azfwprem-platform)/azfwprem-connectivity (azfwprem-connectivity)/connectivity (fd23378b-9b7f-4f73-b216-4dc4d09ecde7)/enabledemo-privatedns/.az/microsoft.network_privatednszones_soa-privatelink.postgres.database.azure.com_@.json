@@ -11,7 +11,7 @@
   "resources": [
     {
       "apiVersion": "2018-09-01",
-      "name": "privatelink.datafactory.azure.com/@",
+      "name": "privatelink.postgres.database.azure.com/@",
       "properties": {
         "soaRecord": {
           "email": "azureprivatedns-host.microsoft.com",
