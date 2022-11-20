@@ -12,15 +12,7 @@
     {
       "type": "Microsoft.App/managedEnvironments",
       "name": "managedEnvironment-DefaultResource-ae9c",
-      "sku": {
-        "Capacity": null,
-        "Family": null,
-        "Model": null,
-        "Name": "Consumption",
-        "Size": null,
-        "Tier": null
-      },
-      "apiVersion": "2022-10-01",
+      "apiVersion": "2022-06-01-preview",
       "location": "canadacentral",
       "tags": null,
       "properties": {
@@ -30,12 +22,8 @@
             "customerId": "b79f52fc-c4f7-4b92-be0c-f91112c7b953"
           }
         },
-        "customDomainConfiguration": {
-          "customDomainVerificationId": "1719307DAD5AF58596D9F1012E685E593F9D0202D45251717CA3AA0B084AA409"
-        },
         "defaultDomain": "purplehill-abc157f7.canadacentral.azurecontainerapps.io",
         "staticIp": "20.200.83.15",
-        "useLegionServerlessCompute": false,
         "zoneRedundant": false
       }
     }
