@@ -10,14 +10,9 @@
   "variables": {},
   "resources": [
     {
-      "apiVersion": "2022-05-01",
-      "name": "mittstorage123123/default/fs101",
-      "properties": {
-        "accessTier": "TransactionOptimized",
-        "enabledProtocols": "SMB",
-        "shareQuota": 6
-      },
-      "type": "Microsoft.Storage/storageAccounts/fileServices/shares"
+      "apiVersion": "2015-08-01",
+      "name": "azopstest111/2022-11-20T13_25_24_1418473",
+      "type": "Microsoft.Web/sites/snapshots"
     }
   ],
   "outputs": {}
