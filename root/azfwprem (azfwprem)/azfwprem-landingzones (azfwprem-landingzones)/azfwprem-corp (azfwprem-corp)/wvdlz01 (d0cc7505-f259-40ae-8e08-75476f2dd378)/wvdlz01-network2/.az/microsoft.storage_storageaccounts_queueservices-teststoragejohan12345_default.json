@@ -10,12 +10,14 @@
   "variables": {},
   "resources": [
     {
-      "apiVersion": "2020-01-13-preview",
-      "name": "North-Star-aauto/AzureRM.Automation",
+      "apiVersion": "2022-05-01",
+      "name": "teststoragejohan12345/default",
       "properties": {
-        "contentLink": {}
+        "cors": {
+          "corsRules": []
+        }
       },
-      "type": "Microsoft.Automation/automationAccounts/modules"
+      "type": "Microsoft.Storage/storageAccounts/queueServices"
     }
   ],
   "outputs": {}
