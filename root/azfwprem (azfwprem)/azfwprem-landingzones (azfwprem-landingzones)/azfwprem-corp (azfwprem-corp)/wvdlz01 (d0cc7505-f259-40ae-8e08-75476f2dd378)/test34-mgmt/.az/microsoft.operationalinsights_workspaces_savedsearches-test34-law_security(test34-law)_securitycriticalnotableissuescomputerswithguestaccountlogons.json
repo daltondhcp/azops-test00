@@ -1,0 +1,25 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "apiVersion": "2020-08-01",
+      "name": "test34-law/Security(test34-law)_SecurityCriticalNotableIssues|ComputersWithGuestAccountLogons",
+      "properties": {
+        "category": "Security Critical Notable Issues",
+        "displayName": "Computer with guest account logons",
+        "query": "SecurityEvent | where EventID == 4624 and TargetUserName == 'Guest' and LogonType in (10, 3) | summarize count() by Computer",
+        "version": 2
+      },
+      "type": "Microsoft.OperationalInsights/workspaces/savedSearches"
+    }
+  ],
+  "outputs": {}
+}
