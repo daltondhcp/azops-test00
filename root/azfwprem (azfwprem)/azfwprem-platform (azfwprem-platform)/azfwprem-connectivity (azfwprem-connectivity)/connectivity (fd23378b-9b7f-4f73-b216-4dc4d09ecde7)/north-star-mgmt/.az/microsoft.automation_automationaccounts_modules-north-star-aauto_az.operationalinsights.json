@@ -10,9 +10,12 @@
   "variables": {},
   "resources": [
     {
-      "apiVersion": "2015-08-01",
-      "name": "azopstest111/2022-10-22T16_24_28_9208631",
-      "type": "Microsoft.Web/sites/snapshots"
+      "apiVersion": "2020-01-13-preview",
+      "name": "North-Star-aauto/Az.OperationalInsights",
+      "properties": {
+        "contentLink": {}
+      },
+      "type": "Microsoft.Automation/automationAccounts/modules"
     }
   ],
   "outputs": {}

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "apiVersion": "2022-08-15",
+      "name": "testcosmos21234/container1/container1/default",
+      "properties": {
+        "resource": {
+          "autoscaleSettings": {
+            "maxThroughput": 1000
+          },
+          "throughput": 100
+        }
+      },
+      "type": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/throughputSettings"
+    }
+  ],
+  "outputs": {}
+}

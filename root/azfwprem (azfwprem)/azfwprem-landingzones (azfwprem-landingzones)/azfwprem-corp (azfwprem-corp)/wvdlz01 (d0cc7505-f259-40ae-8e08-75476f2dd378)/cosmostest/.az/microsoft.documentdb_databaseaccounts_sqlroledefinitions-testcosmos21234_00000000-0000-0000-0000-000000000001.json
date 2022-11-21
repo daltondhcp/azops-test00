@@ -1,0 +1,37 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "apiVersion": "2022-08-15",
+      "name": "testcosmos21234/00000000-0000-0000-0000-000000000001",
+      "properties": {
+        "assignableScopes": [
+          "[resourceId('Microsoft.DocumentDB/databaseAccounts', 'testcosmos21234')]"
+        ],
+        "permissions": [
+          {
+            "dataActions": [
+              "Microsoft.DocumentDB/databaseAccounts/readMetadata",
+              "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/executeQuery",
+              "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/readChangeFeed",
+              "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read"
+            ],
+            "notDataActions": []
+          }
+        ],
+        "roleName": "Cosmos DB Built-in Data Reader",
+        "type": "BuiltInRole"
+      },
+      "type": "Microsoft.DocumentDB/databaseAccounts/sqlRoleDefinitions"
+    }
+  ],
+  "outputs": {}
+}
