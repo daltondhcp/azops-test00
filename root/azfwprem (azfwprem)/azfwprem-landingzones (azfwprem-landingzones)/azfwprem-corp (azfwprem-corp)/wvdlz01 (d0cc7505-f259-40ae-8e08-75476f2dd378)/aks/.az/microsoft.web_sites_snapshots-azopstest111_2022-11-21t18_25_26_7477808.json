@@ -10,12 +10,9 @@
   "variables": {},
   "resources": [
     {
-      "apiVersion": "2020-01-13-preview",
-      "name": "test34-aauto/SecurityPolicyDsc",
-      "properties": {
-        "contentLink": {}
-      },
-      "type": "Microsoft.Automation/automationAccounts/modules"
+      "apiVersion": "2015-08-01",
+      "name": "azopstest111/2022-11-21T18_25_26_7477808",
+      "type": "Microsoft.Web/sites/snapshots"
     }
   ],
   "outputs": {}
