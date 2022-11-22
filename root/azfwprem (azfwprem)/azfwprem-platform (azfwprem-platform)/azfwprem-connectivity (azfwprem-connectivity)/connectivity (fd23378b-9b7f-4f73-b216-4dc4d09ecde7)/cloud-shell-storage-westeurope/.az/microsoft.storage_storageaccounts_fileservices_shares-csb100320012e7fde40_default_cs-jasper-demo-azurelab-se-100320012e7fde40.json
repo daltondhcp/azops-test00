@@ -10,12 +10,14 @@
   "variables": {},
   "resources": [
     {
-      "apiVersion": "2022-04-01-preview",
-      "name": "avnmtest/mynetworkgroup",
+      "apiVersion": "2022-05-01",
+      "name": "csb100320012e7fde40/default/cs-jasper-demo-azurelab-se-100320012e7fde40",
       "properties": {
-        "memberType": "VirtualNetwork"
+        "accessTier": "TransactionOptimized",
+        "enabledProtocols": "SMB",
+        "shareQuota": 6
       },
-      "type": "Microsoft.Network/networkManagers/networkGroups"
+      "type": "Microsoft.Storage/storageAccounts/fileServices/shares"
     }
   ],
   "outputs": {}
