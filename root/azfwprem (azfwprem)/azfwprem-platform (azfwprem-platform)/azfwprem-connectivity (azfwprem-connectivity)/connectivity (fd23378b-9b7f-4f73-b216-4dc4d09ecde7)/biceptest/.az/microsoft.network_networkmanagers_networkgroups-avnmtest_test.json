@@ -10,11 +10,9 @@
   "variables": {},
   "resources": [
     {
-      "apiVersion": "2022-04-01-preview",
+      "apiVersion": "2022-05-01",
       "name": "avnmtest/test",
-      "properties": {
-        "memberType": "VirtualNetwork"
-      },
+      "properties": {},
       "type": "Microsoft.Network/networkManagers/networkGroups"
     }
   ],

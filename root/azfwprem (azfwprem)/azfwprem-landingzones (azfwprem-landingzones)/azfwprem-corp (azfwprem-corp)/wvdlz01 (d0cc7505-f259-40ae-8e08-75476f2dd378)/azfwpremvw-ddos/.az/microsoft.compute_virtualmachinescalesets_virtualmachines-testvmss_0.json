@@ -10,7 +10,7 @@
   "variables": {},
   "resources": [
     {
-      "apiVersion": "2022-03-01",
+      "apiVersion": "2022-08-01",
       "location": "westeurope",
       "name": "testvmss/0",
       "properties": {
@@ -67,6 +67,7 @@
           "secrets": [],
           "windowsConfiguration": {
             "enableAutomaticUpdates": true,
+            "enableVMAgentPlatformUpdates": false,
             "provisionVMAgent": true
           }
         },

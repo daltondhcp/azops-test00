@@ -50,7 +50,6 @@
         "documentEndpoint": "https://testcosmos21234.documents.azure.com:443/",
         "enableAnalyticalStorage": false,
         "enableAutomaticFailover": false,
-        "enableClientTelemetry": false,
         "enableFreeTier": true,
         "enableMultipleWriteLocations": false,
         "enablePartitionKeyMonitor": false,

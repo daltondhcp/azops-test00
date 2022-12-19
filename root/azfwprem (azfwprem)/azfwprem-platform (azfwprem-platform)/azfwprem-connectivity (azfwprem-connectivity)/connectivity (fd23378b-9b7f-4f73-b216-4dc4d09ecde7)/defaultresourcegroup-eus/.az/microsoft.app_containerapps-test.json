@@ -18,11 +18,16 @@
       "properties": {
         "configuration": {
           "activeRevisionsMode": "Single",
+          "dapr": null,
           "ingress": {
             "allowInsecure": false,
+            "clientCertificateMode": null,
+            "corsPolicy": null,
+            "customDomains": null,
             "exposedPort": 0,
             "external": true,
             "fqdn": "test.purplehill-abc157f7.canadacentral.azurecontainerapps.io",
+            "ipSecurityRestrictions": null,
             "targetPort": 80,
             "traffic": [
               {
@@ -31,7 +36,10 @@
               }
             ],
             "transport": "Auto"
-          }
+          },
+          "maxInactiveRevisions": null,
+          "registries": null,
+          "secrets": null
         },
         "customDomainVerificationId": "1719307DAD5AF58596D9F1012E685E593F9D0202D45251717CA3AA0B084AA409",
         "environmentId": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/DefaultResourceGroup-EUS/providers/Microsoft.App/managedEnvironments/managedEnvironment-DefaultResource-ae9c",
@@ -57,12 +65,16 @@
               }
             }
           ],
+          "initContainers": null,
           "revisionSuffix": "",
           "scale": {
             "maxReplicas": 10,
-            "minReplicas": 0
-          }
-        }
+            "minReplicas": 0,
+            "rules": null
+          },
+          "volumes": null
+        },
+        "workloadProfileType": null
       }
     }
   ],

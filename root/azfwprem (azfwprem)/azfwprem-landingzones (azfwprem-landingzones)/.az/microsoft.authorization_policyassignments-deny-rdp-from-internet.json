@@ -18,9 +18,14 @@
         "Description": "This policy denies any network security rule that allows RDP access from Internet",
         "DisplayName": "RDP access from the Internet should be blocked",
         "EnforcementMode": "Default",
-        "NonComplianceMessages": null,
-        "NotScopes": null,
-        "Parameters": null,
+        "NonComplianceMessages": [
+          {
+            "Message": "This policy denies any network security rule that allows RDP access from Internet",
+            "PolicyDefinitionReferenceId": null
+          }
+        ],
+        "NotScopes": [],
+        "Parameters": {},
         "PolicyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deny-RDP-From-Internet",
         "Scope": "/providers/Microsoft.Management/managementGroups/azfwprem-landingzones"
       }

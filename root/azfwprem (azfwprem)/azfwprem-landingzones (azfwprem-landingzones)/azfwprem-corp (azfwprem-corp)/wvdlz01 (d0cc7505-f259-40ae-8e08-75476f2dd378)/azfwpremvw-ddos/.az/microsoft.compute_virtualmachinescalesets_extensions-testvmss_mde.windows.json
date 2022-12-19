@@ -10,7 +10,7 @@
   "variables": {},
   "resources": [
     {
-      "apiVersion": "2022-03-01",
+      "apiVersion": "2022-08-01",
       "name": "testvmss/MDE.Windows",
       "properties": {
         "autoUpgradeMinorVersion": true,

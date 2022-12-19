@@ -10,7 +10,7 @@
   "variables": {},
   "resources": [
     {
-      "apiVersion": "2022-01-01",
+      "apiVersion": "2022-05-01",
       "location": "westeurope",
       "name": "NetworkWatcher_westeurope/wvdnsg01-wvdlz01-network-flowlog",
       "properties": {

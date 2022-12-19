@@ -10,7 +10,7 @@
   "variables": {},
   "resources": [
     {
-      "apiVersion": "2022-01-01",
+      "apiVersion": "2022-05-01",
       "name": "mymg-hub-westeurope/d0cc7505-f259-40ae-8e08-75476f2dd378-mymg-vnet-westeurope",
       "properties": {
         "allowForwardedTraffic": true,
