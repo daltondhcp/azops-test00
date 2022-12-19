@@ -183,6 +183,7 @@ jobs:
           if ($env:ACTION -eq "Enterprise-Scale Deployment") {
             Set-PSFConfig -FullName AzOps.Core.SkipResource -Value $false
           }
+          Get-Module -ListAvailable 
           Invoke-AzOpsPull -Rebuild
           Get-Job | Remove-Job -Force
         env:
