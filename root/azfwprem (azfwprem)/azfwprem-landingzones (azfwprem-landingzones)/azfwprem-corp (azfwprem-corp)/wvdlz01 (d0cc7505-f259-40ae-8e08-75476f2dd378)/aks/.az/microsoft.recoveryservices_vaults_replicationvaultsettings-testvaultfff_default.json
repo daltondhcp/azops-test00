@@ -10,7 +10,7 @@
   "variables": {},
   "resources": [
     {
-      "apiVersion": "2022-04-01",
+      "apiVersion": "2022-09-10",
       "name": "testvaultfff/default",
       "properties": {},
       "type": "Microsoft.RecoveryServices/vaults/replicationVaultSettings"

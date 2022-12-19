@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "apiVersion": "2022-02-01-preview",
+      "name": "acr111a234/_repositories_push",
+      "properties": {
+        "actions": [
+          "repositories/*/content/read",
+          "repositories/*/content/write"
+        ],
+        "description": "Can push to any repository of the registry"
+      },
+      "type": "Microsoft.ContainerRegistry/registries/scopeMaps"
+    }
+  ],
+  "outputs": {}
+}

@@ -34,7 +34,11 @@
         "customDomainVerificationId": "55E151CCAC2C7E72B94870DB343BF0103DCC850E4B4686F6831E91D0A612E133",
         "dailyMemoryTimeQuota": 0,
         "defaultHostName": "azopstest111.azurewebsites.net",
+        "defaultHostNameScope": "Global",
         "deploymentId": "azopstest111",
+        "dnsConfiguration": {
+          "dnsLegacySortOrder": true
+        },
         "domainVerificationIdentifiers": null,
         "eligibleLogCategories": "AppServiceAppLogs,AppServiceAuditLogs,AppServiceConsoleLogs,AppServiceHTTPLogs,AppServiceIPSecAuditLogs,AppServicePlatformLogs,ScanLogs,AppServiceFileAuditLogs,AppServiceAntivirusScanAuditLogs",
         "enabled": true,
@@ -189,6 +193,7 @@
           "websiteTimeZone": null,
           "winAuthAdminState": null,
           "winAuthTenantState": null,
+          "windowsConfiguredStacks": null,
           "windowsFxVersion": null,
           "xManagedServiceIdentityId": null
         },
