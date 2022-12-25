@@ -1,0 +1,25 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "apiVersion": "2020-08-01",
+      "name": "azopstest-law/Updates(azopstest-law)_AutomaticUpdateConfiguration",
+      "properties": {
+        "category": "Updates",
+        "displayName": "Automatic update configuration",
+        "query": "search in (UpdateSummary) * | summarize AggregatedValue = count() by WindowsUpdateSetting // Oql: Type=UpdateSummary | measure count() by WindowsUpdateSetting",
+        "version": 2
+      },
+      "type": "Microsoft.OperationalInsights/workspaces/savedSearches"
+    }
+  ],
+  "outputs": {}
+}

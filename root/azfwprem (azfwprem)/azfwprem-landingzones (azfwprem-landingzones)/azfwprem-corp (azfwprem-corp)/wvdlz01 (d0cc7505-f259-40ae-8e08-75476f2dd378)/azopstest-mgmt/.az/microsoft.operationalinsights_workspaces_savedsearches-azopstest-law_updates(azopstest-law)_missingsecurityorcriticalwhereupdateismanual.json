@@ -1,0 +1,25 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "apiVersion": "2020-08-01",
+      "name": "azopstest-law/Updates(azopstest-law)_MissingSecurityOrCriticalWhereUpdateIsManual",
+      "properties": {
+        "category": "Updates",
+        "displayName": "Critical or security updates needed by machines where updates are manually applied",
+        "query": "search in (Update) OSType != \"Linux\" and UpdateState == \"Needed\" and Optional == \"false\" and (Classification == \"Security Updates\" or Classification == \"Critical Updates\") and Computer in ((search in (UpdateSummary) WindowsUpdateSetting == \"Manual\" | distinct Computer)) | distinct KBID // Oql: Type=Update OSType!=Linux UpdateState=Needed Optional=false (Classification=\"Security Updates\" OR Classification=\"Critical Updates\") Computer IN {Type=UpdateSummary WindowsUpdateSetting=Manual | Distinct Computer} | Distinct KBID",
+        "version": 2
+      },
+      "type": "Microsoft.OperationalInsights/workspaces/savedSearches"
+    }
+  ],
+  "outputs": {}
+}

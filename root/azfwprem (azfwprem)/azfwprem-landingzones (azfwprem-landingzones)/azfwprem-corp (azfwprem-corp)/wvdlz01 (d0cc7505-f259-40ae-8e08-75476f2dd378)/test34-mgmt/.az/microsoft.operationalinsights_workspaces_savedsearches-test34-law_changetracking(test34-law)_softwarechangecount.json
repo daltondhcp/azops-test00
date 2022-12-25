@@ -1,0 +1,25 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "apiVersion": "2020-08-01",
+      "name": "test34-law/ChangeTracking(test34-law)_SoftwareChangeCount",
+      "properties": {
+        "category": "Change Tracking",
+        "displayName": "Count of different Software change types",
+        "query": "search in (ConfigurationChange) ConfigChangeType == \"Software\" | summarize AggregatedValue = count() by ChangeCategory // Oql: Type=ConfigurationChange ConfigChangeType=Software | measure count() by ChangeCategory",
+        "version": 2
+      },
+      "type": "Microsoft.OperationalInsights/workspaces/savedSearches"
+    }
+  ],
+  "outputs": {}
+}
