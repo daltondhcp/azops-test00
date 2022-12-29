@@ -10,7 +10,7 @@
   "variables": {},
   "resources": [
     {
-      "apiVersion": "2022-07-01",
+      "apiVersion": "2022-05-01",
       "name": "wvdlz01-westeurope-vnet/sessionhost01",
       "properties": {
         "addressPrefix": "10.30.0.0/23",
