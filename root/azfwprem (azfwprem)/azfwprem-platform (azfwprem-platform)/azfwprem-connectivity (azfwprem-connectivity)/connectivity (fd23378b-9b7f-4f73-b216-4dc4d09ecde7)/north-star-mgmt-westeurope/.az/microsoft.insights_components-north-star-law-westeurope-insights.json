@@ -1,0 +1,39 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "microsoft.insights/components",
+      "name": "North-Star-law-westeurope-insights",
+      "kind": "web",
+      "apiVersion": "2020-02-02-preview",
+      "location": "westeurope",
+      "tags": {},
+      "properties": {
+        "AppId": "08c5fbcf-4072-47df-b4b4-d0f35b394d75",
+        "ApplicationId": "North-Star-law-westeurope-insights",
+        "Application_Type": "web",
+        "ConnectionString": "InstrumentationKey=b6ae0b23-81f1-4eb3-a7ac-685a0dfbf094;IngestionEndpoint=https://westeurope-5.in.applicationinsights.azure.com/;LiveEndpoint=https://westeurope.livediagnostics.monitor.azure.com/",
+        "Flow_Type": "Redfield",
+        "IngestionMode": "LogAnalytics",
+        "InstrumentationKey": "b6ae0b23-81f1-4eb3-a7ac-685a0dfbf094",
+        "Name": "North-Star-law-westeurope-insights",
+        "Request_Source": "CustomDeployment",
+        "RetentionInDays": 90,
+        "TenantId": "fd23378b-9b7f-4f73-b216-4dc4d09ecde7",
+        "Ver": "v2",
+        "WorkspaceResourceId": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/North-Star-mgmt-westeurope/providers/Microsoft.OperationalInsights/workspaces/North-Star-law-westeurope",
+        "publicNetworkAccessForIngestion": "Enabled",
+        "publicNetworkAccessForQuery": "Enabled"
+      }
+    }
+  ],
+  "outputs": {}
+}

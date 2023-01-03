@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "microsoft.managedidentity/userassignedidentities",
+      "name": "north-star-deploy",
+      "apiVersion": "2022-01-31-PREVIEW",
+      "location": "westeurope",
+      "tags": {},
+      "properties": {
+        "clientId": "301cfa0d-3a67-466f-80b7-fc9cd6d001d8",
+        "principalId": "6ed7f6f9-5a7d-46fc-b6c3-9f3766b2315d",
+        "tenantId": "3114ebe8-8d3f-4bac-b3ce-59b4210a1287"
+      }
+    }
+  ],
+  "outputs": {}
+}

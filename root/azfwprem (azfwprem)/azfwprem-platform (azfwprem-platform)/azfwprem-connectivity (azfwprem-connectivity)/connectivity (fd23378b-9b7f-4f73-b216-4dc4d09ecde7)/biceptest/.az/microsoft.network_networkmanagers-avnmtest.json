@@ -1,0 +1,35 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "microsoft.network/networkmanagers",
+      "name": "avnmtest",
+      "apiVersion": "2022-07-01",
+      "location": "westeurope",
+      "tags": {},
+      "properties": {
+        "displayName": "avnmtest",
+        "networkManagerScopeAccesses": [
+          "Connectivity",
+          "SecurityAdmin"
+        ],
+        "networkManagerScopes": {
+          "crossTenantScopes": [],
+          "managementGroups": [
+            "/providers/Microsoft.Management/managementGroups/azfwprem-corp"
+          ],
+          "subscriptions": []
+        }
+      }
+    }
+  ],
+  "outputs": {}
+}

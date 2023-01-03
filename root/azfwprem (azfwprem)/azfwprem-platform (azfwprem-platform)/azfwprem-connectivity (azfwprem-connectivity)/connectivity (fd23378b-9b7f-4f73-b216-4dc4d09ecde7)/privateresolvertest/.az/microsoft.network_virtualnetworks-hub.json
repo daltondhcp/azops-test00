@@ -1,0 +1,170 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "microsoft.network/virtualnetworks",
+      "name": "hub",
+      "apiVersion": "2022-07-01",
+      "location": "westeurope",
+      "tags": {},
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "172.17.0.0/16"
+          ]
+        },
+        "enableDdosProtection": false,
+        "subnets": [
+          {
+            "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/privateresolvertest/providers/Microsoft.Network/virtualNetworks/hub/subnets/default",
+            "name": "default",
+            "properties": {
+              "addressPrefix": "172.17.0.0/24",
+              "delegations": [
+                {
+                  "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/privateresolvertest/providers/Microsoft.Network/virtualNetworks/hub/subnets/default/delegations/Microsoft.Network.dnsResolvers",
+                  "name": "Microsoft.Network.dnsResolvers",
+                  "properties": {
+                    "actions": [
+                      "Microsoft.Network/virtualNetworks/subnets/join/action"
+                    ],
+                    "serviceName": "Microsoft.Network/dnsResolvers"
+                  },
+                  "type": "Microsoft.Network/virtualNetworks/subnets/delegations"
+                }
+              ],
+              "ipConfigurations": [
+                {
+                  "id": "/subscriptions/8e39adc1-18e8-4f34-bee4-0b6e43d97d40/resourceGroups/rg-prod-westeurope-main-endpoints/providers/Microsoft.Network/loadBalancers/lbi-prod-westeurope-main-ept-0b02dc22dbf0495fb315470dd30bc34d/frontendIPConfigurations/frontend-ipconfig"
+                }
+              ],
+              "privateEndpointNetworkPolicies": "Disabled",
+              "privateLinkServiceNetworkPolicies": "Enabled",
+              "serviceAssociationLinks": [
+                {
+                  "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/privateresolvertest/providers/Microsoft.Network/virtualNetworks/hub/subnets/default/serviceAssociationLinks/dnsResolverLink",
+                  "name": "dnsResolverLink",
+                  "properties": {
+                    "allowDelete": false,
+                    "enabledForArmDeployments": false,
+                    "link": "/InboundEndpoint/0b02dc22-dbf0-495f-b315-470dd30bc34d",
+                    "linkedResourceType": "Microsoft.Network/dnsResolvers",
+                    "locations": []
+                  },
+                  "type": "Microsoft.Network/virtualNetworks/subnets/serviceAssociationLinks"
+                }
+              ]
+            },
+            "type": "Microsoft.Network/virtualNetworks/subnets"
+          },
+          {
+            "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/privateresolvertest/providers/Microsoft.Network/virtualNetworks/hub/subnets/subnet2",
+            "name": "subnet2",
+            "properties": {
+              "addressPrefix": "172.17.1.0/24",
+              "delegations": [
+                {
+                  "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/privateresolvertest/providers/Microsoft.Network/virtualNetworks/hub/subnets/subnet2/delegations/Microsoft.Network.dnsResolvers",
+                  "name": "Microsoft.Network.dnsResolvers",
+                  "properties": {
+                    "actions": [
+                      "Microsoft.Network/virtualNetworks/subnets/join/action"
+                    ],
+                    "serviceName": "Microsoft.Network/dnsResolvers"
+                  },
+                  "type": "Microsoft.Network/virtualNetworks/subnets/delegations"
+                }
+              ],
+              "privateEndpointNetworkPolicies": "Disabled",
+              "privateLinkServiceNetworkPolicies": "Enabled",
+              "serviceAssociationLinks": [
+                {
+                  "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/privateresolvertest/providers/Microsoft.Network/virtualNetworks/hub/subnets/subnet2/serviceAssociationLinks/dnsResolverLink",
+                  "name": "dnsResolverLink",
+                  "properties": {
+                    "allowDelete": false,
+                    "enabledForArmDeployments": false,
+                    "link": "/OutboundEndpoint/746f5bc8-b5bb-4dd5-b270-312bf62c5b0e",
+                    "linkedResourceType": "Microsoft.Network/dnsResolvers",
+                    "locations": []
+                  },
+                  "type": "Microsoft.Network/virtualNetworks/subnets/serviceAssociationLinks"
+                }
+              ]
+            },
+            "type": "Microsoft.Network/virtualNetworks/subnets"
+          }
+        ],
+        "virtualNetworkPeerings": [
+          {
+            "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/privateresolvertest/providers/Microsoft.Network/virtualNetworks/hub/virtualNetworkPeerings/hub-spoke1",
+            "name": "hub-spoke1",
+            "properties": {
+              "allowForwardedTraffic": true,
+              "allowGatewayTransit": false,
+              "allowVirtualNetworkAccess": true,
+              "doNotVerifyRemoteGateways": false,
+              "peerCompleteVnets": true,
+              "peeringState": "Connected",
+              "peeringSyncLevel": "FullyInSync",
+              "remoteAddressSpace": {
+                "addressPrefixes": [
+                  "172.18.0.0/16"
+                ]
+              },
+              "remoteVirtualNetwork": {
+                "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/privateresolvertest/providers/Microsoft.Network/virtualNetworks/spoke1"
+              },
+              "remoteVirtualNetworkAddressSpace": {
+                "addressPrefixes": [
+                  "172.18.0.0/16"
+                ]
+              },
+              "routeServiceVips": {},
+              "useRemoteGateways": false
+            },
+            "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings"
+          },
+          {
+            "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/privateresolvertest/providers/Microsoft.Network/virtualNetworks/hub/virtualNetworkPeerings/hub-spoke2",
+            "name": "hub-spoke2",
+            "properties": {
+              "allowForwardedTraffic": true,
+              "allowGatewayTransit": false,
+              "allowVirtualNetworkAccess": true,
+              "doNotVerifyRemoteGateways": false,
+              "peerCompleteVnets": true,
+              "peeringState": "Connected",
+              "peeringSyncLevel": "FullyInSync",
+              "remoteAddressSpace": {
+                "addressPrefixes": [
+                  "172.19.0.0/16"
+                ]
+              },
+              "remoteVirtualNetwork": {
+                "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/privateresolvertest/providers/Microsoft.Network/virtualNetworks/spoke2"
+              },
+              "remoteVirtualNetworkAddressSpace": {
+                "addressPrefixes": [
+                  "172.19.0.0/16"
+                ]
+              },
+              "routeServiceVips": {},
+              "useRemoteGateways": false
+            },
+            "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings"
+          }
+        ]
+      }
+    }
+  ],
+  "outputs": {}
+}

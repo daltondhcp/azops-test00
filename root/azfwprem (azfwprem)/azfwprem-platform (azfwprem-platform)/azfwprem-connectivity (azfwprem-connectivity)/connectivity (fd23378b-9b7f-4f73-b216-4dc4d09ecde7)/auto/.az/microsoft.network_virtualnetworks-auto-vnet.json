@@ -1,0 +1,99 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "microsoft.network/virtualnetworks",
+      "name": "auto-vnet",
+      "apiVersion": "2022-07-01",
+      "location": "westeurope",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "172.16.0.0/16",
+            "10.100.100.0/24"
+          ]
+        },
+        "enableDdosProtection": false,
+        "subnets": [
+          {
+            "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/auto/providers/Microsoft.Network/virtualNetworks/auto-vnet/subnets/default",
+            "name": "default",
+            "properties": {
+              "addressPrefix": "172.16.0.0/24",
+              "delegations": [],
+              "ipConfigurations": [
+                {
+                  "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/auto/providers/Microsoft.Network/networkInterfaces/mitest553/ipConfigurations/ipconfig1"
+                },
+                {
+                  "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/auto/providers/Microsoft.Network/networkInterfaces/pe01.nic.117ea4b6-187b-4631-ac89-6c6bdc7aea0f/ipConfigurations/privateEndpointIpConfig.4e56fd43-ee68-4913-a09a-35ec63876ca0"
+                }
+              ],
+              "privateEndpointNetworkPolicies": "Disabled",
+              "privateEndpoints": [
+                {
+                  "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/auto/providers/Microsoft.Network/privateEndpoints/pe01"
+                }
+              ],
+              "privateLinkServiceNetworkPolicies": "Enabled",
+              "purpose": "PrivateEndpoints"
+            },
+            "type": "Microsoft.Network/virtualNetworks/subnets"
+          },
+          {
+            "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/auto/providers/Microsoft.Network/virtualNetworks/auto-vnet/subnets/test",
+            "name": "test",
+            "properties": {
+              "addressPrefix": "172.16.1.0/24",
+              "delegations": [
+                {
+                  "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/auto/providers/Microsoft.Network/virtualNetworks/auto-vnet/subnets/test/delegations/Microsoft.Network.dnsResolvers",
+                  "name": "Microsoft.Network.dnsResolvers",
+                  "properties": {
+                    "actions": [
+                      "Microsoft.Network/virtualNetworks/subnets/join/action"
+                    ],
+                    "serviceName": "Microsoft.Network/dnsResolvers"
+                  },
+                  "type": "Microsoft.Network/virtualNetworks/subnets/delegations"
+                }
+              ],
+              "ipConfigurations": [
+                {
+                  "id": "/subscriptions/8e67445f-b162-4152-a4d1-39dac35ea8b1/resourceGroups/rg-prod-westeurope-main-endpoints/providers/Microsoft.Network/loadBalancers/lbi-prod-westeurope-main-ept-780e36965e0c4f86a05767b21aaed7ee/frontendIPConfigurations/frontend-ipconfig"
+                }
+              ],
+              "privateEndpointNetworkPolicies": "Enabled",
+              "privateLinkServiceNetworkPolicies": "Enabled",
+              "serviceAssociationLinks": [
+                {
+                  "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/auto/providers/Microsoft.Network/virtualNetworks/auto-vnet/subnets/test/serviceAssociationLinks/dnsResolverLink",
+                  "name": "dnsResolverLink",
+                  "properties": {
+                    "allowDelete": false,
+                    "enabledForArmDeployments": false,
+                    "link": "/InboundEndpoint/780e3696-5e0c-4f86-a057-67b21aaed7ee",
+                    "linkedResourceType": "Microsoft.Network/dnsResolvers",
+                    "locations": []
+                  },
+                  "type": "Microsoft.Network/virtualNetworks/subnets/serviceAssociationLinks"
+                }
+              ]
+            },
+            "type": "Microsoft.Network/virtualNetworks/subnets"
+          }
+        ],
+        "virtualNetworkPeerings": []
+      }
+    }
+  ],
+  "outputs": {}
+}

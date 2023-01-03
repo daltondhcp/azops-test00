@@ -1,0 +1,29 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "microsoft.network/privatednszones",
+      "name": "privatelink.dfs.core.windows.net",
+      "apiVersion": "2020-06-01",
+      "location": "global",
+      "properties": {
+        "internalId": "SW1tdXRhYmxlWm9uZUlkZW50aXR5O2Y3MGQ2MTQ2LTdiNDUtNDJhNy1hMDhjLTQ4MTRlNjBjNzAwOTsw",
+        "maxNumberOfRecordSets": 25000,
+        "maxNumberOfVirtualNetworkLinks": 1000,
+        "maxNumberOfVirtualNetworkLinksWithRegistration": 100,
+        "numberOfRecordSets": 1,
+        "numberOfVirtualNetworkLinks": 0,
+        "numberOfVirtualNetworkLinksWithRegistration": 0
+      }
+    }
+  ],
+  "outputs": {}
+}

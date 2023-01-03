@@ -1,0 +1,31 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "microsoft.network/dnsresolvers/inboundendpoints",
+      "name": "defaultInbound",
+      "apiVersion": "2022-07-01",
+      "location": "westeurope",
+      "properties": {
+        "ipConfigurations": [
+          {
+            "privateIpAddress": "172.17.0.4",
+            "privateIpAllocationMethod": "Dynamic",
+            "subnet": {
+              "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/privateresolvertest/providers/Microsoft.Network/virtualNetworks/hub/subnets/default"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "outputs": {}
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "apiVersion": "2022-08-08",
+      "name": "myaa33d/External_Stop_ResourceGroupNames",
+      "properties": {
+        "description": "Resource groups (as comma separated) targeted for stop action: rg1,rg2,rg3. Please keep the default value as * if no RGs provided.",
+        "isEncrypted": false,
+        "value": "\"*\""
+      },
+      "type": "Microsoft.Automation/automationAccounts/variables"
+    }
+  ],
+  "outputs": {}
+}

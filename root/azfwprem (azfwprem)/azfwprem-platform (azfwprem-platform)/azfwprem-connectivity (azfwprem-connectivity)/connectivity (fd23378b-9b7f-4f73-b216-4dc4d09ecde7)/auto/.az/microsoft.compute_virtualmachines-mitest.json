@@ -1,0 +1,76 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "microsoft.compute/virtualmachines",
+      "name": "mitest",
+      "apiVersion": "2022-11-01",
+      "location": "westeurope",
+      "properties": {
+        "diagnosticsProfile": {
+          "bootDiagnostics": {
+            "enabled": true
+          }
+        },
+        "hardwareProfile": {
+          "vmSize": "Standard_D2s_v3"
+        },
+        "networkProfile": {
+          "networkInterfaces": [
+            {
+              "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/auto/providers/Microsoft.Network/networkInterfaces/mitest553"
+            }
+          ]
+        },
+        "osProfile": {
+          "adminUsername": "sysadmin",
+          "allowExtensionOperations": true,
+          "computerName": "mitest",
+          "linuxConfiguration": {
+            "disablePasswordAuthentication": false,
+            "patchSettings": {
+              "assessmentMode": "ImageDefault",
+              "patchMode": "ImageDefault"
+            },
+            "provisionVMAgent": true
+          },
+          "requireGuestProvisionSignal": true,
+          "secrets": []
+        },
+        "storageProfile": {
+          "dataDisks": [],
+          "imageReference": {
+            "exactVersion": "20.04.202109290",
+            "offer": "0001-com-ubuntu-server-focal",
+            "publisher": "canonical",
+            "sku": "20_04-lts",
+            "version": "latest"
+          },
+          "osDisk": {
+            "caching": "ReadWrite",
+            "createOption": "FromImage",
+            "deleteOption": "Detach",
+            "managedDisk": {
+              "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/AUTO/providers/Microsoft.Compute/disks/mitest_OsDisk_1_139eef30c8df443e8dcaa395dbb83a39"
+            },
+            "name": "mitest_OsDisk_1_139eef30c8df443e8dcaa395dbb83a39",
+            "osType": "Linux"
+          }
+        },
+        "vmId": "eb804ab0-df92-48b8-9371-9cde0f9e7e4f"
+      },
+      "zones": [
+        "1"
+      ]
+    }
+  ],
+  "outputs": {}
+}

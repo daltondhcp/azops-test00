@@ -1,0 +1,48 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "apiVersion": "2022-05-01",
+      "name": "azwe/test2",
+      "properties": {
+        "allowHubToRemoteVnetTransit": true,
+        "allowRemoteVnetToUseHubVnetGateways": true,
+        "enableInternetSecurity": true,
+        "remoteVirtualNetwork": {
+          "id": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/wvdlz01-network/providers/Microsoft.Network/virtualNetworks/wvdlz01-westeurope-vnet"
+        },
+        "routingConfiguration": {
+          "associatedRouteTable": {
+            "id": "[resourceId('Microsoft.Network/virtualHubs/hubRouteTables', 'azwe', 'defaultRouteTable')]"
+          },
+          "propagatedRouteTables": {
+            "ids": [
+              {
+                "id": "[resourceId('Microsoft.Network/virtualHubs/hubRouteTables', 'azwe', 'defaultRouteTable')]"
+              }
+            ],
+            "labels": [
+              "default"
+            ]
+          },
+          "vnetRoutes": {
+            "staticRoutes": [],
+            "staticRoutesConfig": {
+              "vnetLocalRouteOverrideCriteria": "Contains"
+            }
+          }
+        }
+      },
+      "type": "Microsoft.Network/virtualHubs/hubVirtualNetworkConnections"
+    }
+  ],
+  "outputs": {}
+}

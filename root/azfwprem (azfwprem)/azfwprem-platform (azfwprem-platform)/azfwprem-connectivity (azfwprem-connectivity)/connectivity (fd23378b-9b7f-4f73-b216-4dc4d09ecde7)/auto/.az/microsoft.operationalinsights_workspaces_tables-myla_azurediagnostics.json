@@ -1,0 +1,101 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "apiVersion": "2021-12-01-preview",
+      "name": "myla/AzureDiagnostics",
+      "properties": {
+        "plan": "Analytics",
+        "retentionInDays": 30,
+        "schema": {
+          "columns": [
+            {
+              "name": "Tenant_s",
+              "type": "string"
+            },
+            {
+              "name": "StreamType_s",
+              "type": "string"
+            },
+            {
+              "name": "Tenant_g",
+              "type": "guid"
+            },
+            {
+              "name": "ResourceId",
+              "type": "string"
+            },
+            {
+              "name": "OperationName",
+              "type": "string"
+            },
+            {
+              "name": "ResultType",
+              "type": "string"
+            },
+            {
+              "name": "ResultDescription",
+              "type": "string"
+            },
+            {
+              "name": "CorrelationId",
+              "type": "string"
+            },
+            {
+              "name": "RunbookName_s",
+              "type": "string"
+            },
+            {
+              "name": "JobId_g",
+              "type": "guid"
+            },
+            {
+              "name": "Caller_s",
+              "type": "string"
+            },
+            {
+              "name": "Category",
+              "type": "string"
+            },
+            {
+              "name": "SubscriptionId",
+              "type": "guid"
+            },
+            {
+              "name": "ResourceGroup",
+              "type": "string"
+            },
+            {
+              "name": "ResourceProvider",
+              "type": "string"
+            },
+            {
+              "name": "Resource",
+              "type": "string"
+            },
+            {
+              "name": "ResourceType",
+              "type": "string"
+            },
+            {
+              "name": "_CustomFieldsCollection",
+              "type": "dynamic"
+            }
+          ],
+          "name": "AzureDiagnostics"
+        },
+        "totalRetentionInDays": 30
+      },
+      "type": "Microsoft.OperationalInsights/workspaces/tables"
+    }
+  ],
+  "outputs": {}
+}

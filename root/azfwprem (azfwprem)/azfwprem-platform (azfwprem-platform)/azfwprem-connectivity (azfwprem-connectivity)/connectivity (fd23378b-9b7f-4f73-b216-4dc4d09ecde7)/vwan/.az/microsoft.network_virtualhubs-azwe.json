@@ -1,0 +1,43 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "microsoft.network/virtualhubs",
+      "name": "azwe",
+      "apiVersion": "2022-07-01",
+      "location": "westeurope",
+      "tags": {},
+      "properties": {
+        "addressPrefix": "10.0.0.0/16",
+        "allowBranchToBranchTraffic": false,
+        "networkVirtualAppliances": [],
+        "routeTable": {
+          "routes": []
+        },
+        "routingState": "Provisioned",
+        "sku": "Standard",
+        "virtualHubRouteTableV2s": [],
+        "virtualRouterAsn": 65515,
+        "virtualRouterAutoScaleConfiguration": {
+          "minCapacity": 2
+        },
+        "virtualRouterIps": [
+          "10.0.32.5",
+          "10.0.32.4"
+        ],
+        "virtualWan": {
+          "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/vwan/providers/Microsoft.Network/virtualWans/vwan-test"
+        }
+      }
+    }
+  ],
+  "outputs": {}
+}
