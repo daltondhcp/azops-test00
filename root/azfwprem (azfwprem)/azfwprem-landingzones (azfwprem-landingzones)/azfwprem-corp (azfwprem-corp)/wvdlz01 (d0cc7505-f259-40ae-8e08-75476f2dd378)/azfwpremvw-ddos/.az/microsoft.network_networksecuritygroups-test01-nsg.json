@@ -10,11 +10,10 @@
   "variables": {},
   "resources": [
     {
-      "type": "Microsoft.Network/networkSecurityGroups",
+      "type": "microsoft.network/networksecuritygroups",
       "name": "test01-nsg",
       "apiVersion": "2022-07-01",
       "location": "westeurope",
-      "tags": null,
       "properties": {
         "defaultSecurityRules": [
           {

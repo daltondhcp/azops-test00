@@ -10,16 +10,15 @@
   "variables": {},
   "resources": [
     {
-      "type": "Microsoft.Network/virtualWans",
+      "type": "microsoft.network/virtualwans",
       "name": "azfwpremvw-vwan-eastus",
       "apiVersion": "2022-07-01",
       "location": "eastus",
-      "tags": null,
       "properties": {
         "allowBranchToBranchTraffic": true,
+        "allowVnetToVnetTraffic": true,
         "disableVpnEncryption": false,
         "office365LocalBreakoutCategory": "None",
-        "type": "Standard",
         "virtualHubs": [
           {
             "id": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/azfwpremvw-vnethub-eastus/providers/Microsoft.Network/virtualHubs/azfwpremvw-hub-eastus"

@@ -10,11 +10,10 @@
   "variables": {},
   "resources": [
     {
-      "type": "Microsoft.Network/networkWatchers",
+      "type": "microsoft.network/networkwatchers",
       "name": "NetworkWatcher_northeurope",
       "apiVersion": "2022-07-01",
       "location": "northeurope",
-      "tags": null,
       "properties": {
         "runningOperationIds": []
       }

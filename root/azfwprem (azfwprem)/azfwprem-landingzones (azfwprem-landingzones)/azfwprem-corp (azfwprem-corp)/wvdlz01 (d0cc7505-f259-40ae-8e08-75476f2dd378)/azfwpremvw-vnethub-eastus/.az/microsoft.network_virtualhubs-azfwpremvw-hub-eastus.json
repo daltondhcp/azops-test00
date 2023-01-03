@@ -10,11 +10,10 @@
   "variables": {},
   "resources": [
     {
-      "type": "Microsoft.Network/virtualHubs",
+      "type": "microsoft.network/virtualhubs",
       "name": "azfwpremvw-hub-eastus",
       "apiVersion": "2022-07-01",
       "location": "eastus",
-      "tags": null,
       "properties": {
         "addressPrefix": "10.100.0.0/23",
         "allowBranchToBranchTraffic": false,

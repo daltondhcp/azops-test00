@@ -10,11 +10,10 @@
   "variables": {},
   "resources": [
     {
-      "type": "Microsoft.Network/privateDnsZones/virtualNetworkLinks",
+      "type": "microsoft.network/privatednszones/virtualnetworklinks",
       "name": "y53lg7txe72ag",
       "apiVersion": "2020-06-01",
       "location": "global",
-      "tags": null,
       "properties": {
         "registrationEnabled": false,
         "virtualNetwork": {

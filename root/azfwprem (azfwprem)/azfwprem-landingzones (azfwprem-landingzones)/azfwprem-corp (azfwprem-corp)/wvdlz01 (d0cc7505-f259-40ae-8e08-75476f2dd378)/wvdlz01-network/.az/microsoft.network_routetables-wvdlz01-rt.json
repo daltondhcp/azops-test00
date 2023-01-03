@@ -10,7 +10,7 @@
   "variables": {},
   "resources": [
     {
-      "type": "Microsoft.Network/routeTables",
+      "type": "microsoft.network/routetables",
       "name": "wvdlz01-rt",
       "apiVersion": "2022-07-01",
       "location": "westeurope",

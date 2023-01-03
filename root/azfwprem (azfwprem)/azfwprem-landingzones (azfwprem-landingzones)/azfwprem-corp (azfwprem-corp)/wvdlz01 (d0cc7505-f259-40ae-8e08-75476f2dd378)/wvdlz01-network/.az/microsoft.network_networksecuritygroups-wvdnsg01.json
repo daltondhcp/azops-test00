@@ -10,7 +10,7 @@
   "variables": {},
   "resources": [
     {
-      "type": "Microsoft.Network/networkSecurityGroups",
+      "type": "microsoft.network/networksecuritygroups",
       "name": "wvdnsg01",
       "apiVersion": "2022-07-01",
       "location": "westeurope",

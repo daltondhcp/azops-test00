@@ -10,33 +10,19 @@
   "variables": {},
   "resources": [
     {
-      "type": "Microsoft.Web/certificates",
+      "type": "microsoft.web/certificates",
       "name": "89853A0C16AEABAEBE5BC09755F6E9DD57B8405C-aks-CentralUSwebspace",
       "apiVersion": "2022-03-01",
-      "location": "Central US",
-      "tags": null,
+      "location": "centralus",
       "properties": {
-        "cerBlob": null,
-        "friendlyName": "",
         "hostNames": [
           "365lab.net"
         ],
-        "hostingEnvironment": null,
-        "hostingEnvironmentProfile": null,
         "issuer": "365lab.net",
         "keyVaultSecretStatus": "Initialized",
-        "password": null,
-        "pfxBlob": null,
-        "publicKeyHash": null,
         "resourceGroup": "aks",
-        "selfLink": null,
-        "serverFarmId": null,
-        "siteName": null,
         "subjectName": "365lab.net",
-        "tags": null,
         "thumbprint": "89853A0C16AEABAEBE5BC09755F6E9DD57B8405C",
-        "toDelete": null,
-        "valid": null,
         "webSpace": "aks-CentralUSwebspace"
       }
     }

@@ -10,13 +10,9 @@
   "variables": {},
   "resources": [
     {
-      "type": "microsoft.network/networkwatchers",
-      "name": "NetworkWatcher_eastus2",
-      "apiVersion": "2022-07-01",
-      "location": "eastus2",
-      "properties": {
-        "runningOperationIds": []
-      }
+      "apiVersion": "2015-08-01",
+      "name": "azopstest111/2023-01-03T08_26_38_8482599",
+      "type": "Microsoft.Web/sites/snapshots"
     }
   ],
   "outputs": {}

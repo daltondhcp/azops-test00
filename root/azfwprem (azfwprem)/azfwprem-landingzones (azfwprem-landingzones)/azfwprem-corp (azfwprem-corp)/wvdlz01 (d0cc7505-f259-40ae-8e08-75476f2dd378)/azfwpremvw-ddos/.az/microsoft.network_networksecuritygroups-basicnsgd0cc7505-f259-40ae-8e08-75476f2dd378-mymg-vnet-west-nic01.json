@@ -10,11 +10,10 @@
   "variables": {},
   "resources": [
     {
-      "type": "Microsoft.Network/networkSecurityGroups",
+      "type": "microsoft.network/networksecuritygroups",
       "name": "basicNsgd0cc7505-f259-40ae-8e08-75476f2dd378-mymg-vnet-west-nic01",
       "apiVersion": "2022-07-01",
       "location": "westeurope",
-      "tags": null,
       "properties": {
         "defaultSecurityRules": [
           {

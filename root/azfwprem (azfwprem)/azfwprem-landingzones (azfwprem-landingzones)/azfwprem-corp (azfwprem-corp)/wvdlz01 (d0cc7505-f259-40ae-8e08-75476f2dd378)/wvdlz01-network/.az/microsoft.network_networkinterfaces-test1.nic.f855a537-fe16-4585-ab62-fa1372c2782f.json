@@ -10,7 +10,7 @@
   "variables": {},
   "resources": [
     {
-      "type": "Microsoft.Network/networkInterfaces",
+      "type": "microsoft.network/networkinterfaces",
       "name": "test1.nic.f855a537-fe16-4585-ab62-fa1372c2782f",
       "kind": "Regular",
       "apiVersion": "2022-07-01",
@@ -52,7 +52,6 @@
             "type": "Microsoft.Network/networkInterfaces/ipConfigurations"
           }
         ],
-        "macAddress": "",
         "nicType": "Standard",
         "privateEndpoint": {
           "id": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/wvdlz01-network/providers/Microsoft.Network/privateEndpoints/test1"

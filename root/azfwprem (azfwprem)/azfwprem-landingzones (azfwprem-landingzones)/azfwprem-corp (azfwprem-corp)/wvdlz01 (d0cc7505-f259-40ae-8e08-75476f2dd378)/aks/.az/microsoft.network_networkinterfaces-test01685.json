@@ -10,12 +10,11 @@
   "variables": {},
   "resources": [
     {
-      "type": "Microsoft.Network/networkInterfaces",
+      "type": "microsoft.network/networkinterfaces",
       "name": "test01685",
       "kind": "Regular",
       "apiVersion": "2022-07-01",
       "location": "westeurope",
-      "tags": null,
       "properties": {
         "allowPort25Out": false,
         "disableTcpStateTracking": false,

@@ -10,7 +10,7 @@
   "variables": {},
   "resources": [
     {
-      "type": "Microsoft.Resources/resourceGroups",
+      "type": "microsoft.resources/resourcegroups",
       "name": "bicepTest",
       "apiVersion": "2019-05-01",
       "location": "northeurope",
