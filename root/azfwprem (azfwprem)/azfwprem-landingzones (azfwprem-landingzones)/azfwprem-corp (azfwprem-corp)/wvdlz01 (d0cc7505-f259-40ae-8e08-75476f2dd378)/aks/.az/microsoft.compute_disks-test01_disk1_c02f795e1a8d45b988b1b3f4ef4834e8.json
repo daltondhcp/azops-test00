@@ -10,19 +10,14 @@
   "variables": {},
   "resources": [
     {
-      "type": "Microsoft.Compute/disks",
+      "type": "microsoft.compute/disks",
       "name": "test01_disk1_c02f795e1a8d45b988b1b3f4ef4834e8",
       "sku": {
-        "Capacity": null,
-        "Family": null,
-        "Model": null,
-        "Name": "Premium_LRS",
-        "Size": null,
-        "Tier": "Premium"
+        "name": "Premium_LRS",
+        "tier": "Premium"
       },
       "apiVersion": "2022-07-02",
       "location": "westeurope",
-      "tags": null,
       "properties": {
         "creationData": {
           "createOption": "FromImage",
@@ -44,7 +39,10 @@
         "publicNetworkAccess": "Enabled",
         "tier": "P4",
         "uniqueId": "c02f795e-1a8d-45b9-88b1-b3f4ef4834e8"
-      }
+      },
+      "zones": [
+        "1"
+      ]
     }
   ],
   "outputs": {}

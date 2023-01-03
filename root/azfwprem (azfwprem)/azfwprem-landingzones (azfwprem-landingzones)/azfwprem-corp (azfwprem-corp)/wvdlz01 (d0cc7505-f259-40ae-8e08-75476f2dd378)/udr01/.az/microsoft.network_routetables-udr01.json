@@ -10,11 +10,10 @@
   "variables": {},
   "resources": [
     {
-      "type": "Microsoft.Network/routeTables",
+      "type": "microsoft.network/routetables",
       "name": "udr01",
       "apiVersion": "2022-07-01",
       "location": "westeurope",
-      "tags": null,
       "properties": {
         "disableBgpRoutePropagation": false,
         "routes": [

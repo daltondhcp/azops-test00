@@ -10,19 +10,14 @@
   "variables": {},
   "resources": [
     {
-      "type": "Microsoft.Network/publicIPAddresses",
+      "type": "microsoft.network/publicipaddresses",
       "name": "test01-ip",
       "sku": {
-        "Capacity": null,
-        "Family": null,
-        "Model": null,
-        "Name": "Standard",
-        "Size": null,
-        "Tier": "Regional"
+        "name": "Standard",
+        "tier": "Regional"
       },
       "apiVersion": "2022-07-01",
       "location": "westeurope",
-      "tags": null,
       "properties": {
         "idleTimeoutInMinutes": 4,
         "ipAddress": "20.56.131.185",
@@ -32,7 +27,10 @@
         "ipTags": [],
         "publicIPAddressVersion": "IPv4",
         "publicIPAllocationMethod": "Static"
-      }
+      },
+      "zones": [
+        "1"
+      ]
     }
   ],
   "outputs": {}

@@ -10,10 +10,10 @@
   "variables": {},
   "resources": [
     {
-      "type": "Microsoft.OperationsManagement/solutions",
+      "type": "microsoft.operationsmanagement/solutions",
       "name": "ServiceMap(test55-law)",
       "apiVersion": "2015-11-01-preview",
-      "location": "East US 2",
+      "location": "eastus2",
       "tags": {},
       "properties": {
         "containedResources": [

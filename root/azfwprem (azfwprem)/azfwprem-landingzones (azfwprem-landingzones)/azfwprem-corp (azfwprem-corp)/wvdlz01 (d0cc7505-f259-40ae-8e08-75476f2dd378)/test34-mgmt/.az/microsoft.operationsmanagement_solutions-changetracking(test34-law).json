@@ -10,10 +10,10 @@
   "variables": {},
   "resources": [
     {
-      "type": "Microsoft.OperationsManagement/solutions",
+      "type": "microsoft.operationsmanagement/solutions",
       "name": "ChangeTracking(test34-law)",
       "apiVersion": "2015-11-01-preview",
-      "location": "West Europe",
+      "location": "westeurope",
       "tags": {},
       "properties": {
         "containedResources": [

@@ -10,14 +10,13 @@
   "variables": {},
   "resources": [
     {
-      "type": "Microsoft.DocumentDB/databaseAccounts",
+      "type": "microsoft.documentdb/databaseaccounts",
       "name": "testcosmos21234",
       "kind": "GlobalDocumentDB",
       "apiVersion": "2022-08-15-preview",
-      "location": "West US",
+      "location": "westus",
       "tags": {
-        "defaultExperience": "Core (SQL)",
-        "hidden-cosmos-mmspecial": ""
+        "defaultExperience": "Core (SQL)"
       },
       "properties": {
         "EnabledApiTypes": "Sql",

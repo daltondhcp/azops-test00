@@ -10,7 +10,7 @@
   "variables": {},
   "resources": [
     {
-      "type": "Microsoft.Automation/automationAccounts",
+      "type": "microsoft.automation/automationaccounts",
       "name": "test34-aauto",
       "apiVersion": "2022-08-08",
       "location": "westeurope",
@@ -31,16 +31,11 @@
         },
         "automationHybridServiceUrl": "https://86ec0e0f-627d-41b1-8649-b176b6138fdb.jrds.we.azure-automation.net/automationAccounts/86ec0e0f-627d-41b1-8649-b176b6138fdb",
         "encryption": {
-          "identity": {
-            "userAssignedIdentity": null
-          },
+          "identity": {},
           "keySource": "Microsoft.Automation"
         },
-        "lastModifiedBy": null,
         "privateEndpointConnections": [],
         "sku": {
-          "capacity": null,
-          "family": null,
           "name": "Basic"
         }
       }

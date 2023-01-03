@@ -10,15 +10,11 @@
   "variables": {},
   "resources": [
     {
-      "type": "Microsoft.Storage/storageAccounts",
+      "type": "microsoft.storage/storageaccounts",
       "name": "teststoragejohan12346",
       "sku": {
-        "Capacity": null,
-        "Family": null,
-        "Model": null,
-        "Name": "Standard_LRS",
-        "Size": null,
-        "Tier": "Standard"
+        "name": "Standard_LRS",
+        "tier": "Standard"
       },
       "kind": "StorageV2",
       "apiVersion": "2022-09-01",

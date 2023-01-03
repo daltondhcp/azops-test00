@@ -10,19 +10,15 @@
   "variables": {},
   "resources": [
     {
-      "type": "Microsoft.Compute/virtualMachineScaleSets",
+      "type": "microsoft.compute/virtualmachinescalesets",
       "name": "testvmss",
       "sku": {
-        "Capacity": 2,
-        "Family": null,
-        "Model": null,
-        "Name": "Standard_D2s_v3",
-        "Size": null,
-        "Tier": "Standard"
+        "capacity": 2,
+        "name": "Standard_D2s_v3",
+        "tier": "Standard"
       },
       "apiVersion": "2022-11-01",
       "location": "westeurope",
-      "tags": null,
       "properties": {
         "doNotRunExtensionsOnOverprovisionedVMs": false,
         "orchestrationMode": "Uniform",

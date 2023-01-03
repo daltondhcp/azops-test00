@@ -10,11 +10,10 @@
   "variables": {},
   "resources": [
     {
-      "type": "Microsoft.Network/virtualNetworks",
+      "type": "microsoft.network/virtualnetworks",
       "name": "wvdlz01-westeurope-vnet",
       "apiVersion": "2022-07-01",
       "location": "westeurope",
-      "tags": null,
       "properties": {
         "addressSpace": {
           "addressPrefixes": [

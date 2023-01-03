@@ -10,11 +10,10 @@
   "variables": {},
   "resources": [
     {
-      "type": "Microsoft.Network/networkWatchers/flowLogs",
+      "type": "microsoft.network/networkwatchers/flowlogs",
       "name": "wvdnsg01-wvdlz01-network-flowlog",
       "apiVersion": "2022-07-01",
       "location": "westeurope",
-      "tags": null,
       "properties": {
         "enabled": true,
         "flowAnalyticsConfiguration": {

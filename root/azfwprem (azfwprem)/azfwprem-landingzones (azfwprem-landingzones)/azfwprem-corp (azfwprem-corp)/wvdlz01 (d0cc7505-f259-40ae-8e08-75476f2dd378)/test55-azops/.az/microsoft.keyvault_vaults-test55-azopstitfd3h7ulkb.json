@@ -10,7 +10,7 @@
   "variables": {},
   "resources": [
     {
-      "type": "Microsoft.KeyVault/vaults",
+      "type": "microsoft.keyvault/vaults",
       "name": "test55-azopstitfd3h7ulkb",
       "apiVersion": "2022-07-01",
       "location": "eastus2",
@@ -27,7 +27,7 @@
           "family": "A",
           "name": "standard"
         },
-        "tenantId": "[subscription().tenantId]"
+        "tenantId": "3114ebe8-8d3f-4bac-b3ce-59b4210a1287"
       }
     }
   ],

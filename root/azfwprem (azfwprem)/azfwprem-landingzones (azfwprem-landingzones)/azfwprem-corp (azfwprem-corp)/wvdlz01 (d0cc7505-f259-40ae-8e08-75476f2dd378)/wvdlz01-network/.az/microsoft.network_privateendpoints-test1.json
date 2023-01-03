@@ -10,14 +10,13 @@
   "variables": {},
   "resources": [
     {
-      "type": "Microsoft.Network/privateEndpoints",
+      "type": "microsoft.network/privateendpoints",
       "name": "test1",
       "apiVersion": "2022-07-01",
       "location": "westeurope",
       "tags": {},
       "properties": {
         "customDnsConfigs": [],
-        "customNetworkInterfaceName": "",
         "ipConfigurations": [],
         "manualPrivateLinkServiceConnections": [],
         "networkInterfaces": [

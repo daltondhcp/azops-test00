@@ -10,11 +10,10 @@
   "variables": {},
   "resources": [
     {
-      "type": "Microsoft.Network/virtualNetworks",
+      "type": "microsoft.network/virtualnetworks",
       "name": "d0cc7505-f259-40ae-8e08-75476f2dd378-mymg-vnet-westeurope",
       "apiVersion": "2022-07-01",
       "location": "westeurope",
-      "tags": null,
       "properties": {
         "addressSpace": {
           "addressPrefixes": [

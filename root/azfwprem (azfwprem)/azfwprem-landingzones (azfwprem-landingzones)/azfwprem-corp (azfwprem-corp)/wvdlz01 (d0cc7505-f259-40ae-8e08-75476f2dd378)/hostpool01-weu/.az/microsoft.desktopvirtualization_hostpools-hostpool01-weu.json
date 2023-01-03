@@ -10,7 +10,7 @@
   "variables": {},
   "resources": [
     {
-      "type": "Microsoft.DesktopVirtualization/hostpools",
+      "type": "microsoft.desktopvirtualization/hostpools",
       "name": "hostpool01-weu",
       "apiVersion": "2022-04-01-preview",
       "location": "westeurope",
@@ -20,20 +20,15 @@
         "cloudPcResource": false,
         "customRdpProperty": "drivestoredirect:s:*;audiomode:i:0;videoplaybackmode:i:1;redirectclipboard:i:1;redirectprinters:i:1;devicestoredirect:s:*;redirectcomports:i:1;redirectsmartcards:i:1;usbdevicestoredirect:s:*;enablecredsspsupport:i:1;use multimon:i:1;",
         "description": "Created through the WVD extension",
-        "friendlyName": null,
         "hostPoolType": "Pooled",
         "loadBalancerType": "BreadthFirst",
         "maxSessionLimit": 10,
-        "migrationRequest": null,
         "objectId": "13b69c8c-9022-4574-9f94-e8317c972bc3",
-        "personalDesktopAssignmentType": null,
         "preferredAppGroupType": "Desktop",
-        "registrationInfo": null,
-        "ring": null,
-        "ssoClientId": null,
-        "ssoClientSecretKeyVaultPath": null,
-        "ssoSecretType": null,
-        "ssoadfsAuthority": null,
+        "registrationInfo": {
+          "registrationTokenOperation": "None",
+          "resetToken": false
+        },
         "startVMOnConnect": false,
         "validationEnvironment": false,
         "vmTemplate": "{\"domain\":\"corp.contoso.com\",\"galleryImageOffer\":\"office-365\",\"galleryImagePublisher\":\"MicrosoftWindowsDesktop\",\"galleryImageSKU\":\"20h2-evd-o365pp\",\"imageType\":\"Gallery\",\"imageUri\":null,\"customImageId\":null,\"namePrefix\":\"weush\",\"osDiskType\":\"StandardSSD_LRS\",\"useManagedDisks\":true,\"vmSize\":{\"id\":\"Standard_D2s_v3\",\"cores\":2,\"ram\":8},\"galleryItemId\":\"microsoftwindowsdesktop.office-36520h2-evd-o365pp\"}"

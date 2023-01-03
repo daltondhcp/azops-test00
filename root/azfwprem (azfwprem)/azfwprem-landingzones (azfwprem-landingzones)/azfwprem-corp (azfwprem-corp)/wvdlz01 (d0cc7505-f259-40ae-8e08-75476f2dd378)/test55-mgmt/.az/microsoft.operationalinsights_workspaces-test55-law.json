@@ -14,7 +14,6 @@
       "name": "test55-law",
       "apiVersion": "2022-10-01",
       "location": "eastus2",
-      "tags": null,
       "properties": {
         "customerId": "37193dbb-8269-4756-b814-5ce1b6844893",
         "features": {
