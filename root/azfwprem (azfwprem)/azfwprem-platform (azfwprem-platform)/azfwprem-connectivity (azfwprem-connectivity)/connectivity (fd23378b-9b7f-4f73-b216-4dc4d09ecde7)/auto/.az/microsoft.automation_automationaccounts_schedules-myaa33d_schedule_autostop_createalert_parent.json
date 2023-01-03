@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "apiVersion": "2022-08-08",
+      "name": "myaa33d/Schedule_AutoStop_CreateAlert_Parent",
+      "properties": {
+        "expiryTime": "2024-10-18T09:49:00Z",
+        "frequency": "Hour",
+        "interval": 8,
+        "startTime": "2021-10-18T09:49:00Z",
+        "timeZone": "Etc/UTC"
+      },
+      "type": "Microsoft.Automation/automationAccounts/schedules"
+    }
+  ],
+  "outputs": {}
+}

@@ -1,0 +1,44 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "apiVersion": "2022-05-01",
+      "name": "policytestjohan/default",
+      "properties": {
+        "changeFeed": {
+          "enabled": false
+        },
+        "containerDeleteRetentionPolicy": {
+          "days": 7,
+          "enabled": true
+        },
+        "cors": {
+          "corsRules": []
+        },
+        "deleteRetentionPolicy": {
+          "allowPermanentDelete": false,
+          "days": 7,
+          "enabled": true
+        },
+        "isVersioningEnabled": false,
+        "restorePolicy": {
+          "enabled": false
+        }
+      },
+      "sku": {
+        "name": "Standard_RAGRS",
+        "tier": "Standard"
+      },
+      "type": "Microsoft.Storage/storageAccounts/blobServices"
+    }
+  ],
+  "outputs": {}
+}

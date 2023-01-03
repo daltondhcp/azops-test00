@@ -1,0 +1,25 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "apiVersion": "2020-08-01",
+      "name": "myla/LogManagement(myla)_LogManagement|AverageHTTPRequestTimeHTTPMethod",
+      "properties": {
+        "category": "Log Management",
+        "displayName": "Average HTTP Request time by HTTP Method",
+        "query": "search * | extend Type = $table | where Type == W3CIISLog | summarize AggregatedValue = avg(TimeTaken) by csMethod\r\n// Oql: Type=W3CIISLog | Measure Avg(TimeTaken) by csMethod // Args: {OQ: True; WorkspaceId: 00000000-0000-0000-0000-000000000000} // Settings: {PEF: True; SortI: True; SortF: True} // Version: 0.1.122",
+        "version": 2
+      },
+      "type": "Microsoft.OperationalInsights/workspaces/savedSearches"
+    }
+  ],
+  "outputs": {}
+}

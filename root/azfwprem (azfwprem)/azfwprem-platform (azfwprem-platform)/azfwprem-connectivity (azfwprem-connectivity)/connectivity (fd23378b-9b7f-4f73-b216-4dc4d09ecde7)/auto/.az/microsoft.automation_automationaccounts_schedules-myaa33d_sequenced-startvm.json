@@ -1,0 +1,31 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "apiVersion": "2022-08-08",
+      "name": "myaa33d/Sequenced-StartVM",
+      "properties": {
+        "advancedSchedule": {
+          "weekDays": [
+            "Monday"
+          ]
+        },
+        "expiryTime": "9999-12-31T23:59:00Z",
+        "frequency": "Week",
+        "interval": 1,
+        "startTime": "2021-10-19T13:00:00Z",
+        "timeZone": "Etc/UTC"
+      },
+      "type": "Microsoft.Automation/automationAccounts/schedules"
+    }
+  ],
+  "outputs": {}
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "apiVersion": "2022-08-08",
+      "name": "myaa33d/Internal_AutoSnooze_ARM_WebhookUri",
+      "properties": {
+        "isEncrypted": false,
+        "value": "\"https://89dfba11-5fdd-44cd-be39-2fc783b1ebcb.webhook.eus2.azure-automation.net/webhooks?token=A%2fTQlMiXNDVpUgpFFLt7KhkPevHRgr%2ff46UtuGGYJW8%3d\""
+      },
+      "type": "Microsoft.Automation/automationAccounts/variables"
+    }
+  ],
+  "outputs": {}
+}

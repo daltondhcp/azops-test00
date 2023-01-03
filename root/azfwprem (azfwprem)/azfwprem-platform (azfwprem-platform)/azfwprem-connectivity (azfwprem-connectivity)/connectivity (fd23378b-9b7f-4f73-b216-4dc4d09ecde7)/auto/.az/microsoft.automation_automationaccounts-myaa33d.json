@@ -1,0 +1,47 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "microsoft.automation/automationaccounts",
+      "name": "myaa33d",
+      "apiVersion": "2022-08-08",
+      "location": "eastus2",
+      "tags": {
+        "StartStopVMVersion": "1.0.0.0"
+      },
+      "properties": {
+        "RegistrationUrl": "https://89dfba11-5fdd-44cd-be39-2fc783b1ebcb.agentsvc.eus2.azure-automation.net/accounts/89dfba11-5fdd-44cd-be39-2fc783b1ebcb",
+        "RuntimeConfiguration": {
+          "powershell": {
+            "builtinModules": {
+              "Az": "6.4.0"
+            }
+          },
+          "powershell7": {
+            "builtinModules": {
+              "Az": "6.4.0"
+            }
+          }
+        },
+        "automationHybridServiceUrl": "https://89dfba11-5fdd-44cd-be39-2fc783b1ebcb.jrds.eus2.azure-automation.net/automationAccounts/89dfba11-5fdd-44cd-be39-2fc783b1ebcb",
+        "encryption": {
+          "identity": {},
+          "keySource": "Microsoft.Automation"
+        },
+        "privateEndpointConnections": [],
+        "sku": {
+          "name": "Basic"
+        }
+      }
+    }
+  ],
+  "outputs": {}
+}

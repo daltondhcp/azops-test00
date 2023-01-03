@@ -1,0 +1,25 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "AzOps"
+    }
+  },
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "apiVersion": "2022-08-08",
+      "name": "myaa33d/AzureRunAsCertificate",
+      "properties": {
+        "base64Value": null,
+        "description": "This certificate is used to authenticate with the service principal that was automatically created for this account. For details on this service principal and certificate, or to recreate them, go to this account’s Settings. For example usage, see the tutorial runbook in this account.",
+        "isExportable": true,
+        "thumbprint": "F109C774DB67B2F16702744DA8DD9E8595FA080B"
+      },
+      "type": "Microsoft.Automation/automationAccounts/certificates"
+    }
+  ],
+  "outputs": {}
+}
