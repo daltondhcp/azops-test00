@@ -10,9 +10,14 @@
   "variables": {},
   "resources": [
     {
-      "apiVersion": "2015-08-01",
-      "name": "azopstest111/2022-12-04T22_25_48_8487824",
-      "type": "Microsoft.Web/sites/snapshots"
+      "apiVersion": "2022-05-01",
+      "name": "test123pmu56dql2sn64/default",
+      "properties": {
+        "cors": {
+          "corsRules": []
+        }
+      },
+      "type": "Microsoft.Storage/storageAccounts/tableServices"
     }
   ],
   "outputs": {}
