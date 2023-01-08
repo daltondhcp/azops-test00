@@ -4,61 +4,44 @@
   "parameters": {
     "input": {
       "value": {
-        "Name": "Deploy-ASC-Defender-SA",
-        "ResourceType": "Microsoft.Authorization/policyDefinitions",
-        "Properties": {
-          "Description": "Deploy the Azure Defender settings in Azure Security Center for Storage Accounts",
-          "DisplayName": "Deploy Azure Defender for Storage Accounts",
-          "Metadata": {
-            "version": "1.0.0",
-            "category": "Security Center"
-          },
-          "Mode": "All",
-          "Parameters": {
-            "pricingTier": {
-              "type": "string",
-              "metadata": {
-                "displayName": "Azure Defender pricing tier",
-                "description": "Azure Defender pricing tier"
-              },
-              "allowedValues": [
-                "Standard",
-                "Free"
-              ],
-              "defaultValue": "Standard"
-            },
+        "name": "Deploy-ASC-Defender-SA",
+        "type": "microsoft.authorization/policydefinitions",
+        "kind": "policydefinitions",
+        "location": "global",
+        "properties": {
+          "description": "Deploy the Azure Defender settings in Azure Security Center for Storage Accounts",
+          "displayName": "Deploy Azure Defender for Storage Accounts",
+          "parameters": {
             "effect": {
-              "type": "string",
-              "metadata": {
-                "displayName": "Effect",
-                "description": "Enable or disable the execution of the policy"
-              },
               "allowedValues": [
                 "DeployIfNotExists",
                 "Disabled"
               ],
-              "defaultValue": "DeployIfNotExists"
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Enable or disable the execution of the policy",
+                "displayName": "Effect"
+              },
+              "type": "string"
+            },
+            "pricingTier": {
+              "allowedValues": [
+                "Standard",
+                "Free"
+              ],
+              "defaultValue": "Standard",
+              "metadata": {
+                "description": "Azure Defender pricing tier",
+                "displayName": "Azure Defender pricing tier"
+              },
+              "type": "string"
             }
           },
-          "PolicyRule": {
-            "if": {
-              "allOf": [
-                {
-                  "field": "type",
-                  "equals": "Microsoft.Resources/subscriptions"
-                }
-              ]
-            },
+          "policyRule": {
             "then": {
               "effect": "[parameters('effect')]",
               "details": {
                 "type": "Microsoft.Security/pricings",
-                "name": "StorageAccounts",
-                "deploymentScope": "Subscription",
-                "existenceScope": "Subscription",
-                "roleDefinitionIds": [
-                  "/providers/Microsoft.Authorization/roleDefinitions/fb1c8493-542b-48eb-b624-b4c8fea62acd"
-                ],
                 "existenceCondition": {
                   "allOf": [
                     {
@@ -71,44 +54,59 @@
                     }
                   ]
                 },
+                "roleDefinitionIds": [
+                  "/providers/Microsoft.Authorization/roleDefinitions/fb1c8493-542b-48eb-b624-b4c8fea62acd"
+                ],
                 "deployment": {
-                  "location": "northeurope",
                   "properties": {
-                    "mode": "incremental",
                     "parameters": {
                       "pricingTier": {
                         "value": "[parameters('pricingTier')]"
                       }
                     },
+                    "mode": "incremental",
                     "template": {
-                      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-                      "contentVersion": "1.0.0.0",
                       "parameters": {
                         "pricingTier": {
-                          "type": "string",
                           "metadata": {
                             "description": "Azure Defender pricing tier"
-                          }
+                          },
+                          "type": "string"
                         }
                       },
-                      "variables": {},
+                      "contentVersion": "1.0.0.0",
                       "resources": [
                         {
                           "type": "Microsoft.Security/pricings",
-                          "apiVersion": "2018-06-01",
-                          "name": "StorageAccounts",
                           "properties": {
                             "pricingTier": "[parameters('pricingTier')]"
-                          }
+                          },
+                          "apiVersion": "2018-06-01T00:00:00Z",
+                          "name": "StorageAccounts"
                         }
                       ],
+                      "variables": {},
+                      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
                       "outputs": {}
                     }
-                  }
-                }
+                  },
+                  "location": "northeurope"
+                },
+                "name": "StorageAccounts",
+                "deploymentScope": "Subscription",
+                "existenceScope": "Subscription"
               }
+            },
+            "if": {
+              "allOf": [
+                {
+                  "field": "type",
+                  "equals": "Microsoft.Resources/subscriptions"
+                }
+              ]
             }
-          }
+          },
+          "mode": "All"
         }
       }
     }

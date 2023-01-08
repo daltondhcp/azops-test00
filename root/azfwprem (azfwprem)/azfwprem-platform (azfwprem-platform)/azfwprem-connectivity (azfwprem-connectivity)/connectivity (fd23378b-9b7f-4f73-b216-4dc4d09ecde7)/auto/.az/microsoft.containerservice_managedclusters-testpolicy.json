@@ -18,6 +18,11 @@
       },
       "apiVersion": "2022-11-02-preview",
       "location": "westeurope",
+      "identity": {
+        "principalId": "7748045e-0488-457f-aec0-f981b5c70586",
+        "tenantId": "3114ebe8-8d3f-4bac-b3ce-59b4210a1287",
+        "type": "SystemAssigned"
+      },
       "properties": {
         "addonProfiles": {
           "azureKeyvaultSecretsProvider": {

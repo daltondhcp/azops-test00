@@ -4,44 +4,44 @@
   "parameters": {
     "input": {
       "value": {
-        "Name": "Deny-Subnet-Without-Nsg",
-        "ResourceType": "Microsoft.Authorization/policyDefinitions",
-        "Properties": {
-          "Description": "This policy denies the creation of a subsnet with out an Network Security Group. NSG help to protect traffic across subnet-level.",
-          "DisplayName": "Subnets should have a Network Security Group",
-          "Metadata": {
-            "version": "1.1.0",
-            "category": "Network"
-          },
-          "Mode": "All",
-          "Parameters": {
+        "name": "Deny-Subnet-Without-Nsg",
+        "type": "microsoft.authorization/policydefinitions",
+        "kind": "policydefinitions",
+        "location": "global",
+        "properties": {
+          "description": "This policy denies the creation of a subsnet with out an Network Security Group. NSG help to protect traffic across subnet-level.",
+          "displayName": "Subnets should have a Network Security Group",
+          "parameters": {
             "effect": {
-              "type": "String",
-              "metadata": {
-                "displayName": "Effect",
-                "description": "Enable or disable the execution of the policy"
-              },
               "allowedValues": [
                 "Audit",
                 "Deny",
                 "Disabled"
               ],
-              "defaultValue": "Deny"
+              "defaultValue": "Deny",
+              "metadata": {
+                "description": "Enable or disable the execution of the policy",
+                "displayName": "Effect"
+              },
+              "type": "String"
             },
             "excludedSubnets": {
-              "type": "Array",
-              "metadata": {
-                "displayName": "Excluded Subnets",
-                "description": "Array of subnet names that are excluded from this policy"
-              },
               "defaultValue": [
                 "GatewaySubnet",
                 "AzureFirewallSubnet",
                 "AzureFirewallManagementSubnet"
-              ]
+              ],
+              "metadata": {
+                "description": "Array of subnet names that are excluded from this policy",
+                "displayName": "Excluded Subnets"
+              },
+              "type": "Array"
             }
           },
-          "PolicyRule": {
+          "policyRule": {
+            "then": {
+              "effect": "[parameters('effect')]"
+            },
             "if": {
               "allOf": [
                 {
@@ -57,11 +57,9 @@
                   "exists": "false"
                 }
               ]
-            },
-            "then": {
-              "effect": "[parameters('effect')]"
             }
-          }
+          },
+          "mode": "All"
         }
       }
     }

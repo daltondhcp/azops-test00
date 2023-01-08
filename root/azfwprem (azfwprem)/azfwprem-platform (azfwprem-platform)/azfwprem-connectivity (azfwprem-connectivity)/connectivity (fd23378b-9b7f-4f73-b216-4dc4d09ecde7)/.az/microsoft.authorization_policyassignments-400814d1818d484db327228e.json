@@ -10,19 +10,19 @@
   "variables": {},
   "resources": [
     {
-      "type": "Microsoft.Authorization/policyAssignments",
+      "type": "microsoft.authorization/policyassignments",
       "name": "400814d1818d484db327228e",
+      "kind": "policyassignments",
       "apiVersion": "2022-06-01",
-      "location": null,
+      "location": "global",
       "properties": {
-        "Description": null,
-        "DisplayName": "Kubernetes cluster pod hostPath volumes should only use allowed host paths",
-        "EnforcementMode": "Default",
-        "NonComplianceMessages": [],
-        "NotScopes": [],
-        "Parameters": {},
-        "PolicyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/098fc59e-46c7-4d99-9b16-64990e543d75",
-        "Scope": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7"
+        "displayName": "Kubernetes cluster pod hostPath volumes should only use allowed host paths",
+        "enforcementMode": "Default",
+        "nonComplianceMessages": [],
+        "notScopes": [],
+        "parameters": {},
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/098fc59e-46c7-4d99-9b16-64990e543d75",
+        "scope": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7"
       }
     }
   ],

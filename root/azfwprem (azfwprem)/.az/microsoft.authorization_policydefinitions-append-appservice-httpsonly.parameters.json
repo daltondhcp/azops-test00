@@ -4,31 +4,37 @@
   "parameters": {
     "input": {
       "value": {
-        "Name": "Append-AppService-httpsonly",
-        "ResourceType": "Microsoft.Authorization/policyDefinitions",
-        "Properties": {
-          "Description": "Appends  the AppService sites object to ensure that  HTTPS only is enabled for  server/service authentication and protects data in transit from network layer eavesdropping attacks. Please note Append does not enforce compliance use then deny.",
-          "DisplayName": "AppService append enable https only setting to enforce https setting.",
-          "Metadata": {
-            "version": "1.0.0",
-            "category": "App Service"
-          },
-          "Mode": "All",
-          "Parameters": {
+        "name": "Append-AppService-httpsonly",
+        "type": "microsoft.authorization/policydefinitions",
+        "kind": "policydefinitions",
+        "location": "global",
+        "properties": {
+          "description": "Appends  the AppService sites object to ensure that  HTTPS only is enabled for  server/service authentication and protects data in transit from network layer eavesdropping attacks. Please note Append does not enforce compliance use then deny.",
+          "displayName": "AppService append enable https only setting to enforce https setting.",
+          "parameters": {
             "effect": {
-              "type": "String",
-              "metadata": {
-                "displayName": "Effect",
-                "description": "Enable or disable the execution of the policy"
-              },
               "allowedValues": [
                 "Append",
                 "Disabled"
               ],
-              "defaultValue": "Append"
+              "defaultValue": "Append",
+              "metadata": {
+                "description": "Enable or disable the execution of the policy",
+                "displayName": "Effect"
+              },
+              "type": "String"
             }
           },
-          "PolicyRule": {
+          "policyRule": {
+            "then": {
+              "effect": "[parameters('effect')]",
+              "details": [
+                {
+                  "field": "Microsoft.Web/sites/httpsOnly",
+                  "value": true
+                }
+              ]
+            },
             "if": {
               "allOf": [
                 {
@@ -40,17 +46,9 @@
                   "notequals": true
                 }
               ]
-            },
-            "then": {
-              "effect": "[parameters('effect')]",
-              "details": [
-                {
-                  "field": "Microsoft.Web/sites/httpsOnly",
-                  "value": true
-                }
-              ]
             }
-          }
+          },
+          "mode": "All"
         }
       }
     }

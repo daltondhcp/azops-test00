@@ -4,32 +4,32 @@
   "parameters": {
     "input": {
       "value": {
-        "Name": "Deny-AppGW-Without-WAF",
-        "ResourceType": "Microsoft.Authorization/policyDefinitions",
-        "Properties": {
-          "Description": "This policy enables you to restrict that Application Gateways is always deployed with WAF enabled",
-          "DisplayName": "Application Gateway should be deployed with WAF enabled",
-          "Metadata": {
-            "version": "1.0.0",
-            "category": "Network"
-          },
-          "Mode": "Indexed",
-          "Parameters": {
+        "name": "Deny-AppGW-Without-WAF",
+        "type": "microsoft.authorization/policydefinitions",
+        "kind": "policydefinitions",
+        "location": "global",
+        "properties": {
+          "description": "This policy enables you to restrict that Application Gateways is always deployed with WAF enabled",
+          "displayName": "Application Gateway should be deployed with WAF enabled",
+          "parameters": {
             "effect": {
-              "type": "String",
-              "metadata": {
-                "displayName": "Effect",
-                "description": "Enable or disable the execution of the policy"
-              },
               "allowedValues": [
                 "Audit",
                 "Deny",
                 "Disabled"
               ],
-              "defaultValue": "Deny"
+              "defaultValue": "Deny",
+              "metadata": {
+                "description": "Enable or disable the execution of the policy",
+                "displayName": "Effect"
+              },
+              "type": "String"
             }
           },
-          "PolicyRule": {
+          "policyRule": {
+            "then": {
+              "effect": "[parameters('effect')]"
+            },
             "if": {
               "allOf": [
                 {
@@ -41,11 +41,9 @@
                   "notequals": "WAF_v2"
                 }
               ]
-            },
-            "then": {
-              "effect": "[parameters('effect')]"
             }
-          }
+          },
+          "mode": "Indexed"
         }
       }
     }

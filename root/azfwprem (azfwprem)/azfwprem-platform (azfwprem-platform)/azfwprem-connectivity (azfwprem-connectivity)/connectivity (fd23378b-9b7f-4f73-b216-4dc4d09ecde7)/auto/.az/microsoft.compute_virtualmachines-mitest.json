@@ -14,6 +14,11 @@
       "name": "mitest",
       "apiVersion": "2022-11-01",
       "location": "westeurope",
+      "identity": {
+        "principalId": "692d991a-e151-4ece-b0ad-41bd616c0e19",
+        "tenantId": "3114ebe8-8d3f-4bac-b3ce-59b4210a1287",
+        "type": "SystemAssigned"
+      },
       "properties": {
         "diagnosticsProfile": {
           "bootDiagnostics": {

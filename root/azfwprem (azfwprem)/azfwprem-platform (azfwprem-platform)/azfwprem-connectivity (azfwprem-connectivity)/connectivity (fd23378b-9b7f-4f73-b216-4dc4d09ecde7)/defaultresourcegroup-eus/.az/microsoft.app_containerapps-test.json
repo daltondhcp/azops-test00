@@ -14,6 +14,9 @@
       "name": "test",
       "apiVersion": "2022-10-01",
       "location": "canadacentral",
+      "identity": {
+        "type": "None"
+      },
       "properties": {
         "configuration": {
           "activeRevisionsMode": "Single",

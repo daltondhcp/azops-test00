@@ -4,32 +4,68 @@
   "parameters": {
     "input": {
       "value": {
-        "Name": "cosmosdbaccDeployAtp",
-        "ResourceType": "Microsoft.Authorization/policyDefinitions",
-        "Properties": {
-          "Description": "This policy enables Advanced Threat Protection across supported Cosmos DB accounts.",
-          "DisplayName": "Cosmos DB Account - Deploy Advanced Threat Protection",
-          "Metadata": {
-            "category": "MMS",
-            "product": "cosmosdb-account",
-            "securityCenter": {
-              "RemediationDescription": "SwissRe remediation steps: <a href=\"https://wiki.swissre.com/display/CDC/HAC-0162-Cosmos+DB+Account-Deploy+Advanced+Threat+Protection-Remediation\">Learn more ></a>",
-              "Severity": "Low"
-            }
-          },
-          "Mode": "Indexed",
-          "Parameters": {
+        "name": "cosmosdbaccDeployAtp",
+        "type": "microsoft.authorization/policydefinitions",
+        "kind": "policydefinitions",
+        "location": "global",
+        "properties": {
+          "description": "This policy enables Advanced Threat Protection across supported Cosmos DB accounts.",
+          "displayName": "Cosmos DB Account - Deploy Advanced Threat Protection",
+          "parameters": {
             "effectType": {
-              "type": "String",
-              "metadata": {},
               "allowedValues": [
                 "DeployIfNotExists",
                 "Disabled"
               ],
-              "defaultValue": "DeployIfNotExists"
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {},
+              "type": "String"
             }
           },
-          "PolicyRule": {
+          "policyRule": {
+            "then": {
+              "effect": "[parameters('effectType')]",
+              "details": {
+                "type": "Microsoft.Security/advancedThreatProtectionSettings",
+                "existenceCondition": {
+                  "field": "Microsoft.Security/advancedThreatProtectionSettings/isEnabled",
+                  "equals": "true"
+                },
+                "roleDefinitionIds": [
+                  "/providers/Microsoft.Authorization/roleDefinitions/fb1c8493-542b-48eb-b624-b4c8fea62acd"
+                ],
+                "deployment": {
+                  "properties": {
+                    "parameters": {
+                      "cosmosDbAccountName": {
+                        "value": "[field('name')]"
+                      }
+                    },
+                    "mode": "incremental",
+                    "template": {
+                      "parameters": {
+                        "cosmosDbAccountName": {
+                          "type": "string"
+                        }
+                      },
+                      "contentVersion": "1.0.0.0",
+                      "resources": [
+                        {
+                          "type": "Microsoft.DocumentDB/databaseAccounts/providers/advancedThreatProtectionSettings",
+                          "properties": {
+                            "isEnabled": true
+                          },
+                          "apiVersion": "2019-01-01T00:00:00Z",
+                          "name": "[concat(parameters('cosmosDbAccountName'), '/Microsoft.Security/current')]"
+                        }
+                      ],
+                      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#"
+                    }
+                  }
+                },
+                "name": "current"
+              }
+            },
             "if": {
               "allOf": [
                 {
@@ -45,10 +81,10 @@
                     {
                       "allOf": [
                         {
+                          "equals": 0,
                           "count": {
                             "field": "Microsoft.DocumentDB/databaseAccounts/capabilities[*]"
-                          },
-                          "equals": 0
+                          }
                         }
                       ]
                     },
@@ -67,51 +103,9 @@
                   ]
                 }
               ]
-            },
-            "then": {
-              "effect": "[parameters('effectType')]",
-              "details": {
-                "type": "Microsoft.Security/advancedThreatProtectionSettings",
-                "name": "current",
-                "existenceCondition": {
-                  "field": "Microsoft.Security/advancedThreatProtectionSettings/isEnabled",
-                  "equals": "true"
-                },
-                "roleDefinitionIds": [
-                  "/providers/Microsoft.Authorization/roleDefinitions/fb1c8493-542b-48eb-b624-b4c8fea62acd"
-                ],
-                "deployment": {
-                  "properties": {
-                    "mode": "incremental",
-                    "template": {
-                      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-                      "contentVersion": "1.0.0.0",
-                      "parameters": {
-                        "cosmosDbAccountName": {
-                          "type": "string"
-                        }
-                      },
-                      "resources": [
-                        {
-                          "apiVersion": "2019-01-01",
-                          "type": "Microsoft.DocumentDB/databaseAccounts/providers/advancedThreatProtectionSettings",
-                          "name": "[concat(parameters('cosmosDbAccountName'), '/Microsoft.Security/current')]",
-                          "properties": {
-                            "isEnabled": true
-                          }
-                        }
-                      ]
-                    },
-                    "parameters": {
-                      "cosmosDbAccountName": {
-                        "value": "[field('name')]"
-                      }
-                    }
-                  }
-                }
-              }
             }
-          }
+          },
+          "mode": "Indexed"
         }
       }
     }

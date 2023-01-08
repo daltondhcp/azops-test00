@@ -4,36 +4,109 @@
   "parameters": {
     "input": {
       "value": {
-        "Name": "d8d26049-3e13-4b29-af46-26c798d4d661",
-        "ResourceType": "Microsoft.Authorization/policyDefinitions",
-        "Properties": {
-          "Description": null,
-          "DisplayName": "mYdEPLOY-MDE<c",
-          "Metadata": {},
-          "Mode": "All",
-          "Parameters": {
-            "listOfImageIdToInclude": {
-              "type": "Array",
-              "metadata": {
-                "displayName": "Optional: List of virtual machine images that have supported Windows OS to add to scope",
-                "description": "Example value: '/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage'"
-              },
-              "defaultValue": []
-            },
+        "name": "d8d26049-3e13-4b29-af46-26c798d4d661",
+        "type": "microsoft.authorization/policydefinitions",
+        "kind": "policydefinitions",
+        "location": "global",
+        "properties": {
+          "displayName": "mYdEPLOY-MDE<c",
+          "parameters": {
             "effect": {
-              "type": "String",
-              "metadata": {
-                "displayName": "Effect",
-                "description": "Enable or disable the execution of the policy"
-              },
               "allowedValues": [
                 "DeployIfNotExists",
                 "Disabled"
               ],
-              "defaultValue": "DeployIfNotExists"
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Enable or disable the execution of the policy",
+                "displayName": "Effect"
+              },
+              "type": "String"
+            },
+            "listOfImageIdToInclude": {
+              "defaultValue": [],
+              "metadata": {
+                "description": "Example value: '/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage'",
+                "displayName": "Optional: List of virtual machine images that have supported Windows OS to add to scope"
+              },
+              "type": "Array"
             }
           },
-          "PolicyRule": {
+          "policyRule": {
+            "then": {
+              "effect": "[parameters('effect')]",
+              "details": {
+                "type": "Microsoft.Compute/virtualMachineScaleSets/extensions",
+                "existenceCondition": {
+                  "allOf": [
+                    {
+                      "field": "Microsoft.Compute/virtualMachineScaleSets/extensions/type",
+                      "equals": "Microsoft.Compute.CustomScriptExtension"
+                    },
+                    {
+                      "field": "Microsoft.Compute/virtualMachineScaleSets/extensions/publisher",
+                      "equals": "CustomScriptExtension"
+                    }
+                  ]
+                },
+                "roleDefinitionIds": [
+                  "/providers/microsoft.authorization/roleDefinitions/9980e02c-c2be-4d73-94e8-173b1dc7cf3c"
+                ],
+                "deployment": {
+                  "properties": {
+                    "parameters": {
+                      "location": {
+                        "value": "[field('location')]"
+                      },
+                      "vmName": {
+                        "value": "[field('name')]"
+                      },
+                      "azureResourceId": {
+                        "value": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Compute/virtualMachineScaleSets/',field('name'))]"
+                      }
+                    },
+                    "mode": "Incremental",
+                    "template": {
+                      "parameters": {
+                        "location": {
+                          "type": "string"
+                        },
+                        "vmName": {
+                          "type": "string"
+                        },
+                        "azureResourceId": {
+                          "type": "string"
+                        }
+                      },
+                      "contentVersion": "1.0.0.0",
+                      "resources": [
+                        {
+                          "type": "Microsoft.Compute/virtualMachineScaleSets/extensions",
+                          "properties": {
+                            "type": "MDE.Windows",
+                            "autoUpgradeMinorVersion": true,
+                            "typeHandlerVersion": "1.0",
+                            "protectedSettings": {
+                              "defenderForEndpointOnboardingScript": "M1MjlFREI3fVwiIH07IHByaXZhdGUgRXZlbnRTb3VyY2UgZXMgPSBuZXcgRXZlbnRTb3VyY2UoXCJNaWNyb3NvZnQuV2luZG93cy5TZW5zZS5DbGllbnQuTWFuYWdlbWVudFwiLEV2ZW50U291cmNlU2V0dGluZ3MuRXR3U2VsZkRlc2NyaWJpbmdFdmVudEZvcm1hdCx0ZWxlbWV0cnlUcmFpdHMpO319JzsgJGxvZ2dlciA9IE5ldy1PYmplY3QgLVR5cGVOYW1lIFNlbnNlLlRyYWNlOyAkbG9nZ2VyLldyaXRlT25ib2FyZGluZ01lc3NhZ2UoJyVzdWNjZXNzT3V0cHV0JScpIiA+TlVMIDI+JjENCiIlUFJPR1JBTUZJTEVTJVxXaW5kb3dzIERlZmVuZGVyXE1wQ21kUnVuLmV4ZSIgLVJlbG9hZEVuZ2luZSA+TlVMIDI+JjENCg0KR09UTyBDTEVBTlVQDQoNCjpDTEVBTlVQDQppZiBleGlzdCAlVE1QJVxzZW5zZVRtcC50eHQgZGVsICVUTVAlXHNlbnNlVG1wLnR4dA0KRVhJVCAvQiAlZXJyb3JDb2RlJQ0KCg=="
+                            },
+                            "publisher": "Microsoft.Azure.AzureDefenderForServers",
+                            "settings": {
+                              "azureResourceId": "[parameters('azureResourceId')]",
+                              "vNextEnabled": "true",
+                              "installedBy": "Policy"
+                            }
+                          },
+                          "location": "[parameters('location')]",
+                          "apiVersion": "2020-06-01T00:00:00Z",
+                          "name": "[concat(parameters('vmName'), '/MDE.Windows')]"
+                        }
+                      ],
+                      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#"
+                    }
+                  }
+                }
+              }
+            },
             "if": {
               "allOf": [
                 {
@@ -231,82 +304,9 @@
                   ]
                 }
               ]
-            },
-            "then": {
-              "effect": "[parameters('effect')]",
-              "details": {
-                "type": "Microsoft.Compute/virtualMachineScaleSets/extensions",
-                "existenceCondition": {
-                  "allOf": [
-                    {
-                      "field": "Microsoft.Compute/virtualMachineScaleSets/extensions/type",
-                      "equals": "Microsoft.Compute.CustomScriptExtension"
-                    },
-                    {
-                      "field": "Microsoft.Compute/virtualMachineScaleSets/extensions/publisher",
-                      "equals": "CustomScriptExtension"
-                    }
-                  ]
-                },
-                "roleDefinitionIds": [
-                  "/providers/microsoft.authorization/roleDefinitions/9980e02c-c2be-4d73-94e8-173b1dc7cf3c"
-                ],
-                "deployment": {
-                  "properties": {
-                    "mode": "Incremental",
-                    "template": {
-                      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-                      "contentVersion": "1.0.0.0",
-                      "parameters": {
-                        "vmName": {
-                          "type": "string"
-                        },
-                        "location": {
-                          "type": "string"
-                        },
-                        "azureResourceId": {
-                          "type": "string"
-                        }
-                      },
-                      "resources": [
-                        {
-                          "apiVersion": "2020-06-01",
-                          "name": "[concat(parameters('vmName'), '/MDE.Windows')]",
-                          "type": "Microsoft.Compute/virtualMachineScaleSets/extensions",
-                          "location": "[parameters('location')]",
-                          "properties": {
-                            "autoUpgradeMinorVersion": true,
-                            "publisher": "Microsoft.Azure.AzureDefenderForServers",
-                            "type": "MDE.Windows",
-                            "typeHandlerVersion": "1.0",
-                            "settings": {
-                              "azureResourceId": "[parameters('azureResourceId')]",
-                              "vNextEnabled": "true",
-                              "installedBy": "Policy"
-                            },
-                            "protectedSettings": {
-                              "defenderForEndpointOnboardingScript": "M1MjlFREI3fVwiIH07IHByaXZhdGUgRXZlbnRTb3VyY2UgZXMgPSBuZXcgRXZlbnRTb3VyY2UoXCJNaWNyb3NvZnQuV2luZG93cy5TZW5zZS5DbGllbnQuTWFuYWdlbWVudFwiLEV2ZW50U291cmNlU2V0dGluZ3MuRXR3U2VsZkRlc2NyaWJpbmdFdmVudEZvcm1hdCx0ZWxlbWV0cnlUcmFpdHMpO319JzsgJGxvZ2dlciA9IE5ldy1PYmplY3QgLVR5cGVOYW1lIFNlbnNlLlRyYWNlOyAkbG9nZ2VyLldyaXRlT25ib2FyZGluZ01lc3NhZ2UoJyVzdWNjZXNzT3V0cHV0JScpIiA+TlVMIDI+JjENCiIlUFJPR1JBTUZJTEVTJVxXaW5kb3dzIERlZmVuZGVyXE1wQ21kUnVuLmV4ZSIgLVJlbG9hZEVuZ2luZSA+TlVMIDI+JjENCg0KR09UTyBDTEVBTlVQDQoNCjpDTEVBTlVQDQppZiBleGlzdCAlVE1QJVxzZW5zZVRtcC50eHQgZGVsICVUTVAlXHNlbnNlVG1wLnR4dA0KRVhJVCAvQiAlZXJyb3JDb2RlJQ0KCg=="
-                            }
-                          }
-                        }
-                      ]
-                    },
-                    "parameters": {
-                      "vmName": {
-                        "value": "[field('name')]"
-                      },
-                      "location": {
-                        "value": "[field('location')]"
-                      },
-                      "azureResourceId": {
-                        "value": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Compute/virtualMachineScaleSets/',field('name'))]"
-                      }
-                    }
-                  }
-                }
-              }
             }
-          }
+          },
+          "mode": "All"
         }
       }
     }

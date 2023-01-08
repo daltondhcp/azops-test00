@@ -4,35 +4,28 @@
   "parameters": {
     "input": {
       "value": {
-        "Name": "Deploy-Sql-Tde",
-        "ResourceType": "Microsoft.Authorization/policyDefinitions",
-        "Properties": {
-          "Description": "Deploy the Transparent Data Encryption when it is not enabled in the deployment",
-          "DisplayName": "Deploy SQL Database Transparent Data Encryption ",
-          "Metadata": {
-            "version": "1.0.0",
-            "category": "SQL"
-          },
-          "Mode": "Indexed",
-          "Parameters": {
+        "name": "Deploy-Sql-Tde",
+        "type": "microsoft.authorization/policydefinitions",
+        "kind": "policydefinitions",
+        "location": "global",
+        "properties": {
+          "description": "Deploy the Transparent Data Encryption when it is not enabled in the deployment",
+          "displayName": "Deploy SQL Database Transparent Data Encryption ",
+          "parameters": {
             "effect": {
-              "type": "String",
-              "metadata": {
-                "displayName": "Effect",
-                "description": "Enable or disable the execution of the policy"
-              },
               "allowedValues": [
                 "DeployIfNotExists",
                 "Disabled"
               ],
-              "defaultValue": "DeployIfNotExists"
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Enable or disable the execution of the policy",
+                "displayName": "Effect"
+              },
+              "type": "String"
             }
           },
-          "PolicyRule": {
-            "if": {
-              "field": "type",
-              "equals": "Microsoft.Sql/servers/databases"
-            },
+          "policyRule": {
             "then": {
               "effect": "[parameters('effect')]",
               "details": {
@@ -45,55 +38,60 @@
                     }
                   ]
                 },
+                "roleDefinitionIds": [
+                  "/providers/Microsoft.Authorization/roleDefinitions/056cd41c-7e88-42e1-933e-88ba6a50c9c3"
+                ],
                 "deployment": {
                   "properties": {
-                    "mode": "Incremental",
-                    "template": {
-                      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-                      "contentVersion": "1.0.0.0",
-                      "parameters": {
-                        "location": {
-                          "type": "String"
-                        },
-                        "sqlServerName": {
-                          "type": "String"
-                        },
-                        "sqlServerDataBaseName": {
-                          "type": "String"
-                        }
-                      },
-                      "variables": {},
-                      "resources": [
-                        {
-                          "name": "[concat( parameters('sqlServerName'),'/',parameters('sqlServerDataBaseName'),'/current')]",
-                          "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
-                          "apiVersion": "2014-04-01",
-                          "properties": {
-                            "status": "Enabled"
-                          }
-                        }
-                      ],
-                      "outputs": {}
-                    },
                     "parameters": {
                       "location": {
                         "value": "[field('location')]"
                       },
-                      "sqlServerName": {
-                        "value": "[first(split(field('fullname'),'/'))]"
-                      },
                       "sqlServerDataBaseName": {
                         "value": "[field('name')]"
+                      },
+                      "sqlServerName": {
+                        "value": "[first(split(field('fullname'),'/'))]"
                       }
+                    },
+                    "mode": "Incremental",
+                    "template": {
+                      "parameters": {
+                        "location": {
+                          "type": "String"
+                        },
+                        "sqlServerDataBaseName": {
+                          "type": "String"
+                        },
+                        "sqlServerName": {
+                          "type": "String"
+                        }
+                      },
+                      "contentVersion": "1.0.0.0",
+                      "resources": [
+                        {
+                          "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
+                          "properties": {
+                            "status": "Enabled"
+                          },
+                          "apiVersion": "2014-04-01T00:00:00Z",
+                          "name": "[concat( parameters('sqlServerName'),'/',parameters('sqlServerDataBaseName'),'/current')]"
+                        }
+                      ],
+                      "variables": {},
+                      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                      "outputs": {}
                     }
                   }
-                },
-                "roleDefinitionIds": [
-                  "/providers/Microsoft.Authorization/roleDefinitions/056cd41c-7e88-42e1-933e-88ba6a50c9c3"
-                ]
+                }
               }
+            },
+            "if": {
+              "field": "type",
+              "equals": "Microsoft.Sql/servers/databases"
             }
-          }
+          },
+          "mode": "Indexed"
         }
       }
     }
