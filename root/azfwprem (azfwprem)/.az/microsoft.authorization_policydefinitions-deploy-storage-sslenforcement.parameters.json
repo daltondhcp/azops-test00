@@ -9,8 +9,6 @@
         "kind": "policydefinitions",
         "location": "global",
         "properties": {
-          "description": "Deploy a specific min TLS version requirement and enforce SSL on Azure STorage. Enables secure server to client by enforce  minimal Tls Version to secure the connection between your database server and your client applications helps protect against 'man in the middle' attacks by encrypting the data stream between the server and your application. This configuration enforces that SSL is always enabled for accessing your database server.",
-          "displayName": "Azure Storage deploy a specific min TLS version requirement and enforce SSL/HTTPS ",
           "parameters": {
             "effect": {
               "allowedValues": [
@@ -38,11 +36,16 @@
               "type": "String"
             }
           },
+          "description": "Deploy a specific min TLS version requirement and enforce SSL on Azure STorage. Enables secure server to client by enforce  minimal Tls Version to secure the connection between your database server and your client applications helps protect against 'man in the middle' attacks by encrypting the data stream between the server and your application. This configuration enforces that SSL is always enabled for accessing your database server.",
+          "displayName": "Azure Storage deploy a specific min TLS version requirement and enforce SSL/HTTPS ",
           "policyRule": {
             "then": {
               "effect": "[parameters('effect')]",
               "details": {
                 "type": "Microsoft.DBforPostgreSQL/servers",
+                "roleDefinitionIds": [
+                  "/providers/microsoft.authorization/roleDefinitions/8e3af657-a8ff-443c-a75c-2fe8c4bcb635"
+                ],
                 "existenceCondition": {
                   "allOf": [
                     {
@@ -59,9 +62,7 @@
                     }
                   ]
                 },
-                "roleDefinitionIds": [
-                  "/providers/microsoft.authorization/roleDefinitions/8e3af657-a8ff-443c-a75c-2fe8c4bcb635"
-                ],
+                "name": "current",
                 "deployment": {
                   "properties": {
                     "parameters": {
@@ -97,8 +98,8 @@
                             "supportsHttpsTrafficOnly": true
                           },
                           "location": "[parameters('location')]",
-                          "apiVersion": "2019-06-01T00:00:00Z",
-                          "name": "[concat(parameters('resourceName'))]"
+                          "name": "[concat(parameters('resourceName'))]",
+                          "apiVersion": "2019-06-01T00:00:00Z"
                         }
                       ],
                       "variables": {},
@@ -106,8 +107,7 @@
                       "outputs": {}
                     }
                   }
-                },
-                "name": "current"
+                }
               }
             },
             "if": {

@@ -22,6 +22,19 @@
               },
               "type": "String"
             },
+            "SQLManagedInstanceMinTlsVersion": {
+              "allowedValues": [
+                "1.2",
+                "1.0",
+                "1.1"
+              ],
+              "defaultValue": "1.2",
+              "metadata": {
+                "description": "Select version  minimum TLS version for Azure Managed Instanceto to  enforce",
+                "displayName": "Azure Managed Instance.Select version minimum TLS for Azure Managed Instance"
+              },
+              "type": "String"
+            },
             "PostgreSQLEnableSSLDeployEffect": {
               "allowedValues": [
                 "DeployIfNotExists",
@@ -43,19 +56,6 @@
               "metadata": {
                 "description": "Audit requirement of Secure transfer in your storage account. Secure transfer is an option that forces your storage account to accept requests only from secure connections (HTTPS). Use of HTTPS ensures authentication between the server and the service and protects data in transit from network layer attacks such as man-in-the-middle, eavesdropping, and session-hijacking",
                 "displayName": "Azure Storage Account. Deploy Secure transfer to storage accounts should be enabled"
-              },
-              "type": "String"
-            },
-            "SQLManagedInstanceMinTlsVersion": {
-              "allowedValues": [
-                "1.2",
-                "1.0",
-                "1.1"
-              ],
-              "defaultValue": "1.2",
-              "metadata": {
-                "description": "Select version  minimum TLS version for Azure Managed Instanceto to  enforce",
-                "displayName": "Azure Managed Instance.Select version minimum TLS for Azure Managed Instance"
               },
               "type": "String"
             },
@@ -83,6 +83,19 @@
               },
               "type": "String"
             },
+            "SQLManagedInstanceTLSEffect": {
+              "allowedValues": [
+                "Audit",
+                "Disabled",
+                "Deny"
+              ],
+              "defaultValue": "Audit",
+              "metadata": {
+                "description": "Setting minimal TLS version to 1.2 improves security by ensuring your SQL Managed Instance can only be accessed from clients using TLS 1.2. Using versions of TLS less than 1.2 is not recommended since they have well documented security vulnerabilities.",
+                "displayName": "SQL Managed Instance should have the minimal TLS version of 1.2"
+              },
+              "type": "String"
+            },
             "PostgreSQLminimalTlsVersion": {
               "allowedValues": [
                 "TLS1_2",
@@ -94,19 +107,6 @@
               "metadata": {
                 "description": "PostgreSQL database servers. Select version  minimum TLS version Azure Database for MySQL server to enforce",
                 "displayName": "PostgreSQL database servers. Select version minimum TLS for MySQL server"
-              },
-              "type": "String"
-            },
-            "SQLManagedInstanceTLSEffect": {
-              "allowedValues": [
-                "Audit",
-                "Disabled",
-                "Deny"
-              ],
-              "defaultValue": "Audit",
-              "metadata": {
-                "description": "Setting minimal TLS version to 1.2 improves security by ensuring your SQL Managed Instance can only be accessed from clients using TLS 1.2. Using versions of TLS less than 1.2 is not recommended since they have well documented security vulnerabilities.",
-                "displayName": "SQL Managed Instance should have the minimal TLS version of 1.2"
               },
               "type": "String"
             },
@@ -147,19 +147,6 @@
               },
               "type": "String"
             },
-            "StorageHttpsEnabledEffect": {
-              "allowedValues": [
-                "Audit",
-                "Deny",
-                "Disabled"
-              ],
-              "defaultValue": "Audit",
-              "metadata": {
-                "description": "Audit requirement of Secure transfer in your storage account. Secure transfer is an option that forces your storage account to accept requests only from secure connections (HTTPS). Use of HTTPS ensures authentication between the server and the service and protects data in transit from network layer attacks such as man-in-the-middle, eavesdropping, and session-hijacking",
-                "displayName": "Azure Storage Account. Secure transfer to storage accounts should be enabled"
-              },
-              "type": "String"
-            },
             "PostgreSQLEnableSSLEffect": {
               "allowedValues": [
                 "Audit",
@@ -170,6 +157,19 @@
               "metadata": {
                 "description": "Azure Database for PostgreSQL supports connecting your Azure Database for PostgreSQL server to client applications using Secure Sockets Layer (SSL). Enforcing SSL connections between your database server and your client applications helps protect against 'man in the middle' attacks by encrypting the data stream between the server and your application. This configuration enforces that SSL is always enabled for accessing your database server.",
                 "displayName": "PostgreSQL database servers. Enforce SSL connection should be enabled for PostgreSQL database servers"
+              },
+              "type": "String"
+            },
+            "StorageHttpsEnabledEffect": {
+              "allowedValues": [
+                "Audit",
+                "Deny",
+                "Disabled"
+              ],
+              "defaultValue": "Audit",
+              "metadata": {
+                "description": "Audit requirement of Secure transfer in your storage account. Secure transfer is an option that forces your storage account to accept requests only from secure connections (HTTPS). Use of HTTPS ensures authentication between the server and the service and protects data in transit from network layer attacks such as man-in-the-middle, eavesdropping, and session-hijacking",
+                "displayName": "Azure Storage Account. Secure transfer to storage accounts should be enabled"
               },
               "type": "String"
             },
@@ -186,19 +186,6 @@
               },
               "type": "String"
             },
-            "APIAppServiceHttpsEffect": {
-              "allowedValues": [
-                "Audit",
-                "Disabled",
-                "Deny"
-              ],
-              "defaultValue": "Audit",
-              "metadata": {
-                "description": "Choose Deny or Audit in combination with Append policy. Use of HTTPS ensures server/service authentication and protects data in transit from network layer eavesdropping attacks.",
-                "displayName": "App Service API App. API App should only be accessible over HTTPS. Choose Deny or Audit in combination with Append policy."
-              },
-              "type": "String"
-            },
             "StorageminimumTlsVersion": {
               "allowedValues": [
                 "TLS1_2",
@@ -209,6 +196,19 @@
               "metadata": {
                 "description": "Select version  minimum TLS version on Azure Storage Account to enforce",
                 "displayName": "Storage Account select minimum TLS version"
+              },
+              "type": "String"
+            },
+            "APIAppServiceHttpsEffect": {
+              "allowedValues": [
+                "Audit",
+                "Disabled",
+                "Deny"
+              ],
+              "defaultValue": "Audit",
+              "metadata": {
+                "description": "Choose Deny or Audit in combination with Append policy. Use of HTTPS ensures server/service authentication and protects data in transit from network layer eavesdropping attacks.",
+                "displayName": "App Service API App. API App should only be accessible over HTTPS. Choose Deny or Audit in combination with Append policy."
               },
               "type": "String"
             },
@@ -326,19 +326,6 @@
               },
               "type": "String"
             },
-            "RedisMinTlsVersion": {
-              "allowedValues": [
-                "1.2",
-                "1.0",
-                "1.1"
-              ],
-              "defaultValue": "1.2",
-              "metadata": {
-                "description": "Select version  minimum TLS version for a Azure Cache for Redis to enforce",
-                "displayName": "Azure Cache for Redis.Select version minimum TLS for Azure Cache for Redis"
-              },
-              "type": "String"
-            },
             "SQLServerTLSEffect": {
               "allowedValues": [
                 "Audit",
@@ -349,6 +336,19 @@
               "metadata": {
                 "description": "Setting minimal TLS version to 1.2 improves security by ensuring your Azure SQL Database can only be accessed from clients using TLS 1.2. Using versions of TLS less than 1.2 is not recommended since they have well documented security vulnerabilities.",
                 "displayName": "Azure SQL Database should have the minimal TLS version of 1.2"
+              },
+              "type": "String"
+            },
+            "RedisMinTlsVersion": {
+              "allowedValues": [
+                "1.2",
+                "1.0",
+                "1.1"
+              ],
+              "defaultValue": "1.2",
+              "metadata": {
+                "description": "Select version  minimum TLS version for a Azure Cache for Redis to enforce",
+                "displayName": "Azure Cache for Redis.Select version minimum TLS for Azure Cache for Redis"
               },
               "type": "String"
             },

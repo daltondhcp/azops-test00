@@ -9,7 +9,6 @@
         "kind": "policydefinitions",
         "location": "global",
         "properties": {
-          "displayName": "Deny internet inbound",
           "parameters": {
             "effect": {
               "allowedValues": [
@@ -36,6 +35,7 @@
               "type": "Array"
             }
           },
+          "displayName": "Deny internet inbound",
           "policyRule": {
             "then": {
               "effect": "[parameters('effect')]"

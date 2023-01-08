@@ -9,8 +9,6 @@
         "kind": "policydefinitions",
         "location": "global",
         "properties": {
-          "description": "Deploy a user-defined route to a VNET with routes from spoke to hub firewall. This policy must be assigned for each region you plan to use.",
-          "displayName": "Deploy a user-defined route to a VNET with specific routes.",
           "parameters": {
             "effect": {
               "allowedValues": [
@@ -40,11 +38,16 @@
               "type": "String"
             }
           },
+          "description": "Deploy a user-defined route to a VNET with routes from spoke to hub firewall. This policy must be assigned for each region you plan to use.",
+          "displayName": "Deploy a user-defined route to a VNET with specific routes.",
           "policyRule": {
             "then": {
               "effect": "[parameters('effect')]",
               "details": {
                 "type": "Microsoft.Network/routeTables",
+                "roleDefinitionIds": [
+                  "/providers/Microsoft.Authorization/roleDefinitions/4d97b98b-1d4f-4787-a291-c67834d212e7"
+                ],
                 "existenceCondition": {
                   "allOf": [
                     {
@@ -53,9 +56,6 @@
                     }
                   ]
                 },
-                "roleDefinitionIds": [
-                  "/providers/Microsoft.Authorization/roleDefinitions/4d97b98b-1d4f-4787-a291-c67834d212e7"
-                ],
                 "deployment": {
                   "properties": {
                     "parameters": {
@@ -99,8 +99,8 @@
                             ]
                           },
                           "location": "[parameters('udrLocation')]",
-                          "apiVersion": "2020-08-01T00:00:00Z",
-                          "name": "[parameters('udrName')]"
+                          "name": "[parameters('udrName')]",
+                          "apiVersion": "2020-08-01T00:00:00Z"
                         }
                       ],
                       "variables": {},

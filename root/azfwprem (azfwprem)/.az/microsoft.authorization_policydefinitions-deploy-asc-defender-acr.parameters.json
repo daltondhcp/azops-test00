@@ -9,8 +9,6 @@
         "kind": "policydefinitions",
         "location": "global",
         "properties": {
-          "description": "Deploy the Azure Defender settings for Azure Container Registry",
-          "displayName": "Deploy Azure Defender for ACR",
           "parameters": {
             "effect": {
               "allowedValues": [
@@ -37,11 +35,16 @@
               "type": "string"
             }
           },
+          "description": "Deploy the Azure Defender settings for Azure Container Registry",
+          "displayName": "Deploy Azure Defender for ACR",
           "policyRule": {
             "then": {
               "effect": "[parameters('effect')]",
               "details": {
                 "type": "Microsoft.Security/pricings",
+                "roleDefinitionIds": [
+                  "/providers/Microsoft.Authorization/roleDefinitions/fb1c8493-542b-48eb-b624-b4c8fea62acd"
+                ],
                 "existenceCondition": {
                   "allOf": [
                     {
@@ -54,9 +57,7 @@
                     }
                   ]
                 },
-                "roleDefinitionIds": [
-                  "/providers/Microsoft.Authorization/roleDefinitions/fb1c8493-542b-48eb-b624-b4c8fea62acd"
-                ],
+                "name": "ContainerRegistry",
                 "deployment": {
                   "properties": {
                     "parameters": {
@@ -81,8 +82,8 @@
                           "properties": {
                             "pricingTier": "[parameters('pricingTier')]"
                           },
-                          "apiVersion": "2018-06-01T00:00:00Z",
-                          "name": "ContainerRegistry"
+                          "name": "ContainerRegistry",
+                          "apiVersion": "2018-06-01T00:00:00Z"
                         }
                       ],
                       "variables": {},
@@ -92,7 +93,6 @@
                   },
                   "location": "northeurope"
                 },
-                "name": "ContainerRegistry",
                 "deploymentScope": "Subscription",
                 "existenceScope": "Subscription"
               }

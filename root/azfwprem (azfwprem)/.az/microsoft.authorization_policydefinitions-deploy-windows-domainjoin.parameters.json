@@ -9,8 +9,6 @@
         "kind": "policydefinitions",
         "location": "global",
         "properties": {
-          "description": "Deploy Windows Domain Join Extension with keyvault configuration when the extension does not exist on a given windows Virtual Machine",
-          "displayName": "Deploy Windows Domain Join Extension with keyvault configuration",
           "parameters": {
             "effect": {
               "allowedValues": [
@@ -55,11 +53,16 @@
               "type": "String"
             }
           },
+          "description": "Deploy Windows Domain Join Extension with keyvault configuration when the extension does not exist on a given windows Virtual Machine",
+          "displayName": "Deploy Windows Domain Join Extension with keyvault configuration",
           "policyRule": {
             "then": {
               "effect": "[parameters('effect')]",
               "details": {
                 "type": "Microsoft.Compute/virtualMachines/extensions",
+                "roleDefinitionIds": [
+                  "/providers/Microsoft.Authorization/roleDefinitions/9980e02c-c2be-4d73-94e8-173b1dc7cf3c"
+                ],
                 "existenceCondition": {
                   "allOf": [
                     {
@@ -72,9 +75,6 @@
                     }
                   ]
                 },
-                "roleDefinitionIds": [
-                  "/providers/Microsoft.Authorization/roleDefinitions/9980e02c-c2be-4d73-94e8-173b1dc7cf3c"
-                ],
                 "deployment": {
                   "properties": {
                     "parameters": {
@@ -148,16 +148,16 @@
                             },
                             "publisher": "Microsoft.Compute",
                             "settings": {
-                              "Restart": "true",
                               "Options": "[variables('domainJoinOptions')]",
+                              "Restart": "true",
                               "OUPath": "[parameters('domainOUPath')]",
                               "Name": "[parameters('domainFQDN')]",
                               "User": "[parameters('domainUserName')]"
                             }
                           },
                           "location": "[resourceGroup().location]",
-                          "apiVersion": "2015-06-15T00:00:00Z",
-                          "name": "[concat(variables('vmName'),'/joindomain')]"
+                          "name": "[concat(variables('vmName'),'/joindomain')]",
+                          "apiVersion": "2015-06-15T00:00:00Z"
                         }
                       ],
                       "variables": {

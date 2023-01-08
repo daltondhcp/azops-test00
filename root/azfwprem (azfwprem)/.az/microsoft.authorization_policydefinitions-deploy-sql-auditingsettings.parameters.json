@@ -9,8 +9,6 @@
         "kind": "policydefinitions",
         "location": "global",
         "properties": {
-          "description": "Deploy auditing settings to SQL Database when it not exist in the deployment",
-          "displayName": "Deploy SQL database auditing settings",
           "parameters": {
             "effect": {
               "allowedValues": [
@@ -25,11 +23,16 @@
               "type": "String"
             }
           },
+          "description": "Deploy auditing settings to SQL Database when it not exist in the deployment",
+          "displayName": "Deploy SQL database auditing settings",
           "policyRule": {
             "then": {
               "effect": "[parameters('effect')]",
               "details": {
                 "type": "Microsoft.Sql/servers/databases/auditingSettings",
+                "roleDefinitionIds": [
+                  "/providers/Microsoft.Authorization/roleDefinitions/056cd41c-7e88-42e1-933e-88ba6a50c9c3"
+                ],
                 "existenceCondition": {
                   "allOf": [
                     {
@@ -42,9 +45,7 @@
                     }
                   ]
                 },
-                "roleDefinitionIds": [
-                  "/providers/Microsoft.Authorization/roleDefinitions/056cd41c-7e88-42e1-933e-88ba6a50c9c3"
-                ],
+                "name": "default",
                 "deployment": {
                   "properties": {
                     "parameters": {
@@ -96,8 +97,8 @@
                             ],
                             "state": "enabled"
                           },
-                          "apiVersion": "2017-03-01-preview",
-                          "name": "[concat( parameters('sqlServerName'),'/',parameters('sqlServerDataBaseName'),'/default')]"
+                          "name": "[concat( parameters('sqlServerName'),'/',parameters('sqlServerDataBaseName'),'/default')]",
+                          "apiVersion": "2017-03-01-preview"
                         }
                       ],
                       "variables": {},
@@ -105,8 +106,7 @@
                       "outputs": {}
                     }
                   }
-                },
-                "name": "default"
+                }
               }
             },
             "if": {

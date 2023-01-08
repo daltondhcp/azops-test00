@@ -9,8 +9,6 @@
         "kind": "policydefinitions",
         "location": "global",
         "properties": {
-          "description": "Audit enabling of only connections via SSL to Azure Cache for Redis. Validate both minimum TLS version and enableNonSslPort is disabled. Use of secure connections ensures authentication between the server and the service and protects data in transit from network layer attacks such as man-in-the-middle, eavesdropping, and session-hijacking",
-          "displayName": "Azure Cache for Redis only secure connections should be enabled",
           "parameters": {
             "effect": {
               "allowedValues": [
@@ -39,6 +37,8 @@
               "type": "String"
             }
           },
+          "description": "Audit enabling of only connections via SSL to Azure Cache for Redis. Validate both minimum TLS version and enableNonSslPort is disabled. Use of secure connections ensures authentication between the server and the service and protects data in transit from network layer attacks such as man-in-the-middle, eavesdropping, and session-hijacking",
+          "displayName": "Azure Cache for Redis only secure connections should be enabled",
           "policyRule": {
             "then": {
               "effect": "[parameters('effect')]"

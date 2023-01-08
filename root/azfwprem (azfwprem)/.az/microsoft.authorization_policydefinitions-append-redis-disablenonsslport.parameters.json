@@ -9,8 +9,6 @@
         "kind": "policydefinitions",
         "location": "global",
         "properties": {
-          "description": "Azure Cache  for Redis Append and the enforcement that enableNonSslPort is disabled. Enables secure server to client by enforce  minimal Tls Version to secure the connection between your database server and your client applications helps protect against 'man in the middle' attacks by encrypting the data stream between the server and your application. This configuration enforces that SSL is always enabled for accessing your database server.",
-          "displayName": "Azure Cache for Redis Append and the enforcement that enableNonSslPort is disabled.",
           "parameters": {
             "effect": {
               "allowedValues": [
@@ -26,13 +24,15 @@
               "type": "String"
             }
           },
+          "description": "Azure Cache  for Redis Append and the enforcement that enableNonSslPort is disabled. Enables secure server to client by enforce  minimal Tls Version to secure the connection between your database server and your client applications helps protect against 'man in the middle' attacks by encrypting the data stream between the server and your application. This configuration enforces that SSL is always enabled for accessing your database server.",
+          "displayName": "Azure Cache for Redis Append and the enforcement that enableNonSslPort is disabled.",
           "policyRule": {
             "then": {
               "effect": "[parameters('effect')]",
               "details": [
                 {
-                  "field": "Microsoft.Cache/Redis/enableNonSslPort",
-                  "value": false
+                  "value": false,
+                  "field": "Microsoft.Cache/Redis/enableNonSslPort"
                 }
               ]
             },
