@@ -9,6 +9,8 @@
         "kind": "policydefinitions",
         "location": "global",
         "properties": {
+          "description": "Deploy Azure Security Center Security Contacts",
+          "displayName": "Deploy Azure Security Center Security Contacts",
           "parameters": {
             "effect": {
               "allowedValues": [
@@ -30,16 +32,11 @@
               "type": "string"
             }
           },
-          "description": "Deploy Azure Security Center Security Contacts",
-          "displayName": "Deploy Azure Security Center Security Contacts",
           "policyRule": {
             "then": {
               "effect": "[parameters('effect')]",
               "details": {
                 "type": "Microsoft.Security/securityContacts",
-                "roleDefinitionIds": [
-                  "/providers/Microsoft.Authorization/roleDefinitions/fb1c8493-542b-48eb-b624-b4c8fea62acd"
-                ],
                 "existenceCondition": {
                   "allOf": [
                     {
@@ -60,6 +57,9 @@
                     }
                   ]
                 },
+                "roleDefinitionIds": [
+                  "/providers/Microsoft.Authorization/roleDefinitions/fb1c8493-542b-48eb-b624-b4c8fea62acd"
+                ],
                 "deployment": {
                   "properties": {
                     "parameters": {
@@ -94,8 +94,8 @@
                             },
                             "emails": "[parameters('emailSecurityContact')]"
                           },
-                          "name": "default",
-                          "apiVersion": "2020-01-01-preview"
+                          "apiVersion": "2020-01-01-preview",
+                          "name": "default"
                         }
                       ],
                       "variables": {},

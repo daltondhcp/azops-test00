@@ -9,6 +9,8 @@
         "kind": "policydefinitions",
         "location": "global",
         "properties": {
+          "description": "This policy denies the creation of vNet Peerings under the assigned scope.",
+          "displayName": "Deny vNet peering ",
           "parameters": {
             "effect": {
               "allowedValues": [
@@ -24,8 +26,6 @@
               "type": "String"
             }
           },
-          "description": "This policy denies the creation of vNet Peerings under the assigned scope.",
-          "displayName": "Deny vNet peering ",
           "policyRule": {
             "then": {
               "effect": "[parameters('effect')]"

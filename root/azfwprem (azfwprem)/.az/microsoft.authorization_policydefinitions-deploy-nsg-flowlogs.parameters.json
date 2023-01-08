@@ -9,6 +9,8 @@
         "kind": "policydefinitions",
         "location": "global",
         "properties": {
+          "description": "Deploys NSG flow logs and traffic analytics to a storageaccountid with a specfied retention period.",
+          "displayName": "Deploys NSG flow logs and traffic analytics",
           "parameters": {
             "logAnalytics": {
               "metadata": {
@@ -59,17 +61,11 @@
               "type": "Integer"
             }
           },
-          "description": "Deploys NSG flow logs and traffic analytics to a storageaccountid with a specfied retention period.",
-          "displayName": "Deploys NSG flow logs and traffic analytics",
           "policyRule": {
             "then": {
               "effect": "[parameters('effect')]",
               "details": {
                 "type": "Microsoft.Network/networkWatchers/flowLogs",
-                "roleDefinitionIds": [
-                  "/providers/microsoft.authorization/roleDefinitions/749f88d5-cbae-40b8-bcfc-e573ddc772fa",
-                  "/providers/microsoft.authorization/roleDefinitions/92aaf0da-9dab-42b6-94a3-d43ce8d16293"
-                ],
                 "existenceCondition": {
                   "allOf": [
                     {
@@ -82,14 +78,18 @@
                     }
                   ]
                 },
+                "roleDefinitionIds": [
+                  "/providers/microsoft.authorization/roleDefinitions/749f88d5-cbae-40b8-bcfc-e573ddc772fa",
+                  "/providers/microsoft.authorization/roleDefinitions/92aaf0da-9dab-42b6-94a3-d43ce8d16293"
+                ],
                 "deployment": {
                   "properties": {
                     "parameters": {
-                      "logAnalytics": {
-                        "value": "[parameters('logAnalytics')]"
-                      },
                       "location": {
                         "value": "[field('location')]"
+                      },
+                      "logAnalytics": {
+                        "value": "[parameters('logAnalytics')]"
                       },
                       "resourceGroupName": {
                         "value": "[resourceGroup().name]"
@@ -103,20 +103,20 @@
                       "flowAnalyticsEnabled": {
                         "value": "[parameters('flowAnalyticsEnabled')]"
                       },
-                      "networkSecurityGroupName": {
-                        "value": "[field('name')]"
-                      },
                       "retention": {
                         "value": "[parameters('retention')]"
+                      },
+                      "networkSecurityGroupName": {
+                        "value": "[field('name')]"
                       }
                     },
                     "mode": "Incremental",
                     "template": {
                       "parameters": {
-                        "logAnalytics": {
+                        "location": {
                           "type": "String"
                         },
-                        "location": {
+                        "logAnalytics": {
                           "type": "String"
                         },
                         "resourceGroupName": {
@@ -131,11 +131,11 @@
                         "flowAnalyticsEnabled": {
                           "type": "bool"
                         },
-                        "networkSecurityGroupName": {
-                          "type": "String"
-                        },
                         "retention": {
                           "type": "int"
+                        },
+                        "networkSecurityGroupName": {
+                          "type": "String"
                         }
                       },
                       "contentVersion": "1.0.0.0",
@@ -152,8 +152,8 @@
                               "networkWatcherFlowAnalyticsConfiguration": {
                                 "enabled": "[bool(parameters('flowAnalyticsEnabled'))]",
                                 "workspaceId": "[if(not(empty(parameters('logAnalytics'))), reference(parameters('logAnalytics'), '2020-03-01-preview', 'Full').properties.customerId, json('null')) ]",
-                                "workspaceResourceId": "[if(not(empty(parameters('logAnalytics'))), parameters('logAnalytics'), json('null'))]",
                                 "trafficAnalyticsInterval": "[parameters('trafficAnalyticsInterval')]",
+                                "workspaceResourceId": "[if(not(empty(parameters('logAnalytics'))), parameters('logAnalytics'), json('null'))]",
                                 "workspaceRegion": "[if(not(empty(parameters('logAnalytics'))), reference(parameters('logAnalytics'), '2020-03-01-preview', 'Full').location, json('null')) ]"
                               }
                             },
@@ -165,8 +165,8 @@
                             }
                           },
                           "location": "[parameters('location')]",
-                          "name": "[take(concat('NetworkWatcher_', toLower(parameters('location')),  '/', parameters('networkSecurityGroupName'), '-', parameters('resourceGroupName'), '-flowlog' ), 80)]",
-                          "apiVersion": "2020-05-01T00:00:00Z"
+                          "apiVersion": "2020-05-01T00:00:00Z",
+                          "name": "[take(concat('NetworkWatcher_', toLower(parameters('location')),  '/', parameters('networkSecurityGroupName'), '-', parameters('resourceGroupName'), '-flowlog' ), 80)]"
                         }
                       ],
                       "variables": {},

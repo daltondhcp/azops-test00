@@ -9,6 +9,8 @@
         "kind": "policydefinitions",
         "location": "global",
         "properties": {
+          "description": "This policy denies the creation of child resources on the Automation Account",
+          "displayName": "No child resources in Automation Account",
           "parameters": {
             "effect": {
               "allowedValues": [
@@ -24,8 +26,6 @@
               "type": "String"
             }
           },
-          "description": "This policy denies the creation of child resources on the Automation Account",
-          "displayName": "No child resources in Automation Account",
           "policyRule": {
             "then": {
               "effect": "[parameters('effect')]"

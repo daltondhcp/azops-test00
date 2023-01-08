@@ -9,6 +9,8 @@
         "kind": "policydefinitions",
         "location": "global",
         "properties": {
+          "description": "Deploy a specific min TLS version requirement and enforce SSL on SQL managed instances. Enables secure server to client by enforce  minimal Tls Version to secure the connection between your database server and your client applications helps protect against 'man in the middle' attacks by encrypting the data stream between the server and your application. This configuration enforces that SSL is always enabled for accessing your database server.",
+          "displayName": "SQL managed instances deploy a specific min TLS version requirement.",
           "parameters": {
             "effect": {
               "allowedValues": [
@@ -36,16 +38,11 @@
               "type": "String"
             }
           },
-          "description": "Deploy a specific min TLS version requirement and enforce SSL on SQL managed instances. Enables secure server to client by enforce  minimal Tls Version to secure the connection between your database server and your client applications helps protect against 'man in the middle' attacks by encrypting the data stream between the server and your application. This configuration enforces that SSL is always enabled for accessing your database server.",
-          "displayName": "SQL managed instances deploy a specific min TLS version requirement.",
           "policyRule": {
             "then": {
               "effect": "[parameters('effect')]",
               "details": {
                 "type": "Microsoft.Sql/managedInstances",
-                "roleDefinitionIds": [
-                  "/providers/microsoft.authorization/roleDefinitions/8e3af657-a8ff-443c-a75c-2fe8c4bcb635"
-                ],
                 "existenceCondition": {
                   "allOf": [
                     {
@@ -54,7 +51,9 @@
                     }
                   ]
                 },
-                "name": "current",
+                "roleDefinitionIds": [
+                  "/providers/microsoft.authorization/roleDefinitions/8e3af657-a8ff-443c-a75c-2fe8c4bcb635"
+                ],
                 "deployment": {
                   "properties": {
                     "parameters": {
@@ -89,8 +88,8 @@
                             "minimalTlsVersion": "[parameters('minimalTlsVersion')]"
                           },
                           "location": "[parameters('location')]",
-                          "name": "[concat(parameters('resourceName'))]",
-                          "apiVersion": "2020-02-02-preview"
+                          "apiVersion": "2020-02-02-preview",
+                          "name": "[concat(parameters('resourceName'))]"
                         }
                       ],
                       "variables": {},
@@ -98,7 +97,8 @@
                       "outputs": {}
                     }
                   }
-                }
+                },
+                "name": "current"
               }
             },
             "if": {

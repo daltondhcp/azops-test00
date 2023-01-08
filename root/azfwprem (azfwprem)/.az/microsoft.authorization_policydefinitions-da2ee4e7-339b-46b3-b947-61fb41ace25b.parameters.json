@@ -9,19 +9,19 @@
         "kind": "policydefinitions",
         "location": "global",
         "properties": {
-          "parameters": {},
           "description": "This is a description",
           "displayName": "DenyDelete-VirtualNetwork",
+          "parameters": {},
           "policyRule": {
             "then": {
               "effect": "DenyAction",
               "details": {
-                "actionNames": [
-                  "delete"
-                ],
                 "cascadeBehaviors": {
                   "resourceGroup": "deny"
-                }
+                },
+                "actionNames": [
+                  "delete"
+                ]
               }
             },
             "if": {
