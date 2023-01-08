@@ -4,40 +4,35 @@
   "parameters": {
     "input": {
       "value": {
-        "Name": "Deploy-Sql-AuditingSettings",
-        "ResourceType": "Microsoft.Authorization/policyDefinitions",
-        "Properties": {
-          "Description": "Deploy auditing settings to SQL Database when it not exist in the deployment",
-          "DisplayName": "Deploy SQL database auditing settings",
-          "Metadata": {
-            "version": "1.0.0",
-            "category": "SQL"
-          },
-          "Mode": "Indexed",
-          "Parameters": {
+        "name": "Deploy-Sql-AuditingSettings",
+        "type": "microsoft.authorization/policydefinitions",
+        "kind": "policydefinitions",
+        "location": "global",
+        "properties": {
+          "description": "Deploy auditing settings to SQL Database when it not exist in the deployment",
+          "displayName": "Deploy SQL database auditing settings",
+          "parameters": {
             "effect": {
-              "type": "String",
-              "metadata": {
-                "displayName": "Effect",
-                "description": "Enable or disable the execution of the policy"
-              },
               "allowedValues": [
                 "DeployIfNotExists",
                 "Disabled"
               ],
-              "defaultValue": "DeployIfNotExists"
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Enable or disable the execution of the policy",
+                "displayName": "Effect"
+              },
+              "type": "String"
             }
           },
-          "PolicyRule": {
-            "if": {
-              "field": "type",
-              "equals": "Microsoft.Sql/servers/databases"
-            },
+          "policyRule": {
             "then": {
               "effect": "[parameters('effect')]",
               "details": {
                 "type": "Microsoft.Sql/servers/databases/auditingSettings",
-                "name": "default",
+                "roleDefinitionIds": [
+                  "/providers/Microsoft.Authorization/roleDefinitions/056cd41c-7e88-42e1-933e-88ba6a50c9c3"
+                ],
                 "existenceCondition": {
                   "allOf": [
                     {
@@ -52,29 +47,36 @@
                 },
                 "deployment": {
                   "properties": {
+                    "parameters": {
+                      "location": {
+                        "value": "[field('location')]"
+                      },
+                      "sqlServerDataBaseName": {
+                        "value": "[field('name')]"
+                      },
+                      "sqlServerName": {
+                        "value": "[first(split(field('fullname'),'/'))]"
+                      }
+                    },
                     "mode": "Incremental",
                     "template": {
-                      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-                      "contentVersion": "1.0.0.0",
                       "parameters": {
                         "location": {
                           "type": "String"
                         },
-                        "sqlServerName": {
+                        "sqlServerDataBaseName": {
                           "type": "String"
                         },
-                        "sqlServerDataBaseName": {
+                        "sqlServerName": {
                           "type": "String"
                         }
                       },
-                      "variables": {},
+                      "contentVersion": "1.0.0.0",
                       "resources": [
                         {
-                          "name": "[concat( parameters('sqlServerName'),'/',parameters('sqlServerDataBaseName'),'/default')]",
                           "type": "Microsoft.Sql/servers/databases/auditingSettings",
-                          "apiVersion": "2017-03-01-preview",
                           "properties": {
-                            "state": "enabled",
+                            "isAzureMonitorTargetEnabled": true,
                             "auditActionsAndGroups": [
                               "BATCH_COMPLETED_GROUP",
                               "DATABASE_OBJECT_CHANGE_GROUP",
@@ -92,31 +94,27 @@
                               "SUCCESSFUL_DATABASE_AUTHENTICATION_GROUP",
                               "FAILED_DATABASE_AUTHENTICATION_GROUP"
                             ],
-                            "isAzureMonitorTargetEnabled": true
-                          }
+                            "state": "enabled"
+                          },
+                          "apiVersion": "2017-03-01-preview",
+                          "name": "[concat( parameters('sqlServerName'),'/',parameters('sqlServerDataBaseName'),'/default')]"
                         }
                       ],
+                      "variables": {},
+                      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
                       "outputs": {}
-                    },
-                    "parameters": {
-                      "location": {
-                        "value": "[field('location')]"
-                      },
-                      "sqlServerName": {
-                        "value": "[first(split(field('fullname'),'/'))]"
-                      },
-                      "sqlServerDataBaseName": {
-                        "value": "[field('name')]"
-                      }
                     }
                   }
                 },
-                "roleDefinitionIds": [
-                  "/providers/Microsoft.Authorization/roleDefinitions/056cd41c-7e88-42e1-933e-88ba6a50c9c3"
-                ]
+                "name": "default"
               }
+            },
+            "if": {
+              "field": "type",
+              "equals": "Microsoft.Sql/servers/databases"
             }
-          }
+          },
+          "mode": "Indexed"
         }
       }
     }

@@ -4,40 +4,42 @@
   "parameters": {
     "input": {
       "value": {
-        "Name": "a509d105-a526-4afe-afd7-6bb21f03add7",
-        "ResourceType": "Microsoft.Authorization/policyDefinitions",
-        "Properties": {
-          "Description": null,
-          "DisplayName": "Deny internet inbound",
-          "Metadata": {},
-          "Mode": "All",
-          "Parameters": {
-            "deniedPorts": {
-              "type": "Array",
-              "metadata": {
-                "displayName": "Ports to block",
-                "description": "The inbound ports that should be blocked"
-              },
-              "defaultValue": [
-                "22",
-                "3389"
-              ]
-            },
+        "name": "a509d105-a526-4afe-afd7-6bb21f03add7",
+        "type": "microsoft.authorization/policydefinitions",
+        "kind": "policydefinitions",
+        "location": "global",
+        "properties": {
+          "displayName": "Deny internet inbound",
+          "parameters": {
             "effect": {
-              "type": "String",
-              "metadata": {
-                "displayName": "Effect",
-                "description": "Enable or disable the execution of the policy"
-              },
               "allowedValues": [
                 "Audit",
                 "Disabled",
                 "Deny"
               ],
-              "defaultValue": "Deny"
+              "defaultValue": "Deny",
+              "metadata": {
+                "description": "Enable or disable the execution of the policy",
+                "displayName": "Effect"
+              },
+              "type": "String"
+            },
+            "deniedPorts": {
+              "defaultValue": [
+                "22",
+                "3389"
+              ],
+              "metadata": {
+                "description": "The inbound ports that should be blocked",
+                "displayName": "Ports to block"
+              },
+              "type": "Array"
             }
           },
-          "PolicyRule": {
+          "policyRule": {
+            "then": {
+              "effect": "[parameters('effect')]"
+            },
             "if": {
               "anyOf": [
                 {
@@ -137,11 +139,9 @@
                   ]
                 }
               ]
-            },
-            "then": {
-              "effect": "[parameters('effect')]"
             }
-          }
+          },
+          "mode": "All"
         }
       }
     }

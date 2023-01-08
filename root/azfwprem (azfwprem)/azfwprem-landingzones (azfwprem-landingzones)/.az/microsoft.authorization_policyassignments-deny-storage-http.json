@@ -10,23 +10,22 @@
   "variables": {},
   "resources": [
     {
-      "type": "Microsoft.Authorization/policyAssignments",
+      "type": "microsoft.authorization/policyassignments",
       "name": "Deny-Storage-http",
+      "kind": "policyassignments",
       "apiVersion": "2022-06-01",
-      "location": null,
+      "location": "global",
       "properties": {
-        "Description": "Audit requirement of Secure transfer in your storage account. Secure transfer is an option that forces your storage account to accept requests only from secure connections (HTTPS). Use of HTTPS ensures authentication between the server and the service and protects data in transit from network layer attacks such as man-in-the-middle, eavesdropping, and session-hijacking",
-        "DisplayName": "Secure transfer to storage accounts should be enabled",
-        "EnforcementMode": "Default",
-        "NonComplianceMessages": null,
-        "NotScopes": null,
-        "Parameters": {
+        "description": "Audit requirement of Secure transfer in your storage account. Secure transfer is an option that forces your storage account to accept requests only from secure connections (HTTPS). Use of HTTPS ensures authentication between the server and the service and protects data in transit from network layer attacks such as man-in-the-middle, eavesdropping, and session-hijacking",
+        "displayName": "Secure transfer to storage accounts should be enabled",
+        "enforcementMode": "Default",
+        "parameters": {
           "effect": {
             "value": "Deny"
           }
         },
-        "PolicyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/404c3081-a854-4457-ae30-26a93ef643f9",
-        "Scope": "/providers/Microsoft.Management/managementGroups/azfwprem-landingzones"
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/404c3081-a854-4457-ae30-26a93ef643f9",
+        "scope": "/providers/Microsoft.Management/managementGroups/azfwprem-landingzones"
       }
     }
   ],

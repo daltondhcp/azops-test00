@@ -10,19 +10,19 @@
   "variables": {},
   "resources": [
     {
-      "type": "Microsoft.Authorization/policyAssignments",
+      "type": "microsoft.authorization/policyassignments",
       "name": "b2cae056638740d587a8a2c2",
+      "kind": "policyassignments",
       "apiVersion": "2022-06-01",
-      "location": null,
+      "location": "global",
       "properties": {
-        "Description": null,
-        "DisplayName": "AKS Test Policy",
-        "EnforcementMode": "Default",
-        "NonComplianceMessages": [],
-        "NotScopes": [],
-        "Parameters": {},
-        "PolicyDefinitionId": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/providers/Microsoft.Authorization/policyDefinitions/b038afec-7ce0-4652-8a45-5f92033a7335",
-        "Scope": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7"
+        "displayName": "AKS Test Policy",
+        "enforcementMode": "Default",
+        "nonComplianceMessages": [],
+        "notScopes": [],
+        "parameters": {},
+        "policyDefinitionId": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/providers/Microsoft.Authorization/policyDefinitions/b038afec-7ce0-4652-8a45-5f92033a7335",
+        "scope": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7"
       }
     }
   ],
