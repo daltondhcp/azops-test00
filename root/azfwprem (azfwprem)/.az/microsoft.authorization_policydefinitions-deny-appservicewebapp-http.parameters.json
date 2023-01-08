@@ -4,32 +4,32 @@
   "parameters": {
     "input": {
       "value": {
-        "Name": "Deny-AppServiceWebApp-http",
-        "ResourceType": "Microsoft.Authorization/policyDefinitions",
-        "Properties": {
-          "Description": "Use of HTTPS ensures server/service authentication and protects data in transit from network layer eavesdropping attacks.",
-          "DisplayName": "Web Application should only be accessible over HTTPS",
-          "Metadata": {
-            "version": "1.0.0",
-            "category": "App Service"
-          },
-          "Mode": "Indexed",
-          "Parameters": {
+        "name": "Deny-AppServiceWebApp-http",
+        "type": "microsoft.authorization/policydefinitions",
+        "kind": "policydefinitions",
+        "location": "global",
+        "properties": {
+          "description": "Use of HTTPS ensures server/service authentication and protects data in transit from network layer eavesdropping attacks.",
+          "displayName": "Web Application should only be accessible over HTTPS",
+          "parameters": {
             "effect": {
-              "type": "String",
-              "metadata": {
-                "displayName": "Effect",
-                "description": "Enable or disable the execution of the policy"
-              },
               "allowedValues": [
                 "Audit",
                 "Disabled",
                 "Deny"
               ],
-              "defaultValue": "Deny"
+              "defaultValue": "Deny",
+              "metadata": {
+                "description": "Enable or disable the execution of the policy",
+                "displayName": "Effect"
+              },
+              "type": "String"
             }
           },
-          "PolicyRule": {
+          "policyRule": {
+            "then": {
+              "effect": "[parameters('effect')]"
+            },
             "if": {
               "allOf": [
                 {
@@ -45,11 +45,9 @@
                   "equals": "false"
                 }
               ]
-            },
-            "then": {
-              "effect": "[parameters('effect')]"
             }
-          }
+          },
+          "mode": "Indexed"
         }
       }
     }

@@ -4,40 +4,38 @@
   "parameters": {
     "input": {
       "value": {
-        "Name": "Deny-Private-DNS-Zones",
-        "ResourceType": "Microsoft.Authorization/policyDefinitions",
-        "Properties": {
-          "Description": "This policy denies the creation of a private DNS in the current scope, used in combination with policies that create centralized private DNS in connectivity subscription",
-          "DisplayName": "Deny the creation of private DNS",
-          "Metadata": {
-            "version": "1.0.0",
-            "category": "Network"
-          },
-          "Mode": "Indexed",
-          "Parameters": {
+        "name": "Deny-Private-DNS-Zones",
+        "type": "microsoft.authorization/policydefinitions",
+        "kind": "policydefinitions",
+        "location": "global",
+        "properties": {
+          "description": "This policy denies the creation of a private DNS in the current scope, used in combination with policies that create centralized private DNS in connectivity subscription",
+          "displayName": "Deny the creation of private DNS",
+          "parameters": {
             "effect": {
-              "type": "String",
-              "metadata": {
-                "displayName": "Effect",
-                "description": "Enable or disable the execution of the policy"
-              },
               "allowedValues": [
                 "Audit",
                 "Deny",
                 "Disabled"
               ],
-              "defaultValue": "Deny"
+              "defaultValue": "Deny",
+              "metadata": {
+                "description": "Enable or disable the execution of the policy",
+                "displayName": "Effect"
+              },
+              "type": "String"
             }
           },
-          "PolicyRule": {
+          "policyRule": {
+            "then": {
+              "effect": "[parameters('effect')]"
+            },
             "if": {
               "field": "type",
               "equals": "Microsoft.Network/privateDnsZones"
-            },
-            "then": {
-              "effect": "[parameters('effect')]"
             }
-          }
+          },
+          "mode": "Indexed"
         }
       }
     }

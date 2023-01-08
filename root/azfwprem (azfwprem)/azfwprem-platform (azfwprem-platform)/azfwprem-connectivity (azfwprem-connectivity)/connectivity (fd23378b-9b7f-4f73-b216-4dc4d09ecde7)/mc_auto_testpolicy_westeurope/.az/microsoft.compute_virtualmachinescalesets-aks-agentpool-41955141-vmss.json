@@ -19,6 +19,19 @@
       },
       "apiVersion": "2022-11-01",
       "location": "westeurope",
+      "identity": {
+        "type": "UserAssigned",
+        "userAssignedIdentities": {
+          "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/MC_auto_testpolicy_westeurope/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testpolicy-agentpool": {
+            "clientId": "251d0bce-ad97-4377-9823-ef58bd0f86ad",
+            "principalId": "186f1916-e373-4978-b610-b49e71c2177e"
+          },
+          "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourcegroups/MC_auto_testpolicy_westeurope/providers/Microsoft.ManagedIdentity/userAssignedIdentities/azurepolicy-testpolicy": {
+            "clientId": "dda19ca4-67bf-4233-9a58-d486497b631e",
+            "principalId": "1cfd8b44-4d01-4ab8-9731-607ff373f927"
+          }
+        }
+      },
       "tags": {
         "aks-managed-createOperationID": "6ce188ee-4087-4aa7-a640-0b9d523e12ac",
         "aks-managed-creationSource": "vmssclient-aks-agentpool-41955141-vmss",

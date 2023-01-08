@@ -4,40 +4,38 @@
   "parameters": {
     "input": {
       "value": {
-        "Name": "Deny-VNet-Peering",
-        "ResourceType": "Microsoft.Authorization/policyDefinitions",
-        "Properties": {
-          "Description": "This policy denies the creation of vNet Peerings under the assigned scope.",
-          "DisplayName": "Deny vNet peering ",
-          "Metadata": {
-            "version": "1.0.1",
-            "category": "Network"
-          },
-          "Mode": "All",
-          "Parameters": {
+        "name": "Deny-VNet-Peering",
+        "type": "microsoft.authorization/policydefinitions",
+        "kind": "policydefinitions",
+        "location": "global",
+        "properties": {
+          "description": "This policy denies the creation of vNet Peerings under the assigned scope.",
+          "displayName": "Deny vNet peering ",
+          "parameters": {
             "effect": {
-              "type": "String",
-              "metadata": {
-                "displayName": "Effect",
-                "description": "Enable or disable the execution of the policy"
-              },
               "allowedValues": [
                 "Audit",
                 "Deny",
                 "Disabled"
               ],
-              "defaultValue": "Deny"
+              "defaultValue": "Deny",
+              "metadata": {
+                "description": "Enable or disable the execution of the policy",
+                "displayName": "Effect"
+              },
+              "type": "String"
             }
           },
-          "PolicyRule": {
+          "policyRule": {
+            "then": {
+              "effect": "[parameters('effect')]"
+            },
             "if": {
               "field": "type",
               "equals": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings"
-            },
-            "then": {
-              "effect": "[parameters('effect')]"
             }
-          }
+          },
+          "mode": "All"
         }
       }
     }

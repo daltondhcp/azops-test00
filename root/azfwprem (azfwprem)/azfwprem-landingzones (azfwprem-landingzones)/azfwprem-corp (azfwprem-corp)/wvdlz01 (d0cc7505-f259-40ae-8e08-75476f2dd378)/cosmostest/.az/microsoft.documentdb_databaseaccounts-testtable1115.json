@@ -15,6 +15,9 @@
       "kind": "GlobalDocumentDB",
       "apiVersion": "2022-08-15-preview",
       "location": "westus",
+      "identity": {
+        "type": "None"
+      },
       "tags": {
         "defaultExperience": "Azure Table"
       },

@@ -4,61 +4,173 @@
   "parameters": {
     "input": {
       "value": {
-        "Name": "Deploy-Windows-DomainJoin",
-        "ResourceType": "Microsoft.Authorization/policyDefinitions",
-        "Properties": {
-          "Description": "Deploy Windows Domain Join Extension with keyvault configuration when the extension does not exist on a given windows Virtual Machine",
-          "DisplayName": "Deploy Windows Domain Join Extension with keyvault configuration",
-          "Metadata": {
-            "version": "1.0.0",
-            "category": "Guest Configuration"
-          },
-          "Mode": "Indexed",
-          "Parameters": {
-            "domainUsername": {
-              "type": "String",
-              "metadata": {
-                "displayName": "domainUsername"
-              }
-            },
-            "domainPassword": {
-              "type": "String",
-              "metadata": {
-                "displayName": "domainPassword"
-              }
-            },
-            "domainFQDN": {
-              "type": "String",
-              "metadata": {
-                "displayName": "domainFQDN"
-              }
-            },
-            "domainOUPath": {
-              "type": "String",
-              "metadata": {
-                "displayName": "domainOUPath"
-              }
-            },
-            "keyVaultResourceId": {
-              "type": "String",
-              "metadata": {
-                "displayName": "keyVaultResourceId"
-              }
-            },
+        "name": "Deploy-Windows-DomainJoin",
+        "type": "microsoft.authorization/policydefinitions",
+        "kind": "policydefinitions",
+        "location": "global",
+        "properties": {
+          "description": "Deploy Windows Domain Join Extension with keyvault configuration when the extension does not exist on a given windows Virtual Machine",
+          "displayName": "Deploy Windows Domain Join Extension with keyvault configuration",
+          "parameters": {
             "effect": {
-              "type": "String",
-              "metadata": {
-                "displayName": "Effect",
-                "description": "Enable or disable the execution of the policy"
-              },
               "allowedValues": [
                 "DeployIfNotExists",
                 "Disabled"
               ],
-              "defaultValue": "DeployIfNotExists"
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Enable or disable the execution of the policy",
+                "displayName": "Effect"
+              },
+              "type": "String"
+            },
+            "keyVaultResourceId": {
+              "metadata": {
+                "displayName": "keyVaultResourceId"
+              },
+              "type": "String"
+            },
+            "domainPassword": {
+              "metadata": {
+                "displayName": "domainPassword"
+              },
+              "type": "String"
+            },
+            "domainUsername": {
+              "metadata": {
+                "displayName": "domainUsername"
+              },
+              "type": "String"
+            },
+            "domainOUPath": {
+              "metadata": {
+                "displayName": "domainOUPath"
+              },
+              "type": "String"
+            },
+            "domainFQDN": {
+              "metadata": {
+                "displayName": "domainFQDN"
+              },
+              "type": "String"
             }
           },
-          "PolicyRule": {
+          "policyRule": {
+            "then": {
+              "effect": "[parameters('effect')]",
+              "details": {
+                "type": "Microsoft.Compute/virtualMachines/extensions",
+                "existenceCondition": {
+                  "allOf": [
+                    {
+                      "field": "Microsoft.Compute/virtualMachines/extensions/type",
+                      "equals": "JsonADDomainExtension"
+                    },
+                    {
+                      "field": "Microsoft.Compute/virtualMachines/extensions/publisher",
+                      "equals": "Microsoft.Compute"
+                    }
+                  ]
+                },
+                "roleDefinitionIds": [
+                  "/providers/Microsoft.Authorization/roleDefinitions/9980e02c-c2be-4d73-94e8-173b1dc7cf3c"
+                ],
+                "deployment": {
+                  "properties": {
+                    "parameters": {
+                      "location": {
+                        "value": "[field('location')]"
+                      },
+                      "vmName": {
+                        "value": "[field('name')]"
+                      },
+                      "keyVaultResourceId": {
+                        "value": "[parameters('keyVaultResourceId')]"
+                      },
+                      "domainPassword": {
+                        "reference": {
+                          "secretName": "[parameters('domainPassword')]",
+                          "keyVault": {
+                            "id": "[parameters('keyVaultResourceId')]"
+                          }
+                        }
+                      },
+                      "domainUsername": {
+                        "reference": {
+                          "secretName": "[parameters('domainUsername')]",
+                          "keyVault": {
+                            "id": "[parameters('keyVaultResourceId')]"
+                          }
+                        }
+                      },
+                      "domainOUPath": {
+                        "value": "[parameters('domainOUPath')]"
+                      },
+                      "domainFQDN": {
+                        "value": "[parameters('domainFQDN')]"
+                      }
+                    },
+                    "mode": "Incremental",
+                    "template": {
+                      "parameters": {
+                        "location": {
+                          "type": "String"
+                        },
+                        "vmName": {
+                          "type": "String"
+                        },
+                        "keyVaultResourceId": {
+                          "type": "String"
+                        },
+                        "domainPassword": {
+                          "type": "securestring"
+                        },
+                        "domainUsername": {
+                          "type": "String"
+                        },
+                        "domainOUPath": {
+                          "type": "String"
+                        },
+                        "domainFQDN": {
+                          "type": "String"
+                        }
+                      },
+                      "contentVersion": "1.0.0.0",
+                      "resources": [
+                        {
+                          "type": "Microsoft.Compute/virtualMachines/extensions",
+                          "properties": {
+                            "type": "JsonADDomainExtension",
+                            "autoUpgradeMinorVersion": true,
+                            "typeHandlerVersion": "1.3",
+                            "protectedSettings": {
+                              "Password": "[parameters('domainPassword')]"
+                            },
+                            "publisher": "Microsoft.Compute",
+                            "settings": {
+                              "Restart": "true",
+                              "Options": "[variables('domainJoinOptions')]",
+                              "OUPath": "[parameters('domainOUPath')]",
+                              "Name": "[parameters('domainFQDN')]",
+                              "User": "[parameters('domainUserName')]"
+                            }
+                          },
+                          "location": "[resourceGroup().location]",
+                          "apiVersion": "2015-06-15T00:00:00Z",
+                          "name": "[concat(variables('vmName'),'/joindomain')]"
+                        }
+                      ],
+                      "variables": {
+                        "vmName": "[parameters('vmName')]",
+                        "domainJoinOptions": 3
+                      },
+                      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                      "outputs": {}
+                    }
+                  }
+                }
+              }
+            },
             "if": {
               "allOf": [
                 {
@@ -136,123 +248,9 @@
                   ]
                 }
               ]
-            },
-            "then": {
-              "effect": "[parameters('effect')]",
-              "details": {
-                "type": "Microsoft.Compute/virtualMachines/extensions",
-                "roleDefinitionIds": [
-                  "/providers/Microsoft.Authorization/roleDefinitions/9980e02c-c2be-4d73-94e8-173b1dc7cf3c"
-                ],
-                "existenceCondition": {
-                  "allOf": [
-                    {
-                      "field": "Microsoft.Compute/virtualMachines/extensions/type",
-                      "equals": "JsonADDomainExtension"
-                    },
-                    {
-                      "field": "Microsoft.Compute/virtualMachines/extensions/publisher",
-                      "equals": "Microsoft.Compute"
-                    }
-                  ]
-                },
-                "deployment": {
-                  "properties": {
-                    "mode": "Incremental",
-                    "parameters": {
-                      "vmName": {
-                        "value": "[field('name')]"
-                      },
-                      "location": {
-                        "value": "[field('location')]"
-                      },
-                      "domainUsername": {
-                        "reference": {
-                          "keyVault": {
-                            "id": "[parameters('keyVaultResourceId')]"
-                          },
-                          "secretName": "[parameters('domainUsername')]"
-                        }
-                      },
-                      "domainPassword": {
-                        "reference": {
-                          "keyVault": {
-                            "id": "[parameters('keyVaultResourceId')]"
-                          },
-                          "secretName": "[parameters('domainPassword')]"
-                        }
-                      },
-                      "domainOUPath": {
-                        "value": "[parameters('domainOUPath')]"
-                      },
-                      "domainFQDN": {
-                        "value": "[parameters('domainFQDN')]"
-                      },
-                      "keyVaultResourceId": {
-                        "value": "[parameters('keyVaultResourceId')]"
-                      }
-                    },
-                    "template": {
-                      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-                      "contentVersion": "1.0.0.0",
-                      "parameters": {
-                        "vmName": {
-                          "type": "String"
-                        },
-                        "location": {
-                          "type": "String"
-                        },
-                        "domainUsername": {
-                          "type": "String"
-                        },
-                        "domainPassword": {
-                          "type": "securestring"
-                        },
-                        "domainFQDN": {
-                          "type": "String"
-                        },
-                        "domainOUPath": {
-                          "type": "String"
-                        },
-                        "keyVaultResourceId": {
-                          "type": "String"
-                        }
-                      },
-                      "variables": {
-                        "domainJoinOptions": 3,
-                        "vmName": "[parameters('vmName')]"
-                      },
-                      "resources": [
-                        {
-                          "apiVersion": "2015-06-15",
-                          "type": "Microsoft.Compute/virtualMachines/extensions",
-                          "name": "[concat(variables('vmName'),'/joindomain')]",
-                          "location": "[resourceGroup().location]",
-                          "properties": {
-                            "publisher": "Microsoft.Compute",
-                            "type": "JsonADDomainExtension",
-                            "typeHandlerVersion": "1.3",
-                            "autoUpgradeMinorVersion": true,
-                            "settings": {
-                              "Name": "[parameters('domainFQDN')]",
-                              "User": "[parameters('domainUserName')]",
-                              "Restart": "true",
-                              "Options": "[variables('domainJoinOptions')]",
-                              "OUPath": "[parameters('domainOUPath')]"
-                            },
-                            "protectedSettings": {
-                              "Password": "[parameters('domainPassword')]"
-                            }
-                          }
-                        }
-                      ],
-                      "outputs": {}
-                    }
-                  }
-                }
-              }
             }
-          }
+          },
+          "mode": "Indexed"
         }
       }
     }

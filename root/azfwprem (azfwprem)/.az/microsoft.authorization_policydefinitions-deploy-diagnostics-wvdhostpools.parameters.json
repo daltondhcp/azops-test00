@@ -4,68 +4,60 @@
   "parameters": {
     "input": {
       "value": {
-        "Name": "Deploy-Diagnostics-WVDHostPools",
-        "ResourceType": "Microsoft.Authorization/policyDefinitions",
-        "Properties": {
-          "Description": "Deploys the diagnostic settings for WVD Host Pools to stream to a Log Analytics workspace when any Host Pools which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all and categorys enabled.",
-          "DisplayName": "Deploy Diagnostic Settings for WVD Host Pools to Log Analytics workspace",
-          "Metadata": {
-            "version": "1.0.0",
-            "category": "Monitoring"
-          },
-          "Mode": "Indexed",
-          "Parameters": {
+        "name": "Deploy-Diagnostics-WVDHostPools",
+        "type": "microsoft.authorization/policydefinitions",
+        "kind": "policydefinitions",
+        "location": "global",
+        "properties": {
+          "description": "Deploys the diagnostic settings for WVD Host Pools to stream to a Log Analytics workspace when any Host Pools which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all and categorys enabled.",
+          "displayName": "Deploy Diagnostic Settings for WVD Host Pools to Log Analytics workspace",
+          "parameters": {
             "logAnalytics": {
-              "type": "String",
               "metadata": {
-                "displayName": "Log Analytics workspace",
                 "description": "Select Log Analytics workspace from dropdown list. If this workspace is outside of the scope of the assignment you must manually grant 'Log Analytics Contributor' permissions (or similar) to the policy assignment's principal ID.",
+                "displayName": "Log Analytics workspace",
                 "strongType": "omsWorkspace"
-              }
+              },
+              "type": "String"
             },
             "effect": {
-              "type": "String",
-              "metadata": {
-                "displayName": "Effect",
-                "description": "Enable or disable the execution of the policy"
-              },
               "allowedValues": [
                 "DeployIfNotExists",
                 "Disabled"
               ],
-              "defaultValue": "DeployIfNotExists"
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Enable or disable the execution of the policy",
+                "displayName": "Effect"
+              },
+              "type": "String"
             },
             "profileName": {
-              "type": "String",
+              "defaultValue": "setbypolicy",
               "metadata": {
-                "displayName": "Profile name",
-                "description": "The diagnostic settings profile name"
+                "description": "The diagnostic settings profile name",
+                "displayName": "Profile name"
               },
-              "defaultValue": "setbypolicy"
+              "type": "String"
             },
             "logsEnabled": {
-              "type": "String",
-              "metadata": {
-                "displayName": "Enable logs",
-                "description": "Whether to enable logs stream to the Log Analytics workspace - True or False"
-              },
               "allowedValues": [
                 "True",
                 "False"
               ],
-              "defaultValue": "True"
+              "defaultValue": "True",
+              "metadata": {
+                "description": "Whether to enable logs stream to the Log Analytics workspace - True or False",
+                "displayName": "Enable logs"
+              },
+              "type": "String"
             }
           },
-          "PolicyRule": {
-            "if": {
-              "field": "type",
-              "equals": "Microsoft.DesktopVirtualization/hostpools"
-            },
+          "policyRule": {
             "then": {
               "effect": "[parameters('effect')]",
               "details": {
                 "type": "Microsoft.Insights/diagnosticSettings",
-                "name": "setByPolicy",
                 "existenceCondition": {
                   "allOf": [
                     {
@@ -84,18 +76,33 @@
                 ],
                 "deployment": {
                   "properties": {
+                    "parameters": {
+                      "location": {
+                        "value": "[field('location')]"
+                      },
+                      "logAnalytics": {
+                        "value": "[parameters('logAnalytics')]"
+                      },
+                      "resourceName": {
+                        "value": "[field('name')]"
+                      },
+                      "profileName": {
+                        "value": "[parameters('profileName')]"
+                      },
+                      "logsEnabled": {
+                        "value": "[parameters('logsEnabled')]"
+                      }
+                    },
                     "mode": "Incremental",
                     "template": {
-                      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-                      "contentVersion": "1.0.0.0",
                       "parameters": {
-                        "resourceName": {
+                        "location": {
                           "type": "String"
                         },
                         "logAnalytics": {
                           "type": "String"
                         },
-                        "location": {
+                        "resourceName": {
                           "type": "String"
                         },
                         "profileName": {
@@ -105,14 +112,10 @@
                           "type": "String"
                         }
                       },
-                      "variables": {},
+                      "contentVersion": "1.0.0.0",
                       "resources": [
                         {
                           "type": "Microsoft.DesktopVirtualization/hostpools/providers/diagnosticSettings",
-                          "apiVersion": "2017-05-01-preview",
-                          "name": "[concat(parameters('resourceName'), '/', 'Microsoft.Insights/', parameters('profileName'))]",
-                          "location": "[parameters('location')]",
-                          "dependsOn": [],
                           "properties": {
                             "workspaceId": "[parameters('logAnalytics')]",
                             "logs": [
@@ -141,33 +144,28 @@
                                 "enabled": "[parameters('logsEnabled')]"
                               }
                             ]
-                          }
+                          },
+                          "location": "[parameters('location')]",
+                          "apiVersion": "2017-05-01-preview",
+                          "name": "[concat(parameters('resourceName'), '/', 'Microsoft.Insights/', parameters('profileName'))]",
+                          "dependsOn": []
                         }
                       ],
+                      "variables": {},
+                      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
                       "outputs": {}
-                    },
-                    "parameters": {
-                      "logAnalytics": {
-                        "value": "[parameters('logAnalytics')]"
-                      },
-                      "location": {
-                        "value": "[field('location')]"
-                      },
-                      "resourceName": {
-                        "value": "[field('name')]"
-                      },
-                      "profileName": {
-                        "value": "[parameters('profileName')]"
-                      },
-                      "logsEnabled": {
-                        "value": "[parameters('logsEnabled')]"
-                      }
                     }
                   }
-                }
+                },
+                "name": "setByPolicy"
               }
+            },
+            "if": {
+              "field": "type",
+              "equals": "Microsoft.DesktopVirtualization/hostpools"
             }
-          }
+          },
+          "mode": "Indexed"
         }
       }
     }

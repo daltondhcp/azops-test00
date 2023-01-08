@@ -10,22 +10,21 @@
   "variables": {},
   "resources": [
     {
-      "type": "Microsoft.Authorization/policyAssignments",
+      "type": "microsoft.authorization/policyassignments",
       "name": "0b490ff1dfa940b890f17e3c",
+      "kind": "policyassignments",
       "apiVersion": "2022-06-01",
-      "location": null,
+      "location": "global",
       "properties": {
-        "Description": "",
-        "DisplayName": "Deny internet inbound",
-        "EnforcementMode": "Default",
-        "NonComplianceMessages": [
+        "displayName": "Deny internet inbound",
+        "enforcementMode": "Default",
+        "nonComplianceMessages": [
           {
-            "Message": "This is not allowed sir",
-            "PolicyDefinitionReferenceId": null
+            "message": "This is not allowed sir"
           }
         ],
-        "NotScopes": [],
-        "Parameters": {
+        "notScopes": [],
+        "parameters": {
           "deniedPorts": {
             "value": [
               "22",
@@ -34,8 +33,8 @@
             ]
           }
         },
-        "PolicyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/a509d105-a526-4afe-afd7-6bb21f03add7",
-        "Scope": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/azfwpremvw-ddos"
+        "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/a509d105-a526-4afe-afd7-6bb21f03add7",
+        "scope": "/subscriptions/d0cc7505-f259-40ae-8e08-75476f2dd378/resourceGroups/azfwpremvw-ddos"
       }
     }
   ],
