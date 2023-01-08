@@ -72,12 +72,12 @@
                         {
                           "type": "Microsoft.Sql/servers/databases/securityAlertPolicies",
                           "properties": {
-                            "retentionDays": 0,
                             "emailAccountAdmins": true,
-                            "state": "Enabled",
+                            "retentionDays": 0,
                             "emailAddresses": [
                               "admin@contoso.com"
                             ],
+                            "state": "Enabled",
                             "disabledAlerts": []
                           },
                           "apiVersion": "2018-06-01-preview",

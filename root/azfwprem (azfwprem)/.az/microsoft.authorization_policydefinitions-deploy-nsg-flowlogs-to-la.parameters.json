@@ -196,8 +196,8 @@
                         }
                       ],
                       "variables": {
-                        "storageAccountName": "[concat('es', uniqueString(variables('securityGroupName'), parameters('time')))]",
                         "resourceGroupName": "[split(parameters('networkSecurityGroup'), '/')[4]]",
+                        "storageAccountName": "[concat('es', uniqueString(variables('securityGroupName'), parameters('time')))]",
                         "securityGroupName": "[split(parameters('networkSecurityGroup'), '/')[8]]"
                       },
                       "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",

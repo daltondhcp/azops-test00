@@ -44,14 +44,12 @@
               "schema": {
                 "description": "A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all resources.",
                 "type": "object",
-                "additionalProperties": false,
                 "properties": {
                   "matchExpressions": {
                     "description": "matchExpressions is a list of values, a key, and an operator.",
                     "type": "array",
                     "items": {
                       "type": "object",
-                      "additionalProperties": false,
                       "properties": {
                         "values": {
                           "description": "values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty.",
@@ -75,6 +73,7 @@
                           "type": "string"
                         }
                       },
+                      "additionalProperties": false,
                       "required": [
                         "key",
                         "operator"
@@ -90,7 +89,8 @@
                     },
                     "minProperties": 1
                   }
-                }
+                },
+                "additionalProperties": false
               },
               "type": "Object"
             },
