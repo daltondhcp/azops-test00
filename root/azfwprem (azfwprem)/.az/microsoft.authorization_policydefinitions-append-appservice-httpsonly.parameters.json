@@ -9,8 +9,6 @@
         "kind": "policydefinitions",
         "location": "global",
         "properties": {
-          "description": "Appends  the AppService sites object to ensure that  HTTPS only is enabled for  server/service authentication and protects data in transit from network layer eavesdropping attacks. Please note Append does not enforce compliance use then deny.",
-          "displayName": "AppService append enable https only setting to enforce https setting.",
           "parameters": {
             "effect": {
               "allowedValues": [
@@ -25,13 +23,15 @@
               "type": "String"
             }
           },
+          "description": "Appends  the AppService sites object to ensure that  HTTPS only is enabled for  server/service authentication and protects data in transit from network layer eavesdropping attacks. Please note Append does not enforce compliance use then deny.",
+          "displayName": "AppService append enable https only setting to enforce https setting.",
           "policyRule": {
             "then": {
               "effect": "[parameters('effect')]",
               "details": [
                 {
-                  "field": "Microsoft.Web/sites/httpsOnly",
-                  "value": true
+                  "value": true,
+                  "field": "Microsoft.Web/sites/httpsOnly"
                 }
               ]
             },

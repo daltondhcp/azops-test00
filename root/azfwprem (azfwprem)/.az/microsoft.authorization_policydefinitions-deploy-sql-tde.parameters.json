@@ -9,8 +9,6 @@
         "kind": "policydefinitions",
         "location": "global",
         "properties": {
-          "description": "Deploy the Transparent Data Encryption when it is not enabled in the deployment",
-          "displayName": "Deploy SQL Database Transparent Data Encryption ",
           "parameters": {
             "effect": {
               "allowedValues": [
@@ -25,11 +23,16 @@
               "type": "String"
             }
           },
+          "description": "Deploy the Transparent Data Encryption when it is not enabled in the deployment",
+          "displayName": "Deploy SQL Database Transparent Data Encryption ",
           "policyRule": {
             "then": {
               "effect": "[parameters('effect')]",
               "details": {
                 "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
+                "roleDefinitionIds": [
+                  "/providers/Microsoft.Authorization/roleDefinitions/056cd41c-7e88-42e1-933e-88ba6a50c9c3"
+                ],
                 "existenceCondition": {
                   "allOf": [
                     {
@@ -38,9 +41,6 @@
                     }
                   ]
                 },
-                "roleDefinitionIds": [
-                  "/providers/Microsoft.Authorization/roleDefinitions/056cd41c-7e88-42e1-933e-88ba6a50c9c3"
-                ],
                 "deployment": {
                   "properties": {
                     "parameters": {
@@ -74,8 +74,8 @@
                           "properties": {
                             "status": "Enabled"
                           },
-                          "apiVersion": "2014-04-01T00:00:00Z",
-                          "name": "[concat( parameters('sqlServerName'),'/',parameters('sqlServerDataBaseName'),'/current')]"
+                          "name": "[concat( parameters('sqlServerName'),'/',parameters('sqlServerDataBaseName'),'/current')]",
+                          "apiVersion": "2014-04-01T00:00:00Z"
                         }
                       ],
                       "variables": {},

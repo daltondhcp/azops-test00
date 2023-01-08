@@ -9,8 +9,6 @@
         "kind": "policydefinitions",
         "location": "global",
         "properties": {
-          "description": "Azure Database for PostgreSQL supports connecting your Azure Database for PostgreSQL server to client applications using Secure Sockets Layer (SSL). Enforcing SSL connections between your database server and your client applications helps protect against 'man in the middle' attacks by encrypting the data stream between the server and your application. This configuration enforces that SSL is always enabled for accessing your database server.",
-          "displayName": "PostgreSQL database servers enforce SSL connection.",
           "parameters": {
             "effect": {
               "allowedValues": [
@@ -40,6 +38,8 @@
               "type": "String"
             }
           },
+          "description": "Azure Database for PostgreSQL supports connecting your Azure Database for PostgreSQL server to client applications using Secure Sockets Layer (SSL). Enforcing SSL connections between your database server and your client applications helps protect against 'man in the middle' attacks by encrypting the data stream between the server and your application. This configuration enforces that SSL is always enabled for accessing your database server.",
+          "displayName": "PostgreSQL database servers enforce SSL connection.",
           "policyRule": {
             "then": {
               "effect": "[parameters('effect')]"

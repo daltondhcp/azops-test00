@@ -9,8 +9,6 @@
         "kind": "policydefinitions",
         "location": "global",
         "properties": {
-          "description": "Deploys the diagnostic settings for Network Interfaces to stream to a Log Analytics workspace when any Network Interfaces which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-          "displayName": "Deploy Diagnostic Settings for Network Interfaces to Log Analytics workspace",
           "parameters": {
             "logAnalytics": {
               "metadata": {
@@ -32,6 +30,14 @@
               },
               "type": "String"
             },
+            "profileName": {
+              "defaultValue": "setbypolicy",
+              "metadata": {
+                "description": "The diagnostic settings profile name",
+                "displayName": "Profile name"
+              },
+              "type": "String"
+            },
             "metricsEnabled": {
               "allowedValues": [
                 "True",
@@ -43,21 +49,19 @@
                 "displayName": "Enable metrics"
               },
               "type": "String"
-            },
-            "profileName": {
-              "defaultValue": "setbypolicy",
-              "metadata": {
-                "description": "The diagnostic settings profile name",
-                "displayName": "Profile name"
-              },
-              "type": "String"
             }
           },
+          "description": "Deploys the diagnostic settings for Network Interfaces to stream to a Log Analytics workspace when any Network Interfaces which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+          "displayName": "Deploy Diagnostic Settings for Network Interfaces to Log Analytics workspace",
           "policyRule": {
             "then": {
               "effect": "[parameters('effect')]",
               "details": {
                 "type": "Microsoft.Insights/diagnosticSettings",
+                "roleDefinitionIds": [
+                  "/providers/microsoft.authorization/roleDefinitions/749f88d5-cbae-40b8-bcfc-e573ddc772fa",
+                  "/providers/microsoft.authorization/roleDefinitions/92aaf0da-9dab-42b6-94a3-d43ce8d16293"
+                ],
                 "existenceCondition": {
                   "allOf": [
                     {
@@ -70,45 +74,42 @@
                     }
                   ]
                 },
-                "roleDefinitionIds": [
-                  "/providers/microsoft.authorization/roleDefinitions/749f88d5-cbae-40b8-bcfc-e573ddc772fa",
-                  "/providers/microsoft.authorization/roleDefinitions/92aaf0da-9dab-42b6-94a3-d43ce8d16293"
-                ],
+                "name": "setByPolicy",
                 "deployment": {
                   "properties": {
                     "parameters": {
-                      "location": {
-                        "value": "[field('location')]"
-                      },
                       "logAnalytics": {
                         "value": "[parameters('logAnalytics')]"
+                      },
+                      "profileName": {
+                        "value": "[parameters('profileName')]"
+                      },
+                      "location": {
+                        "value": "[field('location')]"
                       },
                       "metricsEnabled": {
                         "value": "[parameters('metricsEnabled')]"
                       },
                       "resourceName": {
                         "value": "[field('name')]"
-                      },
-                      "profileName": {
-                        "value": "[parameters('profileName')]"
                       }
                     },
                     "mode": "Incremental",
                     "template": {
                       "parameters": {
-                        "location": {
+                        "logAnalytics": {
                           "type": "String"
                         },
-                        "logAnalytics": {
+                        "profileName": {
+                          "type": "String"
+                        },
+                        "location": {
                           "type": "String"
                         },
                         "metricsEnabled": {
                           "type": "String"
                         },
                         "resourceName": {
-                          "type": "String"
-                        },
-                        "profileName": {
                           "type": "String"
                         }
                       },
@@ -130,8 +131,8 @@
                             ]
                           },
                           "location": "[parameters('location')]",
-                          "apiVersion": "2017-05-01-preview",
                           "name": "[concat(parameters('resourceName'), '/', 'Microsoft.Insights/', parameters('profileName'))]",
+                          "apiVersion": "2017-05-01-preview",
                           "dependsOn": []
                         }
                       ],
@@ -140,8 +141,7 @@
                       "outputs": {}
                     }
                   }
-                },
-                "name": "setByPolicy"
+                }
               }
             },
             "if": {

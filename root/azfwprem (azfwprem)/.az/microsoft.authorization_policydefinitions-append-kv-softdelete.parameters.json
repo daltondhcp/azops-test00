@@ -9,16 +9,16 @@
         "kind": "policydefinitions",
         "location": "global",
         "properties": {
+          "parameters": {},
           "description": "This policy enables you to ensure when a Key Vault is created with out soft delete enabled it will be added.",
           "displayName": "KeyVault SoftDelete should be enabled",
-          "parameters": {},
           "policyRule": {
             "then": {
               "effect": "append",
               "details": [
                 {
-                  "field": "Microsoft.KeyVault/vaults/enableSoftDelete",
-                  "value": true
+                  "value": true,
+                  "field": "Microsoft.KeyVault/vaults/enableSoftDelete"
                 }
               ]
             },

@@ -39,18 +39,6 @@
               },
               "type": "String"
             },
-            "pricingTierSqlServerVirtualMachines": {
-              "allowedValues": [
-                "Standard",
-                "Free"
-              ],
-              "defaultValue": "Standard",
-              "metadata": {
-                "description": "Azure Defender pricing tier for SQL Server Virtual Machines",
-                "displayName": "Azure Defender pricing tier for SQL Server Virtual Machines"
-              },
-              "type": "string"
-            },
             "pricingTierContainerRegistry": {
               "allowedValues": [
                 "Standard",
@@ -123,15 +111,15 @@
               },
               "type": "string"
             },
-            "pricingTierArm": {
+            "pricingTierVMs": {
               "allowedValues": [
                 "Standard",
                 "Free"
               ],
               "defaultValue": "Standard",
               "metadata": {
-                "description": "Azure Defender pricing tier for Azure Resource Manager",
-                "displayName": "Azure Defender pricing tier for Azure Resource Manager"
+                "description": "Azure Defender pricing tier for Virtual Machines",
+                "displayName": "Azure Defender pricing tier for Virtual Machines"
               },
               "type": "string"
             },
@@ -147,15 +135,27 @@
               },
               "type": "string"
             },
-            "pricingTierVMs": {
+            "pricingTierArm": {
               "allowedValues": [
                 "Standard",
                 "Free"
               ],
               "defaultValue": "Standard",
               "metadata": {
-                "description": "Azure Defender pricing tier for Virtual Machines",
-                "displayName": "Azure Defender pricing tier for Virtual Machines"
+                "description": "Azure Defender pricing tier for Azure Resource Manager",
+                "displayName": "Azure Defender pricing tier for Azure Resource Manager"
+              },
+              "type": "string"
+            },
+            "pricingTierSqlServerVirtualMachines": {
+              "allowedValues": [
+                "Standard",
+                "Free"
+              ],
+              "defaultValue": "Standard",
+              "metadata": {
+                "description": "Azure Defender pricing tier for SQL Server Virtual Machines",
+                "displayName": "Azure Defender pricing tier for SQL Server Virtual Machines"
               },
               "type": "string"
             }

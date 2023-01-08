@@ -9,8 +9,6 @@
         "kind": "policydefinitions",
         "location": "global",
         "properties": {
-          "description": "This policy denies the creation of a subsnet with out an Network Security Group. NSG help to protect traffic across subnet-level.",
-          "displayName": "Subnets should have a Network Security Group",
           "parameters": {
             "effect": {
               "allowedValues": [
@@ -38,6 +36,8 @@
               "type": "Array"
             }
           },
+          "description": "This policy denies the creation of a subsnet with out an Network Security Group. NSG help to protect traffic across subnet-level.",
+          "displayName": "Subnets should have a Network Security Group",
           "policyRule": {
             "then": {
               "effect": "[parameters('effect')]"
