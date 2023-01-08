@@ -35,18 +35,6 @@
               },
               "type": "String"
             },
-            "StorageDeployHttpsEnabledEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Audit requirement of Secure transfer in your storage account. Secure transfer is an option that forces your storage account to accept requests only from secure connections (HTTPS). Use of HTTPS ensures authentication between the server and the service and protects data in transit from network layer attacks such as man-in-the-middle, eavesdropping, and session-hijacking",
-                "displayName": "Azure Storage Account. Deploy Secure transfer to storage accounts should be enabled"
-              },
-              "type": "String"
-            },
             "PostgreSQLEnableSSLDeployEffect": {
               "allowedValues": [
                 "DeployIfNotExists",
@@ -56,6 +44,18 @@
               "metadata": {
                 "description": "Deploy a specific min TLS version requirement and enforce SSL on Azure Database for PostgreSQL server. Enforce the Server to client applications using minimum version of Tls to secure the connection between your database server and your client applications helps protect against 'man in the middle' attacks by encrypting the data stream between the server and your application. This configuration enforces that SSL is always enabled for accessing your database server.",
                 "displayName": "PostgreSQL database servers. Deploy if not exist set minimum TLS version Azure Database for PostgreSQL server"
+              },
+              "type": "String"
+            },
+            "StorageDeployHttpsEnabledEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Audit requirement of Secure transfer in your storage account. Secure transfer is an option that forces your storage account to accept requests only from secure connections (HTTPS). Use of HTTPS ensures authentication between the server and the service and protects data in transit from network layer attacks such as man-in-the-middle, eavesdropping, and session-hijacking",
+                "displayName": "Azure Storage Account. Deploy Secure transfer to storage accounts should be enabled"
               },
               "type": "String"
             },
@@ -110,6 +110,18 @@
               },
               "type": "String"
             },
+            "MySQLEnableSSLDeployEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploy a specific min TLS version requirement and enforce SSL on Azure Database for MySQL server. Enforce the Server to client applications using minimum version of Tls to secure the connection between your database server and your client applications helps protect against 'man in the middle' attacks by encrypting the data stream between the server and your application. This configuration enforces that SSL is always enabled for accessing your database server.",
+                "displayName": "MySQL database servers. Deploy if not exist set minimum TLS version Azure Database for MySQL server"
+              },
+              "type": "String"
+            },
             "FunctionServiceHttpsEffect": {
               "allowedValues": [
                 "Audit",
@@ -132,18 +144,6 @@
               "metadata": {
                 "description": "App Service. Appends the AppService sites object to ensure that  HTTPS only is enabled for  server/service authentication and protects data in transit from network layer eavesdropping attacks. Please note Append does not enforce compliance use then deny.",
                 "displayName": "App Service. Appends the AppService WebApp, APIApp, Function App to enable https only"
-              },
-              "type": "String"
-            },
-            "MySQLEnableSSLDeployEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploy a specific min TLS version requirement and enforce SSL on Azure Database for MySQL server. Enforce the Server to client applications using minimum version of Tls to secure the connection between your database server and your client applications helps protect against 'man in the middle' attacks by encrypting the data stream between the server and your application. This configuration enforces that SSL is always enabled for accessing your database server.",
-                "displayName": "MySQL database servers. Deploy if not exist set minimum TLS version Azure Database for MySQL server"
               },
               "type": "String"
             },
@@ -186,7 +186,7 @@
               },
               "type": "String"
             },
-            "WebAppServiceHttpsEffect": {
+            "APIAppServiceHttpsEffect": {
               "allowedValues": [
                 "Audit",
                 "Disabled",
@@ -195,7 +195,7 @@
               "defaultValue": "Audit",
               "metadata": {
                 "description": "Choose Deny or Audit in combination with Append policy. Use of HTTPS ensures server/service authentication and protects data in transit from network layer eavesdropping attacks.",
-                "displayName": "App Service Web App. Web Application should only be accessible over HTTPS. Choose Deny or Audit in combination with Append policy."
+                "displayName": "App Service API App. API App should only be accessible over HTTPS. Choose Deny or Audit in combination with Append policy."
               },
               "type": "String"
             },
@@ -224,7 +224,7 @@
               },
               "type": "String"
             },
-            "APIAppServiceHttpsEffect": {
+            "WebAppServiceHttpsEffect": {
               "allowedValues": [
                 "Audit",
                 "Disabled",
@@ -233,20 +233,7 @@
               "defaultValue": "Audit",
               "metadata": {
                 "description": "Choose Deny or Audit in combination with Append policy. Use of HTTPS ensures server/service authentication and protects data in transit from network layer eavesdropping attacks.",
-                "displayName": "App Service API App. API App should only be accessible over HTTPS. Choose Deny or Audit in combination with Append policy."
-              },
-              "type": "String"
-            },
-            "AppServiceminTlsVersion": {
-              "allowedValues": [
-                "1.2",
-                "1.0",
-                "1.1"
-              ],
-              "defaultValue": "1.2",
-              "metadata": {
-                "description": "App Service. Select version  minimum TLS version for a  Web App config to enforce",
-                "displayName": "App Service. Select version minimum TLS Web App config"
+                "displayName": "App Service Web App. Web Application should only be accessible over HTTPS. Choose Deny or Audit in combination with Append policy."
               },
               "type": "String"
             },
@@ -262,7 +249,7 @@
               },
               "type": "String"
             },
-            "SQLServerminTlsVersion": {
+            "AppServiceminTlsVersion": {
               "allowedValues": [
                 "1.2",
                 "1.0",
@@ -270,8 +257,8 @@
               ],
               "defaultValue": "1.2",
               "metadata": {
-                "description": "Select version  minimum TLS version for Azure SQL Database to enforce",
-                "displayName": "Azure SQL Database.Select version minimum TLS for Azure SQL Database"
+                "description": "App Service. Select version  minimum TLS version for a  Web App config to enforce",
+                "displayName": "App Service. Select version minimum TLS Web App config"
               },
               "type": "String"
             },
@@ -289,15 +276,29 @@
               },
               "type": "String"
             },
-            "AppServiceHttpEffect": {
+            "SQLServerminTlsVersion": {
               "allowedValues": [
-                "Append",
-                "Disabled"
+                "1.2",
+                "1.0",
+                "1.1"
               ],
-              "defaultValue": "Append",
+              "defaultValue": "1.2",
               "metadata": {
-                "description": "Append the AppService sites object to ensure that min Tls version is set to required TLS version. Please note Append does not enforce compliance use then deny.",
-                "displayName": "App Service. Appends the AppService sites config WebApp, APIApp, Function App with TLS version selected below"
+                "description": "Select version  minimum TLS version for Azure SQL Database to enforce",
+                "displayName": "Azure SQL Database.Select version minimum TLS for Azure SQL Database"
+              },
+              "type": "String"
+            },
+            "MySQLEnableSSLEffect": {
+              "allowedValues": [
+                "Audit",
+                "Disabled",
+                "Deny"
+              ],
+              "defaultValue": "Audit",
+              "metadata": {
+                "description": "Azure Database for MySQL supports connecting your Azure Database for MySQL server to client applications using Secure Sockets Layer (SSL). Enforcing SSL connections between your database server and your client applications helps protect against 'man in the middle' attacks by encrypting the data stream between the server and your application. This configuration enforces that SSL is always enabled for accessing your database server.",
+                "displayName": "MySQL database servers. Enforce SSL connection should be enabled for MySQL database servers"
               },
               "type": "String"
             },
@@ -313,16 +314,15 @@
               },
               "type": "String"
             },
-            "MySQLEnableSSLEffect": {
+            "AppServiceHttpEffect": {
               "allowedValues": [
-                "Audit",
-                "Disabled",
-                "Deny"
+                "Append",
+                "Disabled"
               ],
-              "defaultValue": "Audit",
+              "defaultValue": "Append",
               "metadata": {
-                "description": "Azure Database for MySQL supports connecting your Azure Database for MySQL server to client applications using Secure Sockets Layer (SSL). Enforcing SSL connections between your database server and your client applications helps protect against 'man in the middle' attacks by encrypting the data stream between the server and your application. This configuration enforces that SSL is always enabled for accessing your database server.",
-                "displayName": "MySQL database servers. Enforce SSL connection should be enabled for MySQL database servers"
+                "description": "Append the AppService sites object to ensure that min Tls version is set to required TLS version. Please note Append does not enforce compliance use then deny.",
+                "displayName": "App Service. Appends the AppService sites config WebApp, APIApp, Function App with TLS version selected below"
               },
               "type": "String"
             },

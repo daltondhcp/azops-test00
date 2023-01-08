@@ -16,19 +16,19 @@
                 "DeployIfNotExists",
                 "Disabled"
               ],
-              "defaultValue": "DeployIfNotExists",
               "metadata": {
-                "description": "Enable or disable the execution of the policy",
-                "displayName": "Effect"
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
               },
+              "defaultValue": "DeployIfNotExists",
               "type": "String"
             },
             "listOfImageIdToInclude": {
-              "defaultValue": [],
               "metadata": {
-                "description": "Example value: '/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage'",
-                "displayName": "Optional: List of virtual machine images that have supported Windows OS to add to scope"
+                "displayName": "Optional: List of virtual machine images that have supported Windows OS to add to scope",
+                "description": "Example value: '/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage'"
               },
+              "defaultValue": [],
               "type": "Array"
             }
           },

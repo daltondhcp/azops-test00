@@ -20,17 +20,17 @@
               },
               "type": "Boolean"
             },
-            "vNetCidrRange": {
-              "metadata": {
-                "description": "CIDR Range for the vNet",
-                "displayName": "vNetCidrRange"
-              },
-              "type": "String"
-            },
             "hubResourceId": {
               "metadata": {
                 "description": "Resource ID for the HUB vNet",
                 "displayName": "hubResourceId"
+              },
+              "type": "String"
+            },
+            "vNetCidrRange": {
+              "metadata": {
+                "description": "CIDR Range for the vNet",
+                "displayName": "vNetCidrRange"
               },
               "type": "String"
             },
@@ -90,11 +90,11 @@
                       "vNetPeerUseRemoteGateway": {
                         "value": "[parameters('vNetPeerUseRemoteGateway')]"
                       },
-                      "vNetCidrRange": {
-                        "value": "[parameters('vNetCidrRange')]"
-                      },
                       "hubResourceId": {
                         "value": "[parameters('hubResourceId')]"
+                      },
+                      "vNetCidrRange": {
+                        "value": "[parameters('vNetCidrRange')]"
                       },
                       "vNetLocation": {
                         "value": "[parameters('vNetLocation')]"
@@ -116,10 +116,10 @@
                           "defaultValue": false,
                           "type": "bool"
                         },
-                        "vNetCidrRange": {
+                        "hubResourceId": {
                           "type": "String"
                         },
-                        "hubResourceId": {
+                        "vNetCidrRange": {
                           "type": "String"
                         },
                         "vNetLocation": {
