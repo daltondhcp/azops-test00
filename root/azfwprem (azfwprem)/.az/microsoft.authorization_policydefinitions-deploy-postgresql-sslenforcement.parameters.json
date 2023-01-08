@@ -9,6 +9,8 @@
         "kind": "policydefinitions",
         "location": "global",
         "properties": {
+          "description": "Deploy a specific min TLS version requirement and enforce SSL on Azure Database for PostgreSQL server. Enables secure server to client by enforce  minimal Tls Version to secure the connection between your database server and your client applications helps protect against 'man in the middle' attacks by encrypting the data stream between the server and your application. This configuration enforces that SSL is always enabled for accessing your database server.",
+          "displayName": "Azure Database for PostgreSQL server deploy a specific min TLS version requirement and enforce SSL ",
           "parameters": {
             "effect": {
               "allowedValues": [
@@ -37,16 +39,11 @@
               "type": "String"
             }
           },
-          "description": "Deploy a specific min TLS version requirement and enforce SSL on Azure Database for PostgreSQL server. Enables secure server to client by enforce  minimal Tls Version to secure the connection between your database server and your client applications helps protect against 'man in the middle' attacks by encrypting the data stream between the server and your application. This configuration enforces that SSL is always enabled for accessing your database server.",
-          "displayName": "Azure Database for PostgreSQL server deploy a specific min TLS version requirement and enforce SSL ",
           "policyRule": {
             "then": {
               "effect": "[parameters('effect')]",
               "details": {
                 "type": "Microsoft.DBforPostgreSQL/servers",
-                "roleDefinitionIds": [
-                  "/providers/microsoft.authorization/roleDefinitions/8e3af657-a8ff-443c-a75c-2fe8c4bcb635"
-                ],
                 "existenceCondition": {
                   "allOf": [
                     {
@@ -59,7 +56,9 @@
                     }
                   ]
                 },
-                "name": "current",
+                "roleDefinitionIds": [
+                  "/providers/microsoft.authorization/roleDefinitions/8e3af657-a8ff-443c-a75c-2fe8c4bcb635"
+                ],
                 "deployment": {
                   "properties": {
                     "parameters": {
@@ -95,8 +94,8 @@
                             "sslEnforcement": "[if(equals(parameters('minimalTlsVersion'), 'TLSEnforcementDisabled'),'Disabled', 'Enabled')]"
                           },
                           "location": "[parameters('location')]",
-                          "name": "[concat(parameters('resourceName'))]",
-                          "apiVersion": "2017-12-01T00:00:00Z"
+                          "apiVersion": "2017-12-01T00:00:00Z",
+                          "name": "[concat(parameters('resourceName'))]"
                         }
                       ],
                       "variables": {},
@@ -104,7 +103,8 @@
                       "outputs": {}
                     }
                   }
-                }
+                },
+                "name": "current"
               }
             },
             "if": {

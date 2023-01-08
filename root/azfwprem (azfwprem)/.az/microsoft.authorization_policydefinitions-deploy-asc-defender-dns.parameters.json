@@ -9,6 +9,8 @@
         "kind": "policydefinitions",
         "location": "global",
         "properties": {
+          "description": "Deploy the Azure Defender settings for DNS",
+          "displayName": "Deploy Azure Defender for DNS",
           "parameters": {
             "effect": {
               "allowedValues": [
@@ -35,16 +37,11 @@
               "type": "string"
             }
           },
-          "description": "Deploy the Azure Defender settings for DNS",
-          "displayName": "Deploy Azure Defender for DNS",
           "policyRule": {
             "then": {
               "effect": "[parameters('effect')]",
               "details": {
                 "type": "Microsoft.Security/pricings",
-                "roleDefinitionIds": [
-                  "/providers/Microsoft.Authorization/roleDefinitions/fb1c8493-542b-48eb-b624-b4c8fea62acd"
-                ],
                 "existenceCondition": {
                   "allOf": [
                     {
@@ -57,7 +54,9 @@
                     }
                   ]
                 },
-                "name": "Dns",
+                "roleDefinitionIds": [
+                  "/providers/Microsoft.Authorization/roleDefinitions/fb1c8493-542b-48eb-b624-b4c8fea62acd"
+                ],
                 "deployment": {
                   "properties": {
                     "parameters": {
@@ -82,8 +81,8 @@
                           "properties": {
                             "pricingTier": "[parameters('pricingTier')]"
                           },
-                          "name": "Dns",
-                          "apiVersion": "2018-06-01T00:00:00Z"
+                          "apiVersion": "2018-06-01T00:00:00Z",
+                          "name": "Dns"
                         }
                       ],
                       "variables": {},
@@ -93,6 +92,7 @@
                   },
                   "location": "northeurope"
                 },
+                "name": "Dns",
                 "deploymentScope": "Subscription",
                 "existenceScope": "Subscription"
               }

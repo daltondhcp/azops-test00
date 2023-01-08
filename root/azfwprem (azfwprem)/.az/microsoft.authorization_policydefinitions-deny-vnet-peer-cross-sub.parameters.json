@@ -9,6 +9,8 @@
         "kind": "policydefinitions",
         "location": "global",
         "properties": {
+          "description": "This policy d enies the creation of vNet Peerings outside of the same subscriptions under the assigned scope.",
+          "displayName": "Deny vNet peering cross subscription.",
           "parameters": {
             "effect": {
               "allowedValues": [
@@ -24,8 +26,6 @@
               "type": "String"
             }
           },
-          "description": "This policy d enies the creation of vNet Peerings outside of the same subscriptions under the assigned scope.",
-          "displayName": "Deny vNet peering cross subscription.",
           "policyRule": {
             "then": {
               "effect": "[parameters('effect')]"

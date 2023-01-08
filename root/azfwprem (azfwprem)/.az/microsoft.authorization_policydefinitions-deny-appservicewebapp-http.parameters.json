@@ -9,6 +9,8 @@
         "kind": "policydefinitions",
         "location": "global",
         "properties": {
+          "description": "Use of HTTPS ensures server/service authentication and protects data in transit from network layer eavesdropping attacks.",
+          "displayName": "Web Application should only be accessible over HTTPS",
           "parameters": {
             "effect": {
               "allowedValues": [
@@ -24,8 +26,6 @@
               "type": "String"
             }
           },
-          "description": "Use of HTTPS ensures server/service authentication and protects data in transit from network layer eavesdropping attacks.",
-          "displayName": "Web Application should only be accessible over HTTPS",
           "policyRule": {
             "then": {
               "effect": "[parameters('effect')]"

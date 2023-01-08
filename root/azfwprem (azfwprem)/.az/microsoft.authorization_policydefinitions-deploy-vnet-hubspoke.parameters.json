@@ -9,6 +9,8 @@
         "kind": "policydefinitions",
         "location": "global",
         "properties": {
+          "description": "This policy deploys virtual network and peer to the hub",
+          "displayName": "Deploy Virtual Network with peering to the hub",
           "parameters": {
             "vNetPeerUseRemoteGateway": {
               "defaultValue": false,
@@ -62,16 +64,11 @@
               "type": "String"
             }
           },
-          "description": "This policy deploys virtual network and peer to the hub",
-          "displayName": "Deploy Virtual Network with peering to the hub",
           "policyRule": {
             "then": {
               "effect": "deployIfNotExists",
               "details": {
                 "type": "Microsoft.Network/virtualNetworks",
-                "roleDefinitionIds": [
-                  "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
-                ],
                 "existenceCondition": {
                   "allOf": [
                     {
@@ -84,7 +81,9 @@
                     }
                   ]
                 },
-                "name": "[parameters('vNetName')]",
+                "roleDefinitionIds": [
+                  "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+                ],
                 "deployment": {
                   "properties": {
                     "parameters": {
@@ -151,8 +150,8 @@
                                   "type": "Microsoft.Resources/resourceGroups",
                                   "properties": {},
                                   "location": "[parameters('vNetLocation')]",
-                                  "name": "[parameters('vNetRgName')]",
-                                  "apiVersion": "2021-04-01T00:00:00Z"
+                                  "apiVersion": "2021-04-01T00:00:00Z",
+                                  "name": "[parameters('vNetRgName')]"
                                 }
                               ],
                               "variables": {},
@@ -161,8 +160,8 @@
                             }
                           },
                           "location": "[parameters('vNetLocation')]",
-                          "name": "[concat('es-lz-vnet-',substring(uniqueString(subscription().id),0,6),'-rg')]",
                           "apiVersion": "2021-04-01T00:00:00Z",
+                          "name": "[concat('es-lz-vnet-',substring(uniqueString(subscription().id),0,6),'-rg')]",
                           "dependsOn": []
                         },
                         {
@@ -187,8 +186,8 @@
                                     }
                                   },
                                   "location": "[parameters('vNetLocation')]",
-                                  "name": "[parameters('vNetName')]",
                                   "apiVersion": "2021-02-01T00:00:00Z",
+                                  "name": "[parameters('vNetName')]",
                                   "dependsOn": []
                                 },
                                 {
@@ -202,8 +201,8 @@
                                     "allowGatewayTransit": false,
                                     "useRemoteGateways": "[parameters('vNetPeerUseRemoteGateway')]"
                                   },
-                                  "name": "[concat(parameters('vNetName'), '/peerToHub')]",
                                   "apiVersion": "2021-02-01T00:00:00Z",
+                                  "name": "[concat(parameters('vNetName'), '/peerToHub')]",
                                   "dependsOn": [
                                     "[parameters('vNetName')]"
                                   ]
@@ -246,8 +245,8 @@
                                             "allowGatewayTransit": true,
                                             "useRemoteGateways": false
                                           },
-                                          "name": "[[concat(parameters('hubName'),'/',last(split(parameters('remoteVirtualNetwork'),'/')))]",
-                                          "apiVersion": "2021-02-01T00:00:00Z"
+                                          "apiVersion": "2021-02-01T00:00:00Z",
+                                          "name": "[[concat(parameters('hubName'),'/',last(split(parameters('remoteVirtualNetwork'),'/')))]"
                                         }
                                       ],
                                       "variables": {},
@@ -258,8 +257,8 @@
                                       "scope": "inner"
                                     }
                                   },
-                                  "name": "[concat('es-lz-hub-',substring(uniqueString(subscription().id),0,6),'-peering')]",
                                   "apiVersion": "2021-04-01T00:00:00Z",
+                                  "name": "[concat('es-lz-hub-',substring(uniqueString(subscription().id),0,6),'-peering')]",
                                   "dependsOn": [
                                     "[parameters('vNetName')]"
                                   ]
@@ -270,8 +269,8 @@
                               "outputs": {}
                             }
                           },
-                          "name": "[concat('es-lz-vnet-',substring(uniqueString(subscription().id),0,6))]",
                           "apiVersion": "2021-04-01T00:00:00Z",
+                          "name": "[concat('es-lz-vnet-',substring(uniqueString(subscription().id),0,6))]",
                           "dependsOn": [
                             "[concat('es-lz-vnet-',substring(uniqueString(subscription().id),0,6),'-rg')]"
                           ]
@@ -284,6 +283,7 @@
                   },
                   "location": "northeurope"
                 },
+                "name": "[parameters('vNetName')]",
                 "deploymentScope": "Subscription",
                 "existenceScope": "ResourceGroup",
                 "ResourceGroupName": "[parameters('vNetRgName')]"

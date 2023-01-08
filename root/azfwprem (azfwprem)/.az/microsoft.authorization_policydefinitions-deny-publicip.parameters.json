@@ -9,6 +9,8 @@
         "kind": "policydefinitions",
         "location": "global",
         "properties": {
+          "description": "This policy denies creation of Public IPs under the assigned scope.",
+          "displayName": "Deny the creation of public IP",
           "parameters": {
             "effect": {
               "allowedValues": [
@@ -24,8 +26,6 @@
               "type": "String"
             }
           },
-          "description": "This policy denies creation of Public IPs under the assigned scope.",
-          "displayName": "Deny the creation of public IP",
           "policyRule": {
             "then": {
               "effect": "[parameters('effect')]"

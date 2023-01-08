@@ -9,6 +9,8 @@
         "kind": "policydefinitions",
         "location": "global",
         "properties": {
+          "description": "Deploy a default budget on all subscriptions under the assigned scope",
+          "displayName": "Deploy a default budget on all subscriptions under the assigned scope",
           "parameters": {
             "timeGrain": {
               "allowedValues": [
@@ -25,17 +27,17 @@
               },
               "type": "String"
             },
-            "contactGroups": {
-              "defaultValue": [],
-              "metadata": {
-                "description": "The list of action groups, in an array, to send the budget notification to when the threshold is exceeded. It accepts array of strings."
-              },
-              "type": "Array"
-            },
             "contactEmails": {
               "defaultValue": [],
               "metadata": {
                 "description": "The list of email addresses, in an array, to send the budget notification to when the threshold is exceeded."
+              },
+              "type": "Array"
+            },
+            "contactGroups": {
+              "defaultValue": [],
+              "metadata": {
+                "description": "The list of action groups, in an array, to send the budget notification to when the threshold is exceeded. It accepts array of strings."
               },
               "type": "Array"
             },
@@ -71,16 +73,11 @@
               "type": "String"
             }
           },
-          "description": "Deploy a default budget on all subscriptions under the assigned scope",
-          "displayName": "Deploy a default budget on all subscriptions under the assigned scope",
           "policyRule": {
             "then": {
               "effect": "DeployIfNotExists",
               "details": {
                 "type": "Microsoft.Consumption/budgets",
-                "roleDefinitionIds": [
-                  "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
-                ],
                 "existenceCondition": {
                   "allOf": [
                     {
@@ -97,17 +94,20 @@
                     }
                   ]
                 },
+                "roleDefinitionIds": [
+                  "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+                ],
                 "deployment": {
                   "properties": {
                     "parameters": {
                       "timeGrain": {
                         "value": "[parameters('timeGrain')]"
                       },
-                      "contactGroups": {
-                        "value": "[parameters('contactGroups')]"
-                      },
                       "contactEmails": {
                         "value": "[parameters('contactEmails')]"
+                      },
+                      "contactGroups": {
+                        "value": "[parameters('contactGroups')]"
                       },
                       "contactRoles": {
                         "value": "[parameters('contactRoles')]"
@@ -128,10 +128,10 @@
                         "timeGrain": {
                           "type": "String"
                         },
-                        "contactGroups": {
+                        "contactEmails": {
                           "type": "Array"
                         },
-                        "contactEmails": {
+                        "contactGroups": {
                           "type": "Array"
                         },
                         "contactRoles": {
@@ -160,29 +160,29 @@
                             "timeGrain": "[parameters('timeGrain')]",
                             "amount": "[parameters('amount')]",
                             "notifications": {
-                              "NotificationForExceededBudget2": {
-                                "enabled": true,
-                                "contactGroups": "[parameters('contactGroups')]",
-                                "contactEmails": "[parameters('contactEmails')]",
-                                "contactRoles": "[parameters('contactRoles')]",
-                                "operator": "GreaterThan",
-                                "threshold": "[parameters('secondThreshold')]"
-                              },
                               "NotificationForExceededBudget1": {
                                 "enabled": true,
-                                "contactGroups": "[parameters('contactGroups')]",
                                 "contactEmails": "[parameters('contactEmails')]",
+                                "contactGroups": "[parameters('contactGroups')]",
                                 "contactRoles": "[parameters('contactRoles')]",
                                 "operator": "GreaterThan",
                                 "threshold": "[parameters('firstThreshold')]"
+                              },
+                              "NotificationForExceededBudget2": {
+                                "enabled": true,
+                                "contactEmails": "[parameters('contactEmails')]",
+                                "contactGroups": "[parameters('contactGroups')]",
+                                "contactRoles": "[parameters('contactRoles')]",
+                                "operator": "GreaterThan",
+                                "threshold": "[parameters('secondThreshold')]"
                               }
                             },
                             "timePeriod": {
                               "startDate": "[parameters('startDate')]"
                             }
                           },
-                          "name": "default-sandbox-budget",
-                          "apiVersion": "2019-10-01T00:00:00Z"
+                          "apiVersion": "2019-10-01T00:00:00Z",
+                          "name": "default-sandbox-budget"
                         }
                       ],
                       "$schema": "http://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json"

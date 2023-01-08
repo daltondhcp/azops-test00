@@ -123,18 +123,6 @@
               },
               "type": "String"
             },
-            "StorageCMKEffect": {
-              "allowedValues": [
-                "Audit",
-                "Disabled"
-              ],
-              "defaultValue": "Audit",
-              "metadata": {
-                "description": "Secure your storage account with greater flexibility using customer-managed keys (CMKs). When you specify a CMK, that key is used to protect and control access to the key that encrypts your data. Using CMKs provides additional capabilities to control rotation of the key encryption key or cryptographically erase data.",
-                "displayName": "Storage accounts should use customer-managed key (CMK) for encryption, no deny as this would result in not able to create storage account because the first need of MSI for encryption"
-              },
-              "type": "String"
-            },
             "DataBoxCMKEffect": {
               "allowedValues": [
                 "Audit",
@@ -145,6 +133,18 @@
               "metadata": {
                 "description": "Use a customer-managed key to control the encryption of the device unlock password for Azure Data Box. Customer-managed keys also help manage access to the device unlock password by the Data Box service in order to prepare the device and copy data in an automated manner. The data on the device itself is already encrypted at rest with Advanced Encryption Standard 256-bit encryption, and the device unlock password is encrypted by default with a Microsoft managed key.",
                 "displayName": "Azure Data Box jobs should use a customer-managed key to encrypt the device unlock password"
+              },
+              "type": "String"
+            },
+            "StorageCMKEffect": {
+              "allowedValues": [
+                "Audit",
+                "Disabled"
+              ],
+              "defaultValue": "Audit",
+              "metadata": {
+                "description": "Secure your storage account with greater flexibility using customer-managed keys (CMKs). When you specify a CMK, that key is used to protect and control access to the key that encrypts your data. Using CMKs provides additional capabilities to control rotation of the key encryption key or cryptographically erase data.",
+                "displayName": "Storage accounts should use customer-managed key (CMK) for encryption, no deny as this would result in not able to create storage account because the first need of MSI for encryption"
               },
               "type": "String"
             },

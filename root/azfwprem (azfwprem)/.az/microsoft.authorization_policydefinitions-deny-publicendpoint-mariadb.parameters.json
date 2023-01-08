@@ -9,6 +9,8 @@
         "kind": "policydefinitions",
         "location": "global",
         "properties": {
+          "description": "This policy denies the creation of Maria DB accounts with exposed public endpoints",
+          "displayName": "Public network access should be disabled for MariaDB",
           "parameters": {
             "effect": {
               "allowedValues": [
@@ -24,8 +26,6 @@
               "type": "String"
             }
           },
-          "description": "This policy denies the creation of Maria DB accounts with exposed public endpoints",
-          "displayName": "Public network access should be disabled for MariaDB",
           "policyRule": {
             "then": {
               "effect": "[parameters('effect')]"

@@ -9,6 +9,8 @@
         "kind": "policydefinitions",
         "location": "global",
         "properties": {
+          "description": "Deploy the Azure Defender settings for AKS",
+          "displayName": "Deploy Azure Defender for AKS",
           "parameters": {
             "effect": {
               "allowedValues": [
@@ -35,16 +37,11 @@
               "type": "string"
             }
           },
-          "description": "Deploy the Azure Defender settings for AKS",
-          "displayName": "Deploy Azure Defender for AKS",
           "policyRule": {
             "then": {
               "effect": "[parameters('effect')]",
               "details": {
                 "type": "Microsoft.Security/pricings",
-                "roleDefinitionIds": [
-                  "/providers/Microsoft.Authorization/roleDefinitions/fb1c8493-542b-48eb-b624-b4c8fea62acd"
-                ],
                 "existenceCondition": {
                   "allOf": [
                     {
@@ -57,7 +54,9 @@
                     }
                   ]
                 },
-                "name": "KubernetesService",
+                "roleDefinitionIds": [
+                  "/providers/Microsoft.Authorization/roleDefinitions/fb1c8493-542b-48eb-b624-b4c8fea62acd"
+                ],
                 "deployment": {
                   "properties": {
                     "parameters": {
@@ -82,8 +81,8 @@
                           "properties": {
                             "pricingTier": "[parameters('pricingTier')]"
                           },
-                          "name": "KubernetesService",
-                          "apiVersion": "2018-06-01T00:00:00Z"
+                          "apiVersion": "2018-06-01T00:00:00Z",
+                          "name": "KubernetesService"
                         }
                       ],
                       "variables": {},
@@ -93,6 +92,7 @@
                   },
                   "location": "northeurope"
                 },
+                "name": "KubernetesService",
                 "deploymentScope": "Subscription",
                 "existenceScope": "Subscription"
               }
