@@ -30,15 +30,15 @@
               },
               "type": "String"
             },
-            "domainUsername": {
-              "metadata": {
-                "displayName": "domainUsername"
-              },
-              "type": "String"
-            },
             "domainPassword": {
               "metadata": {
                 "displayName": "domainPassword"
+              },
+              "type": "String"
+            },
+            "domainUsername": {
+              "metadata": {
+                "displayName": "domainUsername"
               },
               "type": "String"
             },
@@ -87,17 +87,17 @@
                       "keyVaultResourceId": {
                         "value": "[parameters('keyVaultResourceId')]"
                       },
-                      "domainUsername": {
+                      "domainPassword": {
                         "reference": {
-                          "secretName": "[parameters('domainUsername')]",
+                          "secretName": "[parameters('domainPassword')]",
                           "keyVault": {
                             "id": "[parameters('keyVaultResourceId')]"
                           }
                         }
                       },
-                      "domainPassword": {
+                      "domainUsername": {
                         "reference": {
-                          "secretName": "[parameters('domainPassword')]",
+                          "secretName": "[parameters('domainUsername')]",
                           "keyVault": {
                             "id": "[parameters('keyVaultResourceId')]"
                           }
@@ -122,11 +122,11 @@
                         "keyVaultResourceId": {
                           "type": "String"
                         },
-                        "domainUsername": {
-                          "type": "String"
-                        },
                         "domainPassword": {
                           "type": "securestring"
+                        },
+                        "domainUsername": {
+                          "type": "String"
                         },
                         "domainOUPath": {
                           "type": "String"
@@ -148,8 +148,8 @@
                             },
                             "publisher": "Microsoft.Compute",
                             "settings": {
-                              "Options": "[variables('domainJoinOptions')]",
                               "Restart": "true",
+                              "Options": "[variables('domainJoinOptions')]",
                               "OUPath": "[parameters('domainOUPath')]",
                               "Name": "[parameters('domainFQDN')]",
                               "User": "[parameters('domainUserName')]"
