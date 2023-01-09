@@ -4,13 +4,13 @@
   "parameters": {
     "input": {
       "value": {
-        "name": "Append-Redis-disableNonSslPort",
-        "type": "microsoft.authorization/policydefinitions",
         "kind": "policydefinitions",
         "location": "global",
+        "name": "Append-Redis-disableNonSslPort",
         "properties": {
           "description": "Azure Cache  for Redis Append and the enforcement that enableNonSslPort is disabled. Enables secure server to client by enforce  minimal Tls Version to secure the connection between your database server and your client applications helps protect against 'man in the middle' attacks by encrypting the data stream between the server and your application. This configuration enforces that SSL is always enabled for accessing your database server.",
           "displayName": "Azure Cache for Redis Append and the enforcement that enableNonSslPort is disabled.",
+          "mode": "Indexed",
           "parameters": {
             "effect": {
               "allowedValues": [
@@ -27,34 +27,34 @@
             }
           },
           "policyRule": {
-            "then": {
-              "effect": "[parameters('effect')]",
-              "details": [
-                {
-                  "value": false,
-                  "field": "Microsoft.Cache/Redis/enableNonSslPort"
-                }
-              ]
-            },
             "if": {
               "allOf": [
                 {
-                  "field": "type",
-                  "equals": "Microsoft.Cache/redis"
+                  "equals": "Microsoft.Cache/redis",
+                  "field": "type"
                 },
                 {
                   "anyOf": [
                     {
-                      "field": "Microsoft.Cache/Redis/enableNonSslPort",
-                      "equals": "true"
+                      "equals": "true",
+                      "field": "Microsoft.Cache/Redis/enableNonSslPort"
                     }
                   ]
                 }
               ]
+            },
+            "then": {
+              "details": [
+                {
+                  "field": "Microsoft.Cache/Redis/enableNonSslPort",
+                  "value": false
+                }
+              ],
+              "effect": "[parameters('effect')]"
             }
-          },
-          "mode": "Indexed"
-        }
+          }
+        },
+        "type": "microsoft.authorization/policydefinitions"
       }
     }
   }

@@ -4,13 +4,13 @@
   "parameters": {
     "input": {
       "value": {
-        "name": "Deploy-Sql-SecurityAlertPolicies",
-        "type": "microsoft.authorization/policydefinitions",
         "kind": "policydefinitions",
         "location": "global",
+        "name": "Deploy-Sql-SecurityAlertPolicies",
         "properties": {
           "description": "Deploy the security Alert Policies configuration with email admin accounts when it not exist in current configuration",
           "displayName": "Deploy SQL Database security Alert Policies configuration with email admin accounts",
+          "mode": "Indexed",
           "parameters": {
             "effect": {
               "allowedValues": [
@@ -26,23 +26,15 @@
             }
           },
           "policyRule": {
+            "if": {
+              "equals": "Microsoft.Sql/servers/databases",
+              "field": "type"
+            },
             "then": {
-              "effect": "[parameters('effect')]",
               "details": {
-                "type": "Microsoft.Sql/servers/databases/securityAlertPolicies",
-                "existenceCondition": {
-                  "allOf": [
-                    {
-                      "field": "Microsoft.Sql/servers/databases/securityAlertPolicies/state",
-                      "equals": "Enabled"
-                    }
-                  ]
-                },
-                "roleDefinitionIds": [
-                  "/providers/Microsoft.Authorization/roleDefinitions/056cd41c-7e88-42e1-933e-88ba6a50c9c3"
-                ],
                 "deployment": {
                   "properties": {
+                    "mode": "Incremental",
                     "parameters": {
                       "location": {
                         "value": "[field('location')]"
@@ -54,8 +46,10 @@
                         "value": "[first(split(field('fullname'),'/'))]"
                       }
                     },
-                    "mode": "Incremental",
                     "template": {
+                      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                      "contentVersion": "1.0.0.0",
+                      "outputs": {},
                       "parameters": {
                         "location": {
                           "type": "String"
@@ -67,38 +61,44 @@
                           "type": "String"
                         }
                       },
-                      "contentVersion": "1.0.0.0",
                       "resources": [
                         {
-                          "type": "Microsoft.Sql/servers/databases/securityAlertPolicies",
+                          "apiVersion": "2018-06-01-preview",
+                          "name": "[concat(parameters('sqlServerName'),'/',parameters('sqlServerDataBaseName'),'/default')]",
                           "properties": {
-                            "retentionDays": 0,
-                            "state": "Enabled",
+                            "disabledAlerts": [],
                             "emailAccountAdmins": true,
                             "emailAddresses": [
                               "admin@contoso.com"
                             ],
-                            "disabledAlerts": []
+                            "retentionDays": 0,
+                            "state": "Enabled"
                           },
-                          "apiVersion": "2018-06-01-preview",
-                          "name": "[concat(parameters('sqlServerName'),'/',parameters('sqlServerDataBaseName'),'/default')]"
+                          "type": "Microsoft.Sql/servers/databases/securityAlertPolicies"
                         }
                       ],
-                      "variables": {},
-                      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-                      "outputs": {}
+                      "variables": {}
                     }
                   }
-                }
-              }
-            },
-            "if": {
-              "field": "type",
-              "equals": "Microsoft.Sql/servers/databases"
+                },
+                "existenceCondition": {
+                  "allOf": [
+                    {
+                      "equals": "Enabled",
+                      "field": "Microsoft.Sql/servers/databases/securityAlertPolicies/state"
+                    }
+                  ]
+                },
+                "roleDefinitionIds": [
+                  "/providers/Microsoft.Authorization/roleDefinitions/056cd41c-7e88-42e1-933e-88ba6a50c9c3"
+                ],
+                "type": "Microsoft.Sql/servers/databases/securityAlertPolicies"
+              },
+              "effect": "[parameters('effect')]"
             }
-          },
-          "mode": "Indexed"
-        }
+          }
+        },
+        "type": "microsoft.authorization/policydefinitions"
       }
     }
   }

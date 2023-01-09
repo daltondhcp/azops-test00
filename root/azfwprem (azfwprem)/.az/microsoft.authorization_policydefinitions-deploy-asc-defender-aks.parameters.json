@@ -4,13 +4,13 @@
   "parameters": {
     "input": {
       "value": {
-        "name": "Deploy-ASC-Defender-AKS",
-        "type": "microsoft.authorization/policydefinitions",
         "kind": "policydefinitions",
         "location": "global",
+        "name": "Deploy-ASC-Defender-AKS",
         "properties": {
           "description": "Deploy the Azure Defender settings for AKS",
           "displayName": "Deploy Azure Defender for AKS",
+          "mode": "All",
           "parameters": {
             "effect": {
               "allowedValues": [
@@ -38,35 +38,29 @@
             }
           },
           "policyRule": {
+            "if": {
+              "allOf": [
+                {
+                  "equals": "Microsoft.Resources/subscriptions",
+                  "field": "type"
+                }
+              ]
+            },
             "then": {
-              "effect": "[parameters('effect')]",
               "details": {
-                "type": "Microsoft.Security/pricings",
-                "existenceCondition": {
-                  "allOf": [
-                    {
-                      "field": "Microsoft.Security/pricings/pricingTier",
-                      "equals": "[parameters('pricingTier')]"
-                    },
-                    {
-                      "field": "type",
-                      "equals": "Microsoft.Security/pricings"
-                    }
-                  ]
-                },
-                "roleDefinitionIds": [
-                  "/providers/Microsoft.Authorization/roleDefinitions/fb1c8493-542b-48eb-b624-b4c8fea62acd"
-                ],
-                "name": "KubernetesService",
                 "deployment": {
+                  "location": "northeurope",
                   "properties": {
+                    "mode": "incremental",
                     "parameters": {
                       "pricingTier": {
                         "value": "[parameters('pricingTier')]"
                       }
                     },
-                    "mode": "incremental",
                     "template": {
+                      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                      "contentVersion": "1.0.0.0",
+                      "outputs": {},
                       "parameters": {
                         "pricingTier": {
                           "metadata": {
@@ -75,39 +69,45 @@
                           "type": "string"
                         }
                       },
-                      "contentVersion": "1.0.0.0",
                       "resources": [
                         {
-                          "type": "Microsoft.Security/pricings",
+                          "apiVersion": "2018-06-01T00:00:00Z",
+                          "name": "KubernetesService",
                           "properties": {
                             "pricingTier": "[parameters('pricingTier')]"
                           },
-                          "apiVersion": "2018-06-01T00:00:00Z",
-                          "name": "KubernetesService"
+                          "type": "Microsoft.Security/pricings"
                         }
                       ],
-                      "variables": {},
-                      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-                      "outputs": {}
+                      "variables": {}
                     }
-                  },
-                  "location": "northeurope"
+                  }
+                },
+                "deploymentScope": "Subscription",
+                "existenceCondition": {
+                  "allOf": [
+                    {
+                      "equals": "[parameters('pricingTier')]",
+                      "field": "Microsoft.Security/pricings/pricingTier"
+                    },
+                    {
+                      "equals": "Microsoft.Security/pricings",
+                      "field": "type"
+                    }
+                  ]
                 },
                 "existenceScope": "Subscription",
-                "deploymentScope": "Subscription"
-              }
-            },
-            "if": {
-              "allOf": [
-                {
-                  "field": "type",
-                  "equals": "Microsoft.Resources/subscriptions"
-                }
-              ]
+                "name": "KubernetesService",
+                "roleDefinitionIds": [
+                  "/providers/Microsoft.Authorization/roleDefinitions/fb1c8493-542b-48eb-b624-b4c8fea62acd"
+                ],
+                "type": "Microsoft.Security/pricings"
+              },
+              "effect": "[parameters('effect')]"
             }
-          },
-          "mode": "All"
-        }
+          }
+        },
+        "type": "microsoft.authorization/policydefinitions"
       }
     }
   }

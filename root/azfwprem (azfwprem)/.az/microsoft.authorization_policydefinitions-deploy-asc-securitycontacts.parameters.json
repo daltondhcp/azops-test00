@@ -4,13 +4,13 @@
   "parameters": {
     "input": {
       "value": {
-        "name": "Deploy-ASC-SecurityContacts",
-        "type": "microsoft.authorization/policydefinitions",
         "kind": "policydefinitions",
         "location": "global",
+        "name": "Deploy-ASC-SecurityContacts",
         "properties": {
           "description": "Deploy Azure Security Center Security Contacts",
           "displayName": "Deploy Azure Security Center Security Contacts",
+          "mode": "All",
           "parameters": {
             "effect": {
               "allowedValues": [
@@ -33,42 +33,29 @@
             }
           },
           "policyRule": {
+            "if": {
+              "allOf": [
+                {
+                  "equals": "Microsoft.Resources/subscriptions",
+                  "field": "type"
+                }
+              ]
+            },
             "then": {
-              "effect": "[parameters('effect')]",
               "details": {
-                "type": "Microsoft.Security/securityContacts",
-                "existenceCondition": {
-                  "allOf": [
-                    {
-                      "field": "Microsoft.Security/securityContacts/email",
-                      "contains": "[parameters('emailSecurityContact')]"
-                    },
-                    {
-                      "field": "type",
-                      "equals": "Microsoft.Security/securityContacts"
-                    },
-                    {
-                      "field": "Microsoft.Security/securityContacts/alertNotifications",
-                      "equals": "On"
-                    },
-                    {
-                      "field": "Microsoft.Security/securityContacts/alertsToAdmins",
-                      "equals": "On"
-                    }
-                  ]
-                },
-                "roleDefinitionIds": [
-                  "/providers/Microsoft.Authorization/roleDefinitions/fb1c8493-542b-48eb-b624-b4c8fea62acd"
-                ],
                 "deployment": {
+                  "location": "northeurope",
                   "properties": {
+                    "mode": "incremental",
                     "parameters": {
                       "emailSecurityContact": {
                         "value": "[parameters('emailSecurityContact')]"
                       }
                     },
-                    "mode": "incremental",
                     "template": {
+                      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                      "contentVersion": "1.0.0.0",
+                      "outputs": {},
                       "parameters": {
                         "emailSecurityContact": {
                           "metadata": {
@@ -77,49 +64,62 @@
                           "type": "string"
                         }
                       },
-                      "contentVersion": "1.0.0.0",
                       "resources": [
                         {
-                          "type": "Microsoft.Security/securityContacts",
+                          "apiVersion": "2020-01-01-preview",
+                          "name": "default",
                           "properties": {
                             "alertNotifications": {
                               "minimalSeverity": "High",
                               "state": "On"
                             },
+                            "emails": "[parameters('emailSecurityContact')]",
                             "notificationsByRole": {
-                              "state": "On",
                               "roles": [
                                 "Owner"
-                              ]
-                            },
-                            "emails": "[parameters('emailSecurityContact')]"
+                              ],
+                              "state": "On"
+                            }
                           },
-                          "apiVersion": "2020-01-01-preview",
-                          "name": "default"
+                          "type": "Microsoft.Security/securityContacts"
                         }
                       ],
-                      "variables": {},
-                      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-                      "outputs": {}
+                      "variables": {}
                     }
-                  },
-                  "location": "northeurope"
+                  }
+                },
+                "deploymentScope": "Subscription",
+                "existenceCondition": {
+                  "allOf": [
+                    {
+                      "contains": "[parameters('emailSecurityContact')]",
+                      "field": "Microsoft.Security/securityContacts/email"
+                    },
+                    {
+                      "equals": "Microsoft.Security/securityContacts",
+                      "field": "type"
+                    },
+                    {
+                      "equals": "On",
+                      "field": "Microsoft.Security/securityContacts/alertNotifications"
+                    },
+                    {
+                      "equals": "On",
+                      "field": "Microsoft.Security/securityContacts/alertsToAdmins"
+                    }
+                  ]
                 },
                 "existenceScope": "Subscription",
-                "deploymentScope": "Subscription"
-              }
-            },
-            "if": {
-              "allOf": [
-                {
-                  "field": "type",
-                  "equals": "Microsoft.Resources/subscriptions"
-                }
-              ]
+                "roleDefinitionIds": [
+                  "/providers/Microsoft.Authorization/roleDefinitions/fb1c8493-542b-48eb-b624-b4c8fea62acd"
+                ],
+                "type": "Microsoft.Security/securityContacts"
+              },
+              "effect": "[parameters('effect')]"
             }
-          },
-          "mode": "All"
-        }
+          }
+        },
+        "type": "microsoft.authorization/policydefinitions"
       }
     }
   }

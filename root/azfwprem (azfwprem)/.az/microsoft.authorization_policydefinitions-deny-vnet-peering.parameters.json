@@ -4,13 +4,13 @@
   "parameters": {
     "input": {
       "value": {
-        "name": "Deny-VNet-Peering",
-        "type": "microsoft.authorization/policydefinitions",
         "kind": "policydefinitions",
         "location": "global",
+        "name": "Deny-VNet-Peering",
         "properties": {
           "description": "This policy denies the creation of vNet Peerings under the assigned scope.",
           "displayName": "Deny vNet peering ",
+          "mode": "All",
           "parameters": {
             "effect": {
               "allowedValues": [
@@ -27,16 +27,16 @@
             }
           },
           "policyRule": {
+            "if": {
+              "equals": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+              "field": "type"
+            },
             "then": {
               "effect": "[parameters('effect')]"
-            },
-            "if": {
-              "field": "type",
-              "equals": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings"
             }
-          },
-          "mode": "All"
-        }
+          }
+        },
+        "type": "microsoft.authorization/policydefinitions"
       }
     }
   }

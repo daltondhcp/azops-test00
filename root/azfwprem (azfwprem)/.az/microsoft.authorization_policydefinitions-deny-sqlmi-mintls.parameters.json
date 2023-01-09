@@ -4,13 +4,13 @@
   "parameters": {
     "input": {
       "value": {
-        "name": "Deny-SqlMi-minTLS",
-        "type": "microsoft.authorization/policydefinitions",
         "kind": "policydefinitions",
         "location": "global",
+        "name": "Deny-SqlMi-minTLS",
         "properties": {
           "description": "Setting minimal TLS version to 1.2 improves security by ensuring your SQL Managed Instance can only be accessed from clients using TLS 1.2. Using versions of TLS less than 1.2 is not reccomended since they have well documented security vunerabilities.",
           "displayName": "SQL Managed Instance should have the minimal TLS version set to the highest version",
+          "mode": "Indexed",
           "parameters": {
             "effect": {
               "allowedValues": [
@@ -40,20 +40,17 @@
             }
           },
           "policyRule": {
-            "then": {
-              "effect": "[parameters('effect')]"
-            },
             "if": {
               "allOf": [
                 {
-                  "field": "type",
-                  "equals": "Microsoft.Sql/managedInstances"
+                  "equals": "Microsoft.Sql/managedInstances",
+                  "field": "type"
                 },
                 {
                   "anyOf": [
                     {
-                      "field": "Microsoft.Sql/managedInstances/minimalTlsVersion",
-                      "exists": "false"
+                      "exists": "false",
+                      "field": "Microsoft.Sql/managedInstances/minimalTlsVersion"
                     },
                     {
                       "field": "Microsoft.Sql/managedInstances/minimalTlsVersion",
@@ -62,10 +59,13 @@
                   ]
                 }
               ]
+            },
+            "then": {
+              "effect": "[parameters('effect')]"
             }
-          },
-          "mode": "Indexed"
-        }
+          }
+        },
+        "type": "microsoft.authorization/policydefinitions"
       }
     }
   }

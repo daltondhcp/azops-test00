@@ -4,14 +4,21 @@
   "parameters": {
     "input": {
       "value": {
-        "name": "Deploy-Default-Udr",
-        "type": "microsoft.authorization/policydefinitions",
         "kind": "policydefinitions",
         "location": "global",
+        "name": "Deploy-Default-Udr",
         "properties": {
           "description": "Deploy a user-defined route to a VNET with routes from spoke to hub firewall. This policy must be assigned for each region you plan to use.",
           "displayName": "Deploy a user-defined route to a VNET with specific routes.",
+          "mode": "Indexed",
           "parameters": {
+            "defaultRoute": {
+              "metadata": {
+                "description": "Policy will deploy a default route table to a vnet",
+                "displayName": "Default route to add into UDR"
+              },
+              "type": "String"
+            },
             "effect": {
               "allowedValues": [
                 "DeployIfNotExists",
@@ -31,33 +38,26 @@
                 "strongType": "location"
               },
               "type": "String"
-            },
-            "defaultRoute": {
-              "metadata": {
-                "description": "Policy will deploy a default route table to a vnet",
-                "displayName": "Default route to add into UDR"
-              },
-              "type": "String"
             }
           },
           "policyRule": {
-            "then": {
-              "effect": "[parameters('effect')]",
-              "details": {
-                "type": "Microsoft.Network/routeTables",
-                "existenceCondition": {
-                  "allOf": [
-                    {
-                      "field": "Microsoft.Network/routeTables/routes[*].nextHopIpAddress",
-                      "equals": "[parameters('defaultRoute')]"
-                    }
-                  ]
+            "if": {
+              "allOf": [
+                {
+                  "equals": "Microsoft.Network/virtualNetworks",
+                  "field": "type"
                 },
-                "roleDefinitionIds": [
-                  "/providers/Microsoft.Authorization/roleDefinitions/4d97b98b-1d4f-4787-a291-c67834d212e7"
-                ],
+                {
+                  "equals": "[parameters('vnetRegion')]",
+                  "field": "location"
+                }
+              ]
+            },
+            "then": {
+              "details": {
                 "deployment": {
                   "properties": {
+                    "mode": "incremental",
                     "parameters": {
                       "defaultRoute": {
                         "value": "[parameters('defaultRoute')]"
@@ -69,8 +69,10 @@
                         "value": "[concat(field('name'),'-udr')]"
                       }
                     },
-                    "mode": "incremental",
                     "template": {
+                      "$schema": "http://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json",
+                      "contentVersion": "1.0.0.0",
+                      "outputs": {},
                       "parameters": {
                         "defaultRoute": {
                           "type": "string"
@@ -82,50 +84,48 @@
                           "type": "string"
                         }
                       },
-                      "contentVersion": "1.0.0.0",
                       "resources": [
                         {
-                          "type": "Microsoft.Network/routeTables",
+                          "apiVersion": "2020-08-01T00:00:00Z",
+                          "location": "[parameters('udrLocation')]",
+                          "name": "[parameters('udrName')]",
                           "properties": {
                             "routes": [
                               {
+                                "name": "AzureFirewallRoute",
                                 "properties": {
                                   "addressPrefix": "0.0.0.0/0",
                                   "nextHopIpAddress": "[parameters('defaultRoute')]",
                                   "nextHopType": "VirtualAppliance"
-                                },
-                                "name": "AzureFirewallRoute"
+                                }
                               }
                             ]
                           },
-                          "location": "[parameters('udrLocation')]",
-                          "apiVersion": "2020-08-01T00:00:00Z",
-                          "name": "[parameters('udrName')]"
+                          "type": "Microsoft.Network/routeTables"
                         }
                       ],
-                      "variables": {},
-                      "$schema": "http://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json",
-                      "outputs": {}
+                      "variables": {}
                     }
                   }
-                }
-              }
-            },
-            "if": {
-              "allOf": [
-                {
-                  "field": "type",
-                  "equals": "Microsoft.Network/virtualNetworks"
                 },
-                {
-                  "field": "location",
-                  "equals": "[parameters('vnetRegion')]"
-                }
-              ]
+                "existenceCondition": {
+                  "allOf": [
+                    {
+                      "equals": "[parameters('defaultRoute')]",
+                      "field": "Microsoft.Network/routeTables/routes[*].nextHopIpAddress"
+                    }
+                  ]
+                },
+                "roleDefinitionIds": [
+                  "/providers/Microsoft.Authorization/roleDefinitions/4d97b98b-1d4f-4787-a291-c67834d212e7"
+                ],
+                "type": "Microsoft.Network/routeTables"
+              },
+              "effect": "[parameters('effect')]"
             }
-          },
-          "mode": "Indexed"
-        }
+          }
+        },
+        "type": "microsoft.authorization/policydefinitions"
       }
     }
   }

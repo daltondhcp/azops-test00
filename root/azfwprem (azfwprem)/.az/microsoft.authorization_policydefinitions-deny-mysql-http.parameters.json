@@ -4,13 +4,13 @@
   "parameters": {
     "input": {
       "value": {
-        "name": "Deny-MySql-http",
-        "type": "microsoft.authorization/policydefinitions",
         "kind": "policydefinitions",
         "location": "global",
+        "name": "Deny-MySql-http",
         "properties": {
           "description": "Azure Database for MySQL supports connecting your Azure Database for MySQL server to client applications using Secure Sockets Layer (SSL). Enforcing SSL connections between your database server and your client applications helps protect against 'man in the middle' attacks by encrypting the data stream between the server and your application. This configuration enforces that SSL is always enabled for accessing your database server.",
           "displayName": "MySQL database servers enforce SSL connections.",
+          "mode": "Indexed",
           "parameters": {
             "effect": {
               "allowedValues": [
@@ -41,20 +41,17 @@
             }
           },
           "policyRule": {
-            "then": {
-              "effect": "[parameters('effect')]"
-            },
             "if": {
               "allOf": [
                 {
-                  "field": "type",
-                  "equals": "Microsoft.DBforMySQL/servers"
+                  "equals": "Microsoft.DBforMySQL/servers",
+                  "field": "type"
                 },
                 {
                   "anyOf": [
                     {
-                      "field": "Microsoft.DBforMySQL/servers/sslEnforcement",
-                      "exists": "false"
+                      "exists": "false",
+                      "field": "Microsoft.DBforMySQL/servers/sslEnforcement"
                     },
                     {
                       "field": "Microsoft.DBforMySQL/servers/sslEnforcement",
@@ -67,10 +64,13 @@
                   ]
                 }
               ]
+            },
+            "then": {
+              "effect": "[parameters('effect')]"
             }
-          },
-          "mode": "Indexed"
-        }
+          }
+        },
+        "type": "microsoft.authorization/policydefinitions"
       }
     }
   }

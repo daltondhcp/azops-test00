@@ -4,13 +4,13 @@
   "parameters": {
     "input": {
       "value": {
-        "name": "Deny-PublicIP",
-        "type": "microsoft.authorization/policydefinitions",
         "kind": "policydefinitions",
         "location": "global",
+        "name": "Deny-PublicIP",
         "properties": {
           "description": "This policy denies creation of Public IPs under the assigned scope.",
           "displayName": "Deny the creation of public IP",
+          "mode": "Indexed",
           "parameters": {
             "effect": {
               "allowedValues": [
@@ -27,16 +27,16 @@
             }
           },
           "policyRule": {
+            "if": {
+              "equals": "Microsoft.Network/publicIPAddresses",
+              "field": "type"
+            },
             "then": {
               "effect": "[parameters('effect')]"
-            },
-            "if": {
-              "field": "type",
-              "equals": "Microsoft.Network/publicIPAddresses"
             }
-          },
-          "mode": "Indexed"
-        }
+          }
+        },
+        "type": "microsoft.authorization/policydefinitions"
       }
     }
   }

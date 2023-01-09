@@ -4,13 +4,13 @@
   "parameters": {
     "input": {
       "value": {
-        "name": "Append-AppService-latestTLS",
-        "type": "microsoft.authorization/policydefinitions",
         "kind": "policydefinitions",
         "location": "global",
+        "name": "Append-AppService-latestTLS",
         "properties": {
           "description": "Append the AppService sites object to ensure that min Tls version is set to required minimum TLS version. Please note Append does not enforce compliance use then deny.",
           "displayName": "AppService append sites with minimum TLS version to enforce.",
+          "mode": "All",
           "parameters": {
             "effect": {
               "allowedValues": [
@@ -39,30 +39,30 @@
             }
           },
           "policyRule": {
-            "then": {
-              "effect": "[parameters('effect')]",
-              "details": [
-                {
-                  "value": "[parameters('minTlsVersion')]",
-                  "field": "Microsoft.Web/sites/config/minTlsVersion"
-                }
-              ]
-            },
             "if": {
               "allOf": [
                 {
-                  "field": "type",
-                  "equals": "Microsoft.Web/sites/config"
+                  "equals": "Microsoft.Web/sites/config",
+                  "field": "type"
                 },
                 {
                   "field": "Microsoft.Web/sites/config/minTlsVersion",
                   "notEquals": "[parameters('minTlsVersion')]"
                 }
               ]
+            },
+            "then": {
+              "details": [
+                {
+                  "field": "Microsoft.Web/sites/config/minTlsVersion",
+                  "value": "[parameters('minTlsVersion')]"
+                }
+              ],
+              "effect": "[parameters('effect')]"
             }
-          },
-          "mode": "All"
-        }
+          }
+        },
+        "type": "microsoft.authorization/policydefinitions"
       }
     }
   }

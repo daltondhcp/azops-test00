@@ -4,13 +4,24 @@
   "parameters": {
     "input": {
       "value": {
-        "name": "a509d105-a526-4afe-afd7-6bb21f03add7",
-        "type": "microsoft.authorization/policydefinitions",
         "kind": "policydefinitions",
         "location": "global",
+        "name": "a509d105-a526-4afe-afd7-6bb21f03add7",
         "properties": {
           "displayName": "Deny internet inbound",
+          "mode": "All",
           "parameters": {
+            "deniedPorts": {
+              "defaultValue": [
+                "22",
+                "3389"
+              ],
+              "metadata": {
+                "description": "The inbound ports that should be blocked",
+                "displayName": "Ports to block"
+              },
+              "type": "Array"
+            },
             "effect": {
               "allowedValues": [
                 "Audit",
@@ -23,30 +34,16 @@
                 "displayName": "Effect"
               },
               "type": "String"
-            },
-            "deniedPorts": {
-              "defaultValue": [
-                "22",
-                "3389"
-              ],
-              "metadata": {
-                "description": "The inbound ports that should be blocked",
-                "displayName": "Ports to block"
-              },
-              "type": "Array"
             }
           },
           "policyRule": {
-            "then": {
-              "effect": "[parameters('effect')]"
-            },
             "if": {
               "anyOf": [
                 {
                   "allOf": [
                     {
-                      "field": "type",
-                      "equals": "Microsoft.Network/networkSecurityGroups"
+                      "equals": "Microsoft.Network/networkSecurityGroups",
+                      "field": "type"
                     },
                     {
                       "count": {
@@ -54,12 +51,12 @@
                         "where": {
                           "allOf": [
                             {
-                              "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].access",
-                              "equals": "Allow"
+                              "equals": "Allow",
+                              "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].access"
                             },
                             {
-                              "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].direction",
-                              "equals": "Inbound"
+                              "equals": "Inbound",
+                              "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].direction"
                             },
                             {
                               "anyOf": [
@@ -96,18 +93,18 @@
                 {
                   "allOf": [
                     {
-                      "field": "type",
-                      "equals": "Microsoft.Network/networkSecurityGroups/securityRules"
+                      "equals": "Microsoft.Network/networkSecurityGroups/securityRules",
+                      "field": "type"
                     },
                     {
                       "allOf": [
                         {
-                          "field": "Microsoft.Network/networkSecurityGroups/securityRules/access",
-                          "equals": "Allow"
+                          "equals": "Allow",
+                          "field": "Microsoft.Network/networkSecurityGroups/securityRules/access"
                         },
                         {
-                          "field": "Microsoft.Network/networkSecurityGroups/securityRules/direction",
-                          "equals": "Inbound"
+                          "equals": "Inbound",
+                          "field": "Microsoft.Network/networkSecurityGroups/securityRules/direction"
                         },
                         {
                           "anyOf": [
@@ -139,10 +136,13 @@
                   ]
                 }
               ]
+            },
+            "then": {
+              "effect": "[parameters('effect')]"
             }
-          },
-          "mode": "All"
-        }
+          }
+        },
+        "type": "microsoft.authorization/policydefinitions"
       }
     }
   }

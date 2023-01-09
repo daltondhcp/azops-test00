@@ -4,724 +4,13 @@
   "parameters": {
     "input": {
       "value": {
-        "name": "Deploy-Diagnostics-LogAnalytics",
-        "type": "microsoft.authorization/policysetdefinitions",
         "kind": "policysetdefinitions",
         "location": "global",
+        "name": "Deploy-Diagnostics-LogAnalytics",
         "properties": {
+          "description": "This pol icy set deploys the configurations of application Azure resources to forward diagnostic logs and metrics to an Azure Log Analytics workspace. See the list of policies of the services that are included ",
+          "displayName": "Deploy Diagnostic Settings to Azure Services",
           "parameters": {
-            "logAnalytics": {
-              "metadata": {
-                "description": "Select Log Analytics workspace from dropdown list. If this workspace is outside of the scope of the assignment you must manually grant 'Log Analytics Contributor' permissions (or similar) to the policy assignment's principal ID.",
-                "displayName": "Log Analytics workspace",
-                "strongType": "omsWorkspace"
-              },
-              "type": "String"
-            },
-            "profileName": {
-              "defaultValue": "setbypolicy",
-              "metadata": {
-                "description": "The diagnostic settings profile name",
-                "displayName": "Profile name"
-              },
-              "type": "String"
-            },
-            "NetworkSecurityGroupsLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for Network Security Groups to stream to a Log Analytics workspace when any Network Security Groups which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Network Security Groups to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "ApplicationGatewayLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for Application Gateway to stream to a Log Analytics workspace when any Application Gateway which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Application Gateway to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "TimeSeriesInsightsLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for Time Series Insights to stream to a Log Analytics workspace when any Time Series Insights which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Time Series Insights to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "NetworkPublicIPNicLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for Public IP addresses to stream to a Log Analytics workspace when any Public IP addresses which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Public IP addresses to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "DataLakeAnalyticsLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for Data Lake Analytics to stream to a Log Analytics workspace when any Data Lake Analytics which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Data Lake Analytics to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "CognitiveServicesLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for Cognitive Services to stream to a Log Analytics workspace when any Cognitive Services which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Cognitive Services to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "AppServiceWebappLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for Web App to stream to a Log Analytics workspace when any Web App which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for App Service to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "EventSystemTopicLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for Event Grid System Topic to stream to a Log Analytics workspace when any Event Grid System Topic which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Event Grid System Topic to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "VirtualMachinesLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for Virtual Machines to stream to a Log Analytics workspace when any Virtual Machines which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Virtual Machines to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "SQLElasticPoolsLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for SQL Elastic Pools to stream to a Log Analytics workspace when any SQL Elastic Pools which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for SQL Elastic Pools to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "AnalysisServiceLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for Analysis Services to stream to a Log Analytics workspace when any Analysis Services which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Analysis Services to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "PowerBIEmbeddedLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for Power BI Embedded to stream to a Log Analytics workspace when any Power BI Embedded which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Power BI Embedded to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "TrafficManagerLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for Traffic Manager to stream to a Log Analytics workspace when any Traffic Manager which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Traffic Manager to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "VirtualNetworkLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for Virtual Network to stream to a Log Analytics workspace when any Virtual Network which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Virtual Network to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "StreamAnalyticsLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for Stream Analytics to stream to a Log Analytics workspace when any Stream Analytics which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Stream Analytics to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "DataExplorerClusterLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for Azure Data Explorer Cluster to stream to a Log Analytics workspace when any Azure Data Explorer Cluster which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Azure Data Explorer Cluster to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "EventGridTopicLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for Event Grid Topic to stream to a Log Analytics workspace when any Event Grid Topic which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Event Grid Topic to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "SearchServicesLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for Search Services to stream to a Log Analytics workspace when any Search Services which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Search Services to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "ExpressRouteLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for ExpressRoute to stream to a Log Analytics workspace when any ExpressRoute which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for ExpressRoute to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "DataLakeStoreLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for Azure Data Lake Store to stream to a Log Analytics workspace when anyAzure Data Lake Store which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Azure Data Lake Store to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "LogicAppsISELogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for Logic Apps integration service environment to stream to a Log Analytics workspace when any Logic Apps integration service environment which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Logic Apps integration service environment to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "EventGridSubLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for Event Grid subscriptions to stream to a Log Analytics workspace when any Event Grid subscriptions which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Event Grid subscriptions to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "LoadBalancerLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for Load Balancer to stream to a Log Analytics workspace when any Load Balancer which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Load Balancer to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "CDNEndpointsLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for CDN Endpoint to stream to a Log Analytics workspace when any CDN Endpoint which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for CDN Endpoint to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "FunctionAppLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for Azure Function App to stream to a Log Analytics workspace when any function app which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Azure Function App to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "DataFactoryLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for Data Factory to stream to a Log Analytics workspace when any Data Factory which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Data Factory to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "MlWorkspaceLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for Machine Learning workspace to stream to a Log Analytics workspace when any Machine Learning workspace which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Machine Learning workspace to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "AppServiceLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for App Service Plan to stream to a Log Analytics workspace when any App Service Plan which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for App Service Plan to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "LogicAppsWFLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for Logic Apps Workflows to stream to a Log Analytics workspace when any Logic Apps Workflows which are missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Logic Apps Workflows to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "NetworkNICLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for Network Interfaces to stream to a Log Analytics workspace when any Network Interfaces which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Network Interfaces to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "DatabricksLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for Databricks to stream to a Log Analytics workspace when any Databricks which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Databricks to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "AutomationLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for Automation to stream to a Log Analytics workspace when any Automation which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Automation to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "RedisCacheLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for Redis Cache to stream to a Log Analytics workspace when any Redis Cache which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Redis Cache to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "PostgreSQLLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for Database for PostgreSQL to stream to a Log Analytics workspace when any Database for PostgreSQL which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Database for PostgreSQL to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "StorageAccountsLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for Storage Accounts to stream to a Log Analytics workspace when any storage account which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Storage Accounts to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "ServiceBusLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for ServiceBus to stream to a Log Analytics workspace when any ServiceBus which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Service Bus namespaces  to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "FrontDoorLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for Front Door to stream to a Log Analytics workspace when any Front Door which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Front Door to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "HDInsightLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for HDInsight to stream to a Log Analytics workspace when any HDInsight which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for HDInsight to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "MediaServiceLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for Azure Media Service to stream to a Log Analytics workspace when any Azure Media Service which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Azure Media Service to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "KeyVaultLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for Key Vault to stream to a Log Analytics workspace when any Key Vault which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Key Vault to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "FirewallLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for Firewall to stream to a Log Analytics workspace when any Firewall which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Firewall to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "EventHubLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for Event Hubs to stream to a Log Analytics workspace when any Event Hubs which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Event Hubs to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "APIMgmtLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for API Management to stream to a Log Analytics workspace when any API Management which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for API Management to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "WVDAppGroupsLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for WVD Application groups to stream to a Log Analytics workspace when any application groups which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for WVD Application Groups to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "WVDWorkspaceLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for WVD Workspace to stream to a Log Analytics workspace when any Workspace which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for WVD Workspace to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "WVDHostPoolsLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for WVD Host pools to stream to a Log Analytics workspace when any host pool which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for WVD Host pools to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "SignalRLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for SignalR to stream to a Log Analytics workspace when any SignalR which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for SignalR to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "MariaDBLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for MariaDB to stream to a Log Analytics workspace when any MariaDB  which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for MariaDB to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "APIforFHIRLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for Azure API for FHIR to stream to a Log Analytics workspace when any Azure API for FHIR which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Azure API for FHIR to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "CosmosLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for Cosmos DB to stream to a Log Analytics workspace when any Cosmos DB which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Cosmos DB to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "IotHubLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for IoT Hub to stream to a Log Analytics workspace when any IoT Hub which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for IoT Hub to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "VNetGWLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for VPN Gateway to stream to a Log Analytics workspace when any VPN Gateway which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled.",
-                "displayName": "Deploy Diagnostic Settings for VPN Gateway to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "SQLDBsLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for SQL Databases to stream to a Log Analytics workspace when any SQL Databases  which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for SQL Databases  to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "MySQLLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for Database for MySQL to stream to a Log Analytics workspace when any Database for MySQL which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Database for MySQL to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "RelayLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for Relay to stream to a Log Analytics workspace when any Relay which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Relay to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "BatchLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for Batch to stream to a Log Analytics workspace when any Batch which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Batch to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "VMSSLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for Virtual Machine Scale Sets  to stream to a Log Analytics workspace when any Virtual Machine Scale Sets  which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Virtual Machine Scale Sets to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "SQLMLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for SQL Managed Instances to stream to a Log Analytics workspace when any SQL Managed Instances which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for SQL Managed Instances to Log Analytics workspace"
-              },
-              "type": "String"
-            },
             "ACILogAnalyticsEffect": {
               "allowedValues": [
                 "DeployIfNotExists",
@@ -757,14 +46,722 @@
                 "displayName": "Deploy Diagnostic Settings for Kubernetes Service to Log Analytics workspace"
               },
               "type": "String"
+            },
+            "APIMgmtLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for API Management to stream to a Log Analytics workspace when any API Management which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for API Management to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "APIforFHIRLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for Azure API for FHIR to stream to a Log Analytics workspace when any Azure API for FHIR which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Azure API for FHIR to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "AnalysisServiceLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for Analysis Services to stream to a Log Analytics workspace when any Analysis Services which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Analysis Services to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "AppServiceLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for App Service Plan to stream to a Log Analytics workspace when any App Service Plan which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for App Service Plan to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "AppServiceWebappLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for Web App to stream to a Log Analytics workspace when any Web App which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for App Service to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "ApplicationGatewayLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for Application Gateway to stream to a Log Analytics workspace when any Application Gateway which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Application Gateway to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "AutomationLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for Automation to stream to a Log Analytics workspace when any Automation which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Automation to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "BatchLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for Batch to stream to a Log Analytics workspace when any Batch which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Batch to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "CDNEndpointsLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for CDN Endpoint to stream to a Log Analytics workspace when any CDN Endpoint which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for CDN Endpoint to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "CognitiveServicesLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for Cognitive Services to stream to a Log Analytics workspace when any Cognitive Services which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Cognitive Services to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "CosmosLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for Cosmos DB to stream to a Log Analytics workspace when any Cosmos DB which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Cosmos DB to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "DataExplorerClusterLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for Azure Data Explorer Cluster to stream to a Log Analytics workspace when any Azure Data Explorer Cluster which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Azure Data Explorer Cluster to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "DataFactoryLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for Data Factory to stream to a Log Analytics workspace when any Data Factory which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Data Factory to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "DataLakeAnalyticsLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for Data Lake Analytics to stream to a Log Analytics workspace when any Data Lake Analytics which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Data Lake Analytics to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "DataLakeStoreLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for Azure Data Lake Store to stream to a Log Analytics workspace when anyAzure Data Lake Store which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Azure Data Lake Store to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "DatabricksLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for Databricks to stream to a Log Analytics workspace when any Databricks which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Databricks to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "EventGridSubLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for Event Grid subscriptions to stream to a Log Analytics workspace when any Event Grid subscriptions which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Event Grid subscriptions to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "EventGridTopicLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for Event Grid Topic to stream to a Log Analytics workspace when any Event Grid Topic which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Event Grid Topic to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "EventHubLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for Event Hubs to stream to a Log Analytics workspace when any Event Hubs which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Event Hubs to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "EventSystemTopicLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for Event Grid System Topic to stream to a Log Analytics workspace when any Event Grid System Topic which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Event Grid System Topic to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "ExpressRouteLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for ExpressRoute to stream to a Log Analytics workspace when any ExpressRoute which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for ExpressRoute to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "FirewallLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for Firewall to stream to a Log Analytics workspace when any Firewall which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Firewall to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "FrontDoorLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for Front Door to stream to a Log Analytics workspace when any Front Door which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Front Door to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "FunctionAppLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for Azure Function App to stream to a Log Analytics workspace when any function app which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Azure Function App to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "HDInsightLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for HDInsight to stream to a Log Analytics workspace when any HDInsight which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for HDInsight to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "IotHubLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for IoT Hub to stream to a Log Analytics workspace when any IoT Hub which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for IoT Hub to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "KeyVaultLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for Key Vault to stream to a Log Analytics workspace when any Key Vault which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Key Vault to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "LoadBalancerLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for Load Balancer to stream to a Log Analytics workspace when any Load Balancer which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Load Balancer to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "LogicAppsISELogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for Logic Apps integration service environment to stream to a Log Analytics workspace when any Logic Apps integration service environment which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Logic Apps integration service environment to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "LogicAppsWFLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for Logic Apps Workflows to stream to a Log Analytics workspace when any Logic Apps Workflows which are missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Logic Apps Workflows to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "MariaDBLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for MariaDB to stream to a Log Analytics workspace when any MariaDB  which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for MariaDB to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "MediaServiceLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for Azure Media Service to stream to a Log Analytics workspace when any Azure Media Service which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Azure Media Service to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "MlWorkspaceLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for Machine Learning workspace to stream to a Log Analytics workspace when any Machine Learning workspace which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Machine Learning workspace to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "MySQLLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for Database for MySQL to stream to a Log Analytics workspace when any Database for MySQL which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Database for MySQL to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "NetworkNICLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for Network Interfaces to stream to a Log Analytics workspace when any Network Interfaces which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Network Interfaces to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "NetworkPublicIPNicLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for Public IP addresses to stream to a Log Analytics workspace when any Public IP addresses which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Public IP addresses to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "NetworkSecurityGroupsLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for Network Security Groups to stream to a Log Analytics workspace when any Network Security Groups which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Network Security Groups to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "PostgreSQLLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for Database for PostgreSQL to stream to a Log Analytics workspace when any Database for PostgreSQL which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Database for PostgreSQL to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "PowerBIEmbeddedLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for Power BI Embedded to stream to a Log Analytics workspace when any Power BI Embedded which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Power BI Embedded to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "RedisCacheLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for Redis Cache to stream to a Log Analytics workspace when any Redis Cache which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Redis Cache to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "RelayLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for Relay to stream to a Log Analytics workspace when any Relay which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Relay to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "SQLDBsLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for SQL Databases to stream to a Log Analytics workspace when any SQL Databases  which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for SQL Databases  to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "SQLElasticPoolsLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for SQL Elastic Pools to stream to a Log Analytics workspace when any SQL Elastic Pools which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for SQL Elastic Pools to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "SQLMLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for SQL Managed Instances to stream to a Log Analytics workspace when any SQL Managed Instances which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for SQL Managed Instances to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "SearchServicesLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for Search Services to stream to a Log Analytics workspace when any Search Services which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Search Services to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "ServiceBusLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for ServiceBus to stream to a Log Analytics workspace when any ServiceBus which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Service Bus namespaces  to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "SignalRLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for SignalR to stream to a Log Analytics workspace when any SignalR which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for SignalR to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "StorageAccountsLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for Storage Accounts to stream to a Log Analytics workspace when any storage account which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Storage Accounts to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "StreamAnalyticsLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for Stream Analytics to stream to a Log Analytics workspace when any Stream Analytics which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Stream Analytics to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "TimeSeriesInsightsLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for Time Series Insights to stream to a Log Analytics workspace when any Time Series Insights which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Time Series Insights to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "TrafficManagerLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for Traffic Manager to stream to a Log Analytics workspace when any Traffic Manager which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Traffic Manager to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "VMSSLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for Virtual Machine Scale Sets  to stream to a Log Analytics workspace when any Virtual Machine Scale Sets  which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Virtual Machine Scale Sets to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "VNetGWLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for VPN Gateway to stream to a Log Analytics workspace when any VPN Gateway which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled.",
+                "displayName": "Deploy Diagnostic Settings for VPN Gateway to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "VirtualMachinesLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for Virtual Machines to stream to a Log Analytics workspace when any Virtual Machines which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Virtual Machines to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "VirtualNetworkLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for Virtual Network to stream to a Log Analytics workspace when any Virtual Network which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Virtual Network to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "WVDAppGroupsLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for WVD Application groups to stream to a Log Analytics workspace when any application groups which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for WVD Application Groups to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "WVDHostPoolsLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for WVD Host pools to stream to a Log Analytics workspace when any host pool which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for WVD Host pools to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "WVDWorkspaceLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for WVD Workspace to stream to a Log Analytics workspace when any Workspace which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for WVD Workspace to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "logAnalytics": {
+              "metadata": {
+                "description": "Select Log Analytics workspace from dropdown list. If this workspace is outside of the scope of the assignment you must manually grant 'Log Analytics Contributor' permissions (or similar) to the policy assignment's principal ID.",
+                "displayName": "Log Analytics workspace",
+                "strongType": "omsWorkspace"
+              },
+              "type": "String"
+            },
+            "profileName": {
+              "defaultValue": "setbypolicy",
+              "metadata": {
+                "description": "The diagnostic settings profile name",
+                "displayName": "Profile name"
+              },
+              "type": "String"
             }
           },
-          "description": "This pol icy set deploys the configurations of application Azure resources to forward diagnostic logs and metrics to an Azure Log Analytics workspace. See the list of policies of the services that are included ",
-          "displayName": "Deploy Diagnostic Settings to Azure Services",
           "policyDefinitions": [
             {
-              "policyDefinitionReferenceId": "StorageAccountDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/6f8f98a4-f108-47cb-8e98-91a0d85cd474",
               "parameters": {
                 "effect": {
                   "value": "[parameters('StorageAccountsLogAnalyticsEffect')]"
@@ -772,11 +769,11 @@
                 "logAnalytics": {
                   "value": "[parameters('logAnalytics')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/6f8f98a4-f108-47cb-8e98-91a0d85cd474",
+              "policyDefinitionReferenceId": "StorageAccountDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "WVDAppGroupDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-WVDAppGroup",
               "parameters": {
                 "effect": {
                   "value": "[parameters('WVDAppGroupsLogAnalyticsEffect')]"
@@ -787,11 +784,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-WVDAppGroup",
+              "policyDefinitionReferenceId": "WVDAppGroupDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "WVDWorkspaceDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-WVDWorkspace",
               "parameters": {
                 "effect": {
                   "value": "[parameters('WVDWorkspaceLogAnalyticsEffect')]"
@@ -802,11 +799,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-WVDWorkspace",
+              "policyDefinitionReferenceId": "WVDWorkspaceDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "WVDHostPoolsDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-WVDHostPools",
               "parameters": {
                 "effect": {
                   "value": "[parameters('WVDHostPoolsLogAnalyticsEffect')]"
@@ -817,11 +814,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-WVDHostPools",
+              "policyDefinitionReferenceId": "WVDHostPoolsDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "ACIDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-ACI",
               "parameters": {
                 "effect": {
                   "value": "[parameters('ACILogAnalyticsEffect')]"
@@ -832,11 +829,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-ACI",
+              "policyDefinitionReferenceId": "ACIDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "ACRDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-ACR",
               "parameters": {
                 "effect": {
                   "value": "[parameters('ACRLogAnalyticsEffect')]"
@@ -847,26 +844,26 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-ACR",
+              "policyDefinitionReferenceId": "ACRDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "AKSDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/6c66c325-74c8-42fd-a286-a74b0e2939d8",
               "parameters": {
+                "diagnosticsSettingNameToUse": {
+                  "value": "[parameters('profileName')]"
+                },
                 "effect": {
                   "value": "[parameters('AKSLogAnalyticsEffect')]"
                 },
                 "logAnalytics": {
                   "value": "[parameters('logAnalytics')]"
-                },
-                "diagnosticsSettingNameToUse": {
-                  "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/6c66c325-74c8-42fd-a286-a74b0e2939d8",
+              "policyDefinitionReferenceId": "AKSDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "AnalysisServiceDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-AnalysisService",
               "parameters": {
                 "effect": {
                   "value": "[parameters('AnalysisServiceLogAnalyticsEffect')]"
@@ -877,11 +874,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-AnalysisService",
+              "policyDefinitionReferenceId": "AnalysisServiceDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "APIforFHIRDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-ApiForFHIR",
               "parameters": {
                 "effect": {
                   "value": "[parameters('APIforFHIRLogAnalyticsEffect')]"
@@ -892,11 +889,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-ApiForFHIR",
+              "policyDefinitionReferenceId": "APIforFHIRDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "APIMgmtDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-APIMgmt",
               "parameters": {
                 "effect": {
                   "value": "[parameters('APIMgmtLogAnalyticsEffect')]"
@@ -907,11 +904,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-APIMgmt",
+              "policyDefinitionReferenceId": "APIMgmtDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "ApplicationGatewayDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-ApplicationGateway",
               "parameters": {
                 "effect": {
                   "value": "[parameters('ApplicationGatewayLogAnalyticsEffect')]"
@@ -922,11 +919,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-ApplicationGateway",
+              "policyDefinitionReferenceId": "ApplicationGatewayDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "AutomationDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-AA",
               "parameters": {
                 "effect": {
                   "value": "[parameters('AutomationLogAnalyticsEffect')]"
@@ -937,11 +934,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-AA",
+              "policyDefinitionReferenceId": "AutomationDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "BatchDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/c84e5349-db6d-4769-805e-e14037dab9b5",
               "parameters": {
                 "effect": {
                   "value": "[parameters('BatchLogAnalyticsEffect')]"
@@ -952,11 +949,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/c84e5349-db6d-4769-805e-e14037dab9b5",
+              "policyDefinitionReferenceId": "BatchDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "CDNEndpointsDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-CDNEndpoints",
               "parameters": {
                 "effect": {
                   "value": "[parameters('CDNEndpointsLogAnalyticsEffect')]"
@@ -967,11 +964,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-CDNEndpoints",
+              "policyDefinitionReferenceId": "CDNEndpointsDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "CognitiveServicesDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-CognitiveServices",
               "parameters": {
                 "effect": {
                   "value": "[parameters('CognitiveServicesLogAnalyticsEffect')]"
@@ -982,11 +979,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-CognitiveServices",
+              "policyDefinitionReferenceId": "CognitiveServicesDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "CosmosDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-CosmosDB",
               "parameters": {
                 "effect": {
                   "value": "[parameters('CosmosLogAnalyticsEffect')]"
@@ -997,11 +994,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-CosmosDB",
+              "policyDefinitionReferenceId": "CosmosDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "DatabricksDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-Databricks",
               "parameters": {
                 "effect": {
                   "value": "[parameters('DatabricksLogAnalyticsEffect')]"
@@ -1012,11 +1009,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-Databricks",
+              "policyDefinitionReferenceId": "DatabricksDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "DataExplorerClusterDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-DataExplorerCluster",
               "parameters": {
                 "effect": {
                   "value": "[parameters('DataExplorerClusterLogAnalyticsEffect')]"
@@ -1027,11 +1024,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-DataExplorerCluster",
+              "policyDefinitionReferenceId": "DataExplorerClusterDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "DataFactoryDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-DataFactory",
               "parameters": {
                 "effect": {
                   "value": "[parameters('DataFactoryLogAnalyticsEffect')]"
@@ -1042,11 +1039,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-DataFactory",
+              "policyDefinitionReferenceId": "DataFactoryDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "DataLakeStoreDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/d56a5a7c-72d7-42bc-8ceb-3baf4c0eae03",
               "parameters": {
                 "effect": {
                   "value": "[parameters('DataLakeStoreLogAnalyticsEffect')]"
@@ -1057,11 +1054,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/d56a5a7c-72d7-42bc-8ceb-3baf4c0eae03",
+              "policyDefinitionReferenceId": "DataLakeStoreDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "DataLakeAnalyticsDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-DLAnalytics",
               "parameters": {
                 "effect": {
                   "value": "[parameters('DataLakeAnalyticsLogAnalyticsEffect')]"
@@ -1072,11 +1069,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-DLAnalytics",
+              "policyDefinitionReferenceId": "DataLakeAnalyticsDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "EventGridSubDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-EventGridSub",
               "parameters": {
                 "effect": {
                   "value": "[parameters('EventGridSubLogAnalyticsEffect')]"
@@ -1087,11 +1084,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-EventGridSub",
+              "policyDefinitionReferenceId": "EventGridSubDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "EventGridTopicDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-EventGridTopic",
               "parameters": {
                 "effect": {
                   "value": "[parameters('EventGridTopicLogAnalyticsEffect')]"
@@ -1102,11 +1099,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-EventGridTopic",
+              "policyDefinitionReferenceId": "EventGridTopicDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "EventHubDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1f6e93e8-6b31-41b1-83f6-36e449a42579",
               "parameters": {
                 "effect": {
                   "value": "[parameters('EventHubLogAnalyticsEffect')]"
@@ -1117,11 +1114,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1f6e93e8-6b31-41b1-83f6-36e449a42579",
+              "policyDefinitionReferenceId": "EventHubDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "EventSystemTopicDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-EventGridSystemTopic",
               "parameters": {
                 "effect": {
                   "value": "[parameters('EventSystemTopicLogAnalyticsEffect')]"
@@ -1132,11 +1129,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-EventGridSystemTopic",
+              "policyDefinitionReferenceId": "EventSystemTopicDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "ExpressRouteDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-ExpressRoute",
               "parameters": {
                 "effect": {
                   "value": "[parameters('ExpressRouteLogAnalyticsEffect')]"
@@ -1147,11 +1144,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-ExpressRoute",
+              "policyDefinitionReferenceId": "ExpressRouteDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "FirewallDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-Firewall",
               "parameters": {
                 "effect": {
                   "value": "[parameters('FirewallLogAnalyticsEffect')]"
@@ -1162,11 +1159,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-Firewall",
+              "policyDefinitionReferenceId": "FirewallDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "FrontDoorDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-FrontDoor",
               "parameters": {
                 "effect": {
                   "value": "[parameters('FrontDoorLogAnalyticsEffect')]"
@@ -1177,11 +1174,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-FrontDoor",
+              "policyDefinitionReferenceId": "FrontDoorDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "FunctionAppDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-Function",
               "parameters": {
                 "effect": {
                   "value": "[parameters('FunctionAppLogAnalyticsEffect')]"
@@ -1192,11 +1189,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-Function",
+              "policyDefinitionReferenceId": "FunctionAppDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "HDInsightDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-HDInsight",
               "parameters": {
                 "effect": {
                   "value": "[parameters('HDInsightLogAnalyticsEffect')]"
@@ -1207,11 +1204,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-HDInsight",
+              "policyDefinitionReferenceId": "HDInsightDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "IotHubDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-iotHub",
               "parameters": {
                 "effect": {
                   "value": "[parameters('IotHubLogAnalyticsEffect')]"
@@ -1222,11 +1219,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-iotHub",
+              "policyDefinitionReferenceId": "IotHubDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "KeyVaultDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/bef3f64c-5290-43b7-85b0-9b254eef4c47",
               "parameters": {
                 "effect": {
                   "value": "[parameters('KeyVaultLogAnalyticsEffect')]"
@@ -1237,11 +1234,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/bef3f64c-5290-43b7-85b0-9b254eef4c47",
+              "policyDefinitionReferenceId": "KeyVaultDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "LoadBalancerDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-LoadBalancer",
               "parameters": {
                 "effect": {
                   "value": "[parameters('LoadBalancerLogAnalyticsEffect')]"
@@ -1252,11 +1249,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-LoadBalancer",
+              "policyDefinitionReferenceId": "LoadBalancerDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "LogicAppsISEDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-LogicAppsISE",
               "parameters": {
                 "effect": {
                   "value": "[parameters('LogicAppsISELogAnalyticsEffect')]"
@@ -1267,11 +1264,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-LogicAppsISE",
+              "policyDefinitionReferenceId": "LogicAppsISEDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "LogicAppsWFDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/b889a06c-ec72-4b03-910a-cb169ee18721",
               "parameters": {
                 "effect": {
                   "value": "[parameters('LogicAppsWFLogAnalyticsEffect')]"
@@ -1282,11 +1279,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/b889a06c-ec72-4b03-910a-cb169ee18721",
+              "policyDefinitionReferenceId": "LogicAppsWFDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "MariaDBDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-MariaDB",
               "parameters": {
                 "effect": {
                   "value": "[parameters('MariaDBLogAnalyticsEffect')]"
@@ -1297,11 +1294,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-MariaDB",
+              "policyDefinitionReferenceId": "MariaDBDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "MediaServiceDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-MediaService",
               "parameters": {
                 "effect": {
                   "value": "[parameters('MediaServiceLogAnalyticsEffect')]"
@@ -1312,11 +1309,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-MediaService",
+              "policyDefinitionReferenceId": "MediaServiceDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "MlWorkspaceDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-MlWorkspace",
               "parameters": {
                 "effect": {
                   "value": "[parameters('MlWorkspaceLogAnalyticsEffect')]"
@@ -1327,11 +1324,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-MlWorkspace",
+              "policyDefinitionReferenceId": "MlWorkspaceDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "MySQLDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-MySQL",
               "parameters": {
                 "effect": {
                   "value": "[parameters('MySQLLogAnalyticsEffect')]"
@@ -1342,11 +1339,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-MySQL",
+              "policyDefinitionReferenceId": "MySQLDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "NetworkSecurityGroupsDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-NetworkSecurityGroups",
               "parameters": {
                 "effect": {
                   "value": "[parameters('NetworkSecurityGroupsLogAnalyticsEffect')]"
@@ -1357,11 +1354,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-NetworkSecurityGroups",
+              "policyDefinitionReferenceId": "NetworkSecurityGroupsDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "NetworkNICDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-NIC",
               "parameters": {
                 "effect": {
                   "value": "[parameters('NetworkNICLogAnalyticsEffect')]"
@@ -1372,11 +1369,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-NIC",
+              "policyDefinitionReferenceId": "NetworkNICDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "PostgreSQLDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-PostgreSQL",
               "parameters": {
                 "effect": {
                   "value": "[parameters('PostgreSQLLogAnalyticsEffect')]"
@@ -1387,11 +1384,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-PostgreSQL",
+              "policyDefinitionReferenceId": "PostgreSQLDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "PowerBIEmbeddedDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-PowerBIEmbedded",
               "parameters": {
                 "effect": {
                   "value": "[parameters('PowerBIEmbeddedLogAnalyticsEffect')]"
@@ -1402,11 +1399,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-PowerBIEmbedded",
+              "policyDefinitionReferenceId": "PowerBIEmbeddedDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "NetworkPublicIPNicDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/752154a7-1e0f-45c6-a880-ac75a7e4f648",
               "parameters": {
                 "effect": {
                   "value": "[parameters('NetworkPublicIPNicLogAnalyticsEffect')]"
@@ -1414,17 +1411,17 @@
                 "logAnalytics": {
                   "value": "[parameters('logAnalytics')]"
                 },
-                "profileName": {
-                  "value": "[parameters('profileName')]"
-                },
                 "metricsEnabled": {
                   "value": "True"
+                },
+                "profileName": {
+                  "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/752154a7-1e0f-45c6-a880-ac75a7e4f648",
+              "policyDefinitionReferenceId": "NetworkPublicIPNicDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "RecoveryVaultDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/c717fb0c-d118-4c43-ab3d-ece30ac81fb3",
               "parameters": {
                 "logAnalytics": {
                   "value": "[parameters('logAnalytics')]"
@@ -1432,11 +1429,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/c717fb0c-d118-4c43-ab3d-ece30ac81fb3",
+              "policyDefinitionReferenceId": "RecoveryVaultDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "RedisCacheDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-RedisCache",
               "parameters": {
                 "effect": {
                   "value": "[parameters('RedisCacheLogAnalyticsEffect')]"
@@ -1447,11 +1444,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-RedisCache",
+              "policyDefinitionReferenceId": "RedisCacheDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "RelayDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-Relay",
               "parameters": {
                 "effect": {
                   "value": "[parameters('RelayLogAnalyticsEffect')]"
@@ -1462,11 +1459,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-Relay",
+              "policyDefinitionReferenceId": "RelayDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "SearchServicesDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/08ba64b8-738f-4918-9686-730d2ed79c7d",
               "parameters": {
                 "effect": {
                   "value": "[parameters('SearchServicesLogAnalyticsEffect')]"
@@ -1477,11 +1474,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/08ba64b8-738f-4918-9686-730d2ed79c7d",
+              "policyDefinitionReferenceId": "SearchServicesDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "ServiceBusDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/04d53d87-841c-4f23-8a5b-21564380b55e",
               "parameters": {
                 "effect": {
                   "value": "[parameters('ServiceBusLogAnalyticsEffect')]"
@@ -1492,11 +1489,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/04d53d87-841c-4f23-8a5b-21564380b55e",
+              "policyDefinitionReferenceId": "ServiceBusDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "SignalRDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-SignalR",
               "parameters": {
                 "effect": {
                   "value": "[parameters('SignalRLogAnalyticsEffect')]"
@@ -1507,26 +1504,26 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-SignalR",
+              "policyDefinitionReferenceId": "SignalRDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "SQLDatabaseDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/b79fa14e-238a-4c2d-b376-442ce508fc84",
               "parameters": {
+                "diagnosticsSettingNameToUse": {
+                  "value": "[parameters('profileName')]"
+                },
                 "effect": {
                   "value": "[parameters('SQLDBsLogAnalyticsEffect')]"
                 },
                 "logAnalytics": {
                   "value": "[parameters('logAnalytics')]"
-                },
-                "diagnosticsSettingNameToUse": {
-                  "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/b79fa14e-238a-4c2d-b376-442ce508fc84",
+              "policyDefinitionReferenceId": "SQLDatabaseDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "SQLElasticPoolsDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-SQLElasticPools",
               "parameters": {
                 "effect": {
                   "value": "[parameters('SQLElasticPoolsLogAnalyticsEffect')]"
@@ -1537,11 +1534,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-SQLElasticPools",
+              "policyDefinitionReferenceId": "SQLElasticPoolsDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "SQLMDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-SQLMI",
               "parameters": {
                 "effect": {
                   "value": "[parameters('SQLMLogAnalyticsEffect')]"
@@ -1552,11 +1549,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-SQLMI",
+              "policyDefinitionReferenceId": "SQLMDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "StreamAnalyticsDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/237e0f7e-b0e8-4ec4-ad46-8c12cb66d673",
               "parameters": {
                 "effect": {
                   "value": "[parameters('StreamAnalyticsLogAnalyticsEffect')]"
@@ -1567,11 +1564,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/237e0f7e-b0e8-4ec4-ad46-8c12cb66d673",
+              "policyDefinitionReferenceId": "StreamAnalyticsDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "TimeSeriesInsightsDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-TimeSeriesInsights",
               "parameters": {
                 "effect": {
                   "value": "[parameters('TimeSeriesInsightsLogAnalyticsEffect')]"
@@ -1582,11 +1579,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-TimeSeriesInsights",
+              "policyDefinitionReferenceId": "TimeSeriesInsightsDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "TrafficManagerDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-TrafficManager",
               "parameters": {
                 "effect": {
                   "value": "[parameters('TrafficManagerLogAnalyticsEffect')]"
@@ -1597,11 +1594,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-TrafficManager",
+              "policyDefinitionReferenceId": "TrafficManagerDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "VirtualNetworkDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-VirtualNetwork",
               "parameters": {
                 "effect": {
                   "value": "[parameters('VirtualNetworkLogAnalyticsEffect')]"
@@ -1612,11 +1609,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-VirtualNetwork",
+              "policyDefinitionReferenceId": "VirtualNetworkDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "VirtualMachinesDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-VM",
               "parameters": {
                 "effect": {
                   "value": "[parameters('VirtualMachinesLogAnalyticsEffect')]"
@@ -1627,11 +1624,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-VM",
+              "policyDefinitionReferenceId": "VirtualMachinesDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "VMSSDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-VMSS",
               "parameters": {
                 "effect": {
                   "value": "[parameters('VMSSLogAnalyticsEffect')]"
@@ -1642,11 +1639,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-VMSS",
+              "policyDefinitionReferenceId": "VMSSDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "VNetGWDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-VNetGW",
               "parameters": {
                 "effect": {
                   "value": "[parameters('VNetGWLogAnalyticsEffect')]"
@@ -1657,11 +1654,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-VNetGW",
+              "policyDefinitionReferenceId": "VNetGWDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "AppServiceDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-WebServerFarm",
               "parameters": {
                 "effect": {
                   "value": "[parameters('AppServiceLogAnalyticsEffect')]"
@@ -1672,11 +1669,11 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-WebServerFarm",
+              "policyDefinitionReferenceId": "AppServiceDeployDiagnosticLogDeployLogAnalytics"
             },
             {
-              "policyDefinitionReferenceId": "AppServiceWebappDeployDiagnosticLogDeployLogAnalytics",
-              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-Website",
               "parameters": {
                 "effect": {
                   "value": "[parameters('AppServiceWebappLogAnalyticsEffect')]"
@@ -1687,10 +1684,13 @@
                 "profileName": {
                   "value": "[parameters('profileName')]"
                 }
-              }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/azfwprem/providers/Microsoft.Authorization/policyDefinitions/Deploy-Diagnostics-Website",
+              "policyDefinitionReferenceId": "AppServiceWebappDeployDiagnosticLogDeployLogAnalytics"
             }
           ]
-        }
+        },
+        "type": "microsoft.authorization/policysetdefinitions"
       }
     }
   }
