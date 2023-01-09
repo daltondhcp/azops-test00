@@ -55,6 +55,7 @@
                 "roleDefinitionIds": [
                   "/providers/Microsoft.Authorization/roleDefinitions/4d97b98b-1d4f-4787-a291-c67834d212e7"
                 ],
+                "name": "[parameters('ddosName')]",
                 "deployment": {
                   "properties": {
                     "parameters": {
@@ -124,10 +125,9 @@
                   },
                   "location": "northeurope"
                 },
-                "name": "[parameters('ddosName')]",
-                "deploymentScope": "Subscription",
                 "existenceScope": "ResourceGroup",
-                "resourceGroupName": "[parameters('rgName')]"
+                "resourceGroupName": "[parameters('rgName')]",
+                "deploymentScope": "Subscription"
               }
             },
             "if": {

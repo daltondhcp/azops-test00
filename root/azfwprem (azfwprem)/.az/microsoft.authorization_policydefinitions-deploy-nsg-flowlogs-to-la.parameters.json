@@ -67,6 +67,7 @@
                   "/providers/Microsoft.Authorization/roleDefinitions/17d1049b-9a84-46fb-8f53-869881c3d3ab",
                   "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
                 ],
+                "name": "[if(empty(coalesce(field('Microsoft.Network/networkSecurityGroups/flowLogs[*].id'))), 'null/null', concat(split(first(field('Microsoft.Network/networkSecurityGroups/flowLogs[*].id')), '/')[8], '/', split(first(field('Microsoft.Network/networkSecurityGroups/flowLogs[*].id')), '/')[10]))]",
                 "deployment": {
                   "properties": {
                     "parameters": {
@@ -76,11 +77,11 @@
                       "retention": {
                         "value": "[parameters('retention')]"
                       },
-                      "workspace": {
-                        "value": "[parameters('workspace')]"
-                      },
                       "networkSecurityGroup": {
                         "value": "[field('id')]"
+                      },
+                      "workspace": {
+                        "value": "[parameters('workspace')]"
                       },
                       "interval": {
                         "value": "[parameters('interval')]"
@@ -95,10 +96,10 @@
                         "retention": {
                           "type": "int"
                         },
-                        "workspace": {
+                        "networkSecurityGroup": {
                           "type": "String"
                         },
-                        "networkSecurityGroup": {
+                        "workspace": {
                           "type": "String"
                         },
                         "interval": {
@@ -151,6 +152,7 @@
                                   "properties": {},
                                   "location": "[parameters('location')]",
                                   "apiVersion": "2020-05-01T00:00:00Z",
+                                  "name": "[concat('NetworkWatcher_', toLower(parameters('location')))]",
                                   "resources": [
                                     {
                                       "type": "flowLogs",
@@ -181,8 +183,7 @@
                                         "[concat('NetworkWatcher_', toLower(parameters('location')))]"
                                       ]
                                     }
-                                  ],
-                                  "name": "[concat('NetworkWatcher_', toLower(parameters('location')))]"
+                                  ]
                                 }
                               ],
                               "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#"
@@ -196,8 +197,8 @@
                         }
                       ],
                       "variables": {
-                        "resourceGroupName": "[split(parameters('networkSecurityGroup'), '/')[4]]",
                         "storageAccountName": "[concat('es', uniqueString(variables('securityGroupName'), parameters('time')))]",
+                        "resourceGroupName": "[split(parameters('networkSecurityGroup'), '/')[4]]",
                         "securityGroupName": "[split(parameters('networkSecurityGroup'), '/')[8]]"
                       },
                       "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
@@ -206,10 +207,9 @@
                   },
                   "location": "northeurope"
                 },
-                "name": "[if(empty(coalesce(field('Microsoft.Network/networkSecurityGroups/flowLogs[*].id'))), 'null/null', concat(split(first(field('Microsoft.Network/networkSecurityGroups/flowLogs[*].id')), '/')[8], '/', split(first(field('Microsoft.Network/networkSecurityGroups/flowLogs[*].id')), '/')[10]))]",
-                "deploymentScope": "subscription",
                 "existenceScope": "resourceGroup",
-                "resourceGroupName": "[if(empty(coalesce(field('Microsoft.Network/networkSecurityGroups/flowLogs'))), 'NetworkWatcherRG', split(first(field('Microsoft.Network/networkSecurityGroups/flowLogs[*].id')), '/')[4])]"
+                "resourceGroupName": "[if(empty(coalesce(field('Microsoft.Network/networkSecurityGroups/flowLogs'))), 'NetworkWatcherRG', split(first(field('Microsoft.Network/networkSecurityGroups/flowLogs[*].id')), '/')[4])]",
+                "deploymentScope": "subscription"
               }
             },
             "if": {

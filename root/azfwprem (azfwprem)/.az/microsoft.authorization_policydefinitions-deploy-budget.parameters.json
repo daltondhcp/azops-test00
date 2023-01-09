@@ -27,17 +27,17 @@
               },
               "type": "String"
             },
-            "contactEmails": {
-              "defaultValue": [],
-              "metadata": {
-                "description": "The list of email addresses, in an array, to send the budget notification to when the threshold is exceeded."
-              },
-              "type": "Array"
-            },
             "contactGroups": {
               "defaultValue": [],
               "metadata": {
                 "description": "The list of action groups, in an array, to send the budget notification to when the threshold is exceeded. It accepts array of strings."
+              },
+              "type": "Array"
+            },
+            "contactEmails": {
+              "defaultValue": [],
+              "metadata": {
+                "description": "The list of email addresses, in an array, to send the budget notification to when the threshold is exceeded."
               },
               "type": "Array"
             },
@@ -103,11 +103,11 @@
                       "timeGrain": {
                         "value": "[parameters('timeGrain')]"
                       },
-                      "contactEmails": {
-                        "value": "[parameters('contactEmails')]"
-                      },
                       "contactGroups": {
                         "value": "[parameters('contactGroups')]"
+                      },
+                      "contactEmails": {
+                        "value": "[parameters('contactEmails')]"
                       },
                       "contactRoles": {
                         "value": "[parameters('contactRoles')]"
@@ -128,10 +128,10 @@
                         "timeGrain": {
                           "type": "String"
                         },
-                        "contactEmails": {
+                        "contactGroups": {
                           "type": "Array"
                         },
-                        "contactGroups": {
+                        "contactEmails": {
                           "type": "Array"
                         },
                         "contactRoles": {
@@ -162,16 +162,16 @@
                             "notifications": {
                               "NotificationForExceededBudget1": {
                                 "enabled": true,
-                                "contactEmails": "[parameters('contactEmails')]",
                                 "contactGroups": "[parameters('contactGroups')]",
+                                "contactEmails": "[parameters('contactEmails')]",
                                 "contactRoles": "[parameters('contactRoles')]",
                                 "operator": "GreaterThan",
                                 "threshold": "[parameters('firstThreshold')]"
                               },
                               "NotificationForExceededBudget2": {
                                 "enabled": true,
-                                "contactEmails": "[parameters('contactEmails')]",
                                 "contactGroups": "[parameters('contactGroups')]",
+                                "contactEmails": "[parameters('contactEmails')]",
                                 "contactRoles": "[parameters('contactRoles')]",
                                 "operator": "GreaterThan",
                                 "threshold": "[parameters('secondThreshold')]"
@@ -190,8 +190,8 @@
                   },
                   "location": "northeurope"
                 },
-                "deploymentScope": "Subscription",
-                "existenceScope": "Subscription"
+                "existenceScope": "Subscription",
+                "deploymentScope": "Subscription"
               }
             },
             "if": {

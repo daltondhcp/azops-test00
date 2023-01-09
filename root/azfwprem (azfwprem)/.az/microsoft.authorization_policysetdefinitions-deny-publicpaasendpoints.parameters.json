@@ -114,19 +114,6 @@
               },
               "type": "String"
             },
-            "AFSPublicIpDenyEffect": {
-              "allowedValues": [
-                "Audit",
-                "Deny",
-                "Disabled"
-              ],
-              "defaultValue": "Deny",
-              "metadata": {
-                "description": "This policy denies the creation of Azure File Sync instances with exposed public endpoints ",
-                "displayName": "Public network access on Azure File Sync disabled"
-              },
-              "type": "String"
-            },
             "ACRPublicIpDenyEffect": {
               "allowedValues": [
                 "Audit",
@@ -137,6 +124,19 @@
               "metadata": {
                 "description": "This policy denies the creation of Azure Container Registires with exposed public endpoints ",
                 "displayName": "Public network access on Azure Container Registry disabled"
+              },
+              "type": "String"
+            },
+            "AFSPublicIpDenyEffect": {
+              "allowedValues": [
+                "Audit",
+                "Deny",
+                "Disabled"
+              ],
+              "defaultValue": "Deny",
+              "metadata": {
+                "description": "This policy denies the creation of Azure File Sync instances with exposed public endpoints ",
+                "displayName": "Public network access on Azure File Sync disabled"
               },
               "type": "String"
             }

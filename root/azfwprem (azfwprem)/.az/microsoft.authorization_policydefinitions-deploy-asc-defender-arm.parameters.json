@@ -57,6 +57,7 @@
                 "roleDefinitionIds": [
                   "/providers/Microsoft.Authorization/roleDefinitions/fb1c8493-542b-48eb-b624-b4c8fea62acd"
                 ],
+                "name": "Arm",
                 "deployment": {
                   "properties": {
                     "parameters": {
@@ -92,9 +93,8 @@
                   },
                   "location": "northeurope"
                 },
-                "name": "Arm",
-                "deploymentScope": "Subscription",
-                "existenceScope": "Subscription"
+                "existenceScope": "Subscription",
+                "deploymentScope": "Subscription"
               }
             },
             "if": {

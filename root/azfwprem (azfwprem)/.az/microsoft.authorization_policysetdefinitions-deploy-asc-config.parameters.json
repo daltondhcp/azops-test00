@@ -51,18 +51,6 @@
               },
               "type": "string"
             },
-            "pricingTierKubernetesService": {
-              "allowedValues": [
-                "Standard",
-                "Free"
-              ],
-              "defaultValue": "Standard",
-              "metadata": {
-                "description": "Azure Defender pricing tier for AKS",
-                "displayName": "Azure Defender pricing tier for AKS"
-              },
-              "type": "string"
-            },
             "pricingTierContainerRegistry": {
               "allowedValues": [
                 "Standard",
@@ -72,6 +60,18 @@
               "metadata": {
                 "description": "Azure Defender pricing tier for ACR",
                 "displayName": "Azure Defender pricing tier for ACR"
+              },
+              "type": "string"
+            },
+            "pricingTierKubernetesService": {
+              "allowedValues": [
+                "Standard",
+                "Free"
+              ],
+              "defaultValue": "Standard",
+              "metadata": {
+                "description": "Azure Defender pricing tier for AKS",
+                "displayName": "Azure Defender pricing tier for AKS"
               },
               "type": "string"
             },
@@ -135,18 +135,6 @@
               },
               "type": "string"
             },
-            "pricingTierVMs": {
-              "allowedValues": [
-                "Standard",
-                "Free"
-              ],
-              "defaultValue": "Standard",
-              "metadata": {
-                "description": "Azure Defender pricing tier for Virtual Machines",
-                "displayName": "Azure Defender pricing tier for Virtual Machines"
-              },
-              "type": "string"
-            },
             "pricingTierDns": {
               "allowedValues": [
                 "Standard",
@@ -156,6 +144,18 @@
               "metadata": {
                 "description": "Azure Defender pricing tier for DNS",
                 "displayName": "Azure Defender pricing tier for DNS"
+              },
+              "type": "string"
+            },
+            "pricingTierVMs": {
+              "allowedValues": [
+                "Standard",
+                "Free"
+              ],
+              "defaultValue": "Standard",
+              "metadata": {
+                "description": "Azure Defender pricing tier for Virtual Machines",
+                "displayName": "Azure Defender pricing tier for Virtual Machines"
               },
               "type": "string"
             }
@@ -266,11 +266,11 @@
               "policyDefinitionReferenceId": "ascExport",
               "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/ffb6f416-7bd2-4488-8828-56585fef2be9",
               "parameters": {
-                "resourceGroupName": {
-                  "value": "[parameters('ascExportResourceGroupName')]"
-                },
                 "workspaceResourceId": {
                   "value": "[parameters('logAnalytics')]"
+                },
+                "resourceGroupName": {
+                  "value": "[parameters('ascExportResourceGroupName')]"
                 },
                 "resourceGroupLocation": {
                   "value": "[parameters('ascExportResourceGroupLocation')]"

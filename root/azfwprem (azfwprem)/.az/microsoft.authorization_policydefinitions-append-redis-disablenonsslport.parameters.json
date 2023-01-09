@@ -31,8 +31,8 @@
               "effect": "[parameters('effect')]",
               "details": [
                 {
-                  "field": "Microsoft.Cache/Redis/enableNonSslPort",
-                  "value": false
+                  "value": false,
+                  "field": "Microsoft.Cache/Redis/enableNonSslPort"
                 }
               ]
             },

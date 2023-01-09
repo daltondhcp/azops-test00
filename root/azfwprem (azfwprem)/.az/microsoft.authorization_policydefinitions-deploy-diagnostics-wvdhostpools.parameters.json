@@ -12,14 +12,6 @@
           "description": "Deploys the diagnostic settings for WVD Host Pools to stream to a Log Analytics workspace when any Host Pools which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all and categorys enabled.",
           "displayName": "Deploy Diagnostic Settings for WVD Host Pools to Log Analytics workspace",
           "parameters": {
-            "logAnalytics": {
-              "metadata": {
-                "description": "Select Log Analytics workspace from dropdown list. If this workspace is outside of the scope of the assignment you must manually grant 'Log Analytics Contributor' permissions (or similar) to the policy assignment's principal ID.",
-                "displayName": "Log Analytics workspace",
-                "strongType": "omsWorkspace"
-              },
-              "type": "String"
-            },
             "effect": {
               "allowedValues": [
                 "DeployIfNotExists",
@@ -29,6 +21,14 @@
               "metadata": {
                 "description": "Enable or disable the execution of the policy",
                 "displayName": "Effect"
+              },
+              "type": "String"
+            },
+            "logAnalytics": {
+              "metadata": {
+                "description": "Select Log Analytics workspace from dropdown list. If this workspace is outside of the scope of the assignment you must manually grant 'Log Analytics Contributor' permissions (or similar) to the policy assignment's principal ID.",
+                "displayName": "Log Analytics workspace",
+                "strongType": "omsWorkspace"
               },
               "type": "String"
             },
@@ -74,20 +74,21 @@
                   "/providers/microsoft.authorization/roleDefinitions/749f88d5-cbae-40b8-bcfc-e573ddc772fa",
                   "/providers/microsoft.authorization/roleDefinitions/92aaf0da-9dab-42b6-94a3-d43ce8d16293"
                 ],
+                "name": "setByPolicy",
                 "deployment": {
                   "properties": {
                     "parameters": {
                       "logAnalytics": {
                         "value": "[parameters('logAnalytics')]"
                       },
+                      "profileName": {
+                        "value": "[parameters('profileName')]"
+                      },
                       "location": {
                         "value": "[field('location')]"
                       },
                       "resourceName": {
                         "value": "[field('name')]"
-                      },
-                      "profileName": {
-                        "value": "[parameters('profileName')]"
                       },
                       "logsEnabled": {
                         "value": "[parameters('logsEnabled')]"
@@ -99,13 +100,13 @@
                         "logAnalytics": {
                           "type": "String"
                         },
+                        "profileName": {
+                          "type": "String"
+                        },
                         "location": {
                           "type": "String"
                         },
                         "resourceName": {
-                          "type": "String"
-                        },
-                        "profileName": {
                           "type": "String"
                         },
                         "logsEnabled": {
@@ -156,8 +157,7 @@
                       "outputs": {}
                     }
                   }
-                },
-                "name": "setByPolicy"
+                }
               }
             },
             "if": {
