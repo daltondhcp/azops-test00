@@ -18,8 +18,8 @@
               ],
               "defaultValue": "audit",
               "metadata": {
-                "displayName": "Effect",
-                "description": "'audit' allows a non-compliant resource to be created or updated, but flags it as non-compliant. 'deny' blocks the non-compliant resource creation or update. 'disabled' turns off the policy."
+                "description": "'audit' allows a non-compliant resource to be created or updated, but flags it as non-compliant. 'deny' blocks the non-compliant resource creation or update. 'disabled' turns off the policy.",
+                "displayName": "Effect"
               },
               "type": "String"
             },
@@ -30,24 +30,16 @@
                 "azure-arc"
               ],
               "metadata": {
-                "displayName": "Namespace exclusions",
-                "description": "List of Kubernetes namespaces to exclude from policy evaluation."
-              },
-              "type": "Array"
-            },
-            "namespaces": {
-              "defaultValue": [],
-              "metadata": {
-                "displayName": "Namespace inclusions",
-                "description": "List of Kubernetes namespaces to only include in policy evaluation. An empty list means the policy is applied to all resources in all namespaces."
+                "description": "List of Kubernetes namespaces to exclude from policy evaluation.",
+                "displayName": "Namespace exclusions"
               },
               "type": "Array"
             },
             "labelSelector": {
               "defaultValue": {},
               "metadata": {
-                "displayName": "Kubernetes label selector",
-                "description": "Label query to select Kubernetes resources for policy evaluation. An empty label selector matches all Kubernetes resources."
+                "description": "Label query to select Kubernetes resources for policy evaluation. An empty label selector matches all Kubernetes resources.",
+                "displayName": "Kubernetes label selector"
               },
               "schema": {
                 "description": "A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all resources.",
@@ -101,6 +93,14 @@
                 }
               },
               "type": "Object"
+            },
+            "namespaces": {
+              "defaultValue": [],
+              "metadata": {
+                "description": "List of Kubernetes namespaces to only include in policy evaluation. An empty list means the policy is applied to all resources in all namespaces.",
+                "displayName": "Namespace inclusions"
+              },
+              "type": "Array"
             }
           },
           "displayName": "AKS Test Policy",
@@ -109,8 +109,8 @@
               "effect": "[parameters('effect')]",
               "details": {
                 "excludedNamespaces": "[parameters('excludedNamespaces')]",
-                "namespaces": "[parameters('namespaces')]",
                 "labelSelector": "[parameters('labelSelector')]",
+                "namespaces": "[parameters('namespaces')]",
                 "templateInfo": {
                   "sourceType": "Base64Encoded",
                   "content": "YXBpVmVyc2lvbjogdGVtcGxhdGVzLmdhdGVrZWVwZXIuc2gvdjFiZXRhMQpraW5kOiBDb25zdHJhaW50VGVtcGxhdGUKbWV0YWRhdGE6CiAgbmFtZTogdGVzdDIKc3BlYzoKICBjcmQ6CiAgICBzcGVjOgogICAgICBuYW1lczoKICAgICAgICBraW5kOiBUZXN0MgogIHRhcmdldHM6CiAgICAtIHRhcmdldDogYWRtaXNzaW9uLms4cy5nYXRla2VlcGVyLnNoCiAgICAgIHJlZ286IHwKICAgICAgICBwYWNrYWdlIHRlc3QyCgogICAgICAgIHZpb2xhdGlvblt7Im1zZyI6IG1zZywgImRldGFpbHMiOiB7fX1dIHsKICAgICAgICAgICAgYyA6PSBpbnB1dF9jb250YWluZXJzW19dCiAgICAgICAgICAgIGMuc2VjdXJpdHlDb250ZXh0LnByaXZpbGVnZWQKICAgICAgICAgICAgbXNnIDo9IHNwcmludGYoIlByaXZpbGVnZWQgY29udGFpbmVyIGlzIG5vdCBhbGxvd2VkOiAldiwgc2VjdXJpdHlDb250ZXh0OiAldiIsIFtjLm5hbWUsIGMuc2VjdXJpdHlDb250ZXh0XSkKICAgICAgICB9CgogICAgICAgIGlucHV0X2NvbnRhaW5lcnNbY10gewogICAgICAgICAgICBjIDo9IGlucHV0LnJldmlldy5vYmplY3Quc3BlYy5jb250YWluZXJzW19dCiAgICAgICAgfQoKICAgICAgICBpbnB1dF9jb250YWluZXJzW2NdIHsKICAgICAgICAgICAgYyA6PSBpbnB1dC5yZXZpZXcub2JqZWN0LnNwZWMuaW5pdENvbnRhaW5lcnNbX10KICAgICAgICB9Cg=="
