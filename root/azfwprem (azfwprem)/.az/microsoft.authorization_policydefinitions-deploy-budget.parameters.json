@@ -190,8 +190,8 @@
                   },
                   "location": "northeurope"
                 },
-                "existenceScope": "Subscription",
-                "deploymentScope": "Subscription"
+                "deploymentScope": "Subscription",
+                "existenceScope": "Subscription"
               }
             },
             "if": {

@@ -20,17 +20,17 @@
               },
               "type": "Boolean"
             },
-            "hubResourceId": {
-              "metadata": {
-                "description": "Resource ID for the HUB vNet",
-                "displayName": "hubResourceId"
-              },
-              "type": "String"
-            },
             "vNetCidrRange": {
               "metadata": {
                 "description": "CIDR Range for the vNet",
                 "displayName": "vNetCidrRange"
+              },
+              "type": "String"
+            },
+            "hubResourceId": {
+              "metadata": {
+                "description": "Resource ID for the HUB vNet",
+                "displayName": "hubResourceId"
               },
               "type": "String"
             },
@@ -41,13 +41,6 @@
               },
               "type": "String"
             },
-            "vNetRgName": {
-              "metadata": {
-                "description": "Name of the landing zone vNet RG",
-                "displayName": "vNetRgName"
-              },
-              "type": "String"
-            },
             "dnsServers": {
               "defaultValue": [],
               "metadata": {
@@ -55,6 +48,13 @@
                 "displayName": "DNSServers"
               },
               "type": "Array"
+            },
+            "vNetRgName": {
+              "metadata": {
+                "description": "Name of the landing zone vNet RG",
+                "displayName": "vNetRgName"
+              },
+              "type": "String"
             },
             "vNetName": {
               "metadata": {
@@ -90,20 +90,20 @@
                       "vNetPeerUseRemoteGateway": {
                         "value": "[parameters('vNetPeerUseRemoteGateway')]"
                       },
-                      "hubResourceId": {
-                        "value": "[parameters('hubResourceId')]"
-                      },
                       "vNetCidrRange": {
                         "value": "[parameters('vNetCidrRange')]"
+                      },
+                      "hubResourceId": {
+                        "value": "[parameters('hubResourceId')]"
                       },
                       "vNetLocation": {
                         "value": "[parameters('vNetLocation')]"
                       },
-                      "vNetRgName": {
-                        "value": "[parameters('vNetRgName')]"
-                      },
                       "dnsServers": {
                         "value": "[parameters('dnsServers')]"
+                      },
+                      "vNetRgName": {
+                        "value": "[parameters('vNetRgName')]"
                       },
                       "vNetName": {
                         "value": "[parameters('vNetName')]"
@@ -116,21 +116,21 @@
                           "defaultValue": false,
                           "type": "bool"
                         },
-                        "hubResourceId": {
+                        "vNetCidrRange": {
                           "type": "String"
                         },
-                        "vNetCidrRange": {
+                        "hubResourceId": {
                           "type": "String"
                         },
                         "vNetLocation": {
                           "type": "String"
                         },
-                        "vNetRgName": {
-                          "type": "String"
-                        },
                         "dnsServers": {
                           "defaultValue": [],
                           "type": "Array"
+                        },
+                        "vNetRgName": {
+                          "type": "String"
                         },
                         "vNetName": {
                           "type": "String"
@@ -284,8 +284,8 @@
                   "location": "northeurope"
                 },
                 "name": "[parameters('vNetName')]",
-                "existenceScope": "ResourceGroup",
                 "deploymentScope": "Subscription",
+                "existenceScope": "ResourceGroup",
                 "ResourceGroupName": "[parameters('vNetRgName')]"
               }
             },

@@ -142,8 +142,8 @@
                   },
                   "location": "northeurope"
                 },
-                "existenceScope": "ResourceGroup",
                 "deploymentScope": "Subscription",
+                "existenceScope": "ResourceGroup",
                 "resourceGroupName": "[parameters('rgName')]"
               }
             },

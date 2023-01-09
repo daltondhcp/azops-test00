@@ -93,8 +93,8 @@
                   "location": "northeurope"
                 },
                 "name": "StorageAccounts",
-                "existenceScope": "Subscription",
-                "deploymentScope": "Subscription"
+                "deploymentScope": "Subscription",
+                "existenceScope": "Subscription"
               }
             },
             "if": {
