@@ -4,13 +4,13 @@
   "parameters": {
     "input": {
       "value": {
-        "name": "Deploy-FirewallPolicy",
-        "type": "microsoft.authorization/policydefinitions",
         "kind": "policydefinitions",
         "location": "global",
+        "name": "Deploy-FirewallPolicy",
         "properties": {
           "description": "Deploys Azure Firewall Manager policy in subscription where the policy is assigned.",
           "displayName": "Deploy Azure Firewall Manager policy in the subscription",
+          "mode": "All",
           "parameters": {
             "effect": {
               "allowedValues": [
@@ -21,13 +21,6 @@
               "metadata": {
                 "description": "Enable or disable the execution of the policy",
                 "displayName": "Effect"
-              },
-              "type": "String"
-            },
-            "rgName": {
-              "metadata": {
-                "description": "Provide name for resource group.",
-                "displayName": "rgName"
               },
               "type": "String"
             },
@@ -46,118 +39,125 @@
                 "displayName": "fwpolicy"
               },
               "type": "Object"
+            },
+            "rgName": {
+              "metadata": {
+                "description": "Provide name for resource group.",
+                "displayName": "rgName"
+              },
+              "type": "String"
             }
           },
           "policyRule": {
+            "if": {
+              "allOf": [
+                {
+                  "equals": "Microsoft.Resources/subscriptions",
+                  "field": "type"
+                }
+              ]
+            },
             "then": {
-              "effect": "[parameters('effect')]",
               "details": {
-                "type": "Microsoft.Network/firewallPolicies",
-                "roleDefinitionIds": [
-                  "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
-                ],
                 "deployment": {
+                  "location": "northeurope",
                   "properties": {
+                    "mode": "Incremental",
                     "parameters": {
-                      "rgName": {
-                        "value": "[parameters('rgName')]"
+                      "fwPolicy": {
+                        "value": "[parameters('fwPolicy')]"
                       },
                       "fwPolicyRegion": {
                         "value": "[parameters('fwPolicyRegion')]"
                       },
-                      "fwPolicy": {
-                        "value": "[parameters('fwPolicy')]"
+                      "rgName": {
+                        "value": "[parameters('rgName')]"
                       }
                     },
-                    "mode": "Incremental",
                     "template": {
+                      "$schema": "http://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json",
+                      "contentVersion": "1.0.0.0",
+                      "outputs": {},
                       "parameters": {
-                        "rgName": {
-                          "type": "String"
+                        "fwPolicy": {
+                          "type": "object"
                         },
                         "fwPolicyRegion": {
                           "type": "String"
                         },
-                        "fwPolicy": {
-                          "type": "object"
+                        "rgName": {
+                          "type": "String"
                         }
                       },
-                      "contentVersion": "1.0.0.0",
                       "resources": [
                         {
-                          "type": "Microsoft.Resources/resourceGroups",
-                          "properties": {},
-                          "location": "[deployment().location]",
                           "apiVersion": "2018-05-01T00:00:00Z",
-                          "name": "[parameters('rgName')]"
+                          "location": "[deployment().location]",
+                          "name": "[parameters('rgName')]",
+                          "properties": {},
+                          "type": "Microsoft.Resources/resourceGroups"
                         },
                         {
-                          "resourceGroup": "[parameters('rgName')]",
-                          "type": "Microsoft.Resources/deployments",
+                          "apiVersion": "2018-05-01T00:00:00Z",
+                          "dependsOn": [
+                            "[resourceId('Microsoft.Resources/resourceGroups/', parameters('rgName'))]"
+                          ],
+                          "name": "fwpolicies",
                           "properties": {
                             "mode": "Incremental",
                             "template": {
-                              "parameters": {},
+                              "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
                               "contentVersion": "1.0.0.0",
+                              "outputs": {},
+                              "parameters": {},
                               "resources": [
                                 {
-                                  "type": "Microsoft.Network/firewallPolicies",
-                                  "properties": {},
-                                  "location": "[parameters('fwpolicy').location]",
                                   "apiVersion": "2019-09-01T00:00:00Z",
+                                  "dependsOn": [],
+                                  "location": "[parameters('fwpolicy').location]",
                                   "name": "[parameters('fwpolicy').firewallPolicyName]",
+                                  "properties": {},
                                   "resources": [
                                     {
-                                      "type": "ruleGroups",
+                                      "apiVersion": "2019-09-01T00:00:00Z",
+                                      "dependsOn": [
+                                        "[resourceId('Microsoft.Network/firewallPolicies',parameters('fwpolicy').firewallPolicyName)]"
+                                      ],
+                                      "name": "[parameters('fwpolicy').ruleGroups.name]",
                                       "properties": {
                                         "priority": "[parameters('fwpolicy').ruleGroups.properties.priority]",
                                         "rules": "[parameters('fwpolicy').ruleGroups.properties.rules]"
                                       },
-                                      "apiVersion": "2019-09-01T00:00:00Z",
-                                      "name": "[parameters('fwpolicy').ruleGroups.name]",
-                                      "dependsOn": [
-                                        "[resourceId('Microsoft.Network/firewallPolicies',parameters('fwpolicy').firewallPolicyName)]"
-                                      ]
+                                      "type": "ruleGroups"
                                     }
                                   ],
-                                  "dependsOn": [],
-                                  "tags": {}
+                                  "tags": {},
+                                  "type": "Microsoft.Network/firewallPolicies"
                                 }
                               ],
-                              "variables": {},
-                              "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
-                              "outputs": {}
+                              "variables": {}
                             }
                           },
-                          "apiVersion": "2018-05-01T00:00:00Z",
-                          "name": "fwpolicies",
-                          "dependsOn": [
-                            "[resourceId('Microsoft.Resources/resourceGroups/', parameters('rgName'))]"
-                          ]
+                          "resourceGroup": "[parameters('rgName')]",
+                          "type": "Microsoft.Resources/deployments"
                         }
-                      ],
-                      "$schema": "http://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json",
-                      "outputs": {}
+                      ]
                     }
-                  },
-                  "location": "northeurope"
+                  }
                 },
+                "deploymentScope": "Subscription",
                 "existenceScope": "ResourceGroup",
                 "resourceGroupName": "[parameters('rgName')]",
-                "deploymentScope": "Subscription"
-              }
-            },
-            "if": {
-              "allOf": [
-                {
-                  "field": "type",
-                  "equals": "Microsoft.Resources/subscriptions"
-                }
-              ]
+                "roleDefinitionIds": [
+                  "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+                ],
+                "type": "Microsoft.Network/firewallPolicies"
+              },
+              "effect": "[parameters('effect')]"
             }
-          },
-          "mode": "All"
-        }
+          }
+        },
+        "type": "microsoft.authorization/policydefinitions"
       }
     }
   }

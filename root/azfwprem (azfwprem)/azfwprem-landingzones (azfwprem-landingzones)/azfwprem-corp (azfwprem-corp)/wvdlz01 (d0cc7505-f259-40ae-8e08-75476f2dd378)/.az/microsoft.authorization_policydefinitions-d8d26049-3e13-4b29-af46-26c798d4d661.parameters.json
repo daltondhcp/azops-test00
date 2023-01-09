@@ -4,12 +4,12 @@
   "parameters": {
     "input": {
       "value": {
-        "name": "d8d26049-3e13-4b29-af46-26c798d4d661",
-        "type": "microsoft.authorization/policydefinitions",
         "kind": "policydefinitions",
         "location": "global",
+        "name": "d8d26049-3e13-4b29-af46-26c798d4d661",
         "properties": {
           "displayName": "mYdEPLOY-MDE<c",
+          "mode": "All",
           "parameters": {
             "effect": {
               "allowedValues": [
@@ -18,100 +18,26 @@
               ],
               "defaultValue": "DeployIfNotExists",
               "metadata": {
-                "displayName": "Effect",
-                "description": "Enable or disable the execution of the policy"
+                "description": "Enable or disable the execution of the policy",
+                "displayName": "Effect"
               },
               "type": "String"
             },
             "listOfImageIdToInclude": {
               "defaultValue": [],
               "metadata": {
-                "displayName": "Optional: List of virtual machine images that have supported Windows OS to add to scope",
-                "description": "Example value: '/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage'"
+                "description": "Example value: '/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage'",
+                "displayName": "Optional: List of virtual machine images that have supported Windows OS to add to scope"
               },
               "type": "Array"
             }
           },
           "policyRule": {
-            "then": {
-              "effect": "[parameters('effect')]",
-              "details": {
-                "type": "Microsoft.Compute/virtualMachineScaleSets/extensions",
-                "existenceCondition": {
-                  "allOf": [
-                    {
-                      "field": "Microsoft.Compute/virtualMachineScaleSets/extensions/type",
-                      "equals": "Microsoft.Compute.CustomScriptExtension"
-                    },
-                    {
-                      "field": "Microsoft.Compute/virtualMachineScaleSets/extensions/publisher",
-                      "equals": "CustomScriptExtension"
-                    }
-                  ]
-                },
-                "roleDefinitionIds": [
-                  "/providers/microsoft.authorization/roleDefinitions/9980e02c-c2be-4d73-94e8-173b1dc7cf3c"
-                ],
-                "deployment": {
-                  "properties": {
-                    "parameters": {
-                      "location": {
-                        "value": "[field('location')]"
-                      },
-                      "vmName": {
-                        "value": "[field('name')]"
-                      },
-                      "azureResourceId": {
-                        "value": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Compute/virtualMachineScaleSets/',field('name'))]"
-                      }
-                    },
-                    "mode": "Incremental",
-                    "template": {
-                      "parameters": {
-                        "location": {
-                          "type": "string"
-                        },
-                        "vmName": {
-                          "type": "string"
-                        },
-                        "azureResourceId": {
-                          "type": "string"
-                        }
-                      },
-                      "contentVersion": "1.0.0.0",
-                      "resources": [
-                        {
-                          "type": "Microsoft.Compute/virtualMachineScaleSets/extensions",
-                          "properties": {
-                            "type": "MDE.Windows",
-                            "autoUpgradeMinorVersion": true,
-                            "typeHandlerVersion": "1.0",
-                            "publisher": "Microsoft.Azure.AzureDefenderForServers",
-                            "protectedSettings": {
-                              "defenderForEndpointOnboardingScript": "M1MjlFREI3fVwiIH07IHByaXZhdGUgRXZlbnRTb3VyY2UgZXMgPSBuZXcgRXZlbnRTb3VyY2UoXCJNaWNyb3NvZnQuV2luZG93cy5TZW5zZS5DbGllbnQuTWFuYWdlbWVudFwiLEV2ZW50U291cmNlU2V0dGluZ3MuRXR3U2VsZkRlc2NyaWJpbmdFdmVudEZvcm1hdCx0ZWxlbWV0cnlUcmFpdHMpO319JzsgJGxvZ2dlciA9IE5ldy1PYmplY3QgLVR5cGVOYW1lIFNlbnNlLlRyYWNlOyAkbG9nZ2VyLldyaXRlT25ib2FyZGluZ01lc3NhZ2UoJyVzdWNjZXNzT3V0cHV0JScpIiA+TlVMIDI+JjENCiIlUFJPR1JBTUZJTEVTJVxXaW5kb3dzIERlZmVuZGVyXE1wQ21kUnVuLmV4ZSIgLVJlbG9hZEVuZ2luZSA+TlVMIDI+JjENCg0KR09UTyBDTEVBTlVQDQoNCjpDTEVBTlVQDQppZiBleGlzdCAlVE1QJVxzZW5zZVRtcC50eHQgZGVsICVUTVAlXHNlbnNlVG1wLnR4dA0KRVhJVCAvQiAlZXJyb3JDb2RlJQ0KCg=="
-                            },
-                            "settings": {
-                              "azureResourceId": "[parameters('azureResourceId')]",
-                              "vNextEnabled": "true",
-                              "installedBy": "Policy"
-                            }
-                          },
-                          "location": "[parameters('location')]",
-                          "apiVersion": "2020-06-01T00:00:00Z",
-                          "name": "[concat(parameters('vmName'), '/MDE.Windows')]"
-                        }
-                      ],
-                      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#"
-                    }
-                  }
-                }
-              }
-            },
             "if": {
               "allOf": [
                 {
-                  "field": "type",
-                  "equals": "Microsoft.Compute/virtualMachineScaleSets"
+                  "equals": "Microsoft.Compute/virtualMachineScaleSets",
+                  "field": "type"
                 },
                 {
                   "anyOf": [
@@ -122,12 +48,12 @@
                     {
                       "allOf": [
                         {
-                          "field": "Microsoft.Compute/imagePublisher",
-                          "equals": "MicrosoftWindowsServer"
+                          "equals": "MicrosoftWindowsServer",
+                          "field": "Microsoft.Compute/imagePublisher"
                         },
                         {
-                          "field": "Microsoft.Compute/imageOffer",
-                          "equals": "WindowsServer"
+                          "equals": "WindowsServer",
+                          "field": "Microsoft.Compute/imageOffer"
                         },
                         {
                           "field": "Microsoft.Compute/imageSKU",
@@ -161,12 +87,12 @@
                     {
                       "allOf": [
                         {
-                          "field": "Microsoft.Compute/imagePublisher",
-                          "equals": "MicrosoftWindowsServer"
+                          "equals": "MicrosoftWindowsServer",
+                          "field": "Microsoft.Compute/imagePublisher"
                         },
                         {
-                          "field": "Microsoft.Compute/imageOffer",
-                          "equals": "WindowsServerSemiAnnual"
+                          "equals": "WindowsServerSemiAnnual",
+                          "field": "Microsoft.Compute/imageOffer"
                         },
                         {
                           "field": "Microsoft.Compute/imageSKU",
@@ -181,20 +107,20 @@
                     {
                       "allOf": [
                         {
-                          "field": "Microsoft.Compute/imagePublisher",
-                          "equals": "MicrosoftWindowsServerHPCPack"
+                          "equals": "MicrosoftWindowsServerHPCPack",
+                          "field": "Microsoft.Compute/imagePublisher"
                         },
                         {
-                          "field": "Microsoft.Compute/imageOffer",
-                          "equals": "WindowsServerHPCPack"
+                          "equals": "WindowsServerHPCPack",
+                          "field": "Microsoft.Compute/imageOffer"
                         }
                       ]
                     },
                     {
                       "allOf": [
                         {
-                          "field": "Microsoft.Compute/imagePublisher",
-                          "equals": "MicrosoftSQLServer"
+                          "equals": "MicrosoftSQLServer",
+                          "field": "Microsoft.Compute/imagePublisher"
                         },
                         {
                           "anyOf": [
@@ -221,20 +147,20 @@
                     {
                       "allOf": [
                         {
-                          "field": "Microsoft.Compute/imagePublisher",
-                          "equals": "MicrosoftRServer"
+                          "equals": "MicrosoftRServer",
+                          "field": "Microsoft.Compute/imagePublisher"
                         },
                         {
-                          "field": "Microsoft.Compute/imageOffer",
-                          "equals": "MLServer-WS2016"
+                          "equals": "MLServer-WS2016",
+                          "field": "Microsoft.Compute/imageOffer"
                         }
                       ]
                     },
                     {
                       "allOf": [
                         {
-                          "field": "Microsoft.Compute/imagePublisher",
-                          "equals": "MicrosoftVisualStudio"
+                          "equals": "MicrosoftVisualStudio",
+                          "field": "Microsoft.Compute/imagePublisher"
                         },
                         {
                           "field": "Microsoft.Compute/imageOffer",
@@ -248,66 +174,140 @@
                     {
                       "allOf": [
                         {
-                          "field": "Microsoft.Compute/imagePublisher",
-                          "equals": "MicrosoftDynamicsAX"
+                          "equals": "MicrosoftDynamicsAX",
+                          "field": "Microsoft.Compute/imagePublisher"
                         },
                         {
-                          "field": "Microsoft.Compute/imageOffer",
-                          "equals": "Dynamics"
+                          "equals": "Dynamics",
+                          "field": "Microsoft.Compute/imageOffer"
                         },
                         {
-                          "field": "Microsoft.Compute/imageSKU",
-                          "equals": "Pre-Req-AX7-Onebox-U8"
+                          "equals": "Pre-Req-AX7-Onebox-U8",
+                          "field": "Microsoft.Compute/imageSKU"
                         }
                       ]
                     },
                     {
                       "allOf": [
                         {
-                          "field": "Microsoft.Compute/imagePublisher",
-                          "equals": "MicrosoftDynamicsAX"
+                          "equals": "MicrosoftDynamicsAX",
+                          "field": "Microsoft.Compute/imagePublisher"
                         },
                         {
-                          "field": "Microsoft.Compute/imageOffer",
-                          "equals": "Dynamics"
+                          "equals": "Dynamics",
+                          "field": "Microsoft.Compute/imageOffer"
                         },
                         {
-                          "field": "Microsoft.Compute/imageSKU",
-                          "equals": "Pre-Req-AX7-Onebox-V4"
+                          "equals": "Pre-Req-AX7-Onebox-V4",
+                          "field": "Microsoft.Compute/imageSKU"
                         }
                       ]
                     },
                     {
                       "allOf": [
                         {
-                          "field": "Microsoft.Compute/imagePublisher",
-                          "equals": "microsoft-ads"
+                          "equals": "microsoft-ads",
+                          "field": "Microsoft.Compute/imagePublisher"
                         },
                         {
-                          "field": "Microsoft.Compute/imageOffer",
-                          "equals": "windows-data-science-vm"
+                          "equals": "windows-data-science-vm",
+                          "field": "Microsoft.Compute/imageOffer"
                         }
                       ]
                     },
                     {
                       "allOf": [
                         {
-                          "field": "Microsoft.Compute/imagePublisher",
-                          "equals": "MicrosoftWindowsDesktop"
+                          "equals": "MicrosoftWindowsDesktop",
+                          "field": "Microsoft.Compute/imagePublisher"
                         },
                         {
-                          "field": "Microsoft.Compute/imageOffer",
-                          "equals": "Windows-10"
+                          "equals": "Windows-10",
+                          "field": "Microsoft.Compute/imageOffer"
                         }
                       ]
                     }
                   ]
                 }
               ]
+            },
+            "then": {
+              "details": {
+                "deployment": {
+                  "properties": {
+                    "mode": "Incremental",
+                    "parameters": {
+                      "azureResourceId": {
+                        "value": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Compute/virtualMachineScaleSets/',field('name'))]"
+                      },
+                      "location": {
+                        "value": "[field('location')]"
+                      },
+                      "vmName": {
+                        "value": "[field('name')]"
+                      }
+                    },
+                    "template": {
+                      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                      "contentVersion": "1.0.0.0",
+                      "parameters": {
+                        "azureResourceId": {
+                          "type": "string"
+                        },
+                        "location": {
+                          "type": "string"
+                        },
+                        "vmName": {
+                          "type": "string"
+                        }
+                      },
+                      "resources": [
+                        {
+                          "apiVersion": "2020-06-01T00:00:00Z",
+                          "location": "[parameters('location')]",
+                          "name": "[concat(parameters('vmName'), '/MDE.Windows')]",
+                          "properties": {
+                            "autoUpgradeMinorVersion": true,
+                            "protectedSettings": {
+                              "defenderForEndpointOnboardingScript": "M1MjlFREI3fVwiIH07IHByaXZhdGUgRXZlbnRTb3VyY2UgZXMgPSBuZXcgRXZlbnRTb3VyY2UoXCJNaWNyb3NvZnQuV2luZG93cy5TZW5zZS5DbGllbnQuTWFuYWdlbWVudFwiLEV2ZW50U291cmNlU2V0dGluZ3MuRXR3U2VsZkRlc2NyaWJpbmdFdmVudEZvcm1hdCx0ZWxlbWV0cnlUcmFpdHMpO319JzsgJGxvZ2dlciA9IE5ldy1PYmplY3QgLVR5cGVOYW1lIFNlbnNlLlRyYWNlOyAkbG9nZ2VyLldyaXRlT25ib2FyZGluZ01lc3NhZ2UoJyVzdWNjZXNzT3V0cHV0JScpIiA+TlVMIDI+JjENCiIlUFJPR1JBTUZJTEVTJVxXaW5kb3dzIERlZmVuZGVyXE1wQ21kUnVuLmV4ZSIgLVJlbG9hZEVuZ2luZSA+TlVMIDI+JjENCg0KR09UTyBDTEVBTlVQDQoNCjpDTEVBTlVQDQppZiBleGlzdCAlVE1QJVxzZW5zZVRtcC50eHQgZGVsICVUTVAlXHNlbnNlVG1wLnR4dA0KRVhJVCAvQiAlZXJyb3JDb2RlJQ0KCg=="
+                            },
+                            "publisher": "Microsoft.Azure.AzureDefenderForServers",
+                            "settings": {
+                              "azureResourceId": "[parameters('azureResourceId')]",
+                              "installedBy": "Policy",
+                              "vNextEnabled": "true"
+                            },
+                            "type": "MDE.Windows",
+                            "typeHandlerVersion": "1.0"
+                          },
+                          "type": "Microsoft.Compute/virtualMachineScaleSets/extensions"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "existenceCondition": {
+                  "allOf": [
+                    {
+                      "equals": "Microsoft.Compute.CustomScriptExtension",
+                      "field": "Microsoft.Compute/virtualMachineScaleSets/extensions/type"
+                    },
+                    {
+                      "equals": "CustomScriptExtension",
+                      "field": "Microsoft.Compute/virtualMachineScaleSets/extensions/publisher"
+                    }
+                  ]
+                },
+                "roleDefinitionIds": [
+                  "/providers/microsoft.authorization/roleDefinitions/9980e02c-c2be-4d73-94e8-173b1dc7cf3c"
+                ],
+                "type": "Microsoft.Compute/virtualMachineScaleSets/extensions"
+              },
+              "effect": "[parameters('effect')]"
             }
-          },
-          "mode": "All"
-        }
+          }
+        },
+        "type": "microsoft.authorization/policydefinitions"
       }
     }
   }

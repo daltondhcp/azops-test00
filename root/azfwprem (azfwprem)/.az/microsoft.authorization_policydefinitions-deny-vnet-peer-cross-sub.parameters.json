@@ -4,13 +4,13 @@
   "parameters": {
     "input": {
       "value": {
-        "name": "Deny-VNET-Peer-Cross-Sub",
-        "type": "microsoft.authorization/policydefinitions",
         "kind": "policydefinitions",
         "location": "global",
+        "name": "Deny-VNET-Peer-Cross-Sub",
         "properties": {
           "description": "This policy d enies the creation of vNet Peerings outside of the same subscriptions under the assigned scope.",
           "displayName": "Deny vNet peering cross subscription.",
+          "mode": "All",
           "parameters": {
             "effect": {
               "allowedValues": [
@@ -27,24 +27,24 @@
             }
           },
           "policyRule": {
-            "then": {
-              "effect": "[parameters('effect')]"
-            },
             "if": {
               "allOf": [
                 {
-                  "field": "type",
-                  "equals": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings"
+                  "equals": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+                  "field": "type"
                 },
                 {
                   "field": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings/remoteVirtualNetwork.id",
                   "notcontains": "[subscription().id]"
                 }
               ]
+            },
+            "then": {
+              "effect": "[parameters('effect')]"
             }
-          },
-          "mode": "All"
-        }
+          }
+        },
+        "type": "microsoft.authorization/policydefinitions"
       }
     }
   }

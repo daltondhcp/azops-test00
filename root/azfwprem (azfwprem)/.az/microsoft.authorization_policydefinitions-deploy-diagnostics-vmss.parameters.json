@@ -4,13 +4,13 @@
   "parameters": {
     "input": {
       "value": {
-        "name": "Deploy-Diagnostics-VMSS",
-        "type": "microsoft.authorization/policydefinitions",
         "kind": "policydefinitions",
         "location": "global",
+        "name": "Deploy-Diagnostics-VMSS",
         "properties": {
           "description": "Deploys the diagnostic settings for Virtual Machine Scale Sets  to stream to a Log Analytics workspace when any Virtual Machine Scale Sets  which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
           "displayName": "Deploy Diagnostic Settings for Virtual Machine Scale Sets to Log Analytics workspace",
+          "mode": "Indexed",
           "parameters": {
             "effect": {
               "allowedValues": [
@@ -32,14 +32,6 @@
               },
               "type": "String"
             },
-            "profileName": {
-              "defaultValue": "setbypolicy",
-              "metadata": {
-                "description": "The diagnostic settings profile name",
-                "displayName": "Profile name"
-              },
-              "type": "String"
-            },
             "metricsEnabled": {
               "allowedValues": [
                 "True",
@@ -51,107 +43,115 @@
                 "displayName": "Enable metrics"
               },
               "type": "String"
+            },
+            "profileName": {
+              "defaultValue": "setbypolicy",
+              "metadata": {
+                "description": "The diagnostic settings profile name",
+                "displayName": "Profile name"
+              },
+              "type": "String"
             }
           },
           "policyRule": {
+            "if": {
+              "equals": "Microsoft.Compute/virtualMachineScaleSets",
+              "field": "type"
+            },
             "then": {
-              "effect": "[parameters('effect')]",
               "details": {
-                "type": "Microsoft.Insights/diagnosticSettings",
-                "existenceCondition": {
-                  "allOf": [
-                    {
-                      "field": "Microsoft.Insights/diagnosticSettings/metrics.enabled",
-                      "equals": "true"
-                    },
-                    {
-                      "field": "Microsoft.Insights/diagnosticSettings/workspaceId",
-                      "equals": "[parameters('logAnalytics')]"
-                    }
-                  ]
-                },
-                "roleDefinitionIds": [
-                  "/providers/microsoft.authorization/roleDefinitions/749f88d5-cbae-40b8-bcfc-e573ddc772fa",
-                  "/providers/microsoft.authorization/roleDefinitions/92aaf0da-9dab-42b6-94a3-d43ce8d16293"
-                ],
-                "name": "setByPolicy",
                 "deployment": {
                   "properties": {
+                    "mode": "Incremental",
                     "parameters": {
-                      "logAnalytics": {
-                        "value": "[parameters('logAnalytics')]"
-                      },
-                      "profileName": {
-                        "value": "[parameters('profileName')]"
-                      },
                       "location": {
                         "value": "[field('location')]"
                       },
+                      "logAnalytics": {
+                        "value": "[parameters('logAnalytics')]"
+                      },
                       "metricsEnabled": {
                         "value": "[parameters('metricsEnabled')]"
+                      },
+                      "profileName": {
+                        "value": "[parameters('profileName')]"
                       },
                       "resourceName": {
                         "value": "[field('name')]"
                       }
                     },
-                    "mode": "Incremental",
                     "template": {
+                      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                      "contentVersion": "1.0.0.0",
+                      "outputs": {},
                       "parameters": {
-                        "logAnalytics": {
-                          "type": "String"
-                        },
-                        "profileName": {
-                          "type": "String"
-                        },
                         "location": {
                           "type": "String"
                         },
+                        "logAnalytics": {
+                          "type": "String"
+                        },
                         "metricsEnabled": {
+                          "type": "String"
+                        },
+                        "profileName": {
                           "type": "String"
                         },
                         "resourceName": {
                           "type": "String"
                         }
                       },
-                      "contentVersion": "1.0.0.0",
                       "resources": [
                         {
-                          "type": "Microsoft.Compute/virtualMachineScaleSets/providers/diagnosticSettings",
+                          "apiVersion": "2017-05-01-preview",
+                          "dependsOn": [],
+                          "location": "[parameters('location')]",
+                          "name": "[concat(parameters('resourceName'), '/', 'Microsoft.Insights/', parameters('profileName'))]",
                           "properties": {
-                            "workspaceId": "[parameters('logAnalytics')]",
+                            "logs": [],
                             "metrics": [
                               {
                                 "category": "AllMetrics",
                                 "enabled": "[parameters('metricsEnabled')]",
                                 "retentionPolicy": {
-                                  "enabled": false,
-                                  "days": 0
+                                  "days": 0,
+                                  "enabled": false
                                 }
                               }
                             ],
-                            "logs": []
+                            "workspaceId": "[parameters('logAnalytics')]"
                           },
-                          "location": "[parameters('location')]",
-                          "apiVersion": "2017-05-01-preview",
-                          "name": "[concat(parameters('resourceName'), '/', 'Microsoft.Insights/', parameters('profileName'))]",
-                          "dependsOn": []
+                          "type": "Microsoft.Compute/virtualMachineScaleSets/providers/diagnosticSettings"
                         }
                       ],
-                      "variables": {},
-                      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-                      "outputs": {}
+                      "variables": {}
                     }
                   }
-                }
-              }
-            },
-            "if": {
-              "field": "type",
-              "equals": "Microsoft.Compute/virtualMachineScaleSets"
+                },
+                "existenceCondition": {
+                  "allOf": [
+                    {
+                      "equals": "true",
+                      "field": "Microsoft.Insights/diagnosticSettings/metrics.enabled"
+                    },
+                    {
+                      "equals": "[parameters('logAnalytics')]",
+                      "field": "Microsoft.Insights/diagnosticSettings/workspaceId"
+                    }
+                  ]
+                },
+                "name": "setByPolicy",
+                "roleDefinitionIds": [
+                  "/providers/microsoft.authorization/roleDefinitions/749f88d5-cbae-40b8-bcfc-e573ddc772fa",
+                  "/providers/microsoft.authorization/roleDefinitions/92aaf0da-9dab-42b6-94a3-d43ce8d16293"
+                ],
+                "type": "Microsoft.Insights/diagnosticSettings"
+              },
+              "effect": "[parameters('effect')]"
             }
-          },
-          "mode": "Indexed"
-        }
+          }
+        },
+        "type": "microsoft.authorization/policydefinitions"
       }
     }
   }

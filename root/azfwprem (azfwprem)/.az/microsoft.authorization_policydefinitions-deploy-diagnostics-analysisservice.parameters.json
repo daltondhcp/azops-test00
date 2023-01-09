@@ -4,13 +4,13 @@
   "parameters": {
     "input": {
       "value": {
-        "name": "Deploy-Diagnostics-AnalysisService",
-        "type": "microsoft.authorization/policydefinitions",
         "kind": "policydefinitions",
         "location": "global",
+        "name": "Deploy-Diagnostics-AnalysisService",
         "properties": {
           "description": "Deploys the diagnostic settings for Analysis Services to stream to a Log Analytics workspace when any Analysis Services which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
           "displayName": "Deploy Diagnostic Settings for Analysis Services to Log Analytics workspace",
+          "mode": "Indexed",
           "parameters": {
             "effect": {
               "allowedValues": [
@@ -32,11 +32,15 @@
               },
               "type": "String"
             },
-            "profileName": {
-              "defaultValue": "setbypolicy",
+            "logsEnabled": {
+              "allowedValues": [
+                "True",
+                "False"
+              ],
+              "defaultValue": "True",
               "metadata": {
-                "description": "The diagnostic settings profile name",
-                "displayName": "Profile name"
+                "description": "Whether to enable logs stream to the Log Analytics workspace - True or False",
+                "displayName": "Enable logs"
               },
               "type": "String"
             },
@@ -52,105 +56,76 @@
               },
               "type": "String"
             },
-            "logsEnabled": {
-              "allowedValues": [
-                "True",
-                "False"
-              ],
-              "defaultValue": "True",
+            "profileName": {
+              "defaultValue": "setbypolicy",
               "metadata": {
-                "description": "Whether to enable logs stream to the Log Analytics workspace - True or False",
-                "displayName": "Enable logs"
+                "description": "The diagnostic settings profile name",
+                "displayName": "Profile name"
               },
               "type": "String"
             }
           },
           "policyRule": {
+            "if": {
+              "equals": "Microsoft.AnalysisServices/servers",
+              "field": "type"
+            },
             "then": {
-              "effect": "[parameters('effect')]",
               "details": {
-                "type": "Microsoft.Insights/diagnosticSettings",
-                "existenceCondition": {
-                  "allOf": [
-                    {
-                      "field": "Microsoft.Insights/diagnosticSettings/logs.enabled",
-                      "equals": "true"
-                    },
-                    {
-                      "field": "Microsoft.Insights/diagnosticSettings/metrics.enabled",
-                      "equals": "true"
-                    },
-                    {
-                      "field": "Microsoft.Insights/diagnosticSettings/workspaceId",
-                      "equals": "[parameters('logAnalytics')]"
-                    }
-                  ]
-                },
-                "roleDefinitionIds": [
-                  "/providers/microsoft.authorization/roleDefinitions/749f88d5-cbae-40b8-bcfc-e573ddc772fa",
-                  "/providers/microsoft.authorization/roleDefinitions/92aaf0da-9dab-42b6-94a3-d43ce8d16293"
-                ],
-                "name": "setByPolicy",
                 "deployment": {
                   "properties": {
+                    "mode": "Incremental",
                     "parameters": {
+                      "location": {
+                        "value": "[field('location')]"
+                      },
                       "logAnalytics": {
                         "value": "[parameters('logAnalytics')]"
                       },
-                      "profileName": {
-                        "value": "[parameters('profileName')]"
-                      },
-                      "location": {
-                        "value": "[field('location')]"
+                      "logsEnabled": {
+                        "value": "[parameters('logsEnabled')]"
                       },
                       "metricsEnabled": {
                         "value": "[parameters('metricsEnabled')]"
                       },
+                      "profileName": {
+                        "value": "[parameters('profileName')]"
+                      },
                       "resourceName": {
                         "value": "[field('name')]"
-                      },
-                      "logsEnabled": {
-                        "value": "[parameters('logsEnabled')]"
                       }
                     },
-                    "mode": "Incremental",
                     "template": {
+                      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                      "contentVersion": "1.0.0.0",
+                      "outputs": {},
                       "parameters": {
+                        "location": {
+                          "type": "String"
+                        },
                         "logAnalytics": {
                           "type": "String"
                         },
-                        "profileName": {
-                          "type": "String"
-                        },
-                        "location": {
+                        "logsEnabled": {
                           "type": "String"
                         },
                         "metricsEnabled": {
                           "type": "String"
                         },
-                        "resourceName": {
+                        "profileName": {
                           "type": "String"
                         },
-                        "logsEnabled": {
+                        "resourceName": {
                           "type": "String"
                         }
                       },
-                      "contentVersion": "1.0.0.0",
                       "resources": [
                         {
-                          "type": "Microsoft.AnalysisServices/servers/providers/diagnosticSettings",
+                          "apiVersion": "2017-05-01-preview",
+                          "dependsOn": [],
+                          "location": "[parameters('location')]",
+                          "name": "[concat(parameters('resourceName'), '/', 'Microsoft.Insights/', parameters('profileName'))]",
                           "properties": {
-                            "workspaceId": "[parameters('logAnalytics')]",
-                            "metrics": [
-                              {
-                                "category": "AllMetrics",
-                                "enabled": "[parameters('metricsEnabled')]",
-                                "retentionPolicy": {
-                                  "enabled": false,
-                                  "days": 0
-                                }
-                              }
-                            ],
                             "logs": [
                               {
                                 "category": "Engine",
@@ -160,29 +135,54 @@
                                 "category": "Service",
                                 "enabled": "[parameters('logsEnabled')]"
                               }
-                            ]
+                            ],
+                            "metrics": [
+                              {
+                                "category": "AllMetrics",
+                                "enabled": "[parameters('metricsEnabled')]",
+                                "retentionPolicy": {
+                                  "days": 0,
+                                  "enabled": false
+                                }
+                              }
+                            ],
+                            "workspaceId": "[parameters('logAnalytics')]"
                           },
-                          "location": "[parameters('location')]",
-                          "apiVersion": "2017-05-01-preview",
-                          "name": "[concat(parameters('resourceName'), '/', 'Microsoft.Insights/', parameters('profileName'))]",
-                          "dependsOn": []
+                          "type": "Microsoft.AnalysisServices/servers/providers/diagnosticSettings"
                         }
                       ],
-                      "variables": {},
-                      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-                      "outputs": {}
+                      "variables": {}
                     }
                   }
-                }
-              }
-            },
-            "if": {
-              "field": "type",
-              "equals": "Microsoft.AnalysisServices/servers"
+                },
+                "existenceCondition": {
+                  "allOf": [
+                    {
+                      "equals": "true",
+                      "field": "Microsoft.Insights/diagnosticSettings/logs.enabled"
+                    },
+                    {
+                      "equals": "true",
+                      "field": "Microsoft.Insights/diagnosticSettings/metrics.enabled"
+                    },
+                    {
+                      "equals": "[parameters('logAnalytics')]",
+                      "field": "Microsoft.Insights/diagnosticSettings/workspaceId"
+                    }
+                  ]
+                },
+                "name": "setByPolicy",
+                "roleDefinitionIds": [
+                  "/providers/microsoft.authorization/roleDefinitions/749f88d5-cbae-40b8-bcfc-e573ddc772fa",
+                  "/providers/microsoft.authorization/roleDefinitions/92aaf0da-9dab-42b6-94a3-d43ce8d16293"
+                ],
+                "type": "Microsoft.Insights/diagnosticSettings"
+              },
+              "effect": "[parameters('effect')]"
             }
-          },
-          "mode": "Indexed"
-        }
+          }
+        },
+        "type": "microsoft.authorization/policydefinitions"
       }
     }
   }

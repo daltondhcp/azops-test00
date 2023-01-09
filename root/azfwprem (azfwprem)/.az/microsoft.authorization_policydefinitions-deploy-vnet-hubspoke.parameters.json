@@ -4,21 +4,21 @@
   "parameters": {
     "input": {
       "value": {
-        "name": "Deploy-VNET-HubSpoke",
-        "type": "microsoft.authorization/policydefinitions",
         "kind": "policydefinitions",
         "location": "global",
+        "name": "Deploy-VNET-HubSpoke",
         "properties": {
           "description": "This policy deploys virtual network and peer to the hub",
           "displayName": "Deploy Virtual Network with peering to the hub",
+          "mode": "All",
           "parameters": {
-            "vNetPeerUseRemoteGateway": {
-              "defaultValue": false,
+            "dnsServers": {
+              "defaultValue": [],
               "metadata": {
-                "description": "Enable gateway transit for the LZ network",
-                "displayName": "vNetPeerUseRemoteGateway"
+                "description": "Default domain servers for the vNET.",
+                "displayName": "DNSServers"
               },
-              "type": "Boolean"
+              "type": "Array"
             },
             "hubResourceId": {
               "metadata": {
@@ -41,55 +41,48 @@
               },
               "type": "String"
             },
-            "vNetRgName": {
-              "metadata": {
-                "description": "Name of the landing zone vNet RG",
-                "displayName": "vNetRgName"
-              },
-              "type": "String"
-            },
-            "dnsServers": {
-              "defaultValue": [],
-              "metadata": {
-                "description": "Default domain servers for the vNET.",
-                "displayName": "DNSServers"
-              },
-              "type": "Array"
-            },
             "vNetName": {
               "metadata": {
                 "description": "Name of the landing zone vNet",
                 "displayName": "vNetName"
               },
               "type": "String"
+            },
+            "vNetPeerUseRemoteGateway": {
+              "defaultValue": false,
+              "metadata": {
+                "description": "Enable gateway transit for the LZ network",
+                "displayName": "vNetPeerUseRemoteGateway"
+              },
+              "type": "Boolean"
+            },
+            "vNetRgName": {
+              "metadata": {
+                "description": "Name of the landing zone vNet RG",
+                "displayName": "vNetRgName"
+              },
+              "type": "String"
             }
           },
           "policyRule": {
+            "if": {
+              "allOf": [
+                {
+                  "equals": "Microsoft.Resources/subscriptions",
+                  "field": "type"
+                }
+              ]
+            },
             "then": {
-              "effect": "deployIfNotExists",
               "details": {
-                "type": "Microsoft.Network/virtualNetworks",
-                "existenceCondition": {
-                  "allOf": [
-                    {
-                      "field": "name",
-                      "like": "[parameters('vNetName')]"
-                    },
-                    {
-                      "field": "location",
-                      "equals": "[parameters('vNetLocation')]"
-                    }
-                  ]
-                },
-                "roleDefinitionIds": [
-                  "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
-                ],
-                "name": "[parameters('vNetName')]",
+                "ResourceGroupName": "[parameters('vNetRgName')]",
                 "deployment": {
+                  "location": "northeurope",
                   "properties": {
+                    "mode": "Incremental",
                     "parameters": {
-                      "vNetPeerUseRemoteGateway": {
-                        "value": "[parameters('vNetPeerUseRemoteGateway')]"
+                      "dnsServers": {
+                        "value": "[parameters('dnsServers')]"
                       },
                       "hubResourceId": {
                         "value": "[parameters('hubResourceId')]"
@@ -100,22 +93,24 @@
                       "vNetLocation": {
                         "value": "[parameters('vNetLocation')]"
                       },
-                      "vNetRgName": {
-                        "value": "[parameters('vNetRgName')]"
-                      },
-                      "dnsServers": {
-                        "value": "[parameters('dnsServers')]"
-                      },
                       "vNetName": {
                         "value": "[parameters('vNetName')]"
+                      },
+                      "vNetPeerUseRemoteGateway": {
+                        "value": "[parameters('vNetPeerUseRemoteGateway')]"
+                      },
+                      "vNetRgName": {
+                        "value": "[parameters('vNetRgName')]"
                       }
                     },
-                    "mode": "Incremental",
                     "template": {
+                      "$schema": "http://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json",
+                      "contentVersion": "1.0.0.0",
+                      "outputs": {},
                       "parameters": {
-                        "vNetPeerUseRemoteGateway": {
-                          "defaultValue": false,
-                          "type": "bool"
+                        "dnsServers": {
+                          "defaultValue": [],
+                          "type": "Array"
                         },
                         "hubResourceId": {
                           "type": "String"
@@ -126,56 +121,63 @@
                         "vNetLocation": {
                           "type": "String"
                         },
-                        "vNetRgName": {
+                        "vNetName": {
                           "type": "String"
                         },
-                        "dnsServers": {
-                          "defaultValue": [],
-                          "type": "Array"
+                        "vNetPeerUseRemoteGateway": {
+                          "defaultValue": false,
+                          "type": "bool"
                         },
-                        "vNetName": {
+                        "vNetRgName": {
                           "type": "String"
                         }
                       },
-                      "contentVersion": "1.0.0.0",
                       "resources": [
                         {
-                          "type": "Microsoft.Resources/deployments",
+                          "apiVersion": "2021-04-01T00:00:00Z",
+                          "dependsOn": [],
+                          "location": "[parameters('vNetLocation')]",
+                          "name": "[concat('es-lz-vnet-',substring(uniqueString(subscription().id),0,6),'-rg')]",
                           "properties": {
                             "mode": "Incremental",
                             "template": {
-                              "parameters": {},
+                              "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
                               "contentVersion": "1.0.0.0",
+                              "outputs": {},
+                              "parameters": {},
                               "resources": [
                                 {
-                                  "type": "Microsoft.Resources/resourceGroups",
-                                  "properties": {},
-                                  "location": "[parameters('vNetLocation')]",
                                   "apiVersion": "2021-04-01T00:00:00Z",
-                                  "name": "[parameters('vNetRgName')]"
+                                  "location": "[parameters('vNetLocation')]",
+                                  "name": "[parameters('vNetRgName')]",
+                                  "properties": {},
+                                  "type": "Microsoft.Resources/resourceGroups"
                                 }
                               ],
-                              "variables": {},
-                              "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-                              "outputs": {}
+                              "variables": {}
                             }
                           },
-                          "location": "[parameters('vNetLocation')]",
-                          "apiVersion": "2021-04-01T00:00:00Z",
-                          "name": "[concat('es-lz-vnet-',substring(uniqueString(subscription().id),0,6),'-rg')]",
-                          "dependsOn": []
+                          "type": "Microsoft.Resources/deployments"
                         },
                         {
-                          "resourceGroup": "[parameters('vNetRgName')]",
-                          "type": "Microsoft.Resources/deployments",
+                          "apiVersion": "2021-04-01T00:00:00Z",
+                          "dependsOn": [
+                            "[concat('es-lz-vnet-',substring(uniqueString(subscription().id),0,6),'-rg')]"
+                          ],
+                          "name": "[concat('es-lz-vnet-',substring(uniqueString(subscription().id),0,6))]",
                           "properties": {
                             "mode": "Incremental",
                             "template": {
-                              "parameters": {},
+                              "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
                               "contentVersion": "1.0.0.0",
+                              "outputs": {},
+                              "parameters": {},
                               "resources": [
                                 {
-                                  "type": "Microsoft.Network/virtualNetworks",
+                                  "apiVersion": "2021-02-01T00:00:00Z",
+                                  "dependsOn": [],
+                                  "location": "[parameters('vNetLocation')]",
+                                  "name": "[parameters('vNetName')]",
                                   "properties": {
                                     "addressSpace": {
                                       "addressPrefixes": [
@@ -186,120 +188,118 @@
                                       "dnsServers": "[parameters('dnsServers')]"
                                     }
                                   },
-                                  "location": "[parameters('vNetLocation')]",
-                                  "apiVersion": "2021-02-01T00:00:00Z",
-                                  "name": "[parameters('vNetName')]",
-                                  "dependsOn": []
+                                  "type": "Microsoft.Network/virtualNetworks"
                                 },
                                 {
-                                  "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+                                  "apiVersion": "2021-02-01T00:00:00Z",
+                                  "dependsOn": [
+                                    "[parameters('vNetName')]"
+                                  ],
+                                  "name": "[concat(parameters('vNetName'), '/peerToHub')]",
                                   "properties": {
+                                    "allowForwardedTraffic": true,
+                                    "allowGatewayTransit": false,
+                                    "allowVirtualNetworkAccess": true,
                                     "remoteVirtualNetwork": {
                                       "id": "[parameters('hubResourceId')]"
                                     },
-                                    "allowVirtualNetworkAccess": true,
-                                    "allowForwardedTraffic": true,
-                                    "allowGatewayTransit": false,
                                     "useRemoteGateways": "[parameters('vNetPeerUseRemoteGateway')]"
                                   },
-                                  "apiVersion": "2021-02-01T00:00:00Z",
-                                  "name": "[concat(parameters('vNetName'), '/peerToHub')]",
-                                  "dependsOn": [
-                                    "[parameters('vNetName')]"
-                                  ]
+                                  "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings"
                                 },
                                 {
-                                  "subscriptionId": "[split(parameters('hubResourceId'),'/')[2]]",
-                                  "resourceGroup": "[split(parameters('hubResourceId'),'/')[4]]",
-                                  "type": "Microsoft.Resources/deployments",
+                                  "apiVersion": "2021-04-01T00:00:00Z",
+                                  "dependsOn": [
+                                    "[parameters('vNetName')]"
+                                  ],
+                                  "name": "[concat('es-lz-hub-',substring(uniqueString(subscription().id),0,6),'-peering')]",
                                   "properties": {
-                                    "parameters": {
-                                      "remoteVirtualNetwork": {
-                                        "value": "[concat(subscription().id,'/resourceGroups/',parameters('vNetRgName'), '/providers/','Microsoft.Network/virtualNetworks/', parameters('vNetName'))]"
-                                      },
-                                      "hubName": {
-                                        "value": "[split(parameters('hubResourceId'),'/')[8]]"
-                                      }
+                                    "expressionEvaluationOptions": {
+                                      "scope": "inner"
                                     },
                                     "mode": "Incremental",
+                                    "parameters": {
+                                      "hubName": {
+                                        "value": "[split(parameters('hubResourceId'),'/')[8]]"
+                                      },
+                                      "remoteVirtualNetwork": {
+                                        "value": "[concat(subscription().id,'/resourceGroups/',parameters('vNetRgName'), '/providers/','Microsoft.Network/virtualNetworks/', parameters('vNetName'))]"
+                                      }
+                                    },
                                     "template": {
+                                      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                                      "contentVersion": "1.0.0.0",
+                                      "outputs": {},
                                       "parameters": {
-                                        "remoteVirtualNetwork": {
-                                          "defaultValue": false,
-                                          "type": "String"
-                                        },
                                         "hubName": {
                                           "defaultValue": false,
                                           "type": "String"
+                                        },
+                                        "remoteVirtualNetwork": {
+                                          "defaultValue": false,
+                                          "type": "String"
                                         }
                                       },
-                                      "contentVersion": "1.0.0.0",
                                       "resources": [
                                         {
-                                          "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+                                          "apiVersion": "2021-02-01T00:00:00Z",
+                                          "name": "[[concat(parameters('hubName'),'/',last(split(parameters('remoteVirtualNetwork'),'/')))]",
                                           "properties": {
+                                            "allowForwardedTraffic": true,
+                                            "allowGatewayTransit": true,
+                                            "allowVirtualNetworkAccess": true,
                                             "remoteVirtualNetwork": {
                                               "id": "[[parameters('remoteVirtualNetwork')]"
                                             },
-                                            "allowVirtualNetworkAccess": true,
-                                            "allowForwardedTraffic": true,
-                                            "allowGatewayTransit": true,
                                             "useRemoteGateways": false
                                           },
-                                          "apiVersion": "2021-02-01T00:00:00Z",
-                                          "name": "[[concat(parameters('hubName'),'/',last(split(parameters('remoteVirtualNetwork'),'/')))]"
+                                          "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings"
                                         }
                                       ],
-                                      "variables": {},
-                                      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-                                      "outputs": {}
-                                    },
-                                    "expressionEvaluationOptions": {
-                                      "scope": "inner"
+                                      "variables": {}
                                     }
                                   },
-                                  "apiVersion": "2021-04-01T00:00:00Z",
-                                  "name": "[concat('es-lz-hub-',substring(uniqueString(subscription().id),0,6),'-peering')]",
-                                  "dependsOn": [
-                                    "[parameters('vNetName')]"
-                                  ]
+                                  "resourceGroup": "[split(parameters('hubResourceId'),'/')[4]]",
+                                  "subscriptionId": "[split(parameters('hubResourceId'),'/')[2]]",
+                                  "type": "Microsoft.Resources/deployments"
                                 }
                               ],
-                              "variables": {},
-                              "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-                              "outputs": {}
+                              "variables": {}
                             }
                           },
-                          "apiVersion": "2021-04-01T00:00:00Z",
-                          "name": "[concat('es-lz-vnet-',substring(uniqueString(subscription().id),0,6))]",
-                          "dependsOn": [
-                            "[concat('es-lz-vnet-',substring(uniqueString(subscription().id),0,6),'-rg')]"
-                          ]
+                          "resourceGroup": "[parameters('vNetRgName')]",
+                          "type": "Microsoft.Resources/deployments"
                         }
                       ],
-                      "variables": {},
-                      "$schema": "http://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json",
-                      "outputs": {}
+                      "variables": {}
                     }
-                  },
-                  "location": "northeurope"
+                  }
+                },
+                "deploymentScope": "Subscription",
+                "existenceCondition": {
+                  "allOf": [
+                    {
+                      "field": "name",
+                      "like": "[parameters('vNetName')]"
+                    },
+                    {
+                      "equals": "[parameters('vNetLocation')]",
+                      "field": "location"
+                    }
+                  ]
                 },
                 "existenceScope": "ResourceGroup",
-                "deploymentScope": "Subscription",
-                "ResourceGroupName": "[parameters('vNetRgName')]"
-              }
-            },
-            "if": {
-              "allOf": [
-                {
-                  "field": "type",
-                  "equals": "Microsoft.Resources/subscriptions"
-                }
-              ]
+                "name": "[parameters('vNetName')]",
+                "roleDefinitionIds": [
+                  "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+                ],
+                "type": "Microsoft.Network/virtualNetworks"
+              },
+              "effect": "deployIfNotExists"
             }
-          },
-          "mode": "All"
-        }
+          }
+        },
+        "type": "microsoft.authorization/policydefinitions"
       }
     }
   }

@@ -4,13 +4,13 @@
   "parameters": {
     "input": {
       "value": {
-        "name": "Deny-AA-child-resources",
-        "type": "microsoft.authorization/policydefinitions",
         "kind": "policydefinitions",
         "location": "global",
+        "name": "Deny-AA-child-resources",
         "properties": {
           "description": "This policy denies the creation of child resources on the Automation Account",
           "displayName": "No child resources in Automation Account",
+          "mode": "Indexed",
           "parameters": {
             "effect": {
               "allowedValues": [
@@ -27,9 +27,6 @@
             }
           },
           "policyRule": {
-            "then": {
-              "effect": "[parameters('effect')]"
-            },
             "if": {
               "allOf": [
                 {
@@ -44,10 +41,13 @@
                   ]
                 }
               ]
+            },
+            "then": {
+              "effect": "[parameters('effect')]"
             }
-          },
-          "mode": "Indexed"
-        }
+          }
+        },
+        "type": "microsoft.authorization/policydefinitions"
       }
     }
   }

@@ -4,13 +4,13 @@
   "parameters": {
     "input": {
       "value": {
-        "name": "Deny-Redis-http",
-        "type": "microsoft.authorization/policydefinitions",
         "kind": "policydefinitions",
         "location": "global",
+        "name": "Deny-Redis-http",
         "properties": {
           "description": "Audit enabling of only connections via SSL to Azure Cache for Redis. Validate both minimum TLS version and enableNonSslPort is disabled. Use of secure connections ensures authentication between the server and the service and protects data in transit from network layer attacks such as man-in-the-middle, eavesdropping, and session-hijacking",
           "displayName": "Azure Cache for Redis only secure connections should be enabled",
+          "mode": "Indexed",
           "parameters": {
             "effect": {
               "allowedValues": [
@@ -40,20 +40,17 @@
             }
           },
           "policyRule": {
-            "then": {
-              "effect": "[parameters('effect')]"
-            },
             "if": {
               "allOf": [
                 {
-                  "field": "type",
-                  "equals": "Microsoft.Cache/redis"
+                  "equals": "Microsoft.Cache/redis",
+                  "field": "type"
                 },
                 {
                   "anyOf": [
                     {
-                      "field": "Microsoft.Cache/Redis/enableNonSslPort",
-                      "equals": "true"
+                      "equals": "true",
+                      "field": "Microsoft.Cache/Redis/enableNonSslPort"
                     },
                     {
                       "field": "Microsoft.Cache/Redis/minimumTlsVersion",
@@ -62,10 +59,13 @@
                   ]
                 }
               ]
+            },
+            "then": {
+              "effect": "[parameters('effect')]"
             }
-          },
-          "mode": "Indexed"
-        }
+          }
+        },
+        "type": "microsoft.authorization/policydefinitions"
       }
     }
   }

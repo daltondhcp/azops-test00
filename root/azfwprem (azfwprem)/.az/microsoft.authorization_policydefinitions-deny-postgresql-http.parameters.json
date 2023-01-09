@@ -4,13 +4,13 @@
   "parameters": {
     "input": {
       "value": {
-        "name": "Deny-PostgreSql-http",
-        "type": "microsoft.authorization/policydefinitions",
         "kind": "policydefinitions",
         "location": "global",
+        "name": "Deny-PostgreSql-http",
         "properties": {
           "description": "Azure Database for PostgreSQL supports connecting your Azure Database for PostgreSQL server to client applications using Secure Sockets Layer (SSL). Enforcing SSL connections between your database server and your client applications helps protect against 'man in the middle' attacks by encrypting the data stream between the server and your application. This configuration enforces that SSL is always enabled for accessing your database server.",
           "displayName": "PostgreSQL database servers enforce SSL connection.",
+          "mode": "Indexed",
           "parameters": {
             "effect": {
               "allowedValues": [
@@ -41,20 +41,17 @@
             }
           },
           "policyRule": {
-            "then": {
-              "effect": "[parameters('effect')]"
-            },
             "if": {
               "allOf": [
                 {
-                  "field": "type",
-                  "equals": "Microsoft.DBforPostgreSQL/servers"
+                  "equals": "Microsoft.DBforPostgreSQL/servers",
+                  "field": "type"
                 },
                 {
                   "anyOf": [
                     {
-                      "field": "Microsoft.DBforPostgreSQL/servers/sslEnforcement",
-                      "exists": "false"
+                      "exists": "false",
+                      "field": "Microsoft.DBforPostgreSQL/servers/sslEnforcement"
                     },
                     {
                       "field": "Microsoft.DBforPostgreSQL/servers/sslEnforcement",
@@ -67,10 +64,13 @@
                   ]
                 }
               ]
+            },
+            "then": {
+              "effect": "[parameters('effect')]"
             }
-          },
-          "mode": "Indexed"
-        }
+          }
+        },
+        "type": "microsoft.authorization/policydefinitions"
       }
     }
   }

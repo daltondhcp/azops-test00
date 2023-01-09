@@ -4,13 +4,13 @@
   "parameters": {
     "input": {
       "value": {
-        "name": "Append-Redis-sslEnforcement",
-        "type": "microsoft.authorization/policydefinitions",
         "kind": "policydefinitions",
         "location": "global",
+        "name": "Append-Redis-sslEnforcement",
         "properties": {
           "description": "Append a specific min TLS version requirement and enforce SSL on Azure Cache for Redis. Enables secure server to client by enforce  minimal Tls Version to secure the connection between your database server and your client applications helps protect against 'man in the middle' attacks by encrypting the data stream between the server and your application. This configuration enforces that SSL is always enabled for accessing your database server.",
           "displayName": "Azure Cache for Redis Append a specific min TLS version requirement and enforce TLS.",
+          "mode": "Indexed",
           "parameters": {
             "effect": {
               "allowedValues": [
@@ -39,20 +39,11 @@
             }
           },
           "policyRule": {
-            "then": {
-              "effect": "[parameters('effect')]",
-              "details": [
-                {
-                  "value": "[parameters('minimumTlsVersion')]",
-                  "field": "Microsoft.Cache/Redis/minimumTlsVersion"
-                }
-              ]
-            },
             "if": {
               "allOf": [
                 {
-                  "field": "type",
-                  "equals": "Microsoft.Cache/redis"
+                  "equals": "Microsoft.Cache/redis",
+                  "field": "type"
                 },
                 {
                   "anyOf": [
@@ -63,10 +54,19 @@
                   ]
                 }
               ]
+            },
+            "then": {
+              "details": [
+                {
+                  "field": "Microsoft.Cache/Redis/minimumTlsVersion",
+                  "value": "[parameters('minimumTlsVersion')]"
+                }
+              ],
+              "effect": "[parameters('effect')]"
             }
-          },
-          "mode": "Indexed"
-        }
+          }
+        },
+        "type": "microsoft.authorization/policydefinitions"
       }
     }
   }

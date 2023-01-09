@@ -4,13 +4,13 @@
   "parameters": {
     "input": {
       "value": {
-        "name": "Deny-RDP-From-Internet",
-        "type": "microsoft.authorization/policydefinitions",
         "kind": "policydefinitions",
         "location": "global",
+        "name": "Deny-RDP-From-Internet",
         "properties": {
           "description": "This policy denies any network security rule that allows RDP access from Internet",
           "displayName": "RDP access from the Internet should be blocked",
+          "mode": "All",
           "parameters": {
             "effect": {
               "allowedValues": [
@@ -27,45 +27,42 @@
             }
           },
           "policyRule": {
-            "then": {
-              "effect": "[parameters('effect')]"
-            },
             "if": {
               "allOf": [
                 {
-                  "field": "type",
-                  "equals": "Microsoft.Network/networkSecurityGroups/securityRules"
+                  "equals": "Microsoft.Network/networkSecurityGroups/securityRules",
+                  "field": "type"
                 },
                 {
                   "allOf": [
                     {
-                      "field": "Microsoft.Network/networkSecurityGroups/securityRules/access",
-                      "equals": "Allow"
+                      "equals": "Allow",
+                      "field": "Microsoft.Network/networkSecurityGroups/securityRules/access"
                     },
                     {
-                      "field": "Microsoft.Network/networkSecurityGroups/securityRules/direction",
-                      "equals": "Inbound"
+                      "equals": "Inbound",
+                      "field": "Microsoft.Network/networkSecurityGroups/securityRules/direction"
                     },
                     {
                       "anyOf": [
                         {
-                          "field": "Microsoft.Network/networkSecurityGroups/securityRules/destinationPortRange",
-                          "equals": "*"
+                          "equals": "*",
+                          "field": "Microsoft.Network/networkSecurityGroups/securityRules/destinationPortRange"
                         },
                         {
-                          "field": "Microsoft.Network/networkSecurityGroups/securityRules/destinationPortRange",
-                          "equals": "3389"
+                          "equals": "3389",
+                          "field": "Microsoft.Network/networkSecurityGroups/securityRules/destinationPortRange"
                         },
                         {
-                          "value": "[if(and(not(empty(field('Microsoft.Network/networkSecurityGroups/securityRules/destinationPortRange'))), contains(field('Microsoft.Network/networkSecurityGroups/securityRules/destinationPortRange'),'-')), and(lessOrEquals(int(first(split(field('Microsoft.Network/networkSecurityGroups/securityRules/destinationPortRange'), '-'))),3389),greaterOrEquals(int(last(split(field('Microsoft.Network/networkSecurityGroups/securityRules/destinationPortRange'), '-'))),3389)), 'false')]",
-                          "equals": "true"
+                          "equals": "true",
+                          "value": "[if(and(not(empty(field('Microsoft.Network/networkSecurityGroups/securityRules/destinationPortRange'))), contains(field('Microsoft.Network/networkSecurityGroups/securityRules/destinationPortRange'),'-')), and(lessOrEquals(int(first(split(field('Microsoft.Network/networkSecurityGroups/securityRules/destinationPortRange'), '-'))),3389),greaterOrEquals(int(last(split(field('Microsoft.Network/networkSecurityGroups/securityRules/destinationPortRange'), '-'))),3389)), 'false')]"
                         },
                         {
                           "count": {
                             "field": "Microsoft.Network/networkSecurityGroups/securityRules/destinationPortRanges[*]",
                             "where": {
-                              "value": "[if(and(not(empty(first(field('Microsoft.Network/networkSecurityGroups/securityRules/destinationPortRanges[*]')))), contains(first(field('Microsoft.Network/networkSecurityGroups/securityRules/destinationPortRanges[*]')),'-')), and(lessOrEquals(int(first(split(first(field('Microsoft.Network/networkSecurityGroups/securityRules/destinationPortRanges[*]')), '-'))),3389),greaterOrEquals(int(last(split(first(field('Microsoft.Network/networkSecurityGroups/securityRules/destinationPortRanges[*]')), '-'))),3389)) , 'false')]",
-                              "equals": "true"
+                              "equals": "true",
+                              "value": "[if(and(not(empty(first(field('Microsoft.Network/networkSecurityGroups/securityRules/destinationPortRanges[*]')))), contains(first(field('Microsoft.Network/networkSecurityGroups/securityRules/destinationPortRanges[*]')),'-')), and(lessOrEquals(int(first(split(first(field('Microsoft.Network/networkSecurityGroups/securityRules/destinationPortRanges[*]')), '-'))),3389),greaterOrEquals(int(last(split(first(field('Microsoft.Network/networkSecurityGroups/securityRules/destinationPortRanges[*]')), '-'))),3389)) , 'false')]"
                             }
                           },
                           "greater": 0
@@ -87,12 +84,12 @@
                     {
                       "anyOf": [
                         {
-                          "field": "Microsoft.Network/networkSecurityGroups/securityRules/sourceAddressPrefix",
-                          "equals": "*"
+                          "equals": "*",
+                          "field": "Microsoft.Network/networkSecurityGroups/securityRules/sourceAddressPrefix"
                         },
                         {
-                          "field": "Microsoft.Network/networkSecurityGroups/securityRules/sourceAddressPrefix",
-                          "equals": "Internet"
+                          "equals": "Internet",
+                          "field": "Microsoft.Network/networkSecurityGroups/securityRules/sourceAddressPrefix"
                         },
                         {
                           "not": {
@@ -111,10 +108,13 @@
                   ]
                 }
               ]
+            },
+            "then": {
+              "effect": "[parameters('effect')]"
             }
-          },
-          "mode": "All"
-        }
+          }
+        },
+        "type": "microsoft.authorization/policydefinitions"
       }
     }
   }
