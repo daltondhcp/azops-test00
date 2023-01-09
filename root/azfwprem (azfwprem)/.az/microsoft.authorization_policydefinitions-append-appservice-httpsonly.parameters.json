@@ -30,8 +30,8 @@
               "effect": "[parameters('effect')]",
               "details": [
                 {
-                  "field": "Microsoft.Web/sites/httpsOnly",
-                  "value": true
+                  "value": true,
+                  "field": "Microsoft.Web/sites/httpsOnly"
                 }
               ]
             },

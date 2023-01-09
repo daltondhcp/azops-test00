@@ -9,8 +9,8 @@
         "kind": "policydefinitions",
         "location": "global",
         "properties": {
-          "description": "This policy enables Advanced Threat Protection across supported Cosmos DB accounts.",
           "displayName": "Cosmos DB Account - Deploy Advanced Threat Protection",
+          "description": "This policy enables Advanced Threat Protection across supported Cosmos DB accounts.",
           "parameters": {
             "effectType": {
               "allowedValues": [
@@ -34,6 +34,7 @@
                 "roleDefinitionIds": [
                   "/providers/Microsoft.Authorization/roleDefinitions/fb1c8493-542b-48eb-b624-b4c8fea62acd"
                 ],
+                "name": "current",
                 "deployment": {
                   "properties": {
                     "parameters": {
@@ -62,8 +63,7 @@
                       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#"
                     }
                   }
-                },
-                "name": "current"
+                }
               }
             },
             "if": {

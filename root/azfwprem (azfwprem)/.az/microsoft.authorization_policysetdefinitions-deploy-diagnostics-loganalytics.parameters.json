@@ -38,18 +38,6 @@
               },
               "type": "String"
             },
-            "NetworkPublicIPNicLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for Public IP addresses to stream to a Log Analytics workspace when any Public IP addresses which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Public IP addresses to Log Analytics workspace"
-              },
-              "type": "String"
-            },
             "ApplicationGatewayLogAnalyticsEffect": {
               "allowedValues": [
                 "DeployIfNotExists",
@@ -74,15 +62,15 @@
               },
               "type": "String"
             },
-            "CognitiveServicesLogAnalyticsEffect": {
+            "NetworkPublicIPNicLogAnalyticsEffect": {
               "allowedValues": [
                 "DeployIfNotExists",
                 "Disabled"
               ],
               "defaultValue": "DeployIfNotExists",
               "metadata": {
-                "description": "Deploys the diagnostic settings for Cognitive Services to stream to a Log Analytics workspace when any Cognitive Services which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Cognitive Services to Log Analytics workspace"
+                "description": "Deploys the diagnostic settings for Public IP addresses to stream to a Log Analytics workspace when any Public IP addresses which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Public IP addresses to Log Analytics workspace"
               },
               "type": "String"
             },
@@ -95,6 +83,18 @@
               "metadata": {
                 "description": "Deploys the diagnostic settings for Data Lake Analytics to stream to a Log Analytics workspace when any Data Lake Analytics which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
                 "displayName": "Deploy Diagnostic Settings for Data Lake Analytics to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "CognitiveServicesLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for Cognitive Services to stream to a Log Analytics workspace when any Cognitive Services which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Cognitive Services to Log Analytics workspace"
               },
               "type": "String"
             },
@@ -122,6 +122,30 @@
               },
               "type": "String"
             },
+            "VirtualMachinesLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for Virtual Machines to stream to a Log Analytics workspace when any Virtual Machines which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Virtual Machines to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "SQLElasticPoolsLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for SQL Elastic Pools to stream to a Log Analytics workspace when any SQL Elastic Pools which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for SQL Elastic Pools to Log Analytics workspace"
+              },
+              "type": "String"
+            },
             "AnalysisServiceLogAnalyticsEffect": {
               "allowedValues": [
                 "DeployIfNotExists",
@@ -143,54 +167,6 @@
               "metadata": {
                 "description": "Deploys the diagnostic settings for Power BI Embedded to stream to a Log Analytics workspace when any Power BI Embedded which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
                 "displayName": "Deploy Diagnostic Settings for Power BI Embedded to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "SQLElasticPoolsLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for SQL Elastic Pools to stream to a Log Analytics workspace when any SQL Elastic Pools which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for SQL Elastic Pools to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "StreamAnalyticsLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for Stream Analytics to stream to a Log Analytics workspace when any Stream Analytics which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Stream Analytics to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "VirtualMachinesLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for Virtual Machines to stream to a Log Analytics workspace when any Virtual Machines which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Virtual Machines to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "DataExplorerClusterLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for Azure Data Explorer Cluster to stream to a Log Analytics workspace when any Azure Data Explorer Cluster which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Azure Data Explorer Cluster to Log Analytics workspace"
               },
               "type": "String"
             },
@@ -218,15 +194,27 @@
               },
               "type": "String"
             },
-            "SearchServicesLogAnalyticsEffect": {
+            "StreamAnalyticsLogAnalyticsEffect": {
               "allowedValues": [
                 "DeployIfNotExists",
                 "Disabled"
               ],
               "defaultValue": "DeployIfNotExists",
               "metadata": {
-                "description": "Deploys the diagnostic settings for Search Services to stream to a Log Analytics workspace when any Search Services which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Search Services to Log Analytics workspace"
+                "description": "Deploys the diagnostic settings for Stream Analytics to stream to a Log Analytics workspace when any Stream Analytics which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Stream Analytics to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "DataExplorerClusterLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for Azure Data Explorer Cluster to stream to a Log Analytics workspace when any Azure Data Explorer Cluster which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Azure Data Explorer Cluster to Log Analytics workspace"
               },
               "type": "String"
             },
@@ -242,27 +230,15 @@
               },
               "type": "String"
             },
-            "DataLakeStoreLogAnalyticsEffect": {
+            "SearchServicesLogAnalyticsEffect": {
               "allowedValues": [
                 "DeployIfNotExists",
                 "Disabled"
               ],
               "defaultValue": "DeployIfNotExists",
               "metadata": {
-                "description": "Deploys the diagnostic settings for Azure Data Lake Store to stream to a Log Analytics workspace when anyAzure Data Lake Store which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Azure Data Lake Store to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "StorageAccountsLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for Storage Accounts to stream to a Log Analytics workspace when any storage account which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Storage Accounts to Log Analytics workspace"
+                "description": "Deploys the diagnostic settings for Search Services to stream to a Log Analytics workspace when any Search Services which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Search Services to Log Analytics workspace"
               },
               "type": "String"
             },
@@ -278,15 +254,15 @@
               },
               "type": "String"
             },
-            "LoadBalancerLogAnalyticsEffect": {
+            "DataLakeStoreLogAnalyticsEffect": {
               "allowedValues": [
                 "DeployIfNotExists",
                 "Disabled"
               ],
               "defaultValue": "DeployIfNotExists",
               "metadata": {
-                "description": "Deploys the diagnostic settings for Load Balancer to stream to a Log Analytics workspace when any Load Balancer which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Load Balancer to Log Analytics workspace"
+                "description": "Deploys the diagnostic settings for Azure Data Lake Store to stream to a Log Analytics workspace when anyAzure Data Lake Store which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Azure Data Lake Store to Log Analytics workspace"
               },
               "type": "String"
             },
@@ -302,18 +278,6 @@
               },
               "type": "String"
             },
-            "CDNEndpointsLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for CDN Endpoint to stream to a Log Analytics workspace when any CDN Endpoint which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for CDN Endpoint to Log Analytics workspace"
-              },
-              "type": "String"
-            },
             "EventGridSubLogAnalyticsEffect": {
               "allowedValues": [
                 "DeployIfNotExists",
@@ -323,6 +287,30 @@
               "metadata": {
                 "description": "Deploys the diagnostic settings for Event Grid subscriptions to stream to a Log Analytics workspace when any Event Grid subscriptions which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
                 "displayName": "Deploy Diagnostic Settings for Event Grid subscriptions to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "LoadBalancerLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for Load Balancer to stream to a Log Analytics workspace when any Load Balancer which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Load Balancer to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "CDNEndpointsLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for CDN Endpoint to stream to a Log Analytics workspace when any CDN Endpoint which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for CDN Endpoint to Log Analytics workspace"
               },
               "type": "String"
             },
@@ -338,30 +326,6 @@
               },
               "type": "String"
             },
-            "MlWorkspaceLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for Machine Learning workspace to stream to a Log Analytics workspace when any Machine Learning workspace which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Machine Learning workspace to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "LogicAppsWFLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for Logic Apps Workflows to stream to a Log Analytics workspace when any Logic Apps Workflows which are missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Logic Apps Workflows to Log Analytics workspace"
-              },
-              "type": "String"
-            },
             "DataFactoryLogAnalyticsEffect": {
               "allowedValues": [
                 "DeployIfNotExists",
@@ -374,15 +338,15 @@
               },
               "type": "String"
             },
-            "ServiceBusLogAnalyticsEffect": {
+            "MlWorkspaceLogAnalyticsEffect": {
               "allowedValues": [
                 "DeployIfNotExists",
                 "Disabled"
               ],
               "defaultValue": "DeployIfNotExists",
               "metadata": {
-                "description": "Deploys the diagnostic settings for ServiceBus to stream to a Log Analytics workspace when any ServiceBus which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Service Bus namespaces  to Log Analytics workspace"
+                "description": "Deploys the diagnostic settings for Machine Learning workspace to stream to a Log Analytics workspace when any Machine Learning workspace which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Machine Learning workspace to Log Analytics workspace"
               },
               "type": "String"
             },
@@ -398,15 +362,15 @@
               },
               "type": "String"
             },
-            "PostgreSQLLogAnalyticsEffect": {
+            "LogicAppsWFLogAnalyticsEffect": {
               "allowedValues": [
                 "DeployIfNotExists",
                 "Disabled"
               ],
               "defaultValue": "DeployIfNotExists",
               "metadata": {
-                "description": "Deploys the diagnostic settings for Database for PostgreSQL to stream to a Log Analytics workspace when any Database for PostgreSQL which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Database for PostgreSQL to Log Analytics workspace"
+                "description": "Deploys the diagnostic settings for Logic Apps Workflows to stream to a Log Analytics workspace when any Logic Apps Workflows which are missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Logic Apps Workflows to Log Analytics workspace"
               },
               "type": "String"
             },
@@ -419,18 +383,6 @@
               "metadata": {
                 "description": "Deploys the diagnostic settings for Network Interfaces to stream to a Log Analytics workspace when any Network Interfaces which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
                 "displayName": "Deploy Diagnostic Settings for Network Interfaces to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "RedisCacheLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for Redis Cache to stream to a Log Analytics workspace when any Redis Cache which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Redis Cache to Log Analytics workspace"
               },
               "type": "String"
             },
@@ -458,6 +410,54 @@
               },
               "type": "String"
             },
+            "RedisCacheLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for Redis Cache to stream to a Log Analytics workspace when any Redis Cache which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Redis Cache to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "PostgreSQLLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for Database for PostgreSQL to stream to a Log Analytics workspace when any Database for PostgreSQL which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Database for PostgreSQL to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "StorageAccountsLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for Storage Accounts to stream to a Log Analytics workspace when any storage account which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Storage Accounts to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "ServiceBusLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for ServiceBus to stream to a Log Analytics workspace when any ServiceBus which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Service Bus namespaces  to Log Analytics workspace"
+              },
+              "type": "String"
+            },
             "FrontDoorLogAnalyticsEffect": {
               "allowedValues": [
                 "DeployIfNotExists",
@@ -467,42 +467,6 @@
               "metadata": {
                 "description": "Deploys the diagnostic settings for Front Door to stream to a Log Analytics workspace when any Front Door which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
                 "displayName": "Deploy Diagnostic Settings for Front Door to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "WVDAppGroupsLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for WVD Application groups to stream to a Log Analytics workspace when any application groups which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for WVD Application Groups to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "WVDWorkspaceLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for WVD Workspace to stream to a Log Analytics workspace when any Workspace which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for WVD Workspace to Log Analytics workspace"
-              },
-              "type": "String"
-            },
-            "WVDHostPoolsLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for WVD Host pools to stream to a Log Analytics workspace when any host pool which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for WVD Host pools to Log Analytics workspace"
               },
               "type": "String"
             },
@@ -566,6 +530,54 @@
               },
               "type": "String"
             },
+            "APIMgmtLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for API Management to stream to a Log Analytics workspace when any API Management which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for API Management to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "WVDAppGroupsLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for WVD Application groups to stream to a Log Analytics workspace when any application groups which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for WVD Application Groups to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "WVDWorkspaceLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for WVD Workspace to stream to a Log Analytics workspace when any Workspace which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for WVD Workspace to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "WVDHostPoolsLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for WVD Host pools to stream to a Log Analytics workspace when any host pool which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for WVD Host pools to Log Analytics workspace"
+              },
+              "type": "String"
+            },
             "SignalRLogAnalyticsEffect": {
               "allowedValues": [
                 "DeployIfNotExists",
@@ -590,18 +602,6 @@
               },
               "type": "String"
             },
-            "APIMgmtLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for API Management to stream to a Log Analytics workspace when any API Management which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for API Management to Log Analytics workspace"
-              },
-              "type": "String"
-            },
             "APIforFHIRLogAnalyticsEffect": {
               "allowedValues": [
                 "DeployIfNotExists",
@@ -614,15 +614,15 @@
               },
               "type": "String"
             },
-            "SQLDBsLogAnalyticsEffect": {
+            "CosmosLogAnalyticsEffect": {
               "allowedValues": [
                 "DeployIfNotExists",
                 "Disabled"
               ],
               "defaultValue": "DeployIfNotExists",
               "metadata": {
-                "description": "Deploys the diagnostic settings for SQL Databases to stream to a Log Analytics workspace when any SQL Databases  which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for SQL Databases  to Log Analytics workspace"
+                "description": "Deploys the diagnostic settings for Cosmos DB to stream to a Log Analytics workspace when any Cosmos DB which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for Cosmos DB to Log Analytics workspace"
               },
               "type": "String"
             },
@@ -650,15 +650,15 @@
               },
               "type": "String"
             },
-            "CosmosLogAnalyticsEffect": {
+            "SQLDBsLogAnalyticsEffect": {
               "allowedValues": [
                 "DeployIfNotExists",
                 "Disabled"
               ],
               "defaultValue": "DeployIfNotExists",
               "metadata": {
-                "description": "Deploys the diagnostic settings for Cosmos DB to stream to a Log Analytics workspace when any Cosmos DB which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for Cosmos DB to Log Analytics workspace"
+                "description": "Deploys the diagnostic settings for SQL Databases to stream to a Log Analytics workspace when any SQL Databases  which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for SQL Databases  to Log Analytics workspace"
               },
               "type": "String"
             },
@@ -698,18 +698,6 @@
               },
               "type": "String"
             },
-            "SQLMLogAnalyticsEffect": {
-              "allowedValues": [
-                "DeployIfNotExists",
-                "Disabled"
-              ],
-              "defaultValue": "DeployIfNotExists",
-              "metadata": {
-                "description": "Deploys the diagnostic settings for SQL Managed Instances to stream to a Log Analytics workspace when any SQL Managed Instances which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
-                "displayName": "Deploy Diagnostic Settings for SQL Managed Instances to Log Analytics workspace"
-              },
-              "type": "String"
-            },
             "VMSSLogAnalyticsEffect": {
               "allowedValues": [
                 "DeployIfNotExists",
@@ -722,15 +710,15 @@
               },
               "type": "String"
             },
-            "AKSLogAnalyticsEffect": {
+            "SQLMLogAnalyticsEffect": {
               "allowedValues": [
                 "DeployIfNotExists",
                 "Disabled"
               ],
               "defaultValue": "DeployIfNotExists",
               "metadata": {
-                "description": "Deploys the diagnostic settings for Kubernetes Service to stream to a Log Analytics workspace when any Kubernetes Service which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled.",
-                "displayName": "Deploy Diagnostic Settings for Kubernetes Service to Log Analytics workspace"
+                "description": "Deploys the diagnostic settings for SQL Managed Instances to stream to a Log Analytics workspace when any SQL Managed Instances which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+                "displayName": "Deploy Diagnostic Settings for SQL Managed Instances to Log Analytics workspace"
               },
               "type": "String"
             },
@@ -755,6 +743,18 @@
               "metadata": {
                 "description": "Deploys the diagnostic settings for Container Registry to stream to a Log Analytics workspace when any ACR which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics  enabled.",
                 "displayName": "Deploy Diagnostic Settings for Container Registry to Log Analytics workspace"
+              },
+              "type": "String"
+            },
+            "AKSLogAnalyticsEffect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Deploys the diagnostic settings for Kubernetes Service to stream to a Log Analytics workspace when any Kubernetes Service which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled.",
+                "displayName": "Deploy Diagnostic Settings for Kubernetes Service to Log Analytics workspace"
               },
               "type": "String"
             }

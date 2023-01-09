@@ -43,8 +43,8 @@
               "effect": "[parameters('effect')]",
               "details": [
                 {
-                  "field": "Microsoft.Cache/Redis/minimumTlsVersion",
-                  "value": "[parameters('minimumTlsVersion')]"
+                  "value": "[parameters('minimumTlsVersion')]",
+                  "field": "Microsoft.Cache/Redis/minimumTlsVersion"
                 }
               ]
             },

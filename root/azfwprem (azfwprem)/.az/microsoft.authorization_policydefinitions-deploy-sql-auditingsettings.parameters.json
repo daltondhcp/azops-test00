@@ -45,6 +45,7 @@
                 "roleDefinitionIds": [
                   "/providers/Microsoft.Authorization/roleDefinitions/056cd41c-7e88-42e1-933e-88ba6a50c9c3"
                 ],
+                "name": "default",
                 "deployment": {
                   "properties": {
                     "parameters": {
@@ -77,6 +78,7 @@
                           "type": "Microsoft.Sql/servers/databases/auditingSettings",
                           "properties": {
                             "isAzureMonitorTargetEnabled": true,
+                            "state": "enabled",
                             "auditActionsAndGroups": [
                               "BATCH_COMPLETED_GROUP",
                               "DATABASE_OBJECT_CHANGE_GROUP",
@@ -93,8 +95,7 @@
                               "SCHEMA_OBJECT_PERMISSION_CHANGE_GROUP",
                               "SUCCESSFUL_DATABASE_AUTHENTICATION_GROUP",
                               "FAILED_DATABASE_AUTHENTICATION_GROUP"
-                            ],
-                            "state": "enabled"
+                            ]
                           },
                           "apiVersion": "2017-03-01-preview",
                           "name": "[concat( parameters('sqlServerName'),'/',parameters('sqlServerDataBaseName'),'/default')]"
@@ -105,8 +106,7 @@
                       "outputs": {}
                     }
                   }
-                },
-                "name": "default"
+                }
               }
             },
             "if": {

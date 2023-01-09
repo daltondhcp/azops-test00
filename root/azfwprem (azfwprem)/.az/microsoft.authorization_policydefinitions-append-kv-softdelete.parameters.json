@@ -17,8 +17,8 @@
               "effect": "append",
               "details": [
                 {
-                  "field": "Microsoft.KeyVault/vaults/enableSoftDelete",
-                  "value": true
+                  "value": true,
+                  "field": "Microsoft.KeyVault/vaults/enableSoftDelete"
                 }
               ]
             },

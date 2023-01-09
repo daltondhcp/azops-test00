@@ -22,19 +22,6 @@
               },
               "type": "String"
             },
-            "SQLManagedInstanceMinTlsVersion": {
-              "allowedValues": [
-                "1.2",
-                "1.0",
-                "1.1"
-              ],
-              "defaultValue": "1.2",
-              "metadata": {
-                "description": "Select version  minimum TLS version for Azure Managed Instanceto to  enforce",
-                "displayName": "Azure Managed Instance.Select version minimum TLS for Azure Managed Instance"
-              },
-              "type": "String"
-            },
             "PostgreSQLEnableSSLDeployEffect": {
               "allowedValues": [
                 "DeployIfNotExists",
@@ -59,15 +46,16 @@
               },
               "type": "String"
             },
-            "APIAppServiceLatestTlsEffect": {
+            "SQLManagedInstanceMinTlsVersion": {
               "allowedValues": [
-                "AuditIfNotExists",
-                "Disabled"
+                "1.2",
+                "1.0",
+                "1.1"
               ],
-              "defaultValue": "AuditIfNotExists",
+              "defaultValue": "1.2",
               "metadata": {
-                "description": "App Service API App. Only Audit, deny not possible as it is a related resource.  Upgrade to the latest TLS version.",
-                "displayName": "App Service API App. Latest TLS version should be used in your API App"
+                "description": "Select version  minimum TLS version for Azure Managed Instanceto to  enforce",
+                "displayName": "Azure Managed Instance.Select version minimum TLS for Azure Managed Instance"
               },
               "type": "String"
             },
@@ -83,16 +71,15 @@
               },
               "type": "String"
             },
-            "SQLManagedInstanceTLSEffect": {
+            "APIAppServiceLatestTlsEffect": {
               "allowedValues": [
-                "Audit",
-                "Disabled",
-                "Deny"
+                "AuditIfNotExists",
+                "Disabled"
               ],
-              "defaultValue": "Audit",
+              "defaultValue": "AuditIfNotExists",
               "metadata": {
-                "description": "Setting minimal TLS version to 1.2 improves security by ensuring your SQL Managed Instance can only be accessed from clients using TLS 1.2. Using versions of TLS less than 1.2 is not recommended since they have well documented security vulnerabilities.",
-                "displayName": "SQL Managed Instance should have the minimal TLS version of 1.2"
+                "description": "App Service API App. Only Audit, deny not possible as it is a related resource.  Upgrade to the latest TLS version.",
+                "displayName": "App Service API App. Latest TLS version should be used in your API App"
               },
               "type": "String"
             },
@@ -110,15 +97,28 @@
               },
               "type": "String"
             },
-            "MySQLEnableSSLDeployEffect": {
+            "SQLManagedInstanceTLSEffect": {
               "allowedValues": [
-                "DeployIfNotExists",
+                "Audit",
+                "Disabled",
+                "Deny"
+              ],
+              "defaultValue": "Audit",
+              "metadata": {
+                "description": "Setting minimal TLS version to 1.2 improves security by ensuring your SQL Managed Instance can only be accessed from clients using TLS 1.2. Using versions of TLS less than 1.2 is not recommended since they have well documented security vulnerabilities.",
+                "displayName": "SQL Managed Instance should have the minimal TLS version of 1.2"
+              },
+              "type": "String"
+            },
+            "AppServiceTlsVersionEffect": {
+              "allowedValues": [
+                "Append",
                 "Disabled"
               ],
-              "defaultValue": "DeployIfNotExists",
+              "defaultValue": "Append",
               "metadata": {
-                "description": "Deploy a specific min TLS version requirement and enforce SSL on Azure Database for MySQL server. Enforce the Server to client applications using minimum version of Tls to secure the connection between your database server and your client applications helps protect against 'man in the middle' attacks by encrypting the data stream between the server and your application. This configuration enforces that SSL is always enabled for accessing your database server.",
-                "displayName": "MySQL database servers. Deploy if not exist set minimum TLS version Azure Database for MySQL server"
+                "description": "App Service. Appends the AppService sites object to ensure that  HTTPS only is enabled for  server/service authentication and protects data in transit from network layer eavesdropping attacks. Please note Append does not enforce compliance use then deny.",
+                "displayName": "App Service. Appends the AppService WebApp, APIApp, Function App to enable https only"
               },
               "type": "String"
             },
@@ -135,15 +135,15 @@
               },
               "type": "String"
             },
-            "AppServiceTlsVersionEffect": {
+            "MySQLEnableSSLDeployEffect": {
               "allowedValues": [
-                "Append",
+                "DeployIfNotExists",
                 "Disabled"
               ],
-              "defaultValue": "Append",
+              "defaultValue": "DeployIfNotExists",
               "metadata": {
-                "description": "App Service. Appends the AppService sites object to ensure that  HTTPS only is enabled for  server/service authentication and protects data in transit from network layer eavesdropping attacks. Please note Append does not enforce compliance use then deny.",
-                "displayName": "App Service. Appends the AppService WebApp, APIApp, Function App to enable https only"
+                "description": "Deploy a specific min TLS version requirement and enforce SSL on Azure Database for MySQL server. Enforce the Server to client applications using minimum version of Tls to secure the connection between your database server and your client applications helps protect against 'man in the middle' attacks by encrypting the data stream between the server and your application. This configuration enforces that SSL is always enabled for accessing your database server.",
+                "displayName": "MySQL database servers. Deploy if not exist set minimum TLS version Azure Database for MySQL server"
               },
               "type": "String"
             },
@@ -186,6 +186,19 @@
               },
               "type": "String"
             },
+            "WebAppServiceHttpsEffect": {
+              "allowedValues": [
+                "Audit",
+                "Disabled",
+                "Deny"
+              ],
+              "defaultValue": "Audit",
+              "metadata": {
+                "description": "Choose Deny or Audit in combination with Append policy. Use of HTTPS ensures server/service authentication and protects data in transit from network layer eavesdropping attacks.",
+                "displayName": "App Service Web App. Web Application should only be accessible over HTTPS. Choose Deny or Audit in combination with Append policy."
+              },
+              "type": "String"
+            },
             "APIAppServiceHttpsEffect": {
               "allowedValues": [
                 "Audit",
@@ -196,19 +209,6 @@
               "metadata": {
                 "description": "Choose Deny or Audit in combination with Append policy. Use of HTTPS ensures server/service authentication and protects data in transit from network layer eavesdropping attacks.",
                 "displayName": "App Service API App. API App should only be accessible over HTTPS. Choose Deny or Audit in combination with Append policy."
-              },
-              "type": "String"
-            },
-            "StorageminimumTlsVersion": {
-              "allowedValues": [
-                "TLS1_2",
-                "TLS1_1",
-                "TLS1_0"
-              ],
-              "defaultValue": "TLS1_2",
-              "metadata": {
-                "description": "Select version  minimum TLS version on Azure Storage Account to enforce",
-                "displayName": "Storage Account select minimum TLS version"
               },
               "type": "String"
             },
@@ -224,16 +224,16 @@
               },
               "type": "String"
             },
-            "WebAppServiceHttpsEffect": {
+            "StorageminimumTlsVersion": {
               "allowedValues": [
-                "Audit",
-                "Disabled",
-                "Deny"
+                "TLS1_2",
+                "TLS1_1",
+                "TLS1_0"
               ],
-              "defaultValue": "Audit",
+              "defaultValue": "TLS1_2",
               "metadata": {
-                "description": "Choose Deny or Audit in combination with Append policy. Use of HTTPS ensures server/service authentication and protects data in transit from network layer eavesdropping attacks.",
-                "displayName": "App Service Web App. Web Application should only be accessible over HTTPS. Choose Deny or Audit in combination with Append policy."
+                "description": "Select version  minimum TLS version on Azure Storage Account to enforce",
+                "displayName": "Storage Account select minimum TLS version"
               },
               "type": "String"
             },
@@ -326,19 +326,6 @@
               },
               "type": "String"
             },
-            "SQLServerTLSEffect": {
-              "allowedValues": [
-                "Audit",
-                "Disabled",
-                "Deny"
-              ],
-              "defaultValue": "Audit",
-              "metadata": {
-                "description": "Setting minimal TLS version to 1.2 improves security by ensuring your Azure SQL Database can only be accessed from clients using TLS 1.2. Using versions of TLS less than 1.2 is not recommended since they have well documented security vulnerabilities.",
-                "displayName": "Azure SQL Database should have the minimal TLS version of 1.2"
-              },
-              "type": "String"
-            },
             "RedisMinTlsVersion": {
               "allowedValues": [
                 "1.2",
@@ -349,6 +336,19 @@
               "metadata": {
                 "description": "Select version  minimum TLS version for a Azure Cache for Redis to enforce",
                 "displayName": "Azure Cache for Redis.Select version minimum TLS for Azure Cache for Redis"
+              },
+              "type": "String"
+            },
+            "SQLServerTLSEffect": {
+              "allowedValues": [
+                "Audit",
+                "Disabled",
+                "Deny"
+              ],
+              "defaultValue": "Audit",
+              "metadata": {
+                "description": "Setting minimal TLS version to 1.2 improves security by ensuring your Azure SQL Database can only be accessed from clients using TLS 1.2. Using versions of TLS less than 1.2 is not recommended since they have well documented security vulnerabilities.",
+                "displayName": "Azure SQL Database should have the minimal TLS version of 1.2"
               },
               "type": "String"
             },

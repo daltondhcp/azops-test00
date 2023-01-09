@@ -18,16 +18,16 @@
               ],
               "defaultValue": "DeployIfNotExists",
               "metadata": {
-                "description": "Enable or disable the execution of the policy",
-                "displayName": "Effect"
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
               },
               "type": "String"
             },
             "listOfImageIdToInclude": {
               "defaultValue": [],
               "metadata": {
-                "description": "Example value: '/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage'",
-                "displayName": "Optional: List of virtual machine images that have supported Windows OS to add to scope"
+                "displayName": "Optional: List of virtual machine images that have supported Windows OS to add to scope",
+                "description": "Example value: '/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage'"
               },
               "type": "Array"
             }
@@ -86,10 +86,10 @@
                             "type": "MDE.Windows",
                             "autoUpgradeMinorVersion": true,
                             "typeHandlerVersion": "1.0",
+                            "publisher": "Microsoft.Azure.AzureDefenderForServers",
                             "protectedSettings": {
                               "defenderForEndpointOnboardingScript": "M1MjlFREI3fVwiIH07IHByaXZhdGUgRXZlbnRTb3VyY2UgZXMgPSBuZXcgRXZlbnRTb3VyY2UoXCJNaWNyb3NvZnQuV2luZG93cy5TZW5zZS5DbGllbnQuTWFuYWdlbWVudFwiLEV2ZW50U291cmNlU2V0dGluZ3MuRXR3U2VsZkRlc2NyaWJpbmdFdmVudEZvcm1hdCx0ZWxlbWV0cnlUcmFpdHMpO319JzsgJGxvZ2dlciA9IE5ldy1PYmplY3QgLVR5cGVOYW1lIFNlbnNlLlRyYWNlOyAkbG9nZ2VyLldyaXRlT25ib2FyZGluZ01lc3NhZ2UoJyVzdWNjZXNzT3V0cHV0JScpIiA+TlVMIDI+JjENCiIlUFJPR1JBTUZJTEVTJVxXaW5kb3dzIERlZmVuZGVyXE1wQ21kUnVuLmV4ZSIgLVJlbG9hZEVuZ2luZSA+TlVMIDI+JjENCg0KR09UTyBDTEVBTlVQDQoNCjpDTEVBTlVQDQppZiBleGlzdCAlVE1QJVxzZW5zZVRtcC50eHQgZGVsICVUTVAlXHNlbnNlVG1wLnR4dA0KRVhJVCAvQiAlZXJyb3JDb2RlJQ0KCg=="
                             },
-                            "publisher": "Microsoft.Azure.AzureDefenderForServers",
                             "settings": {
                               "azureResourceId": "[parameters('azureResourceId')]",
                               "vNextEnabled": "true",

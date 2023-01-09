@@ -83,8 +83,8 @@
                           "type": "Microsoft.Security/securityContacts",
                           "properties": {
                             "alertNotifications": {
-                              "state": "On",
-                              "minimalSeverity": "High"
+                              "minimalSeverity": "High",
+                              "state": "On"
                             },
                             "notificationsByRole": {
                               "state": "On",
@@ -105,8 +105,8 @@
                   },
                   "location": "northeurope"
                 },
-                "deploymentScope": "Subscription",
-                "existenceScope": "Subscription"
+                "existenceScope": "Subscription",
+                "deploymentScope": "Subscription"
               }
             },
             "if": {

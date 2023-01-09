@@ -43,8 +43,8 @@
               "effect": "[parameters('effect')]",
               "details": [
                 {
-                  "field": "Microsoft.Web/sites/config/minTlsVersion",
-                  "value": "[parameters('minTlsVersion')]"
+                  "value": "[parameters('minTlsVersion')]",
+                  "field": "Microsoft.Web/sites/config/minTlsVersion"
                 }
               ]
             },
