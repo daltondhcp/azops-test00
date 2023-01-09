@@ -85,11 +85,11 @@
                 "deployment": {
                   "properties": {
                     "parameters": {
-                      "location": {
-                        "value": "[field('location')]"
-                      },
                       "logAnalytics": {
                         "value": "[parameters('logAnalytics')]"
+                      },
+                      "location": {
+                        "value": "[field('location')]"
                       },
                       "resourceGroupName": {
                         "value": "[resourceGroup().name]"
@@ -103,20 +103,20 @@
                       "flowAnalyticsEnabled": {
                         "value": "[parameters('flowAnalyticsEnabled')]"
                       },
-                      "retention": {
-                        "value": "[parameters('retention')]"
-                      },
                       "networkSecurityGroupName": {
                         "value": "[field('name')]"
+                      },
+                      "retention": {
+                        "value": "[parameters('retention')]"
                       }
                     },
                     "mode": "Incremental",
                     "template": {
                       "parameters": {
-                        "location": {
+                        "logAnalytics": {
                           "type": "String"
                         },
-                        "logAnalytics": {
+                        "location": {
                           "type": "String"
                         },
                         "resourceGroupName": {
@@ -131,11 +131,11 @@
                         "flowAnalyticsEnabled": {
                           "type": "bool"
                         },
-                        "retention": {
-                          "type": "int"
-                        },
                         "networkSecurityGroupName": {
                           "type": "String"
+                        },
+                        "retention": {
+                          "type": "int"
                         }
                       },
                       "contentVersion": "1.0.0.0",
@@ -152,8 +152,8 @@
                               "networkWatcherFlowAnalyticsConfiguration": {
                                 "enabled": "[bool(parameters('flowAnalyticsEnabled'))]",
                                 "workspaceId": "[if(not(empty(parameters('logAnalytics'))), reference(parameters('logAnalytics'), '2020-03-01-preview', 'Full').properties.customerId, json('null')) ]",
-                                "trafficAnalyticsInterval": "[parameters('trafficAnalyticsInterval')]",
                                 "workspaceResourceId": "[if(not(empty(parameters('logAnalytics'))), parameters('logAnalytics'), json('null'))]",
+                                "trafficAnalyticsInterval": "[parameters('trafficAnalyticsInterval')]",
                                 "workspaceRegion": "[if(not(empty(parameters('logAnalytics'))), reference(parameters('logAnalytics'), '2020-03-01-preview', 'Full').location, json('null')) ]"
                               }
                             },

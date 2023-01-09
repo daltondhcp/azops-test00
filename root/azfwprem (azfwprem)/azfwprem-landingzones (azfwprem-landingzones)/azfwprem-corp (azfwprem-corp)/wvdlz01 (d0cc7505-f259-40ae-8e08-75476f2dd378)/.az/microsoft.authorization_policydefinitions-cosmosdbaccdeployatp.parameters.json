@@ -9,16 +9,16 @@
         "kind": "policydefinitions",
         "location": "global",
         "properties": {
-          "displayName": "Cosmos DB Account - Deploy Advanced Threat Protection",
           "description": "This policy enables Advanced Threat Protection across supported Cosmos DB accounts.",
+          "displayName": "Cosmos DB Account - Deploy Advanced Threat Protection",
           "parameters": {
             "effectType": {
               "allowedValues": [
                 "DeployIfNotExists",
                 "Disabled"
               ],
-              "metadata": {},
               "defaultValue": "DeployIfNotExists",
+              "metadata": {},
               "type": "String"
             }
           },

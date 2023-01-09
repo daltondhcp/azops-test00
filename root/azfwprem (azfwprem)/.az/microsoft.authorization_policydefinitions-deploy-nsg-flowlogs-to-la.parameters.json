@@ -76,11 +76,11 @@
                       "retention": {
                         "value": "[parameters('retention')]"
                       },
-                      "networkSecurityGroup": {
-                        "value": "[field('id')]"
-                      },
                       "workspace": {
                         "value": "[parameters('workspace')]"
+                      },
+                      "networkSecurityGroup": {
+                        "value": "[field('id')]"
                       },
                       "interval": {
                         "value": "[parameters('interval')]"
@@ -95,10 +95,10 @@
                         "retention": {
                           "type": "int"
                         },
-                        "networkSecurityGroup": {
+                        "workspace": {
                           "type": "String"
                         },
-                        "workspace": {
+                        "networkSecurityGroup": {
                           "type": "String"
                         },
                         "interval": {
@@ -163,8 +163,8 @@
                                         "flowAnalyticsConfiguration": {
                                           "networkWatcherFlowAnalyticsConfiguration": {
                                             "enabled": true,
-                                            "trafficAnalyticsInterval": "[parameters('interval')]",
-                                            "workspaceResourceId": "[parameters('workspace')]"
+                                            "workspaceResourceId": "[parameters('workspace')]",
+                                            "trafficAnalyticsInterval": "[parameters('interval')]"
                                           }
                                         },
                                         "targetResourceId": "[parameters('networkSecurityGroup')]",

@@ -20,17 +20,17 @@
               },
               "type": "Boolean"
             },
-            "vNetCidrRange": {
-              "metadata": {
-                "description": "CIDR Range for the vNet",
-                "displayName": "vNetCidrRange"
-              },
-              "type": "String"
-            },
             "hubResourceId": {
               "metadata": {
                 "description": "Resource ID for the HUB vNet",
                 "displayName": "hubResourceId"
+              },
+              "type": "String"
+            },
+            "vNetCidrRange": {
+              "metadata": {
+                "description": "CIDR Range for the vNet",
+                "displayName": "vNetCidrRange"
               },
               "type": "String"
             },
@@ -41,6 +41,13 @@
               },
               "type": "String"
             },
+            "vNetRgName": {
+              "metadata": {
+                "description": "Name of the landing zone vNet RG",
+                "displayName": "vNetRgName"
+              },
+              "type": "String"
+            },
             "dnsServers": {
               "defaultValue": [],
               "metadata": {
@@ -48,13 +55,6 @@
                 "displayName": "DNSServers"
               },
               "type": "Array"
-            },
-            "vNetRgName": {
-              "metadata": {
-                "description": "Name of the landing zone vNet RG",
-                "displayName": "vNetRgName"
-              },
-              "type": "String"
             },
             "vNetName": {
               "metadata": {
@@ -90,20 +90,20 @@
                       "vNetPeerUseRemoteGateway": {
                         "value": "[parameters('vNetPeerUseRemoteGateway')]"
                       },
-                      "vNetCidrRange": {
-                        "value": "[parameters('vNetCidrRange')]"
-                      },
                       "hubResourceId": {
                         "value": "[parameters('hubResourceId')]"
+                      },
+                      "vNetCidrRange": {
+                        "value": "[parameters('vNetCidrRange')]"
                       },
                       "vNetLocation": {
                         "value": "[parameters('vNetLocation')]"
                       },
-                      "dnsServers": {
-                        "value": "[parameters('dnsServers')]"
-                      },
                       "vNetRgName": {
                         "value": "[parameters('vNetRgName')]"
+                      },
+                      "dnsServers": {
+                        "value": "[parameters('dnsServers')]"
                       },
                       "vNetName": {
                         "value": "[parameters('vNetName')]"
@@ -116,21 +116,21 @@
                           "defaultValue": false,
                           "type": "bool"
                         },
-                        "vNetCidrRange": {
+                        "hubResourceId": {
                           "type": "String"
                         },
-                        "hubResourceId": {
+                        "vNetCidrRange": {
                           "type": "String"
                         },
                         "vNetLocation": {
                           "type": "String"
                         },
+                        "vNetRgName": {
+                          "type": "String"
+                        },
                         "dnsServers": {
                           "defaultValue": [],
                           "type": "Array"
-                        },
-                        "vNetRgName": {
-                          "type": "String"
                         },
                         "vNetName": {
                           "type": "String"
