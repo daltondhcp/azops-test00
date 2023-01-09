@@ -18,8 +18,8 @@
               ],
               "defaultValue": "Deny",
               "metadata": {
-                "description": "This policy denies creation of Sql servers with exposed public endpoints",
-                "displayName": "Public network access on Azure SQL Database should be disabled"
+                "displayName": "Public network access on Azure SQL Database should be disabled",
+                "description": "This policy denies creation of Sql servers with exposed public endpoints"
               },
               "type": "String"
             },
@@ -31,8 +31,8 @@
               ],
               "defaultValue": "Deny",
               "metadata": {
-                "description": "This policy denies creation of Key Vaults with IP Firewall exposed to all public endpoints",
-                "displayName": "Public network access should be disabled for KeyVault"
+                "displayName": "Public network access should be disabled for KeyVault",
+                "description": "This policy denies creation of Key Vaults with IP Firewall exposed to all public endpoints"
               },
               "type": "String"
             },
@@ -44,8 +44,8 @@
               ],
               "defaultValue": "Deny",
               "metadata": {
-                "description": "This policy denies creation of storage accounts with IP Firewall exposed to all public endpoints",
-                "displayName": "Public network access onStorage accounts should be disabled"
+                "displayName": "Public network access onStorage accounts should be disabled",
+                "description": "This policy denies creation of storage accounts with IP Firewall exposed to all public endpoints"
               },
               "type": "String"
             },
@@ -57,21 +57,8 @@
               ],
               "defaultValue": "Deny",
               "metadata": {
-                "description": "This policy denies that  Cosmos database accounts  are created with out public network access is disabled.",
-                "displayName": "Public network access should be disabled for CosmosDB"
-              },
-              "type": "String"
-            },
-            "PostgreSQLFlexPublicIpDenyEffect": {
-              "allowedValues": [
-                "Audit",
-                "Deny",
-                "Disabled"
-              ],
-              "defaultValue": "Deny",
-              "metadata": {
-                "description": "This policy denies creation of Postgre SQL Flexible DB accounts with exposed public endpoints",
-                "displayName": "Public network access should be disabled for PostgreSql Flexible Server"
+                "displayName": "Public network access should be disabled for CosmosDB",
+                "description": "This policy denies that  Cosmos database accounts  are created with out public network access is disabled."
               },
               "type": "String"
             },
@@ -83,8 +70,21 @@
               ],
               "defaultValue": "Deny",
               "metadata": {
-                "description": "This policy denies  the creation of  Azure Kubernetes Service non-private clusters",
-                "displayName": "Public network access on AKS API should be disabled"
+                "displayName": "Public network access on AKS API should be disabled",
+                "description": "This policy denies  the creation of  Azure Kubernetes Service non-private clusters"
+              },
+              "type": "String"
+            },
+            "PostgreSQLFlexPublicIpDenyEffect": {
+              "allowedValues": [
+                "Audit",
+                "Deny",
+                "Disabled"
+              ],
+              "defaultValue": "Deny",
+              "metadata": {
+                "displayName": "Public network access should be disabled for PostgreSql Flexible Server",
+                "description": "This policy denies creation of Postgre SQL Flexible DB accounts with exposed public endpoints"
               },
               "type": "String"
             },
@@ -96,8 +96,8 @@
               ],
               "defaultValue": "Deny",
               "metadata": {
-                "description": "This policy denies creation of MySql Flexible Server DB accounts with exposed public endpoints",
-                "displayName": "Public network access should be disabled for MySQL Flexible Server"
+                "displayName": "Public network access should be disabled for MySQL Flexible Server",
+                "description": "This policy denies creation of MySql Flexible Server DB accounts with exposed public endpoints"
               },
               "type": "String"
             },
@@ -109,21 +109,8 @@
               ],
               "defaultValue": "Deny",
               "metadata": {
-                "description": "This policy denies creation of Azure Batch Instances with exposed public endpoints",
-                "displayName": "Public network access should be disabled for Azure Batch Instances"
-              },
-              "type": "String"
-            },
-            "AFSPublicIpDenyEffect": {
-              "allowedValues": [
-                "Audit",
-                "Deny",
-                "Disabled"
-              ],
-              "defaultValue": "Deny",
-              "metadata": {
-                "description": "This policy denies the creation of Azure File Sync instances with exposed public endpoints ",
-                "displayName": "Public network access on Azure File Sync disabled"
+                "displayName": "Public network access should be disabled for Azure Batch Instances",
+                "description": "This policy denies creation of Azure Batch Instances with exposed public endpoints"
               },
               "type": "String"
             },
@@ -135,14 +122,27 @@
               ],
               "defaultValue": "Deny",
               "metadata": {
-                "description": "This policy denies the creation of Azure Container Registires with exposed public endpoints ",
-                "displayName": "Public network access on Azure Container Registry disabled"
+                "displayName": "Public network access on Azure Container Registry disabled",
+                "description": "This policy denies the creation of Azure Container Registires with exposed public endpoints "
+              },
+              "type": "String"
+            },
+            "AFSPublicIpDenyEffect": {
+              "allowedValues": [
+                "Audit",
+                "Deny",
+                "Disabled"
+              ],
+              "defaultValue": "Deny",
+              "metadata": {
+                "displayName": "Public network access on Azure File Sync disabled",
+                "description": "This policy denies the creation of Azure File Sync instances with exposed public endpoints "
               },
               "type": "String"
             }
           },
-          "description": "This policy initiative is a group of policies that prevents creation of Azure PaaS services with exposed public endpoints",
           "displayName": "Public network access should be disabled for PaaS services",
+          "description": "This policy initiative is a group of policies that prevents creation of Azure PaaS services with exposed public endpoints",
           "policyDefinitions": [
             {
               "policyDefinitionReferenceId": "CosmosDenyPaasPublicIP",

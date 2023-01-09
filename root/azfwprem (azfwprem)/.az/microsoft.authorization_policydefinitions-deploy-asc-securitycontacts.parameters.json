@@ -105,8 +105,8 @@
                   },
                   "location": "northeurope"
                 },
-                "deploymentScope": "Subscription",
-                "existenceScope": "Subscription"
+                "existenceScope": "Subscription",
+                "deploymentScope": "Subscription"
               }
             },
             "if": {

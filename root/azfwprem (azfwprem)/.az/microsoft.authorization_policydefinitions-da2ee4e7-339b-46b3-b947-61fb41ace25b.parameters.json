@@ -16,12 +16,12 @@
             "then": {
               "effect": "DenyAction",
               "details": {
-                "actionNames": [
-                  "delete"
-                ],
                 "cascadeBehaviors": {
                   "resourceGroup": "deny"
-                }
+                },
+                "actionNames": [
+                  "delete"
+                ]
               }
             },
             "if": {

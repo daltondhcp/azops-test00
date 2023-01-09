@@ -103,11 +103,11 @@
                       "flowAnalyticsEnabled": {
                         "value": "[parameters('flowAnalyticsEnabled')]"
                       },
-                      "networkSecurityGroupName": {
-                        "value": "[field('name')]"
-                      },
                       "retention": {
                         "value": "[parameters('retention')]"
+                      },
+                      "networkSecurityGroupName": {
+                        "value": "[field('name')]"
                       }
                     },
                     "mode": "Incremental",
@@ -131,11 +131,11 @@
                         "flowAnalyticsEnabled": {
                           "type": "bool"
                         },
-                        "networkSecurityGroupName": {
-                          "type": "String"
-                        },
                         "retention": {
                           "type": "int"
+                        },
+                        "networkSecurityGroupName": {
+                          "type": "String"
                         }
                       },
                       "contentVersion": "1.0.0.0",

@@ -196,8 +196,8 @@
                         }
                       ],
                       "variables": {
-                        "resourceGroupName": "[split(parameters('networkSecurityGroup'), '/')[4]]",
                         "storageAccountName": "[concat('es', uniqueString(variables('securityGroupName'), parameters('time')))]",
+                        "resourceGroupName": "[split(parameters('networkSecurityGroup'), '/')[4]]",
                         "securityGroupName": "[split(parameters('networkSecurityGroup'), '/')[8]]"
                       },
                       "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
@@ -207,8 +207,8 @@
                   "location": "northeurope"
                 },
                 "name": "[if(empty(coalesce(field('Microsoft.Network/networkSecurityGroups/flowLogs[*].id'))), 'null/null', concat(split(first(field('Microsoft.Network/networkSecurityGroups/flowLogs[*].id')), '/')[8], '/', split(first(field('Microsoft.Network/networkSecurityGroups/flowLogs[*].id')), '/')[10]))]",
-                "deploymentScope": "subscription",
                 "existenceScope": "resourceGroup",
+                "deploymentScope": "subscription",
                 "resourceGroupName": "[if(empty(coalesce(field('Microsoft.Network/networkSecurityGroups/flowLogs'))), 'NetworkWatcherRG', split(first(field('Microsoft.Network/networkSecurityGroups/flowLogs[*].id')), '/')[4])]"
               }
             },

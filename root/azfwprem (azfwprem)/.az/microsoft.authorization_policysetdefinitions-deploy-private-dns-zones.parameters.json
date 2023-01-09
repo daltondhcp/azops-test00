@@ -17,167 +17,167 @@
               ],
               "defaultValue": "DeployIfNotExists",
               "metadata": {
-                "description": "Enable or disable the execution of the policy",
-                "displayName": "Effect"
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
               },
               "type": "string"
             },
             "azureMachineLearningWorkspacePrivateDnsZoneId": {
               "metadata": {
-                "description": "Private DNS Zone Identifier",
                 "displayName": "azureMachineLearningWorkspacePrivateDnsZoneId",
+                "description": "Private DNS Zone Identifier",
                 "strongType": "Microsoft.Network/privateDnsZones"
               },
               "type": "string"
             },
             "azureServiceBusNamespacePrivateDnsZoneId": {
               "metadata": {
-                "description": "Private DNS Zone Identifier",
                 "displayName": "azureServiceBusNamespacePrivateDnsZoneId",
+                "description": "Private DNS Zone Identifier",
                 "strongType": "Microsoft.Network/privateDnsZones"
               },
               "type": "string"
             },
             "azureCognitiveServicesPrivateDnsZoneId": {
               "metadata": {
-                "description": "Private DNS Zone Identifier",
                 "displayName": "azureCognitiveServicesPrivateDnsZoneId",
+                "description": "Private DNS Zone Identifier",
                 "strongType": "Microsoft.Network/privateDnsZones"
               },
               "type": "string"
             },
             "azureEventHubNamespacePrivateDnsZoneId": {
               "metadata": {
-                "description": "Private DNS Zone Identifier",
                 "displayName": "azureEventHubNamespacePrivateDnsZoneId",
+                "description": "Private DNS Zone Identifier",
                 "strongType": "Microsoft.Network/privateDnsZones"
               },
               "type": "string"
             },
             "azureEventGridDomainsPrivateDnsZoneId": {
               "metadata": {
-                "description": "Private DNS Zone Identifier",
                 "displayName": "azureEventGridDomainsPrivateDnsZoneId",
+                "description": "Private DNS Zone Identifier",
                 "strongType": "Microsoft.Network/privateDnsZones"
               },
               "type": "string"
             },
             "azureCognitiveSearchPrivateDnsZoneId": {
               "metadata": {
-                "description": "Private DNS Zone Identifier",
                 "displayName": "azureCognitiveSearchPrivateDnsZoneId",
+                "description": "Private DNS Zone Identifier",
                 "strongType": "Microsoft.Network/privateDnsZones"
               },
               "type": "string"
             },
             "azureEventGridTopicsPrivateDnsZoneId": {
               "metadata": {
-                "description": "Private DNS Zone Identifier",
                 "displayName": "azureEventGridTopicsPrivateDnsZoneId",
+                "description": "Private DNS Zone Identifier",
                 "strongType": "Microsoft.Network/privateDnsZones"
               },
               "type": "string"
             },
             "azureAppServicesPrivateDnsZoneId": {
               "metadata": {
-                "description": "Private DNS Zone Identifier",
                 "displayName": "azureAppServicesPrivateDnsZoneId",
-                "strongType": "Microsoft.Network/privateDnsZones"
-              },
-              "type": "string"
-            },
-            "azureRedisCachePrivateDnsZoneId": {
-              "metadata": {
                 "description": "Private DNS Zone Identifier",
-                "displayName": "azureRedisCachePrivateDnsZoneId",
                 "strongType": "Microsoft.Network/privateDnsZones"
               },
               "type": "string"
             },
             "azureDiskAccessPrivateDnsZoneId": {
               "metadata": {
-                "description": "Private DNS Zone Identifier",
                 "displayName": "azureDiskAccessPrivateDnsZoneId",
+                "description": "Private DNS Zone Identifier",
+                "strongType": "Microsoft.Network/privateDnsZones"
+              },
+              "type": "string"
+            },
+            "azureRedisCachePrivateDnsZoneId": {
+              "metadata": {
+                "displayName": "azureRedisCachePrivateDnsZoneId",
+                "description": "Private DNS Zone Identifier",
                 "strongType": "Microsoft.Network/privateDnsZones"
               },
               "type": "string"
             },
             "azureKeyVaultPrivateDnsZoneId": {
               "metadata": {
-                "description": "Private DNS Zone Identifier",
                 "displayName": "azureKeyVaultPrivateDnsZoneId",
+                "description": "Private DNS Zone Identifier",
                 "strongType": "Microsoft.Network/privateDnsZones"
               },
               "type": "string"
             },
             "azureIotHubsPrivateDnsZoneId": {
               "metadata": {
-                "description": "Private DNS Zone Identifier",
                 "displayName": "azureIotHubsPrivateDnsZoneId",
+                "description": "Private DNS Zone Identifier",
                 "strongType": "Microsoft.Network/privateDnsZones"
               },
               "type": "string"
             },
             "azureSignalRPrivateDnsZoneId": {
               "metadata": {
-                "description": "Private DNS Zone Identifier",
                 "displayName": "azureSignalRPrivateDnsZoneId",
+                "description": "Private DNS Zone Identifier",
                 "strongType": "Microsoft.Network/privateDnsZones"
               },
               "type": "string"
             },
             "azureBatchPrivateDnsZoneId": {
               "metadata": {
-                "description": "Private DNS Zone Identifier",
                 "displayName": "azureBatchPrivateDnsZoneId",
+                "description": "Private DNS Zone Identifier",
                 "strongType": "Microsoft.Network/privateDnsZones"
               },
               "type": "string"
             },
             "azureFilePrivateDnsZoneId": {
               "metadata": {
-                "description": "Private DNS Zone Identifier",
                 "displayName": "azureFilePrivateDnsZoneId",
+                "description": "Private DNS Zone Identifier",
                 "strongType": "Microsoft.Network/privateDnsZones"
               },
               "type": "string"
             },
             "azureIotPrivateDnsZoneId": {
               "metadata": {
-                "description": "Private DNS Zone Identifier",
                 "displayName": "azureIotPrivateDnsZoneId",
+                "description": "Private DNS Zone Identifier",
                 "strongType": "Microsoft.Network/privateDnsZones"
               },
               "type": "string"
             },
             "azureWebPrivateDnsZoneId": {
               "metadata": {
-                "description": "Private DNS Zone Identifier",
                 "displayName": "azureWebPrivateDnsZoneId",
-                "strongType": "Microsoft.Network/privateDnsZones"
-              },
-              "type": "string"
-            },
-            "azureAcrPrivateDnsZoneId": {
-              "metadata": {
                 "description": "Private DNS Zone Identifier",
-                "displayName": "azureAcrPrivateDnsZoneId",
                 "strongType": "Microsoft.Network/privateDnsZones"
               },
               "type": "string"
             },
             "azureAppPrivateDnsZoneId": {
               "metadata": {
-                "description": "Private DNS Zone Identifier",
                 "displayName": "azureAppPrivateDnsZoneId",
+                "description": "Private DNS Zone Identifier",
                 "strongType": "Microsoft.Network/privateDnsZones"
               },
               "type": "string"
             },
             "azureAsrPrivateDnsZoneId": {
               "metadata": {
-                "description": "Private DNS Zone Identifier",
                 "displayName": "azureAsrPrivateDnsZoneId",
+                "description": "Private DNS Zone Identifier",
+                "strongType": "Microsoft.Network/privateDnsZones"
+              },
+              "type": "string"
+            },
+            "azureAcrPrivateDnsZoneId": {
+              "metadata": {
+                "displayName": "azureAcrPrivateDnsZoneId",
+                "description": "Private DNS Zone Identifier",
                 "strongType": "Microsoft.Network/privateDnsZones"
               },
               "type": "string"
@@ -189,14 +189,14 @@
               ],
               "defaultValue": "deployIfNotExists",
               "metadata": {
-                "description": "Enable or disable the execution of the policy",
-                "displayName": "Effect"
+                "displayName": "Effect",
+                "description": "Enable or disable the execution of the policy"
               },
               "type": "string"
             }
           },
-          "description": "This policy initiative is a group of policies that ensures private endpoints to Azure PaaS services are integrated with Azure Private DNS zones",
           "displayName": "Configure Azure PaaS services to use private DNS zones",
+          "description": "This policy initiative is a group of policies that ensures private endpoints to Azure PaaS services are integrated with Azure Private DNS zones",
           "policyDefinitions": [
             {
               "policyDefinitionReferenceId": "DINE-Private-DNS-Azure-File-Sync",
