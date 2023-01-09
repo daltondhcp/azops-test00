@@ -125,8 +125,8 @@
                   "location": "northeurope"
                 },
                 "name": "[parameters('ddosName')]",
-                "existenceScope": "ResourceGroup",
                 "deploymentScope": "Subscription",
+                "existenceScope": "ResourceGroup",
                 "resourceGroupName": "[parameters('rgName')]"
               }
             },

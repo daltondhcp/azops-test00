@@ -89,11 +89,11 @@
                 "deployment": {
                   "properties": {
                     "parameters": {
-                      "logAnalytics": {
-                        "value": "[parameters('logAnalytics')]"
-                      },
                       "location": {
                         "value": "[field('location')]"
+                      },
+                      "logAnalytics": {
+                        "value": "[parameters('logAnalytics')]"
                       },
                       "resourceName": {
                         "value": "[field('name')]"
@@ -111,10 +111,10 @@
                     "mode": "Incremental",
                     "template": {
                       "parameters": {
-                        "logAnalytics": {
+                        "location": {
                           "type": "String"
                         },
-                        "location": {
+                        "logAnalytics": {
                           "type": "String"
                         },
                         "resourceName": {

@@ -93,8 +93,8 @@
                   "location": "northeurope"
                 },
                 "name": "SqlServerVirtualMachines",
-                "existenceScope": "Subscription",
-                "deploymentScope": "Subscription"
+                "deploymentScope": "Subscription",
+                "existenceScope": "Subscription"
               }
             },
             "if": {
