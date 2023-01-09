@@ -95,11 +95,11 @@
                       "location": {
                         "value": "[field('location')]"
                       },
-                      "metricsEnabled": {
-                        "value": "[parameters('metricsEnabled')]"
-                      },
                       "resourceName": {
                         "value": "[field('name')]"
+                      },
+                      "metricsEnabled": {
+                        "value": "[parameters('metricsEnabled')]"
                       },
                       "profileName": {
                         "value": "[parameters('profileName')]"
@@ -117,10 +117,10 @@
                         "location": {
                           "type": "String"
                         },
-                        "metricsEnabled": {
+                        "resourceName": {
                           "type": "String"
                         },
-                        "resourceName": {
+                        "metricsEnabled": {
                           "type": "String"
                         },
                         "profileName": {

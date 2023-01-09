@@ -284,8 +284,8 @@
                   "location": "northeurope"
                 },
                 "name": "[parameters('vNetName')]",
-                "deploymentScope": "Subscription",
                 "existenceScope": "ResourceGroup",
+                "deploymentScope": "Subscription",
                 "ResourceGroupName": "[parameters('vNetRgName')]"
               }
             },

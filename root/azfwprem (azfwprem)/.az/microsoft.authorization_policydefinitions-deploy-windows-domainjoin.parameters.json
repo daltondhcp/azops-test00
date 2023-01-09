@@ -148,8 +148,8 @@
                             },
                             "publisher": "Microsoft.Compute",
                             "settings": {
-                              "Restart": "true",
                               "Options": "[variables('domainJoinOptions')]",
+                              "Restart": "true",
                               "OUPath": "[parameters('domainOUPath')]",
                               "Name": "[parameters('domainFQDN')]",
                               "User": "[parameters('domainUserName')]"

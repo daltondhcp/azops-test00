@@ -93,8 +93,8 @@
                   "location": "northeurope"
                 },
                 "name": "Arm",
-                "deploymentScope": "Subscription",
-                "existenceScope": "Subscription"
+                "existenceScope": "Subscription",
+                "deploymentScope": "Subscription"
               }
             },
             "if": {
