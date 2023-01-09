@@ -30,15 +30,15 @@
               },
               "type": "String"
             },
-            "domainPassword": {
-              "metadata": {
-                "displayName": "domainPassword"
-              },
-              "type": "String"
-            },
             "domainUsername": {
               "metadata": {
                 "displayName": "domainUsername"
+              },
+              "type": "String"
+            },
+            "domainPassword": {
+              "metadata": {
+                "displayName": "domainPassword"
               },
               "type": "String"
             },
@@ -87,17 +87,17 @@
                       "keyVaultResourceId": {
                         "value": "[parameters('keyVaultResourceId')]"
                       },
-                      "domainPassword": {
+                      "domainUsername": {
                         "reference": {
-                          "secretName": "[parameters('domainPassword')]",
+                          "secretName": "[parameters('domainUsername')]",
                           "keyVault": {
                             "id": "[parameters('keyVaultResourceId')]"
                           }
                         }
                       },
-                      "domainUsername": {
+                      "domainPassword": {
                         "reference": {
-                          "secretName": "[parameters('domainUsername')]",
+                          "secretName": "[parameters('domainPassword')]",
                           "keyVault": {
                             "id": "[parameters('keyVaultResourceId')]"
                           }
@@ -122,11 +122,11 @@
                         "keyVaultResourceId": {
                           "type": "String"
                         },
-                        "domainPassword": {
-                          "type": "securestring"
-                        },
                         "domainUsername": {
                           "type": "String"
+                        },
+                        "domainPassword": {
+                          "type": "securestring"
                         },
                         "domainOUPath": {
                           "type": "String"
@@ -150,8 +150,8 @@
                             "settings": {
                               "Options": "[variables('domainJoinOptions')]",
                               "Restart": "true",
-                              "OUPath": "[parameters('domainOUPath')]",
                               "Name": "[parameters('domainFQDN')]",
+                              "OUPath": "[parameters('domainOUPath')]",
                               "User": "[parameters('domainUserName')]"
                             }
                           },
