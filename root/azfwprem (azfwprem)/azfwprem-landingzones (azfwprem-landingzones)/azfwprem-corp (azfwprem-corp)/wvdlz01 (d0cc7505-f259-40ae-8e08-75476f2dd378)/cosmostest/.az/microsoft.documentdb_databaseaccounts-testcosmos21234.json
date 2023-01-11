@@ -95,6 +95,7 @@
             "provisioningState": "Succeeded"
           }
         ],
+        "sqlEndpoint": "https://testcosmos21234.documents.azure.com:443/",
         "virtualNetworkRules": [],
         "writeLocations": [
           {

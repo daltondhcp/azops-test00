@@ -102,6 +102,7 @@
             "provisioningState": "Succeeded"
           }
         ],
+        "sqlEndpoint": "https://testtable1115.documents.azure.com:443/",
         "tableEndpoint": "https://testtable1115.table.cosmos.azure.com:443/",
         "virtualNetworkRules": [],
         "writeLocations": [
