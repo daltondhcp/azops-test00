@@ -99,6 +99,7 @@
             "provisioningState": "Succeeded"
           }
         ],
+        "sqlEndpoint": "https://testtable11154.documents.azure.com:443/",
         "virtualNetworkRules": [],
         "writeLocations": [
           {
