@@ -13,7 +13,7 @@
       "type": "microsoft.documentdb/databaseaccounts",
       "name": "testcosmos21234",
       "kind": "GlobalDocumentDB",
-      "apiVersion": "2022-08-15-preview",
+      "apiVersion": "2022-11-15-preview",
       "location": "westus",
       "identity": {
         "type": "None"
