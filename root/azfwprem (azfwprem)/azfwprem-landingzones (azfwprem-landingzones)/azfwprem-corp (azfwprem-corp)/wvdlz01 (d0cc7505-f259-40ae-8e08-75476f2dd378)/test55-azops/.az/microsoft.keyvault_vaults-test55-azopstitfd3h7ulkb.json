@@ -12,7 +12,7 @@
     {
       "type": "microsoft.keyvault/vaults",
       "name": "test55-azopstitfd3h7ulkb",
-      "apiVersion": "2022-07-01",
+      "apiVersion": "2022-11-01",
       "location": "eastus2",
       "tags": {},
       "properties": {

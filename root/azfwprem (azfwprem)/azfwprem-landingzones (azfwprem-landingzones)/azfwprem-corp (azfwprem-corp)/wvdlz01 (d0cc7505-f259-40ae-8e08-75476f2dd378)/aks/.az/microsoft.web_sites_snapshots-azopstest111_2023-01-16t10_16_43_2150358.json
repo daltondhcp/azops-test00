@@ -11,7 +11,7 @@
   "resources": [
     {
       "apiVersion": "2015-08-01",
-      "name": "azopstest111/2022-12-17T16_26_10_1823743",
+      "name": "azopstest111/2023-01-16T10_16_43_2150358",
       "type": "Microsoft.Web/sites/snapshots"
     }
   ],
