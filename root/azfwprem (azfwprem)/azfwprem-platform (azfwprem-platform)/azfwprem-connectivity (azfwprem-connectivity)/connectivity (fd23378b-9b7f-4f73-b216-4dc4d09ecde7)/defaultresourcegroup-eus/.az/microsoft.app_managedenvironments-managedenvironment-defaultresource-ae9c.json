@@ -28,6 +28,7 @@
           "customDomainVerificationId": "1719307DAD5AF58596D9F1012E685E593F9D0202D45251717CA3AA0B084AA409"
         },
         "defaultDomain": "purplehill-abc157f7.canadacentral.azurecontainerapps.io",
+        "eventStreamEndpoint": "https://canadacentral.azurecontainerapps.dev/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/DefaultResourceGroup-EUS/managedEnvironments/managedEnvironment-DefaultResource-ae9c/eventstream",
         "staticIp": "20.200.83.15",
         "zoneRedundant": false
       }
