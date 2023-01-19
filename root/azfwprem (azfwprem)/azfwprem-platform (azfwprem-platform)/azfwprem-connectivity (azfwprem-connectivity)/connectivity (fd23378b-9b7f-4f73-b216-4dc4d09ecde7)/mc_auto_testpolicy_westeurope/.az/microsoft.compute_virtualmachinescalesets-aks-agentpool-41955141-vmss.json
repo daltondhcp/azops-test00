@@ -83,7 +83,7 @@
                   "publisher": "Microsoft.AKS",
                   "suppressFailures": false,
                   "type": "Compute.AKS.Linux.AKSNode",
-                  "typeHandlerVersion": "1.30"
+                  "typeHandlerVersion": "1.33"
                 }
               }
             ],

@@ -25,7 +25,7 @@
       "properties": {
         "backendAddressPools": [
           {
-            "etag": "W/\"3aeb90bf-af37-40bd-b075-6b118d1c84df\"",
+            "etag": "W/\"a138f8fc-74c8-4d46-8194-ab3891caccaf\"",
             "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/MC_auto_testpolicy_westeurope/providers/Microsoft.Network/loadBalancers/kubernetes/backendAddressPools/aksOutboundBackendPool",
             "name": "aksOutboundBackendPool",
             "properties": {
@@ -36,7 +36,7 @@
               ],
               "loadBalancerBackendAddresses": [
                 {
-                  "etag": "W/\"3aeb90bf-af37-40bd-b075-6b118d1c84df\"",
+                  "etag": "W/\"a138f8fc-74c8-4d46-8194-ab3891caccaf\"",
                   "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/MC_auto_testpolicy_westeurope/providers/Microsoft.Network/loadBalancers/kubernetes/backendAddressPools/aksOutboundBackendPool/loadBalancerBackendAddresses/594a9244-72ac-4faa-be50-117483a51055",
                   "name": "594a9244-72ac-4faa-be50-117483a51055",
                   "properties": {
@@ -58,7 +58,7 @@
             "type": "Microsoft.Network/loadBalancers/backendAddressPools"
           },
           {
-            "etag": "W/\"3aeb90bf-af37-40bd-b075-6b118d1c84df\"",
+            "etag": "W/\"a138f8fc-74c8-4d46-8194-ab3891caccaf\"",
             "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/MC_auto_testpolicy_westeurope/providers/Microsoft.Network/loadBalancers/kubernetes/backendAddressPools/kubernetes",
             "name": "kubernetes",
             "properties": {
@@ -69,7 +69,7 @@
               ],
               "loadBalancerBackendAddresses": [
                 {
-                  "etag": "W/\"3aeb90bf-af37-40bd-b075-6b118d1c84df\"",
+                  "etag": "W/\"a138f8fc-74c8-4d46-8194-ab3891caccaf\"",
                   "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/MC_auto_testpolicy_westeurope/providers/Microsoft.Network/loadBalancers/kubernetes/backendAddressPools/kubernetes/loadBalancerBackendAddresses/dcaf9066-5e0e-4764-a10f-4e71c23476b4",
                   "name": "dcaf9066-5e0e-4764-a10f-4e71c23476b4",
                   "properties": {
@@ -88,7 +88,7 @@
         ],
         "frontendIPConfigurations": [
           {
-            "etag": "W/\"3aeb90bf-af37-40bd-b075-6b118d1c84df\"",
+            "etag": "W/\"a138f8fc-74c8-4d46-8194-ab3891caccaf\"",
             "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/MC_auto_testpolicy_westeurope/providers/Microsoft.Network/loadBalancers/kubernetes/frontendIPConfigurations/d068287c-46be-4f70-af41-387e142bfb56",
             "name": "d068287c-46be-4f70-af41-387e142bfb56",
             "properties": {
@@ -111,7 +111,7 @@
         "loadBalancingRules": [],
         "outboundRules": [
           {
-            "etag": "W/\"3aeb90bf-af37-40bd-b075-6b118d1c84df\"",
+            "etag": "W/\"a138f8fc-74c8-4d46-8194-ab3891caccaf\"",
             "id": "/subscriptions/fd23378b-9b7f-4f73-b216-4dc4d09ecde7/resourceGroups/MC_auto_testpolicy_westeurope/providers/Microsoft.Network/loadBalancers/kubernetes/outboundRules/aksOutboundRule",
             "name": "aksOutboundRule",
             "properties": {
