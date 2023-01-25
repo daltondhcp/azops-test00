@@ -22,7 +22,14 @@
         "backupStorageVersion": "Unassigned",
         "privateEndpointStateForBackup": "None",
         "privateEndpointStateForSiteRecovery": "None",
-        "publicNetworkAccess": "Enabled"
+        "publicNetworkAccess": "Enabled",
+        "securitySettings": {
+          "multiUserAuthorization": "Disabled",
+          "softDeleteSettings": {
+            "softDeleteRetentionPeriodInDays": 14,
+            "softDeleteState": "Enabled"
+          }
+        }
       }
     }
   ],
