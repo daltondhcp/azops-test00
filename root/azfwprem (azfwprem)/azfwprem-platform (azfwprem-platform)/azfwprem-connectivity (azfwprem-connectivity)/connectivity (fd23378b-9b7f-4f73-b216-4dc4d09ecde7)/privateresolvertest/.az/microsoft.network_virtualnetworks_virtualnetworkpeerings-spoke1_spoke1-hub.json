@@ -10,7 +10,7 @@
   "variables": {},
   "resources": [
     {
-      "apiVersion": "2022-05-01",
+      "apiVersion": "2022-07-01",
       "name": "spoke1/spoke1-hub",
       "properties": {
         "allowForwardedTraffic": true,
