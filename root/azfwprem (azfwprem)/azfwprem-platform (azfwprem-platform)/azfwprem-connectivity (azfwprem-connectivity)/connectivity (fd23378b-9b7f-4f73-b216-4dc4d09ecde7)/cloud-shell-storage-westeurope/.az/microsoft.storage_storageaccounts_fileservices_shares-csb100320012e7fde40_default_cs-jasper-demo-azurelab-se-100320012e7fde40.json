@@ -10,7 +10,7 @@
   "variables": {},
   "resources": [
     {
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2022-05-01",
       "name": "csb100320012e7fde40/default/cs-jasper-demo-azurelab-se-100320012e7fde40",
       "properties": {
         "accessTier": "TransactionOptimized",
