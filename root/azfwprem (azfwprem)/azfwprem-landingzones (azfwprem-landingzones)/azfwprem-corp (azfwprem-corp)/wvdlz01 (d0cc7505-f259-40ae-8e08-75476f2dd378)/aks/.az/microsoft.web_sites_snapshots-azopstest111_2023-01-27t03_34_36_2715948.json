@@ -10,14 +10,9 @@
   "variables": {},
   "resources": [
     {
-      "apiVersion": "2022-05-01",
-      "name": "mittstorage123123/default",
-      "properties": {
-        "cors": {
-          "corsRules": []
-        }
-      },
-      "type": "Microsoft.Storage/storageAccounts/tableServices"
+      "apiVersion": "2015-08-01",
+      "name": "azopstest111/2023-01-27T03_34_36_2715948",
+      "type": "Microsoft.Web/sites/snapshots"
     }
   ],
   "outputs": {}
