@@ -10,7 +10,7 @@
   "variables": {},
   "resources": [
     {
-      "apiVersion": "2022-07-01",
+      "apiVersion": "2022-05-01",
       "name": "wvdlz01-westeurope-vnet/RemoteVnetToHubPeering_96743e11-676d-4be9-af76-57985a17a514",
       "properties": {
         "allowForwardedTraffic": false,
