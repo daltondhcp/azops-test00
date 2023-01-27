@@ -10,7 +10,7 @@
   "variables": {},
   "resources": [
     {
-      "apiVersion": "2022-05-01",
+      "apiVersion": "2022-09-01",
       "name": "welog001/default/insights-logs-networksecuritygroupflowevent",
       "properties": {
         "defaultEncryptionScope": "$account-encryption-key",

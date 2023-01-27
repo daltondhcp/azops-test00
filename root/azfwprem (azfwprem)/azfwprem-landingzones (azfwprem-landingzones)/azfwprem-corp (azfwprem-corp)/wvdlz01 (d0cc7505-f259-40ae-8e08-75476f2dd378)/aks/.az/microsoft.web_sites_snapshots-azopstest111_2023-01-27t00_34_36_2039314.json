@@ -10,15 +10,9 @@
   "variables": {},
   "resources": [
     {
-      "apiVersion": "2022-05-01",
-      "name": "azfwpremvw-hub-eastus/defaultRouteTable",
-      "properties": {
-        "labels": [
-          "default"
-        ],
-        "routes": []
-      },
-      "type": "Microsoft.Network/virtualHubs/hubRouteTables"
+      "apiVersion": "2015-08-01",
+      "name": "azopstest111/2023-01-27T00_34_36_2039314",
+      "type": "Microsoft.Web/sites/snapshots"
     }
   ],
   "outputs": {}
