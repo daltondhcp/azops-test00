@@ -10,7 +10,7 @@
   "variables": {},
   "resources": [
     {
-      "apiVersion": "2022-09-10",
+      "apiVersion": "2022-10-01",
       "name": "testvaultfff/defaultAlertSetting",
       "properties": {
         "customEmailAddresses": [],
