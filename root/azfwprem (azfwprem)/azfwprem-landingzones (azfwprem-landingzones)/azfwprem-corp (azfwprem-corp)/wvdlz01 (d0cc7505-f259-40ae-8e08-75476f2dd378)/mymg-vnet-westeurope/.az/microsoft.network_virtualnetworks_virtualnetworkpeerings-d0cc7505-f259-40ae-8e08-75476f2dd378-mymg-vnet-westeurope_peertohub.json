@@ -10,7 +10,7 @@
   "variables": {},
   "resources": [
     {
-      "apiVersion": "2022-07-01",
+      "apiVersion": "2022-05-01",
       "name": "d0cc7505-f259-40ae-8e08-75476f2dd378-mymg-vnet-westeurope/peerToHub",
       "properties": {
         "allowForwardedTraffic": true,
