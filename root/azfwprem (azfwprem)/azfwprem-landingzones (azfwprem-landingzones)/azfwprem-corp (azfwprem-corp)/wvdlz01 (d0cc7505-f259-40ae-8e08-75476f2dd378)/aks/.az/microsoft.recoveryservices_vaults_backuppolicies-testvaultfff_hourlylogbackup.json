@@ -10,7 +10,7 @@
   "variables": {},
   "resources": [
     {
-      "apiVersion": "2022-03-01",
+      "apiVersion": "2022-10-01",
       "name": "testvaultfff/HourlyLogBackup",
       "properties": {
         "backupManagementType": "AzureWorkload",
