@@ -10,13 +10,9 @@
   "variables": {},
   "resources": [
     {
-      "apiVersion": "2022-10-01",
-      "name": "testvaultfff/defaultAlertSetting",
-      "properties": {
-        "customEmailAddresses": [],
-        "sendToOwners": "DoNotSend"
-      },
-      "type": "Microsoft.RecoveryServices/vaults/replicationAlertSettings"
+      "apiVersion": "2015-08-01",
+      "name": "azopstest111/2023-01-27T23_34_36_7306290",
+      "type": "Microsoft.Web/sites/snapshots"
     }
   ],
   "outputs": {}
