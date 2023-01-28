@@ -16,7 +16,7 @@
         "name": "Premium_LRS",
         "tier": "Premium"
       },
-      "apiVersion": "2022-07-02",
+      "apiVersion": "2023-01-02",
       "location": "westeurope",
       "properties": {
         "creationData": {
