@@ -10,14 +10,17 @@
   "variables": {},
   "resources": [
     {
-      "apiVersion": "2022-05-01",
-      "name": "teststoragejohan12345/default",
+      "apiVersion": "2021-12-01-preview",
+      "name": "test55-law/ASCDeviceEvents",
       "properties": {
-        "cors": {
-          "corsRules": []
-        }
+        "plan": "Analytics",
+        "retentionInDays": 30,
+        "schema": {
+          "name": "ASCDeviceEvents"
+        },
+        "totalRetentionInDays": 30
       },
-      "type": "Microsoft.Storage/storageAccounts/queueServices"
+      "type": "Microsoft.OperationalInsights/workspaces/tables"
     }
   ],
   "outputs": {}
