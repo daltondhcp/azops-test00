@@ -10,15 +10,9 @@
   "variables": {},
   "resources": [
     {
-      "apiVersion": "2022-07-01",
-      "name": "azwe/noneRouteTable",
-      "properties": {
-        "labels": [
-          "none"
-        ],
-        "routes": []
-      },
-      "type": "Microsoft.Network/virtualHubs/hubRouteTables"
+      "apiVersion": "2015-08-01",
+      "name": "azopstest111/2023-01-28T22_34_37_2511914",
+      "type": "Microsoft.Web/sites/snapshots"
     }
   ],
   "outputs": {}
