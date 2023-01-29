@@ -10,7 +10,7 @@
   "variables": {},
   "resources": [
     {
-      "apiVersion": "2022-05-01",
+      "apiVersion": "2022-07-01",
       "name": "hub/subnet2",
       "properties": {
         "addressPrefix": "172.17.1.0/24",
