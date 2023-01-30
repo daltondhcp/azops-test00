@@ -12,7 +12,7 @@
     {
       "type": "microsoft.network/virtualwans",
       "name": "azfwpremvw-vwan-eastus",
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2022-07-01",
       "location": "eastus",
       "properties": {
         "allowBranchToBranchTraffic": true,

@@ -10,14 +10,9 @@
   "variables": {},
   "resources": [
     {
-      "apiVersion": "2022-09-01",
-      "name": "teststoragejohan12345/default",
-      "properties": {
-        "cors": {
-          "corsRules": []
-        }
-      },
-      "type": "Microsoft.Storage/storageAccounts/queueServices"
+      "apiVersion": "2015-08-01",
+      "name": "azopstest111/2023-01-30T18_34_40_0599830",
+      "type": "Microsoft.Web/sites/snapshots"
     }
   ],
   "outputs": {}
