@@ -10,7 +10,7 @@
   "variables": {},
   "resources": [
     {
-      "apiVersion": "2022-05-01",
+      "apiVersion": "2022-09-01",
       "name": "teststoragejohan1233446/teststoragejohan1233446.4e4a6afd-25ea-4523-bfe3-e6058170a313",
       "properties": {
         "privateEndpoint": {},
