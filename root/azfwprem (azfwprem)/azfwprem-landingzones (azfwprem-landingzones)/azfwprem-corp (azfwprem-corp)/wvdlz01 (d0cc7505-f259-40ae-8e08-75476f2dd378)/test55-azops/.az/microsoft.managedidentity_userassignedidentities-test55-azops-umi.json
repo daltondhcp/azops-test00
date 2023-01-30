@@ -12,7 +12,7 @@
     {
       "type": "microsoft.managedidentity/userassignedidentities",
       "name": "test55-azops-umi",
-      "apiVersion": "2022-01-31-PREVIEW",
+      "apiVersion": "2023-01-31",
       "location": "eastus2",
       "tags": {},
       "properties": {
