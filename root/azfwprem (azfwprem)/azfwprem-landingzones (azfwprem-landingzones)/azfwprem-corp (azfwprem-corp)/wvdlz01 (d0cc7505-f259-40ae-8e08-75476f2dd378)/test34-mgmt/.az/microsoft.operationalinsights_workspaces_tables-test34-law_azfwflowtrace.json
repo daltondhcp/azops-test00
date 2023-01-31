@@ -10,14 +10,17 @@
   "variables": {},
   "resources": [
     {
-      "apiVersion": "2022-08-08",
-      "name": "myaa33d/SCH_bcb15846-de91-4534-9c54-484fb810d55f_2eebc81c-040f-4da0-af99-8ed2134718d7_638081637000000000",
+      "apiVersion": "2021-12-01-preview",
+      "name": "test34-law/AZFWFlowTrace",
       "properties": {
-        "runbook": {
-          "name": "ScheduledStartStop_Parent"
-        }
+        "plan": "Analytics",
+        "retentionInDays": 30,
+        "schema": {
+          "name": "AZFWFlowTrace"
+        },
+        "totalRetentionInDays": 30
       },
-      "type": "Microsoft.Automation/automationAccounts/jobs"
+      "type": "Microsoft.OperationalInsights/workspaces/tables"
     }
   ],
   "outputs": {}
