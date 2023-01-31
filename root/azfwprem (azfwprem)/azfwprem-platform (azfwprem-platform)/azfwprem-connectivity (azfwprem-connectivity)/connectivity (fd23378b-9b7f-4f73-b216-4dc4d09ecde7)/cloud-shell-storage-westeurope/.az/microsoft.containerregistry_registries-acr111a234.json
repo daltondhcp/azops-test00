@@ -16,7 +16,7 @@
         "name": "Standard",
         "tier": "Standard"
       },
-      "apiVersion": "2023-01-01-preview",
+      "apiVersion": "2022-02-01-preview",
       "location": "westeurope",
       "tags": {},
       "properties": {
