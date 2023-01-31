@@ -16,7 +16,7 @@
         "name": "Standard",
         "tier": "Regional"
       },
-      "apiVersion": "2022-07-01",
+      "apiVersion": "2022-09-01",
       "location": "westeurope",
       "properties": {
         "idleTimeoutInMinutes": 4,
