@@ -12,7 +12,7 @@
     {
       "type": "microsoft.network/virtualnetworks",
       "name": "wvdlz01-westeurope-vnet",
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2022-07-01",
       "location": "westeurope",
       "properties": {
         "addressSpace": {
