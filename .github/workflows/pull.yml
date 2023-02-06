@@ -31,7 +31,7 @@ on:
   #
 
   schedule:
-    - cron: "0 */2 * * *"
+    - cron: "0 */6 * * *"
 
   #
   # Workflow Run
@@ -45,27 +45,20 @@ on:
     types:
       - completed
 
+permissions:
+  id-token: write
+  contents: write
+  pull-requests: write
+
 env:
   #
   # Credentials
   #
 
   ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
-  ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
   ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
   ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
-  ARM_ENVIRONMENT: ${{ secrets.ARM_ENVIRONMENT }}
-  AZOPS_MODULE_VERSION: ${{ secrets.AZOPS_MODULE_VERSION }}
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  
-  #
-  # modulesFolder
-  # To enable caching of PowerShell modules between
-  # runs, the modules are stored in a modules folder
-  # that can be cached.
-  #
-
-  modulesFolder: "~/.local/share/powershell/Modules"
 
   #
   # Folder Name
@@ -105,7 +98,7 @@ env:
 
   #
   # Pull Request
-  # The generated Pull Request for the Pull workflow can be
+  # The generated Pull Request for the Pull workflow can be
   # modified to help indicate when changes we're merged in the
   # Git history.
   #
@@ -122,6 +115,7 @@ jobs:
 
     name: "Pull"
     runs-on: ubuntu-20.04
+    environment: prod
 
     #
     # Only run Pull after successful Push or on manually triggered/scheduled events
@@ -137,19 +131,10 @@ jobs:
       #
 
       - name: "Checkout"
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      
-      #
-      # Shared steps
-      # Include shared steps from the 'action.yml' file
-      # to not have to repeat them in every pipeline.
-      #
-      
-      - name: 'Sharedsteps'
-        uses: ./.github/actions/sharedSteps
-          
+
       #
       # Configure
       # Set global options
@@ -172,6 +157,27 @@ jobs:
           git checkout -b ${{ env.branch }}
 
       #
+      # Dependencies
+      # Install required runtime modules
+      #
+
+      - name: "Dependencies"
+        shell: pwsh
+        run: |
+          Install-Module -Name "AzOps" -Force
+
+      # Connect
+      # Authenticate Azure context
+      #
+
+      - name: OIDC Login to Azure Public Cloud with AzPowershell (enableAzPSSession true)
+        uses: azure/login@v1
+        with:
+          client-id: ${{ env.ARM_CLIENT_ID}}
+          tenant-id: ${{ env.ARM_TENANT_ID }}
+          subscription-id: ${{ env.ARM_SUBSCRIPTION_ID }}
+          enable-AzPSSession: true
+      #
       # Initialize
       # Generate new state data
       #
@@ -183,7 +189,6 @@ jobs:
           if ($env:ACTION -eq "Enterprise-Scale Deployment") {
             Set-PSFConfig -FullName AzOps.Core.SkipResource -Value $false
           }
-          Get-Module -ListAvailable 
           Invoke-AzOpsPull -Rebuild
           Get-Job | Remove-Job -Force
         env:
@@ -202,9 +207,9 @@ jobs:
           echo $STATUS
           if [ -z "$STATUS" ]
           then
-            echo "::set-output name=state::stop"
+            echo "state=stop" >> $GITHUB_OUTPUT
           else
-            echo "::set-output name=state::continue"
+            echo "state=continue" >> $GITHUB_OUTPUT
           fi
 
       #
@@ -249,5 +254,5 @@ jobs:
         if: steps.status.outputs.state == 'continue'
         shell: bash
         run: |
-          gh pr create --title "${{ env.pull_request }}" --body "-" --base main --head ${{ env.branch }}
+          gh pr create --title "${{ env.pull_request }}" --body "-" --base 'main' --head ${{ env.branch }}
           gh pr merge "${{ env.branch }}" --squash --delete-branch
